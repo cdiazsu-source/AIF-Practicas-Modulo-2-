@@ -24,7 +24,9 @@
        data-accent = color de la práctica: p1 … p6. Omítalo para el
                      color neutro (Apertura y Cierre).
      Clases opcionales: slide--cover (portada), slide--section (portada
-     de sección). El rótulo superior (kicker) se agrega solo.
+     de sección). El rótulo superior (kicker) y la franja base
+     (asignatura · módulo · práctica · número de página) se agregan
+     solos; la práctica sale de data-group.
 
   3. Componentes disponibles (ver styles.css, sección 5):
        .box.objective · .box.key (resultado clave) · .box.note
@@ -50,19 +52,10 @@
      coma decimal (3,3); signo menos real (−).
   =====================================================================
 -->
-<script>
-  /* Aplica el tema guardado antes de pintar, para evitar parpadeo.
-     Si localStorage no está disponible, se usa el tema del sistema. */
-  (function () {
-    try {
-      var t = localStorage.getItem('aif-tema');
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-    } catch (e) { /* sin almacenamiento: no pasa nada */ }
-  })();
-</script>
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<!-- data-course y data-module: textos de la franja base de cada diapositiva -->
+<body data-course="Análisis Instrumental Farmacéutico" data-course-short="AIF" data-module="Módulo II">
 
 <a class="skip-link" href="#toolbar">Saltar a los controles de la presentación</a>
 
@@ -1471,9 +1464,6 @@
   </div>
   <button type="button" class="btn" id="btnGrid" aria-pressed="false" aria-keyshortcuts="G" title="Vista general (tecla G)">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg><span class="btn__text">Vista general</span>
-  </button>
-  <button type="button" class="btn" id="btnTheme" aria-pressed="false" title="Tema oscuro">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="btn__text">Tema oscuro</span>
   </button>
 </nav>
 

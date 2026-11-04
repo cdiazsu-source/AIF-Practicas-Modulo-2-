@@ -21,8 +21,13 @@ navegador → «Guardar como PDF» (una diapositiva por página, 16:9).
 ## Archivos
 
 - `index.html` — contenido. Al inicio hay instrucciones para agregar diapositivas.
-- `styles.css` — diseño, temas claro/oscuro, móvil e impresión.
-- `app.js` — navegación, índice automático, marcas de pendiente y gráficos SVG.
+- `styles.css` — diseño (tema claro), móvil e impresión.
+- `app.js` — navegación, índice automático, franja base con número de página, marcas de
+  pendiente y gráficos SVG.
+
+Cada diapositiva lleva una franja base con la asignatura, el módulo, la práctica
+(tomada de `data-group`) y el número de página. Los textos de asignatura y módulo se
+cambian en los atributos `data-course`, `data-course-short` y `data-module` de `<body>`.
 
 ## Pendientes
 

@@ -2,7 +2,7 @@
    Prácticas Módulo II · Análisis Instrumental Farmacéutico · J5
    Hoja de estilos
    ---------------------------------------------------------------------
-   1  Tokens (colores, tipografía) y tema oscuro
+   1  Tokens (colores, tipografía) · tema claro único
    2  Base
    3  Marco: barra de progreso, área de diapositiva, barra de controles
    4  Diapositiva (escalado 16:9 con unidades de contenedor)
@@ -19,14 +19,14 @@
 /* 1 · TOKENS ---------------------------------------------------------- */
 :root {
   color-scheme: light;
-  --bg: #eef1f4;
+  --bg: #f7f9fc;
   --surface: #ffffff;
-  --surface-2: #f3f5f8;
-  --text: #18212b;
-  --muted: #4d5866;
-  --line: #cfd6df;
-  --line-soft: #e4e8ee;
-  --zebra: #f6f8fa;
+  --surface-2: #f2f6fa;
+  --text: #1c2733;
+  --muted: #4f5b69;
+  --line: #d6dde6;
+  --line-soft: #e8edf3;
+  --zebra: #f7f9fc;
   --focus: #1559c7;
 
   /* "Pendiente": fondo punteado */
@@ -64,57 +64,6 @@
   --toolbar-h: 56px;
   --toc-w: 380px;
   --radius: 6px;
-}
-
-/* Tema oscuro: según el sistema, salvo que el usuario elija claro */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0d1218;
-    --surface: #151c24;
-    --surface-2: #1c252f;
-    --text: #e5eaf0;
-    --muted: #a6b1be;
-    --line: #344151;
-    --line-soft: #253040;
-    --zebra: #19212a;
-    --focus: #8ab6ff;
-    --pending-bg: #2a2412;
-    --pending-dot: #7a6326;
-    --pending-line: #b8952e;
-    --pending-text: #f1d58c;
-    --ok: #6fcf97;      --ok-bg: #10261a;
-    --partial: #f0b85a; --partial-bg: #2c2210;
-    --warn: #ffab6e;    --warn-bg: #2d1c0e;
-    --neutral: #a3b3c6;
-    --p1: #56b4e9; --p2: #f08c4c; --p3: #3cc49b;
-    --p4: #e59ac6; --p5: #e2b54a; --p6: #a3adf2;
-    --s1: #56b4e9; --s2: #e69f00; --s3: #3cc49b; --s4: #e59ac6;
-  }
-}
-/* Tema oscuro elegido explícitamente con el interruptor */
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #0d1218;
-  --surface: #151c24;
-  --surface-2: #1c252f;
-  --text: #e5eaf0;
-  --muted: #a6b1be;
-  --line: #344151;
-  --line-soft: #253040;
-  --zebra: #19212a;
-  --focus: #8ab6ff;
-  --pending-bg: #2a2412;
-  --pending-dot: #7a6326;
-  --pending-line: #b8952e;
-  --pending-text: #f1d58c;
-  --ok: #6fcf97;      --ok-bg: #10261a;
-  --partial: #f0b85a; --partial-bg: #2c2210;
-  --warn: #ffab6e;    --warn-bg: #2d1c0e;
-  --neutral: #a3b3c6;
-  --p1: #56b4e9; --p2: #f08c4c; --p3: #3cc49b;
-  --p4: #e59ac6; --p5: #e2b54a; --p6: #a3adf2;
-  --s1: #56b4e9; --s2: #e69f00; --s3: #3cc49b; --s4: #e59ac6;
 }
 
 /* Asignación del acento: sirve para diapositivas, cuerpo, tarjetas y puntos */
@@ -252,7 +201,9 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   background: var(--surface);
+  box-shadow: 0 1px 2px rgba(28, 39, 51, .06), 0 6px 24px rgba(28, 39, 51, .07);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -282,6 +233,8 @@ a { color: inherit; }
 /* Envoltorio interior creado por app.js; aquí se fija el tamaño base */
 .slide__inner {
   width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   font-size: 1.42cqw;
   padding: 3.4cqw 4.4cqw 3cqw 4.8cqw;
   display: flex;
@@ -290,13 +243,37 @@ a { color: inherit; }
   overflow: auto;
 }
 
-/* Número de página dentro de la diapositiva: visible en miniaturas e impresión */
-.slide__num {
-  position: absolute; right: 1.6cqw; bottom: 1.1cqw;
-  font-size: 1.1cqw; color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  display: none;
+/* Franja base (creada por app.js): asignatura · módulo · práctica · página.
+   Fondo con un tinte suave del color de la práctica. */
+.slide__band {
+  flex: none;
+  display: flex; align-items: center; gap: 1.4em;
+  height: 3.4cqw;
+  padding: 0 1.8cqw 0 4.8cqw;
+  font-size: 1.15cqw; line-height: 1.2;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--accent) 9%, #ffffff);
+  border-top: 2px solid var(--accent);
+  white-space: nowrap;
 }
+.slide__band > span { overflow: hidden; text-overflow: ellipsis; }
+.band__course { font-weight: 650; color: var(--text); }
+.band__short { display: none; }
+.band__module::before,
+.band__practice::before {
+  content: ""; display: inline-block; vertical-align: middle;
+  width: .35em; height: .35em; margin-right: 1.4em; margin-top: -.15em;
+  border-radius: 50%; background: var(--accent);
+}
+.band__practice { font-weight: 650; color: var(--accent); flex: 1 1 auto; min-width: 0; }
+/* Número de página */
+.slide__num {
+  flex: none;
+  margin-left: auto;
+  font-size: 1.25em; font-weight: 700; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.band__of { font-weight: 500; color: var(--muted); font-size: .8em; }
 
 .slide h2 {
   font-size: 2em; font-weight: 650; line-height: 1.15;
@@ -337,6 +314,12 @@ a { color: inherit; }
 
 /* Portada de sección */
 .slide--section .slide__inner { justify-content: center; gap: .7em; }
+/* Portadas con un lavado claro del color de la práctica */
+.slide--section, .slide--cover {
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+    var(--surface);
+}
 .section__num {
   font-size: 6.5em; font-weight: 700; line-height: .9;
   color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -.03em;
@@ -574,7 +557,7 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
   print-color-adjust: exact; -webkit-print-color-adjust: exact;
 }
 .grid-3--figs .chart-ph { aspect-ratio: 16 / 9; }
-.grid-2--figs .chart-ph { aspect-ratio: 16 / 6.4; }
+.grid-2--figs .chart-ph { aspect-ratio: 16 / 5.8; }
 
 /* Gráfico SVG dibujado por app.js */
 .chart { position: relative; min-width: 0; }
@@ -733,12 +716,10 @@ body.is-overview .slide {
 body.is-overview .slide:hover { border-color: var(--accent); }
 body.is-overview .slide.is-current { outline: 3px solid var(--accent); outline-offset: 2px; }
 body.is-overview .slide__inner { overflow: hidden; pointer-events: none; }
-body.is-overview .slide__num {
-  display: block;
-  font-size: 5cqw; font-weight: 700; color: var(--text);
-  background: var(--surface); padding: 0 1.4cqw; border-radius: 3px;
-  border: 1px solid var(--line);
-}
+/* En miniatura, la franja solo muestra el número de página, grande */
+body.is-overview .slide__band { height: 9cqw; padding: 0 3cqw; }
+body.is-overview .slide__band > span:not(.slide__num) { display: none; }
+body.is-overview .slide__num { font-size: 5.5cqw; }
 
 /* 10 · PANTALLAS PEQUEÑAS -------------------------------------------- */
 /* En móvil o ventanas bajas la diapositiva deja de ser 16:9: ocupa todo
@@ -749,6 +730,16 @@ body.is-overview .slide__num {
   body:not(.is-overview) .deck { width: 100%; height: 100%; aspect-ratio: auto; }
   body:not(.is-overview) .slide { border: 0; border-radius: 0; }
   body:not(.is-overview) .slide::before { width: 4px; }
+  body:not(.is-overview) .slide { box-shadow: none; }
+  body:not(.is-overview) .slide__band {
+    height: auto; min-height: 34px; padding: 6px 12px 6px 20px;
+    font-size: 12px; gap: 10px;
+  }
+  body:not(.is-overview) .band__long,
+  body:not(.is-overview) .band__module::before,
+  body:not(.is-overview) .band__practice::before { display: none; }
+  body:not(.is-overview) .band__short { display: inline; }
+  body:not(.is-overview) .slide__num { font-size: 15px; }
   body:not(.is-overview) .slide__inner {
     font-size: 15px;
     padding: 20px 16px 28px 20px;
@@ -791,7 +782,7 @@ body.is-overview .slide__num {
 @page { size: 338.67mm 190.5mm; margin: 0; }
 
 @media print {
-  :root, :root[data-theme="dark"] {
+  :root {
     color-scheme: light;
     --bg: #ffffff; --surface: #ffffff; --surface-2: #f3f5f8;
     --text: #18212b; --muted: #4d5866; --line: #cfd6df; --line-soft: #e4e8ee; --zebra: #f6f8fa;
@@ -819,7 +810,7 @@ body.is-overview .slide__num {
   }
   .slide:last-child { break-after: auto; page-break-after: auto; }
   .slide__inner { overflow: hidden; }
-  .slide__num { display: block !important; }
+  .slide { box-shadow: none; }
   .table-wrap { max-height: none; overflow: visible; }
   table.data thead th { position: static; }
 }

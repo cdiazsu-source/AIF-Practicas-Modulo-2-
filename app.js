@@ -5,20 +5,20 @@
 
    Qué hace:
    1. Prepara cada <section class="slide">: envoltorio interior, rótulo
-      superior (kicker), número de página y atributos ARIA.
+      superior (kicker), franja base (asignatura, módulo, práctica y
+      número de página) y atributos ARIA.
    2. Convierte cada [___] en una marca visual de "pendiente".
    3. Calcula los estados (completo / parcial / pendiente).
    4. Construye el índice lateral y la diapositiva de índice a partir de
       data-title y data-group.
    5. Dibuja los gráficos SVG declarados con <div class="chart">.
    6. Navegación: teclado, botones, deslizamiento táctil, enlaces #/n,
-      vista general (G) y tema claro/oscuro.
+      y vista general (G).
    ===================================================================== */
 (function () {
   'use strict';
 
   var doc = document;
-  var root = doc.documentElement;
   var body = doc.body;
   var deck = doc.getElementById('deck');
   if (!deck) return;
@@ -42,7 +42,6 @@
     tocList: $('tocList'),
     tocFilters: $('tocFilters'),
     grid: $('btnGrid'),
-    theme: $('btnTheme'),
     backdrop: $('backdrop'),
     live: $('live')
   };
@@ -50,13 +49,12 @@
   var state = { current: 0, overview: false, tocOpen: false, filter: 'all' };
   var BASE_TITLE = doc.title;
 
-  /* ---------- Utilidades ---------- */
+  /* Textos de la franja base (se pueden cambiar en <body data-course data-module>) */
+  var COURSE = body.dataset.course || 'Análisis Instrumental Farmacéutico';
+  var MODULE = body.dataset.module || 'Módulo II';
+  var COURSE_SHORT = body.dataset.courseShort || 'AIF';   // para pantallas estrechas
 
-  /** Acceso seguro a localStorage (puede no existir o estar bloqueado). */
-  var store = {
-    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
-    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ } }
-  };
+  /* ---------- Utilidades ---------- */
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
@@ -107,12 +105,17 @@
       inner.insertBefore(k, inner.firstChild);
     }
 
-    // Número de página (visible en miniaturas e impresión)
-    var num = doc.createElement('span');
-    num.className = 'slide__num';
-    num.setAttribute('aria-hidden', 'true');
-    num.textContent = (i + 1) + ' / ' + N;
-    s.appendChild(num);
+    // Franja base: asignatura · módulo · práctica · número de página
+    var band = doc.createElement('footer');
+    band.className = 'slide__band';
+    band.setAttribute('aria-hidden', 'true');
+    band.innerHTML =
+      '<span class="band__course"><span class="band__long">' + esc(COURSE) + '</span>' +
+        '<span class="band__short">' + esc(COURSE_SHORT) + '</span></span>' +
+      '<span class="band__module">' + esc(MODULE) + '</span>' +
+      '<span class="band__practice">' + esc(s.dataset.group || '') + '</span>' +
+      '<span class="slide__num">' + (i + 1) + '<span class="band__of"> / ' + N + '</span></span>';
+    s.appendChild(band);
 
     s.setAttribute('role', 'group');
     s.setAttribute('aria-roledescription', 'diapositiva');
@@ -559,26 +562,6 @@
     }
   }
 
-  /* Tema claro / oscuro */
-  function effectiveTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function syncTheme() {
-    ui.theme.setAttribute('aria-pressed', effectiveTheme() === 'dark' ? 'true' : 'false');
-  }
-  ui.theme.addEventListener('click', function () {
-    var nextTheme = effectiveTheme() === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', nextTheme);
-    store.set('aif-tema', nextTheme);
-    syncTheme();
-  });
-  if (window.matchMedia) {
-    var mq = window.matchMedia('(prefers-color-scheme: dark)');
-    if (mq.addEventListener) mq.addEventListener('change', syncTheme);
-  }
-
   /* Botones */
   ui.prev.addEventListener('click', prev);
   ui.next.addEventListener('click', next);
@@ -670,7 +653,6 @@
   });
 
   /* ---------- Inicio ---------- */
-  syncTheme();
   var start = indexFromHash();
   state.current = start === null ? 0 : start;
   render(false);
