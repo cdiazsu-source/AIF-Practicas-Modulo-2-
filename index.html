@@ -22,7 +22,7 @@
                      mismo texto en todas las diapositivas de esa sección
                      ("Práctica 1 · Refractometría"). Con él se agrupa y
                      se filtra el índice.
-       data-accent = color de la práctica: p1 … p6. Omítalo para el
+       data-accent = color de la práctica: p1 … p5. Omítalo para el
                      color neutro (Apertura y Cierre).
      Clases opcionales: slide--cover (portada), slide--section (portada
      de sección). El rótulo superior (kicker) y la franja base
@@ -100,7 +100,7 @@
     <p class="cover__subtitle">Análisis Instrumental Farmacéutico</p>
     <ul class="cover__bars" aria-hidden="true">
       <li data-accent="p1"></li><li data-accent="p2"></li><li data-accent="p3"></li>
-      <li data-accent="p4"></li><li data-accent="p5"></li><li data-accent="p6"></li>
+      <li data-accent="p4"></li><li data-accent="p5"></li>
     </ul>
     <div class="cover__grid">
       <div>
@@ -116,7 +116,6 @@
         <div><dt>Semestre</dt><dd>2026-2S</dd></div>
         <div><dt>Subgrupo</dt><dd>J5</dd></div>
         <div><dt>Docente</dt><dd>Nicolas Mateo Gonzalez Lopez</dd></div>
-        <div><dt>Fecha</dt><dd>[___]</dd></div>
       </dl>
     </div>
   </div>
@@ -144,8 +143,7 @@
         <tr><td>2</td><td>Polarimetría</td><td>Lactosa, mentol</td><td><var>α</var>, [<var>α</var>]</td></tr>
         <tr><td>3</td><td>Espectrofotometría UV</td><td>Ibuprofeno</td><td><var>A</var>, <var>λ</var><sub>máx</sub></td></tr>
         <tr><td>4</td><td>Espectrofotometría visible</td><td>Verde de bromocresol</td><td><var>A</var> frente a pH; p<var>K</var><sub>a</sub></td></tr>
-        <tr><td>5</td><td>[___]</td><td>Ácido gálico</td><td>p<var>K</var><sub>a1</sub>, p<var>K</var><sub>a2</sub></td></tr>
-        <tr><td>6</td><td>Espectrofotometría UV multicomponente</td><td>Acetaminofén + cafeína</td><td><var>A</var> a 256 y 273&#8239;nm</td></tr>
+        <tr><td>5</td><td>Espectrofotometría UV multicomponente</td><td>Acetaminofén + cafeína</td><td><var>A</var> a 256 y 273&#8239;nm</td></tr>
       </tbody>
     </table>
   </div>
@@ -230,7 +228,7 @@
 
 <section class="slide" data-group="Apertura" data-title="Equipos e implementos">
   <h2>Equipos e implementos de laboratorio</h2>
-  <p class="lead">Instrumentos y material de las seis prácticas. Contorno punteado: implemento habitual que la guía no menciona, por confirmar.</p>
+  <p class="lead">Instrumentos y material de las cinco prácticas. Contorno punteado: implemento habitual que la guía no menciona, por confirmar.</p>
   <div class="lab-catalog" data-lab-catalog></div>
 </section>
 
@@ -375,16 +373,17 @@
         <caption>Tabla G2. Lecturas del grupo 5 (J5), promedio del duplicado <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Nivel</th><th scope="col" class="num">% p/p</th><th scope="col" class="num">Índice de refracción</th><th scope="col" class="num">Grados Brix</th><th scope="col" class="num">Grados Baumé</th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td class="num">0 (agua)</td><td class="num mono">1,3328</td><td class="num mono">0,00</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">2</th><td class="num">20</td><td class="num mono">1,3691</td><td class="num mono">23,10</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">3</th><td class="num">40</td><td class="num mono">1,3918</td><td class="num mono">35,60</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">4</th><td class="num">60</td><td class="num mono">1,4194</td><td class="num mono">49,90</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">5</th><td class="num">80</td><td class="num mono">1,4447</td><td class="num mono">61,95</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">MP1</th><td class="num">incógnita</td><td class="num mono">1,3929</td><td class="num mono">36,10</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">MP2</th><td class="num">incógnita</td><td class="num mono">1,4020</td><td class="num mono">41,25</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">1</th><td class="num">0 (agua)</td><td class="num mono">1,3328</td><td class="num mono">0,00</td><td class="num">0,00</td></tr>
+          <tr><th scope="row">2</th><td class="num">20</td><td class="num mono">1,3691</td><td class="num mono">23,10</td><td class="num">12,81</td></tr>
+          <tr><th scope="row">3</th><td class="num">40</td><td class="num mono">1,3918</td><td class="num mono">35,60</td><td class="num">19,64</td></tr>
+          <tr><th scope="row">4</th><td class="num">60</td><td class="num mono">1,4194</td><td class="num mono">49,90</td><td class="num">27,34</td></tr>
+          <tr><th scope="row">5</th><td class="num">80</td><td class="num mono">1,4447</td><td class="num mono">61,95</td><td class="num">33,76</td></tr>
+          <tr><th scope="row">MP1</th><td class="num">incógnita</td><td class="num mono">1,3929</td><td class="num mono">36,10</td><td class="num">19,91</td></tr>
+          <tr><th scope="row">MP2</th><td class="num">incógnita</td><td class="num mono">1,4020</td><td class="num mono">41,25</td><td class="num">22,69</td></tr>
         </tbody>
       </table>
-      <p class="eq-legend">Grados Baumé: no registrados en la hoja de datos.</p>
+      <p class="eq-legend">Grados Baumé calculados a partir de °Brix (escala refractométrica): no se leyeron en el equipo.</p>
+      <details class="eqd"><summary><span class="eqd__name">Grados Baumé a partir de °Brix</span><span class="eqd__f"><var>d</var> = 1 + <span class="frac"><span>°Brix</span><span>258,6 − 227,1·°Brix/258,2</span></span> &ensp; °Bé = 145 − <span class="frac"><span>145</span><span><var>d</var></span></span></span></summary><div class="eqd__body"><p>La primera expresión da la densidad relativa (20/20&#8239;°C) de una solución de sacarosa con ese °Brix; la segunda, la escala Baumé para líquidos más densos que el agua. Es la conversión que usan los refractómetros con escala Baumé, por lo que el resultado es un «Baumé equivalente en sacarosa», no la densidad real de la mezcla glicerina–agua.</p><p>Como °Bé es una función monótona de °Brix, no aporta información independiente: hereda su precisión y su curvatura.</p></div></details>
     </div>
   </div>
   <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
@@ -759,16 +758,34 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.10 · Grados Baumé">
-  <h2>Grados Baumé frente al índice de refracción y a la concentración</h2>
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.10 · °Baumé frente a w">
+  <h2>Grados Baumé frente a la concentración</h2>
   <div class="fig-slide">
     <figure class="fig">
-      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Baumé">Gráfico: °Baumé frente a <var>n</var> y frente a <var>w</var> (% p/p) · requiere las lecturas de °Baumé</div>
-      <figcaption>Figura 1.10. Pendiente.</figcaption>
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Grados Baumé frente a la concentración de glicerina", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Bé", "min": 0, "max": 36}, "series": [{"name": "Clase (promedios, 9 niveles)", "points": [[0.0, 0.36], [10.0, 7.53], [20.0, 12.73], [30.0, 16.43], [40.0, 19.64], [50.0, 23.98], [60.0, 27.3], [70.0, 30.3], [80.0, 33.71]], "fit": true, "color": 1}, {"name": "Grupo 5", "points": [[0, 0.0], [20, 12.81], [40, 19.64], [60, 27.34], [80, 33.76]], "color": 2}, {"name": "Baumé hidrométrico (densidad de la glicerina)", "points": [[0, 0.0], [10.0, 3.14], [20.0, 6.51], [30.0, 9.83], [40.0, 13.07], [50.0, 16.26], [60.0, 19.27], [70.0, 22.16], [80.0, 25.02]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 1.10. °Bé calculado desde °Brix: promedios de la clase con la recta de mínimos cuadrados y lecturas del grupo 5; en línea discontinua, el Baumé que daría un densímetro (tablas de densidad de glicerina–agua a 20&#8239;°C).</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La guía solicita las curvas de °Baumé frente a <var>n</var> y frente a la concentración para comparar una tercera escala empírica con las anteriores.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: la hoja de datos no contiene lecturas de °Baumé. [___]</p></div>
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La guía solicita la curva de °Baumé frente a la concentración para comparar una tercera escala empírica con <var>n</var> y °Brix.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Bé crece de 0,4 (agua) a 33,7 (80&#8239;%) con la misma concavidad que °Brix: la recta deja <var>R</var><sup>2</sup> = 0,9836 y un polinomio de segundo grado, 0,9959.</p><p>El cociente °Brix/°Bé pasa de 1,79 a 1,83, por lo que la regla práctica °Bé ≈ °Brix/1,8 solo vale de forma aproximada.</p><p>El Baumé refractométrico sobrestima al hidrométrico (≈&#8239;25 frente a 34 a 80&#8239;%): la glicerina refracta más que la sacarosa para una densidad dada, así que la escala no mide densidad en estas mezclas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.11 · °Baumé frente a n">
+  <h2>Grados Baumé frente al índice de refracción</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Grados Baumé frente al índice de refracción", "aspect": 0.6, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Bé", "min": 0, "max": 36}, "series": [{"name": "Lecturas (10 grupos)", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 12.9], [1.369, 12.87], [1.3916, 19.34], [1.3918, 19.62], [1.4195, 27.17], [1.4193, 27.15], [1.4463, 33.78], [1.446, 33.63], [1.333, 0.0], [1.334, 0.0], [1.3686, 12.7], [1.3685, 12.7], [1.3918, 19.74], [1.3919, 19.8], [1.4195, 27.29], [1.42, 27.4], [1.4459, 33.74], [1.446, 33.74], [1.3325, 0.0], [1.333, 0.0], [1.3675, 12.35], [1.368, 12.49], [1.392, 19.64], [1.3925, 19.85], [1.42, 27.4], [1.4192, 27.24], [1.446, 33.68], [1.4459, 33.68], [1.333, 0.0], [1.3332, 0.0], [1.3691, 12.81], [1.3695, 12.87], [1.392, 19.47], [1.3918, 19.64], [1.4192, 27.24], [1.42, 27.4], [1.446, 33.68], [1.4459, 33.68], [1.3328, 0.0], [1.3328, 0.0], [1.369, 12.81], [1.3691, 12.81], [1.3918, 19.64], [1.3919, 19.64], [1.4198, 27.34], [1.419, 27.34], [1.4429, 33.74], [1.4465, 33.79], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 7.53], [1.3535, 7.53], [1.3807, 16.45], [1.3808, 16.45], [1.4069, 23.92], [1.4069, 23.96], [1.4322, 30.36], [1.4321, 30.34], [1.3329, 0.0], [1.3351, 0.84], [1.3534, 7.52], [1.3531, 7.52], [1.3815, 16.45], [1.3808, 16.45], [1.4069, 23.97], [1.4069, 24.01], [1.4319, 30.12], [1.432, 30.12], [1.335, 0.78], [1.3345, 1.79], [1.3539, 7.58], [1.353, 7.47], [1.381, 16.21], [1.3805, 16.32], [1.407, 24.07], [1.4067, 23.91], [1.4321, 30.39], [1.432, 30.18], [1.335, 0.84], [1.335, 0.84], [1.3532, 7.52], [1.353, 7.52], [1.3806, 16.45], [1.3803, 16.45], [1.407, 24.01], [1.407, 24.04], [1.432, 30.34], [1.432, 30.36], [1.3345, 0.62], [1.3365, 1.4], [1.3532, 7.52], [1.3535, 7.58], [1.3806, 16.53], [1.3808, 16.53], [1.4069, 23.96], [1.407, 23.91], [1.432, 30.39], [1.4321, 30.39]], "fit": true, "color": 1}]}</script>
+      </div>
+      <figcaption>Figura 1.11. °Bé (calculado desde °Brix) frente a <var>n</var> para las 100 lecturas de patrones y agua de la clase, con la recta de mínimos cuadrados.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona la escala Baumé con la magnitud física que mide el refractómetro y muestra si ambas escalas son intercambiables.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La relación es casi exacta: la recta da <var>R</var><sup>2</sup> = 0,9945 y un polinomio de segundo grado, 0,99973 con <var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,19&#8239;°Bé. La curvatura residual es la de la conversión Brix → Baumé.</p><p>Como las tres escalas dependen de la misma lectura óptica, interpolar M1 y M2 con °Bé da los mismos resultados que con °Brix; la escala no añade exactitud y solo resulta útil para comparar con especificaciones expresadas en Baumé.</p></div>
     </div>
   </div>
 </section>
@@ -800,14 +817,14 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.11 · Factor de respuesta">
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.12 · Factor de respuesta">
   <h2>Factor de respuesta frente a la concentración</h2>
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Factor de respuesta frente a la concentración", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "FR (% de la mediana)", "min": 80, "max": 155}, "series": [{"name": "n (corregido)", "points": [[10, 134.27], [20, 119.97], [30, 107.3], [40, 99.54], [50, 100.16], [60, 97.87], [70, 96.09], [80, 95.79]], "line": true, "color": 1}, {"name": "°Brix (corregido)", "points": [[10, 149.25], [20, 129.32], [30, 112.33], [40, 101.32], [50, 99.66], [60, 94.99], [70, 90.73], [80, 88.7]], "line": true, "color": 2}, {"name": "Banda 95–105 %", "points": [[0, 105], [80, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[0, 95], [80, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
       </div>
-      <figcaption>Figura 1.11. Factor de respuesta corregido por el blanco de <var>n</var> y de °Brix, como porcentaje de su mediana (10 lecturas por nivel).</figcaption>
+      <figcaption>Figura 1.12. Factor de respuesta corregido por el blanco de <var>n</var> y de °Brix, como porcentaje de su mediana (10 lecturas por nivel).</figcaption>
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Muestra en qué parte del intervalo se cumple la proporcionalidad entre señal y concentración; complementa al gráfico de residuales porque expresa la desviación en términos relativos y la contrasta con un criterio de aceptación.</p></div>
@@ -1155,10 +1172,10 @@
   <h2>Método</h2>
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
-      <li>Ensayar la solubilidad en agua destilada, HCl 0,1&#8239;N y NaOH 0,1&#8239;N; elegir el medio de mejor solubilidad.</li>
-      <li>Barrer de 200 a 400&#8239;nm la solución de trabajo (10&#8239;μg/mL) contra el blanco; <var>A</var><sub>máx</sub> entre 0,17 y 0,85.</li>
-      <li>Preparar la curva a <var>λ</var><sub>máx</sub>: 5 niveles por duplicado (<var>C</var><sub>1</sub><var>V</var><sub>1</sub> = <var>C</var><sub>2</sub><var>V</var><sub>2</sub>).</li>
-      <li>Pesar hasta 10 tabletas, pulverizar y extraer el equivalente a [___]&#8239;mg; filtrar y diluir.</li>
+      <li>Ensayar la solubilidad en etanol 96&#8239;%, HCl 0,55&#8239;N y NaOH 0,1843&#8239;N; elegir el medio de mejor solubilidad.</li>
+      <li>Patrón: 12,6&#8239;mg en 25&#8239;mL (504&#8239;μg/mL); 10,0 → 50,0&#8239;mL (solución 1, 100,8&#8239;μg/mL) y 1,0 → 10,0&#8239;mL (10,08&#8239;μg/mL). Barrer las tres contra el blanco; <var>A</var><sub>máx</sub> entre 0,17 y 0,85.</li>
+      <li>Preparar la curva a <var>λ</var><sub>máx</sub> = 221&#8239;nm: 0,50–1,50&#8239;mL de la solución 1 a 10&#8239;mL, 5 niveles por duplicado (<var>C</var><sub>1</sub><var>V</var><sub>1</sub> = <var>C</var><sub>2</sub><var>V</var><sub>2</sub>).</li>
+      <li>Pesar hasta 10 tabletas y pulverizar; disolver 12,4&#8239;mg de polvo en 25&#8239;mL, filtrar y diluir igual que el patrón (10,0 → 50,0 y 1,0 → 10,0&#8239;mL).</li>
       <li>Medir al menos 3 soluciones problema (baja, media, alta) por duplicado: % recuperación, error relativo y %RSD.</li>
     </ol>
     <div class="table-wrap">
@@ -1167,7 +1184,8 @@
         <tbody>
           <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
           <tr><th scope="row">Celdas</th><td>Cuarzo, <var>b</var> = 1&#8239;cm</td></tr>
-          <tr><th scope="row">Disolvente</th><td>[___]</td></tr>
+          <tr><th scope="row">Disolvente</th><td>[___] (solubilidad alta en NaOH 0,1843&#8239;N)</td></tr>
+          <tr><th scope="row">Masas</th><td>Patrón 12,6&#8239;mg · polvo de tabletas 12,4&#8239;mg</td></tr>
           <tr><th scope="row">Tabletas</th><td>Declarado: [___]&#8239;mg</td></tr>
         </tbody>
       </table>
@@ -1187,26 +1205,26 @@
         <caption>Tabla G4. Prueba de solubilidad <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Medio</th><th scope="col">Solubilidad</th><th scope="col">Observaciones</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Agua destilada</th><td>[___]</td><td>[___]</td></tr>
-          <tr><th scope="row">HCl 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
-          <tr><th scope="row">NaOH 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">Etanol 96&#8239;%</th><td>Buena</td><td>—</td></tr>
+          <tr><th scope="row">HCl 0,55&#8239;N</th><td>Baja</td><td>—</td></tr>
+          <tr><th scope="row">NaOH 0,1843&#8239;N</th><td>Alta</td><td>—</td></tr>
           <tr><th scope="row">Solvente(s) seleccionado(s)</th><td colspan="2">[___]</td></tr>
         </tbody>
       </table>
     </div>
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 3.2. Curva de calibración (<var>λ</var> = [___]&#8239;nm)</caption>
-        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>A</var></span></th></tr></thead>
+        <caption>Tabla 3.2. Curva de calibración (<var>λ</var> = 221&#8239;nm)</caption>
+        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>V</var> sol. 1 (mL)</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>A</var></span></th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td class="num">5,04</td><td class="num mono">0,169</td><td class="num mono">0,184</td><td class="num">0,176</td></tr>
-          <tr><th scope="row">2</th><td class="num">7,56</td><td class="num mono">0,305</td><td class="num mono">0,209</td><td class="num">0,257</td></tr>
-          <tr><th scope="row">3</th><td class="num">10,08</td><td class="num mono">0,361</td><td class="num mono">0,391</td><td class="num">0,376</td></tr>
-          <tr><th scope="row">4</th><td class="num">12,60</td><td class="num mono">0,536</td><td class="num mono">0,423</td><td class="num">0,480</td></tr>
-          <tr><th scope="row">5</th><td class="num">15,12</td><td class="num mono">0,567</td><td class="num mono">0,585</td><td class="num">0,576</td></tr>
+          <tr><th scope="row">1</th><td class="num">0,50</td><td class="num">5,04</td><td class="num mono">0,169</td><td class="num mono">0,184</td><td class="num">0,176</td></tr>
+          <tr><th scope="row">2</th><td class="num">0,75</td><td class="num">7,56</td><td class="num mono">0,305</td><td class="num mono">0,209</td><td class="num">0,257</td></tr>
+          <tr><th scope="row">3</th><td class="num">1,00</td><td class="num">10,08</td><td class="num mono">0,361</td><td class="num mono">0,391</td><td class="num">0,376</td></tr>
+          <tr><th scope="row">4</th><td class="num">1,25</td><td class="num">12,60</td><td class="num mono">0,536</td><td class="num mono">0,423</td><td class="num">0,480</td></tr>
+          <tr><th scope="row">5</th><td class="num">1,50</td><td class="num">15,12</td><td class="num mono">0,567</td><td class="num mono">0,585</td><td class="num">0,576</td></tr>
         </tbody>
       </table>
-      <p class="eq-legend">Lecturas reconstruidas a partir de la salida de regresión de Excel (valor predicho + residual).</p>
+      <p class="eq-legend">Alícuotas de la solución 1 (100,8&#8239;μg/mL) llevadas a 10&#8239;mL. Lecturas coincidentes con la hoja de la práctica y con la salida de regresión de Excel.</p>
     </div>
   </div>
 </section>
@@ -1221,7 +1239,7 @@
         <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
         <tbody>
           <tr><th scope="row">Teórico</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">Práctico</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Práctico</th><td class="num">221</td><td class="num">0,448 (10,08&#8239;μg/mL)</td></tr>
         </tbody>
       </table>
     </div>
@@ -1230,9 +1248,9 @@
         <caption>Tabla G6. Construcción de la curva de calibración <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>221&#8239;nm · 0,448&#8239;UA (10,08&#8239;μg/mL)</td></tr>
           <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>5,04–15,12 (<var>A</var> = 0,169–0,585)</td></tr>
-          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>504 (12,6&#8239;mg/25&#8239;mL); solución 1: 100,8</td></tr>
           <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 5,04 · C2 7,56 · C3 10,08 · C4 12,60 · C5 15,12</td></tr>
         </tbody>
       </table>
@@ -1262,12 +1280,14 @@
   <h2>Barrido espectral del ibuprofeno</h2>
   <div class="fig-slide">
     <figure class="fig">
-      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: barrido espectral">Gráfico: espectro, <var>A</var> frente a <var>λ</var> (nm) · requiere las lecturas del barrido de 200 a 400&#8239;nm</div>
-      <figcaption>Figura 3.1. Pendiente.</figcaption>
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Picos del barrido espectral del ibuprofeno", "aspect": 0.6, "x": {"label": "λ (nm)", "min": 195, "max": 235}, "y": {"label": "A", "min": 0, "max": 4}, "series": [{"name": "504 μg/mL (madre)", "points": [[208.028, 1.073], [217.058, 3.857], [224.096, 3.55], [228.755, 3.668]], "color": 1}, {"name": "100,8 μg/mL (sol. 1)", "points": [[201.912, 0.854], [205.294, 0.815], [210.15, 0.873], [222.986, 2.968]], "color": 2}, {"name": "10,08 μg/mL", "points": [[201.233, 0.233], [205.294, 0.26], [214.322, 0.461], [221.319, 0.448]], "color": 3}, {"name": "Intervalo de trabajo 0,17–0,85 UA", "points": [[195, 0.85], [235, 0.85]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[195, 0.17], [235, 0.17]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "λmáx = 221 nm", "points": [[221, 0], [221, 4]], "line": true, "markers": false, "color": 1, "dash": 3}]}</script>
+      </div>
+      <figcaption>Figura 3.1. Picos detectados por el equipo en el barrido de tres diluciones del patrón (cuatro por solución; no es el espectro continuo).</figcaption>
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite elegir la longitud de onda analítica (<var>λ</var><sub>máx</sub>), donde la sensibilidad es máxima y la absorbancia es menos sensible a pequeños errores de longitud de onda.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: la hoja de datos no contiene el barrido. [___]</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Solo la dilución de 10,08&#8239;μg/mL queda en el intervalo fotométrico: la madre y la solución 1 superan 2,9&#8239;UA y sus picos están deformados por la saturación del detector.</p><p>En 10,08&#8239;μg/mL la banda de 221&#8239;nm (0,448&#8239;UA) se elige como analítica. El pico de 214&#8239;nm es algo más alto, pero está más cerca del corte del disolvente y es más sensible a la absorción de fondo.</p><p>Absortividad a 221&#8239;nm: <var>A</var><sup>1&#8239;%</sup><sub>1&#8239;cm</sub> ≈ 444 y <var>ε</var> ≈ 9,2 × 10<sup>3</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup>; la pendiente de la curva da 8,4 × 10<sup>3</sup>, un 10&#8239;% menos.</p></div>
     </div>
   </div>
 </section>
@@ -1369,23 +1389,91 @@
   </div>
 </section>
 
+<!-- P3-IBP:inicio -->
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Factor de respuesta">
+  <h2>Linealidad por factor de respuesta</h2>
+  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la curva pasa por el origen, es constante e igual a la pendiente. La hoja lo calcula sin corregir; la versión corregida resta el intercepto (<var>A</var> − <var>b</var>)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana. A diferencia de <var>R</var><sup>2</sup>, el criterio evalúa cada punto por separado.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 3.7. Factor de respuesta en % de la mediana (0,0370 · 0,0408); rojo: fuera de 95–105&#8239;%</caption>
+        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" rowspan="2">5,04</th><td class="num mono">0,169</td><td class="num">0,0335</td><td class="num sig">90,6</td><td class="num">0,0406</td><td class="num">99,4</td></tr>
+          <tr><td class="num mono">0,184</td><td class="num">0,0365</td><td class="num">98,7</td><td class="num">0,0436</td><td class="num sig">106,7</td></tr>
+          <tr><th scope="row" rowspan="2">7,56</th><td class="num mono">0,305</td><td class="num">0,0403</td><td class="num sig">109,0</td><td class="num">0,0451</td><td class="num sig">110,4</td></tr>
+          <tr><td class="num mono">0,209</td><td class="num">0,0276</td><td class="num sig">74,7</td><td class="num">0,0324</td><td class="num sig">79,3</td></tr>
+          <tr><th scope="row" rowspan="2">10,08</th><td class="num mono">0,361</td><td class="num">0,0358</td><td class="num">96,8</td><td class="num">0,0393</td><td class="num">96,4</td></tr>
+          <tr><td class="num mono">0,391</td><td class="num">0,0388</td><td class="num">104,8</td><td class="num">0,0423</td><td class="num">103,7</td></tr>
+          <tr><th scope="row" rowspan="2">12,60</th><td class="num mono">0,536</td><td class="num">0,0425</td><td class="num sig">115,0</td><td class="num">0,0454</td><td class="num sig">111,1</td></tr>
+          <tr><td class="num mono">0,423</td><td class="num">0,0336</td><td class="num sig">90,7</td><td class="num">0,0364</td><td class="num sig">89,2</td></tr>
+          <tr><th scope="row" rowspan="2">15,12</th><td class="num mono">0,567</td><td class="num">0,0375</td><td class="num">101,3</td><td class="num">0,0399</td><td class="num">97,6</td></tr>
+          <tr><td class="num mono">0,585</td><td class="num">0,0387</td><td class="num">104,6</td><td class="num">0,0410</td><td class="num">100,6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Solo 5 de las 10 lecturas cumplen el criterio con el factor de la hoja (74,7–115,0&#8239;%). Las que fallan son, otra vez, los duplicados dispersos de 7,56 y 12,60&#8239;μg/mL y el nivel más bajo.</p><p>Por nivel, el factor sin corregir crece con la concentración (95&#8239;% a 103&#8239;%) porque el intercepto es negativo. Al restarlo desaparece la tendencia y cumplen 5 de 10: la proporcionalidad se sostiene y el incumplimiento es de precisión, no de linealidad.</p><p>La hoja rotula el límite superior como «101&#8239;%», pero el valor que usa (0,03885) corresponde al 105&#8239;%.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.4 · Factor de respuesta">
+  <h2>Factor de respuesta frente a la concentración</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Factor de respuesta frente a la concentración", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 16}, "y": {"label": "FR (% de la mediana)", "min": 70, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[5.04, 90.62], [5.04, 98.66], [7.56, 109.03], [7.56, 74.71], [10.08, 96.78], [10.08, 104.83], [12.6, 114.96], [12.6, 90.72], [15.12, 101.34], [15.12, 104.56]], "color": 1}, {"name": "(A − b)/c", "points": [[5.04, 99.45], [5.04, 106.74], [7.56, 110.37], [7.56, 79.26], [10.08, 96.39], [10.08, 103.68], [12.6, 111.13], [12.6, 89.16], [15.12, 97.63], [15.12, 100.55]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [16, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [16, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 3.4. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos y la contrasta con un criterio de aceptación; una tendencia con la concentración indicaría curvatura o un intercepto distinto de cero.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los puntos se separan de la banda en pares opuestos, simétricos alrededor del 100&#8239;%, en 7,56 y 12,60&#8239;μg/mL: es la firma de la imprecisión de los duplicados.</p><p>La corrección por el intercepto sube los niveles bajos y deja los altos casi iguales; con ella los factores ya no siguen una tendencia, en acuerdo con la falta de ajuste no significativa (<var>p</var> = 0,97).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Análisis de la muestra">
+  <h2>Análisis de la muestra de tabletas</h2>
+  <details class="eqd"><summary><span class="eqd__name">Interpolación y contenido en el polvo</span><span class="eqd__f"><var>x</var><sub>0</sub> = (<span class="bar"><var>y</var></span><sub>0</sub> − <var>b</var>) / <var>m</var> &ensp; % = <var>x</var><sub>0</sub> · <var>F</var><sub>D</sub> · <var>V</var> / <var>w</var> × 100</span></summary><div class="eqd__body"><p>La concentración en la cubeta se obtiene de la recta con la media de las <var>k</var> lecturas; <var>F</var><sub>D</sub> = (10/1)·(50/10) deshace las diluciones y <var>V</var> = 25&#8239;mL es el volumen de disolución de la masa de polvo <var>w</var>.</p><p>Su incertidumbre, <var>s</var><sub><var>x</var>0</sub> = (<var>s</var><sub><var>y</var>/<var>x</var></sub>/<var>m</var>)·√[1/<var>k</var> + 1/<var>N</var> + (<span class="bar"><var>y</var></span><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup>/(<var>m</var><sup>2</sup><var>S</var><sub><var>xx</var></sub>)], crece cuando la lectura se aleja del centro de la curva.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 3.8. Cuantificación del polvo de tabletas (IC 95&#8239;%, <var>t</var> = 2,306)</caption>
+        <thead><tr><th scope="col">Dato</th><th scope="col" class="num">Valor</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Masa de polvo (<var>w</var>)</th><td class="num">12,4&#8239;mg en 25&#8239;mL</td></tr>
+          <tr><th scope="row">Diluciones</th><td class="num">10,0 → 50,0 · 1,0 → 10,0&#8239;mL</td></tr>
+          <tr><th scope="row"><var>A</var><sub>1</sub> · <var>A</var><sub>2</sub> · media</th><td class="num">0,198 · 0,183 · 0,1905</td></tr>
+          <tr><th scope="row"><var>c</var> en la cubeta (μg/mL)</th><td class="num sig">5,58 ± 1,94</td></tr>
+          <tr><th scope="row">Ibuprofeno en 25&#8239;mL (mg)</th><td class="num">6,97 ± 2,43</td></tr>
+          <tr><th scope="row">Contenido en el polvo (% p/p)</th><td class="num">56,2 ± 19,6</td></tr>
+          <tr><th scope="row">Hoja de la práctica</th><td class="num">5,58&#8239;μg/mL · 6,98&#8239;mg · 56,28&#8239;%</td></tr>
+        </tbody>
+      </table>
+      <p class="eq-legend">En rojo: lectura por debajo del LOQ (9,7&#8239;μg/mL) y en el extremo inferior de la curva (5,04&#8239;μg/mL).</p>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El polvo contiene 56,2&#8239;% p/p de ibuprofeno, lo que reproduce el valor de la hoja. Es un orden de magnitud razonable para tabletas cuyo excipiente es cerca de la mitad de la masa.</p><p>La incertidumbre (±19,6&#8239;% absoluto, ±35&#8239;% relativo) es demasiado grande para juzgar la conformidad. La muestra se leyó a 5,58&#8239;μg/mL, bajo el LOQ y lejos del centro de la curva, donde el término (<span class="bar"><var>y</var></span><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup> pesa más.</p><p>Con 2,0–2,5&#8239;mL de la solución de muestra a 10&#8239;mL la lectura caería en 11–14&#8239;μg/mL. Para expresar el resultado en mg/tableta falta el peso promedio de la tableta (Tabla G7).</p></div>
+  </div>
+</section>
+<!-- P3-IBP:fin -->
+
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Resultados">
   <h2>Resultados</h2>
   <div class="grid-2">
     <div class="box key">
       <p class="box__label">Resultado clave · <var>λ</var><sub>máx</sub></p>
-      <p class="key__value"><var>λ</var><sub>máx</sub> = [___]&#8239;nm</p>
-      <p class="key__meta">Disolvente: [___]</p>
+      <p class="key__value"><var>λ</var><sub>máx</sub> = 221&#8239;nm</p>
+      <p class="key__meta"><var>A</var> = 0,448 a 10,08&#8239;μg/mL · <var>ε</var> ≈ 9,2 × 10<sup>3</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup> · disolvente: [___]</p>
     </div>
     <div class="box key">
-      <p class="box__label">Resultado clave · tabletas</p>
-      <p class="key__value">[___] ± [___]&#8239;mg/tableta</p>
-      <p class="key__meta">Declarado: [___]&#8239;mg · contenido: [___]&#8239;% de lo declarado</p>
+      <p class="box__label">Resultado clave · polvo de tabletas</p>
+      <p class="key__value">56,2 ± 19,6&#8239;% p/p</p>
+      <p class="key__meta">6,97&#8239;mg en 12,4&#8239;mg de polvo · mg/tableta: [___] (falta el peso promedio) · declarado: [___]&#8239;mg</p>
     </div>
   </div>
   <div class="table-wrap">
     <table class="data">
-      <caption>Tabla 3.7. Verificación con soluciones baja, media y alta</caption>
+      <caption>Tabla 3.9. Verificación con soluciones baja, media y alta</caption>
       <thead><tr><th scope="col">Nivel</th><th scope="col" class="num"><var>c</var> nominal (μg/mL)</th><th scope="col" class="num"><var>c</var> hallada (μg/mL)</th><th scope="col" class="num">Recuperación (%)</th><th scope="col" class="num">%RSD</th></tr></thead>
       <tbody>
         <tr><th scope="row">Baja</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
@@ -1399,16 +1487,16 @@
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
-    <li>Elección del disolvente según la solubilidad observada: [___]</li>
-    <li><var>λ</var><sub>máx</sub> experimental frente a la literatura: [___]</li>
-    <li>Contenido en tabletas frente a lo declarado y al criterio [___]: [___]</li>
+    <li>Solubilidad: baja en HCl 0,55&#8239;N y alta en NaOH 0,1843&#8239;N, como corresponde a un ácido carboxílico (p<var>K</var><sub>a</sub> ≈ 4,4–4,9) que se disuelve al ionizarse; buena en etanol 96&#8239;%. Disolvente seleccionado: [___]</li>
+    <li><var>λ</var><sub>máx</sub> = 221&#8239;nm, medido en la única dilución dentro del intervalo fotométrico (10,08&#8239;μg/mL); <var>ε</var> del barrido y de la pendiente difieren un 10&#8239;%. Valor de literatura: [___]</li>
+    <li>Contenido: 56,2 ± 19,6&#8239;% p/p en el polvo, con la muestra leída bajo el LOQ (5,58&#8239;μg/mL); la comparación con lo declarado y con el criterio [___] requiere el peso promedio de la tableta.</li>
     <li>Recuperaciones en los tres niveles: [___]</li>
-    <li>Linealidad: la recta es adecuada (falta de ajuste <var>p</var> = 0,97; intercepto nulo), pero <var>R</var><sup>2</sup> = 0,944 queda lejos del ≥&#8239;0,995 habitual porque la precisión de los duplicados es baja (%RSD hasta 26&#8239;%).</li>
+    <li>Linealidad: la recta es adecuada (falta de ajuste <var>p</var> = 0,97; intercepto nulo; factor de respuesta sin tendencia), pero <var>R</var><sup>2</sup> = 0,944 queda lejos del ≥&#8239;0,995 habitual porque la precisión de los duplicados es baja (%RSD hasta 26&#8239;%; la mitad de las lecturas fuera de 95–105&#8239;% en el factor de respuesta).</li>
     <li>Sensibilidad: LOQ = 9,7&#8239;μg/mL; una muestra leída por duplicado en el centro de la curva tendría una incertidumbre de ±1,7&#8239;μg/mL (IC 95&#8239;%). Las soluciones problema deben ubicarse entre 10 y 15&#8239;μg/mL.</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>Las lecturas de la curva se reconstruyeron de la salida de regresión de Excel. Las réplicas <var>A</var> = 0,209 (7,56&#8239;μg/mL) y 0,536 (12,60&#8239;μg/mL) concentran la dispersión y conviene verificarlas. Faltan la <var>λ</var> de trabajo y el disolvente.</p>
+    <p>Las lecturas de la curva se reconstruyeron de la salida de regresión de Excel. Las réplicas <var>A</var> = 0,209 (7,56&#8239;μg/mL) y 0,536 (12,60&#8239;μg/mL) concentran la dispersión y conviene verificarlas. Falta el disolvente seleccionado. Los valores teóricos 440–445 y 615–618&#8239;nm de la hoja son de la plantilla del verde de bromocresol y no se usan aquí.</p>
   </div>
 </section>
 
@@ -1419,7 +1507,7 @@
     <ul class="points">
       <li>La curva de calibración del ibuprofeno es lineal entre 5,04 y 15,12&#8239;μg/mL: <var>A</var> = (0,0405 ± 0,0080)·<var>c</var> − 0,036, sin falta de ajuste significativa.</li>
       <li>La precisión de los duplicados limita el desempeño (<var>R</var><sup>2</sup> = 0,944; LOQ = 9,7&#8239;μg/mL): deben repetirse los niveles de 7,56 y 12,60&#8239;μg/mL.</li>
-      <li>Contenido de ibuprofeno en las tabletas: [___]</li>
+      <li>El polvo de tabletas contiene 56,2 ± 19,6&#8239;% p/p de ibuprofeno (<var>λ</var> = 221&#8239;nm); la lectura bajo el LOQ obliga a repetirla con una alícuota mayor. Contenido por tableta: [___]</li>
     </ul>
   </div>
 </section>
@@ -1764,208 +1852,19 @@
 </section>
 
 <!-- =================================================================
-     SECCIÓN 5 · PRÁCTICA 5 — pKa DEL ÁCIDO GÁLICO
+     SECCIÓN 5 · PRÁCTICA 5 — ADITIVIDAD: ACETAMINOFÉN + CAFEÍNA
      ================================================================= -->
 
-<section class="slide slide--section" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Presentación de la práctica">
+<section class="slide slide--section" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Presentación de la práctica">
   <p class="section__num">05</p>
   <p class="section__kicker">Práctica 5</p>
-  <h2 class="section__title">p<var>K</var><sub>a</sub> del ácido gálico</h2>
-  <p class="lead">Preparación del buffer · tabla de pH · dos transiciones (p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub>) · diagrama de distribución de especies</p>
-  <ul class="chips"><li>pH</li><li>p<var>K</var><sub>a1</sub></li><li>p<var>K</var><sub>a2</sub></li><li><var>α</var><sub>i</sub></li></ul>
-  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Determinar p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub> del ácido gálico (ácido 3,4,5-trihidroxibenzoico).</p>
-  </div>
-  <ul class="points">
-    <li>Preparar las soluciones amortiguadoras del intervalo de trabajo.</li>
-    <li>Registrar la respuesta en función del pH.</li>
-    <li>Identificar las dos transiciones y calcular cada p<var>K</var><sub>a</sub>.</li>
-    <li>Construir el diagrama de distribución de especies.</li>
-  </ul>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Fundamento">
-  <h2>Fundamento</h2>
-  <div class="grid-2">
-    <div class="stack">
-      <details class="eqd"><summary><span class="eqd__name">Primera disociación del ácido gálico</span><span class="eqd__f">H<sub>2</sub>A ⇌ HA<sup>−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a1</sub>)</span><span class="eq__tag">(5.1)</span></summary><div class="eqd__body"><p>El ácido cede su primer protón (grupo carboxilo); <var>K</var><sub>a1</sub> mide la fuerza de este equilibrio. p<var>K</var><sub>a1</sub> es el pH al que H<sub>2</sub>A y HA<sup>−</sup> están en igual proporción.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Segunda disociación del ácido gálico</span><span class="eqd__f">HA<sup>−</sup> ⇌ A<sup>2−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a2</sub>)</span><span class="eq__tag">(5.2)</span></summary><div class="eqd__body"><p>HA<sup>−</sup> cede un segundo protón, de un grupo fenólico mucho menos ácido, por lo que <var>K</var><sub>a2</sub> &lt; <var>K</var><sub>a1</sub>. p<var>K</var><sub>a2</sub> es el pH al que HA<sup>−</sup> y A<sup>2−</sup> se igualan.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Fracciones molares de las especies</span><span class="eqd__f"><var>α</var><sub>0</sub> = <span class="frac"><span>[H<sup>+</sup>]<sup>2</sup></span><span><var>D</var></span></span> &ensp; <var>α</var><sub>1</sub> = <span class="frac"><span><var>K</var><sub>a1</sub>[H<sup>+</sup>]</span><span><var>D</var></span></span> &ensp; <var>α</var><sub>2</sub> = <span class="frac"><span><var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></span><span><var>D</var></span></span></span><span class="eq__tag">(5.3)</span></summary><div class="eqd__body"><p>Indican qué fracción del total corresponde a cada especie a un pH dado; su suma es 1. Con ellas se construye el diagrama de distribución, cuyos cruces (<var>α</var> = 0,5) ocurren en p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub>.</p></div></details>
-      <p class="eq-legend"><var>D</var> = [H<sup>+</sup>]<sup>2</sup> + <var>K</var><sub>a1</sub>[H<sup>+</sup>] + <var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></p>
-    </div>
-    <ul class="points">
-      <li>En pH = p<var>K</var><sub>a1</sub>: [H<sub>2</sub>A] = [HA<sup>−</sup>].</li>
-      <li>En pH = p<var>K</var><sub>a2</sub>: [HA<sup>−</sup>] = [A<sup>2−</sup>].</li>
-      <li>Se usa un modelo diprótico simplificado; su validez en todo el intervalo de pH: [___].</li>
-    </ul>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Método">
-  <h2>Método</h2>
-  <div class="grid-2 grid-2--wide-right">
-    <ol class="steps">
-      <li>Preparar la solución de ácido gálico ([___]).</li>
-      <li>Preparar los buffers según la tabla 5.1.</li>
-      <li>Medir el pH real de cada solución.</li>
-      <li>Registrar la respuesta: [___].</li>
-    </ol>
-    <div class="table-wrap">
-      <table class="data">
-        <caption>Tabla 5.1. Preparación de las soluciones amortiguadoras</caption>
-        <thead><tr><th scope="col">Buffer</th><th scope="col">Sistema</th><th scope="col" class="num">pH objetivo</th><th scope="col" class="num">pH medido</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">B1</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">B2</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">B3</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">B4</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="lab-kit-wrap">
-    <p class="lab-kit__title">Equipos e implementos</p>
-    <ul class="lab-kit" data-kit="phmetro | balanza aforado pipeta probeta vaso"></ul>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Datos y tablas">
-  <h2>Datos y tablas</h2>
-  <div class="table-wrap table-wrap--tall table-wrap--narrow">
-    <table class="data">
-      <caption>Tabla 5.2. Respuesta frente a pH (añadir o quitar filas según los datos)</caption>
-      <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH</th><th scope="col" class="num">Respuesta [___]</th><th scope="col">Transición</th></tr></thead>
-      <tbody>
-        <tr><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">9</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-        <tr><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Gráficos">
-  <h2>Gráficos</h2>
-  <div class="grid-2">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: respuesta frente a pH con dos transiciones">Gráfico: respuesta frente a pH (dos transiciones)</div><figcaption>Figura 5.1. Transiciones p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub></figcaption></figure>
-    <figure class="fig">
-      <!-- Para usar los valores experimentales: cambie "pKa" y quite "example". -->
-      <div class="chart" data-chart>
-        <script type="application/json">
-          {
-            "type": "species",
-            "title": "Diagrama de distribución de especies con pKa ilustrativos, datos de ejemplo",
-            "example": true,
-            "pKa": [4, 9],
-            "names": ["H<sub>2</sub>A", "HA<sup>−</sup>", "A<sup>2−</sup>"],
-            "x": { "label": "pH", "min": 0, "max": 14 },
-            "y": { "label": "Fracción molar, α", "min": 0, "max": 1 }
-          }
-        </script>
-      </div>
-      <figcaption>Figura 5.2. Distribución de especies. <strong>Datos de ejemplo</strong> (p<var>K</var><sub>a</sub> ilustrativos 4 y 9, no experimentales).</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Tratamiento estadístico">
-  <h2>Tratamiento estadístico</h2>
-  <div class="table-wrap">
-    <table class="data">
-      <caption>Tabla 5.3. Estimación de las constantes de acidez</caption>
-      <thead><tr><th scope="col">Transición</th><th scope="col">Método</th><th scope="col" class="num">p<var>K</var><sub>a</sub></th><th scope="col" class="num">Incertidumbre (IC 95&#8239;%)</th><th scope="col" class="num"><var>R</var><sup>2</sup></th><th scope="col" class="num"><var>n</var></th></tr></thead>
-      <tbody>
-        <tr><th scope="row">p<var>K</var><sub>a1</sub></th><td>[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">p<var>K</var><sub>a2</sub></th><td>[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="box note">
-    <p class="box__label">Residuales y ANOVA</p>
-    <p>Regresión de cada transición: <var>F</var> = [___], <var>p</var> = [___]. Residuales: [___].</p>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Resultados">
-  <h2>Resultados</h2>
-  <div class="grid-3">
-    <div class="box key">
-      <p class="box__label">p<var>K</var><sub>a1</sub></p>
-      <p class="key__value">[___] ± [___]</p>
-      <p class="key__meta">Referencia: [___]</p>
-    </div>
-    <div class="box key">
-      <p class="box__label">p<var>K</var><sub>a2</sub></p>
-      <p class="key__value">[___] ± [___]</p>
-      <p class="key__meta">Referencia: [___]</p>
-    </div>
-    <div class="table-wrap">
-      <table class="data">
-        <caption>Tabla 5.4. Especie predominante</caption>
-        <thead><tr><th scope="col">Intervalo de pH</th><th scope="col">Especie</th></tr></thead>
-        <tbody>
-          <tr><td>pH &lt; p<var>K</var><sub>a1</sub></td><td>H<sub>2</sub>A</td></tr>
-          <tr><td>p<var>K</var><sub>a1</sub> &lt; pH &lt; p<var>K</var><sub>a2</sub></td><td>HA<sup>−</sup></td></tr>
-          <tr><td>pH &gt; p<var>K</var><sub>a2</sub></td><td>A<sup>2−</sup></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Discusión">
-  <h2>Discusión</h2>
-  <ul class="points">
-    <li>Asignación de cada transición a un grupo funcional: [___]</li>
-    <li>Comparación con los valores de referencia: [___]</li>
-    <li>Estabilidad del ácido gálico en medio básico durante la medida: [___]</li>
-    <li>Cobertura de puntos alrededor de cada p<var>K</var><sub>a</sub>: [___]</li>
-  </ul>
-  <div class="box warning">
-    <p class="box__label">Observación</p>
-    <p>[___]</p>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Conclusión">
-  <h2>Conclusión</h2>
-  <div class="box conclusion">
-    <p class="box__label">Conclusión · Práctica 5</p>
-    <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
-    </ul>
-  </div>
-</section>
-
-<!-- =================================================================
-     SECCIÓN 6 · PRÁCTICA 6 — ADITIVIDAD: ACETAMINOFÉN + CAFEÍNA
-     ================================================================= -->
-
-<section class="slide slide--section" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Presentación de la práctica">
-  <p class="section__num">06</p>
-  <p class="section__kicker">Práctica 6</p>
   <h2 class="section__title">Aditividad de absorbancias: acetaminofén + cafeína</h2>
   <p class="lead">Solvente NaOH · <var>λ</var><sub>1</sub> = 256&#8239;nm y <var>λ</var><sub>2</sub> = 273&#8239;nm · cuatro curvas · sistema 2 × 2 con determinante <var>D</var></p>
   <ul class="chips"><li>ACE</li><li>CAF</li><li><var>D</var></li><li>% recuperación</li></ul>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Objetivo">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Objetivo">
   <h2>Objetivo</h2>
   <div class="box objective">
     <p class="box__label">Objetivo</p>
@@ -1980,14 +1879,14 @@
   </ul>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Fundamento">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Fundamento">
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>1</sub></span><span class="eqd__f"><var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(6.1)</span></summary><div class="eqd__body"><p>La absorbancia de la mezcla es la suma de las contribuciones de cada analito, cada una igual a su pendiente de calibración por su concentración. Exige que los analitos no interactúen y que cada uno cumpla la ley de Lambert-Beer.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>2</sub></span><span class="eqd__f"><var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(6.2)</span></summary><div class="eqd__body"><p>Segunda ecuación del sistema, a la otra longitud de onda. Con dos longitudes de onda se obtienen dos ecuaciones para las dos concentraciones desconocidas.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Determinante del sistema</span><span class="eqd__f"><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub></span><span class="eq__tag">(6.3)</span></summary><div class="eqd__body"><p>Indica si el sistema 2 × 2 tiene solución única y qué tan bien condicionado está. Un <var>D</var> alejado de cero significa que los espectros de ACE y CAF son suficientemente distintos a las dos <var>λ</var>; un <var>D</var> cercano a cero amplifica los errores de medición.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Regla de Cramer</span><span class="eqd__f"><var>c</var><sub>ACE</sub> = <span class="frac"><span><var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub></span><span><var>D</var></span></span>&ensp; <var>c</var><sub>CAF</sub> = <span class="frac"><span><var>m</var><sub>ACE,1</sub><var>A</var><sub>2</sub> − <var>m</var><sub>ACE,2</sub><var>A</var><sub>1</sub></span><span><var>D</var></span></span></span><span class="eq__tag">(6.4)</span></summary><div class="eqd__body"><p>Despeja las concentraciones de ambos analitos a partir de las absorbancias medidas y de las pendientes de las cuatro curvas de calibración. La exactitud del resultado depende de esas pendientes y del valor de <var>D</var>.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>1</sub></span><span class="eqd__f"><var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(5.1)</span></summary><div class="eqd__body"><p>La absorbancia de la mezcla es la suma de las contribuciones de cada analito, cada una igual a su pendiente de calibración por su concentración. Exige que los analitos no interactúen y que cada uno cumpla la ley de Lambert-Beer.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>2</sub></span><span class="eqd__f"><var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(5.2)</span></summary><div class="eqd__body"><p>Segunda ecuación del sistema, a la otra longitud de onda. Con dos longitudes de onda se obtienen dos ecuaciones para las dos concentraciones desconocidas.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Determinante del sistema</span><span class="eqd__f"><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub></span><span class="eq__tag">(5.3)</span></summary><div class="eqd__body"><p>Indica si el sistema 2 × 2 tiene solución única y qué tan bien condicionado está. Un <var>D</var> alejado de cero significa que los espectros de ACE y CAF son suficientemente distintos a las dos <var>λ</var>; un <var>D</var> cercano a cero amplifica los errores de medición.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Regla de Cramer</span><span class="eqd__f"><var>c</var><sub>ACE</sub> = <span class="frac"><span><var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub></span><span><var>D</var></span></span>&ensp; <var>c</var><sub>CAF</sub> = <span class="frac"><span><var>m</var><sub>ACE,1</sub><var>A</var><sub>2</sub> − <var>m</var><sub>ACE,2</sub><var>A</var><sub>1</sub></span><span><var>D</var></span></span></span><span class="eq__tag">(5.4)</span></summary><div class="eqd__body"><p>Despeja las concentraciones de ambos analitos a partir de las absorbancias medidas y de las pendientes de las cuatro curvas de calibración. La exactitud del resultado depende de esas pendientes y del valor de <var>D</var>.</p></div></details>
     </div>
     <ul class="points">
       <li>La absorbancia total a cada <var>λ</var> es la suma de las contribuciones de cada analito.</li>
@@ -1998,7 +1897,7 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Método">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Método">
   <h2>Método</h2>
   <div class="grid-2">
     <ol class="steps">
@@ -2010,7 +1909,7 @@
     </ol>
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 6.0. Diseño de las cuatro curvas</caption>
+        <caption>Tabla 5.0. Diseño de las cuatro curvas</caption>
         <thead><tr><th scope="col">Curva</th><th scope="col">Analito</th><th scope="col" class="num"><var>λ</var> (nm)</th><th scope="col">Tipo</th></tr></thead>
         <tbody>
           <tr><th scope="row">C1</th><td>Acetaminofén</td><td class="num">256</td><td>Propia</td></tr>
@@ -2027,18 +1926,18 @@
   </div>
 </section>
 
-<!-- Estado de los datos de la práctica 6.
+<!-- Estado de los datos de la práctica 5.
      Para marcar un elemento cambie data-status en su <span class="status">:
        data-status="done"     → Completo
        data-status="partial"  → Parcial
        data-status="pending"  → Pendiente
      El resumen superior se recalcula solo. -->
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Estado de los datos">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Estado de los datos">
   <h2>Estado de los datos</h2>
   <div class="status-summary" data-status-summary></div>
   <div class="table-wrap table-wrap--tall">
     <table class="data data--status">
-      <caption>Tabla 6.1. Avance de los datos de la práctica 6</caption>
+      <caption>Tabla 5.1. Avance de los datos de la práctica 5</caption>
       <thead><tr><th scope="col">Elemento</th><th scope="col">Detalle</th><th scope="col">Estado</th></tr></thead>
       <tbody>
         <tr><th scope="row">Curva C1 · ACE 256&#8239;nm</th><td>Propia: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
@@ -2046,21 +1945,21 @@
         <tr><th scope="row">Curva C3 · ACE 273&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Curva C4 · CAF 256&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Pendientes e interceptos</th><td>4 regresiones con IC</td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Determinante <var>D</var></th><td>Ecuación (6.3)</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Determinante <var>D</var></th><td>Ecuación (5.3)</td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Absorbancias de mezclas</th><td><var>A</var><sub>1</sub> y <var>A</var><sub>2</sub></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Concentraciones calculadas</th><td>Ecuación (6.4)</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Concentraciones calculadas</th><td>Ecuación (5.4)</td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">% recuperación</th><td>ACE y CAF por mezcla</td><td><span class="status" data-status="pending"></span></td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Datos y tablas">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Datos y tablas">
   <h2>Datos y tablas</h2>
   <div class="grid-2">
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 6.2. Patrones de acetaminofén</caption>
+        <caption>Tabla 5.2. Patrones de acetaminofén</caption>
         <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
         <tbody>
           <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
@@ -2073,7 +1972,7 @@
     </div>
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 6.3. Patrones de cafeína</caption>
+        <caption>Tabla 5.3. Patrones de cafeína</caption>
         <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
         <tbody>
           <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
@@ -2087,7 +1986,7 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Tablas de la guía · aditividad">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tablas de la guía · aditividad">
   <h2>Tablas de la guía · aditividad</h2>
   <div class="grid-2 grid-2--tight">
     <div class="stack">
@@ -2127,25 +2026,25 @@
       </table>
     </div>
   </div>
-  <p class="eq-legend">Esta práctica corresponde a la «Práctica 5» de las guías. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+  <p class="eq-legend">Corresponde a la «Práctica 5» de las guías. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Gráficos">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Gráficos">
   <h2>Gráficos</h2>
   <div class="grid-2 grid-2--figs">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C1">Gráfico: C1 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 6.1. Propia</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C2">Gráfico: C2 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 6.2. Propia</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 6.3. Cruzada</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 6.4. Cruzada</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C1">Gráfico: C1 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.1. Propia</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C2">Gráfico: C2 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.2. Propia</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.3. Cruzada</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.4. Cruzada</figcaption></figure>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Tratamiento estadístico">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
   <div class="grid-2 grid-2--wide-left">
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 6.4. Parámetros de las cuatro curvas (IC 95&#8239;%)</caption>
+        <caption>Tabla 5.4. Parámetros de las cuatro curvas (IC 95&#8239;%)</caption>
         <thead><tr><th scope="col">Curva</th><th scope="col" class="num"><var>m</var> ± IC (mL/μg)</th><th scope="col" class="num"><var>b</var> ± IC</th><th scope="col" class="num"><var>R</var><sup>2</sup></th><th scope="col" class="num"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><th scope="col" class="num"><var>F</var></th></tr></thead>
         <tbody>
           <tr><th scope="row">C1 · <var>m</var><sub>ACE,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
@@ -2173,11 +2072,11 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Resultados">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Resultados">
   <h2>Resultados</h2>
   <div class="table-wrap">
     <table class="data data--status">
-      <caption>Tabla 6.5. Recuperación en mezclas de composición conocida</caption>
+      <caption>Tabla 5.5. Recuperación en mezclas de composición conocida</caption>
       <thead><tr><th scope="col">Mezcla</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num">ACE añadido (μg/mL)</th><th scope="col" class="num">ACE hallado (μg/mL)</th><th scope="col" class="num">R<sub>ACE</sub> (%)</th><th scope="col" class="num">CAF añadida (μg/mL)</th><th scope="col" class="num">CAF hallada (μg/mL)</th><th scope="col" class="num">R<sub>CAF</sub> (%)</th><th scope="col">Estado</th></tr></thead>
       <tbody>
         <tr><th scope="row">M1</th><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td><span class="status" data-status="pending"></span></td></tr>
@@ -2193,7 +2092,7 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Discusión">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
     <li>Magnitud de <var>D</var> y condicionamiento del sistema: [___]</li>
@@ -2207,10 +2106,10 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Conclusión">
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Conclusión">
   <h2>Conclusión</h2>
   <div class="box conclusion">
-    <p class="box__label">Conclusión · Práctica 6</p>
+    <p class="box__label">Conclusión · Práctica 5</p>
     <ul class="points">
       <li>[___]</li>
       <li>[___]</li>
@@ -2220,22 +2119,21 @@
 </section>
 
 <!-- =================================================================
-     SECCIÓN 7 · CIERRE
+     SECCIÓN 6 · CIERRE
      ================================================================= -->
 
 <section class="slide" data-group="Cierre" data-title="Comparación entre prácticas">
   <h2>Comparación entre prácticas</h2>
   <div class="table-wrap table-wrap--tall">
     <table class="data">
-      <caption>Tabla 7.1. Resumen comparativo</caption>
+      <caption>Tabla 6.1. Resumen comparativo</caption>
       <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Magnitud medida</th><th scope="col">Modelo</th><th scope="col">Resultado clave</th><th scope="col">Observación principal</th></tr></thead>
       <tbody>
         <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix</td><td>Lineal, mínimos cuadrados</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>[___]</td><td>Respuesta frente a pH</td><td>Equilibrio diprótico</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p6"></span>6</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td>[___]</td><td>[___]</td></tr>
       </tbody>
     </table>
   </div>
@@ -2259,15 +2157,15 @@
   <p class="lead">Fuentes posibles; confirmar cuáles se observaron: [___]</p>
   <div class="table-wrap">
     <table class="data">
-      <caption>Tabla 7.2. Fuentes de error y mejoras propuestas</caption>
+      <caption>Tabla 6.2. Fuentes de error y mejoras propuestas</caption>
       <thead><tr><th scope="col">Fuente de error</th><th scope="col">Prácticas</th><th scope="col">Mejora propuesta</th></tr></thead>
       <tbody>
         <tr><td>Temperatura no controlada</td><td>1, 2</td><td>Termostatizar y registrar <var>T</var> en cada lectura</td></tr>
-        <tr><td>Preparación de patrones</td><td>1, 3–6</td><td>Material volumétrico clase A; preparación por pesada</td></tr>
-        <tr><td>Calibración del pH-metro</td><td>4, 5</td><td>Calibrar con dos o tres patrones antes de medir</td></tr>
-        <tr><td>Celdas y blanco</td><td>3, 4, 6</td><td>Celdas limpias y emparejadas; blanco con el mismo disolvente</td></tr>
+        <tr><td>Preparación de patrones</td><td>1, 3–5</td><td>Material volumétrico clase A; preparación por pesada</td></tr>
+        <tr><td>Calibración del pH-metro</td><td>4</td><td>Calibrar con dos o tres patrones antes de medir</td></tr>
+        <tr><td>Celdas y blanco</td><td>3, 4, 5</td><td>Celdas limpias y emparejadas; blanco con el mismo disolvente</td></tr>
         <tr><td>Burbujas en el tubo</td><td>2</td><td>Llenado lento y revisión visual</td></tr>
-        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 6</td><td>Diluir hasta <var>A</var> dentro de [___]</td></tr>
+        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 5</td><td>Diluir hasta <var>A</var> dentro de [___]</td></tr>
       </tbody>
     </table>
   </div>
@@ -2298,7 +2196,7 @@
     <p class="cover__subtitle">Al docente Nicolas Mateo Gonzalez Lopez y al personal del laboratorio [___].</p>
     <ul class="cover__bars" aria-hidden="true">
       <li data-accent="p1"></li><li data-accent="p2"></li><li data-accent="p3"></li>
-      <li data-accent="p4"></li><li data-accent="p5"></li><li data-accent="p6"></li>
+      <li data-accent="p4"></li><li data-accent="p5"></li>
     </ul>
     <div class="cover__grid">
       <div>
