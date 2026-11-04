@@ -546,6 +546,29 @@ a { color: inherit; }
   background: var(--accent); margin-right: .45em; vertical-align: .05em;
 }
 
+/* Interpretación de un análisis estadístico */
+.box--interp { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, #ffffff); align-content: start; }
+.box--interp .box__label { color: var(--accent); }
+.box--interp p:not(.box__label) { font-size: .92em; line-height: 1.4; }
+.box--interp p + p { margin-top: .35em; }
+/* Diapositiva de figura: gráfico grande + justificación + interpretación */
+.fig-slide {
+  display: grid; grid-template-columns: 3fr 2fr; gap: 1.4em;
+  align-items: start; min-width: 0;
+}
+.fig-slide > * { min-width: 0; }
+.fig-slide .chart-ph { aspect-ratio: 16 / 10; }
+.box--why { border-left-color: var(--subtitle); background: var(--surface-2); }
+.box--why .box__label { color: var(--subtitle); }
+.box--why p:not(.box__label) { font-size: .92em; line-height: 1.4; }
+body.is-compact:not(.is-overview) .fig-slide { grid-template-columns: 1fr; }
+
+/* Valor p significativo y fila del propio grupo */
+td.sig { color: var(--warn); font-weight: 700; }
+tr.row-own th, tr.row-own td { background: color-mix(in srgb, var(--accent) 10%, #ffffff); }
+table.data tfoot th, table.data tfoot td { border-top: 1.5px solid var(--line-strong); }
+.grid-3--assump { grid-template-columns: 1.15fr 1fr 1fr; align-items: start; }
+
 /* Iconos de laboratorio (assets/icons/lab-icons.js): trazo, color del acento */
 .ico {
   width: 1em; height: 1em; flex: none;

@@ -283,7 +283,7 @@
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
       <li>Verificar el cero del refractómetro con agua destilada a 20&#8239;°C.</li>
-      <li>Preparar patrones de glicerina por pesada: grupos 1–5 a 20, 40, 60 y 80&#8239;% p/p; grupos 6–10 a 10, 30, 50 y 70&#8239;% p/p.</li>
+      <li>Recibir los patrones de glicerina listos (suministrados por el laboratorio): grupos 1–5, 20, 40, 60 y 80&#8239;% p/p; grupos 6–10, 10, 30, 50 y 70&#8239;% p/p.</li>
       <li>Leer <var>n</var> y °Brix de cada patrón por duplicado; limpiar los prismas entre lecturas.</li>
       <li>Leer las muestras problema: M1 y M2 (grupos 1–5); M3 y M4 (grupos 6–10).</li>
       <li>Temperatura del prisma: 20&#8239;°C (agua) y 19&#8239;°C (patrones y muestras).</li>
@@ -294,7 +294,7 @@
         <tbody>
           <tr><th scope="row">Refractómetro</th><td>Abbe, [___]</td></tr>
           <tr><th scope="row">Termostatización</th><td>[___]</td></tr>
-          <tr><th scope="row">Balanza</th><td>[___]</td></tr>
+          <tr><th scope="row">Patrones</th><td>Suministrados listos, 10–80&#8239;% p/p</td></tr>
           <tr><th scope="row">Glicerina</th><td>Pureza [___]&#8239;%</td></tr>
         </tbody>
       </table>
@@ -302,7 +302,7 @@
   </div>
   <div class="lab-kit-wrap">
     <p class="lab-kit__title">Equipos e implementos</p>
-    <ul class="lab-kit" data-kit="refractometro termometro balanza | gotero frasco vaso"></ul>
+    <ul class="lab-kit" data-kit="refractometro termometro | gotero frasco vaso"></ul>
   </div>
 </section>
 
@@ -345,33 +345,67 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Gráficos">
-  <h2>Gráficos</h2>
-  <div class="grid-2 grid-2--tight grid-2--charts">
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.1 · Curva de n">
+  <h2>Curva de calibración del índice de refracción</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Índice de refracción frente al porcentaje de glicerina, datos de la clase", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.33, "max": 1.45}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]], "fit": true}, {"name": "M1 y M2 (grupo 5)", "points": [[40.56, 1.3929], [47.17, 1.402]]}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Índice de refracción frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.33, "max": 1.45}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]], "fit": true}, {"name": "M1 y M2 (grupo 5)", "points": [[40.56, 1.3929], [47.17, 1.402]]}]}</script>
       </div>
-      <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var>; M1 y M2 interpoladas (grupo 5).</figcaption>
+      <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var> (datos de la clase); M1 y M2 interpoladas con las lecturas del grupo 5.</figcaption>
     </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona la respuesta instrumental con la composición de los patrones. Es la base para interpolar las muestras problema y la primera evidencia, visual, de la linealidad del método.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El índice de refracción aumenta de forma monótona con la fracción másica de glicerina (<var>m</var> = 1,377 × 10<sup>−3</sup> por % p/p; <var>R</var><sup>2</sup> = 0,9956) y la dispersión entre réplicas es mínima frente al intervalo de respuesta.</p><p>Se aprecia una ligera concavidad: los niveles de 10–30&#8239;% quedan por encima de la recta y los extremos, por debajo.</p><p>M1 (<var>n</var> = 1,3929) y M2 (<var>n</var> = 1,4020) se sitúan en la zona central del intervalo calibrado, la región de menor incertidumbre de interpolación.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.2 · Curva de °Brix">
+  <h2>Curva de calibración en grados Brix</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al porcentaje de glicerina, datos de la clase", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]], "fit": true}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]], "fit": true}]}</script>
       </div>
-      <figcaption>Figura 1.2. °Brix frente a <var>w</var>.</figcaption>
+      <figcaption>Figura 1.2. °Brix frente a <var>w</var> (datos de la clase).</figcaption>
     </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Evalúa una escala refractométrica alternativa, de amplio uso industrial, como respuesta de calibración para glicerina y permite compararla con el índice de refracción.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Brix también crece con <var>w</var> (<var>m</var> = 0,757 °Brix por % p/p), pero con menor linealidad (<var>R</var><sup>2</sup> = 0,9840) y una curvatura más pronunciada.</p><p>El intercepto ajustado (4,1&#8239;°Brix) difiere del valor medido en agua (0,4&#8239;°Brix): la recta no representa el extremo inferior del intervalo.</p><p>La escala °Brix está definida para soluciones de sacarosa; con glicerina proporciona un valor aparente, lo que contribuye a su comportamiento no lineal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.3 · Residuales de n">
+  <h2>Residuales de la curva del índice de refracción</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de índice de refracción", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n"}, "series": [{"name": "Residuales (n)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]]}]}</script>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de índice de refracción", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n"}, "series": [{"name": "Residuales (n)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]]}]}</script>
       </div>
-      <figcaption>Figura 1.3. Residuales de la curva de <var>n</var>.</figcaption>
+      <figcaption>Figura 1.3. Residuales de la recta de <var>n</var>.</figcaption>
     </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Los residuales ponen en evidencia desviaciones sistemáticas del modelo y cambios de varianza que el coeficiente de determinación no detecta.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales no se distribuyen al azar en torno a cero: forman un arco, negativos en los extremos (−0,0035 en 0&#8239;% y −0,0015 en 80&#8239;%) y positivos entre 10 y 30&#8239;% (hasta +0,0042).</p><p>Este patrón es propio de una relación cóncava y concuerda con la falta de ajuste significativa (<var>p</var> &lt; 0,001) y con el estadístico de Durbin–Watson (0,13).</p><p>La dispersión dentro de cada nivel es mucho menor que la desviación sistemática entre niveles: el error dominante es del modelo, no de la lectura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.4 · Residuales de °Brix">
+  <h2>Residuales de la curva en grados Brix</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de grados Brix", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de °Brix"}, "series": [{"name": "Residuales (°Brix)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]]}]}</script>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de grados Brix", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de °Brix"}, "series": [{"name": "Residuales (°Brix)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]]}]}</script>
       </div>
-      <figcaption>Figura 1.4. Residuales de la curva de °Brix.</figcaption>
+      <figcaption>Figura 1.4. Residuales de la recta de °Brix.</figcaption>
     </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite contrastar si la escala °Brix presenta la misma desviación del modelo lineal que el índice de refracción y en qué magnitud.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El patrón en arco se repite con mayor amplitud: −3,7&#8239;°Brix en 0&#8239;%, +3,7&#8239;°Brix en 20&#8239;% y −2,8&#8239;°Brix en 80&#8239;%.</p><p>En el agua se observa además la mayor dispersión entre lecturas (0 a 2,5&#8239;°Brix), atribuible a los grupos 7, 9 y 10.</p><p>La desviación sistemática (hasta ±4&#8239;°Brix) supera ampliamente la repetibilidad (<var>s</var><sub>r</sub> = 0,23&#8239;°Brix): la recta no es un modelo adecuado para esta escala.</p></div>
+    </div>
   </div>
 </section>
 
@@ -415,6 +449,228 @@
   </div>
 </section>
 
+<!-- P1-EXTRA:inicio (análisis estadísticos adicionales) -->
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Precisión: repetibilidad y reproducibilidad">
+  <h2>Precisión: repetibilidad y reproducibilidad</h2>
+  <p class="lead">ANOVA de un factor (grupo) en cada nivel de <var>n</var>: <var>s</var><sub>r</sub> = variación dentro del grupo; <var>s</var><sub>R</sub> = <var>s</var><sub>r</sub> más la variación entre grupos (ISO 5725-2).</p>
+  <div class="grid-2 grid-2--wide-left">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 1.6. Precisión de <var>n</var> por nivel</caption>
+        <thead><tr><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num">Grupos</th><th scope="col" class="num"><var>s</var><sub>r</sub></th><th scope="col" class="num"><var>s</var><sub>R</sub></th><th scope="col" class="num"><var>s</var><sub>R</sub>/<var>s</var><sub>r</sub></th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
+        <tbody><tr><td class="num">0</td><td class="num">10</td><td class="num">7,13 × 10<sup>−4</sup></td><td class="num">1,10 × 10<sup>−3</sup></td><td class="num">1,5</td><td class="num">3,77</td><td class="num sig">0,025</td></tr><tr><td class="num">10</td><td class="num">5</td><td class="num">3,21 × 10<sup>−4</sup></td><td class="num">3,21 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,50</td><td class="num">0,739</td></tr><tr><td class="num">20</td><td class="num">5</td><td class="num">2,61 × 10<sup>−4</sup></td><td class="num">6,73 × 10<sup>−4</sup></td><td class="num">2,6</td><td class="num">12,34</td><td class="num sig">0,008</td></tr><tr><td class="num">30</td><td class="num">5</td><td class="num">2,97 × 10<sup>−4</sup></td><td class="num">3,27 × 10<sup>−4</sup></td><td class="num">1,1</td><td class="num">1,43</td><td class="num">0,346</td></tr><tr><td class="num">40</td><td class="num">5</td><td class="num">1,87 × 10<sup>−4</sup></td><td class="num">2,43 × 10<sup>−4</sup></td><td class="num">1,3</td><td class="num">2,39</td><td class="num">0,183</td></tr><tr><td class="num">50</td><td class="num">5</td><td class="num">1,00 × 10<sup>−4</sup></td><td class="num">1,00 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,65</td><td class="num">0,651</td></tr><tr><td class="num">60</td><td class="num">5</td><td class="num">4,70 × 10<sup>−4</sup></td><td class="num">4,70 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,20</td><td class="num">0,926</td></tr><tr><td class="num">70</td><td class="num">5</td><td class="num">6,32 × 10<sup>−5</sup></td><td class="num">8,66 × 10<sup>−5</sup></td><td class="num">1,4</td><td class="num">2,75</td><td class="num">0,148</td></tr><tr><td class="num">80</td><td class="num">5</td><td class="num">1,14 × 10<sup>−3</sup></td><td class="num">1,14 × 10<sup>−3</sup></td><td class="num">1,0</td><td class="num">0,53</td><td class="num">0,722</td></tr></tbody>
+        <tfoot><tr><th scope="row" colspan="2">Combinado</th><td class="num"><strong>5,34 × 10<sup>−4</sup></strong></td><td class="num"><strong>6,22 × 10<sup>−4</sup></strong></td><td class="num">1,2</td><td class="num" colspan="2">—</td></tr></tfoot>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas son muy repetibles: <var>s</var><sub>r</sub> = 5,34 × 10<sup>−4</sup> y <var>s</var><sub>R</sub> = 6,22 × 10<sup>−4</sup>; dos lecturas del mismo grupo difieren menos de <var>r</var> = 0,0015 y de grupos distintos menos de <var>R</var> = 0,0017 (95&#8239;%).</p><p>Solo 2 de 9 niveles (0, 20&#8239;%) muestran diferencias entre grupos (<var>p</var> &lt; 0,05). En °Brix, 3 de 9 (0, 20, 30&#8239;%).</p><p><strong>Clave:</strong> <var>s</var><sub><var>y</var>/<var>x</var></sub> de la recta (0,0025) es unas 4 veces <var>s</var><sub>R</sub>. La falta de ajuste no viene de la imprecisión ni de los operadores, sino del modelo lineal.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Modelo cuadrático">
+  <h2>Modelo cuadrático</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 1.7. Recta frente a <var>y</var> = <var>a</var> + <var>b</var>·<var>w</var> + <var>c</var>·<var>w</var><sup>2</sup> (M1 y M2 del grupo 5)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var> lineal</th><th scope="col" class="num"><var>n</var> cuadrático</th><th scope="col" class="num">°Brix lineal</th><th scope="col" class="num">°Brix cuadrático</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>c</var> (término <var>w</var><sup>2</sup>) ± IC</th><td class="num">—</td><td class="num">−2,82 × 10<sup>−6</sup> ± 6,0 × 10<sup>−7</sup></td><td class="num">—</td><td class="num">−0,00376 ± 0,00043</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">0,9956</td><td class="num">0,9976</td><td class="num">0,9840</td><td class="num">0,9961</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,0025</td><td class="num">0,0019</td><td class="num">2,66</td><td class="num">1,32</td></tr>
+          <tr><th scope="row">AIC</th><td class="num">−1194</td><td class="num"><strong>−1255</strong></td><td class="num">198</td><td class="num"><strong>58</strong></td></tr>
+          <tr><th scope="row"><var>F</var> parcial del término <var>c</var> (<var>p</var>)</th><td class="num" colspan="2">85,7 (&lt; 0,001)</td><td class="num" colspan="2">300,4 (&lt; 0,001)</td></tr>
+          <tr><th scope="row">Falta de ajuste (<var>p</var>)</th><td class="num">&lt; 0,001</td><td class="num">&lt; 0,001</td><td class="num">&lt; 0,001</td><td class="num">&lt; 0,001</td></tr>
+          <tr><th scope="row">M1 (% p/p ± IC)</th><td class="num">40,6 ± 3,7</td><td class="num"><strong>39,0 ± 2,7</strong></td><td class="num">42,3 ± 7,0</td><td class="num"><strong>38,6 ± 3,5</strong></td></tr>
+          <tr><th scope="row">M2 (% p/p ± IC)</th><td class="num">47,2 ± 2,6</td><td class="num"><strong>45,8 ± 2,0</strong></td><td class="num">49,1 ± 5,0</td><td class="num"><strong>45,7 ± 2,7</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El término <var>c</var> es significativo en ambas escalas (<var>F</var> parcial, <var>p</var> &lt; 0,001) y el AIC baja: la curvatura es real.</p><p>Con este modelo <var>n</var> y °Brix coinciden (M1: 39,0 y 38,6&#8239;%; M2: 45,8 y 45,7&#8239;%); con la recta difieren casi 2 puntos.</p><p>La falta de ajuste persiste (<var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,0019 &gt; <var>s</var><sub>R</sub>): queda variación sistemática entre niveles (figura 1.5), posiblemente por diferencias entre los dos juegos de patrones suministrados (pares: grupos 1–5; impares: 6–10).</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.5 · Residuales del modelo cuadrático">
+  <h2>Residuales del modelo cuadrático</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Residuales del modelo cuadrático de n", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n", "min": -0.0046, "max": 0.0046}, "series": [{"name": "Residuales (modelo cuadrático)", "points": [[0.0, -0.002227956204378767], [20.0, 0.003699219673266363], [40.0, -0.002618428919017868], [60.0, -0.0008809019812321406], [80.0, 0.0020118004866238604], [0.0, -0.002427956204378745], [20.0, 0.003199219673266418], [40.0, -0.00241842891901789], [60.0, -0.0010809019812321186], [80.0, 0.0017118004866238934], [0.0, -0.002127956204378778], [20.0, 0.002799219673266462], [40.0, -0.00241842891901789], [60.0, -0.0008809019812321406], [80.0, 0.0016118004866239044], [0.0, -0.0011279562043786662], [20.0, 0.002699219673266473], [40.0, -0.002318428919017901], [60.0, -0.00038090198123219565], [80.0, 0.0017118004866238934], [0.0, -0.002627956204378723], [20.0, 0.0016992196732663611], [40.0, -0.002218428919017912], [60.0, -0.00038090198123219565], [80.0, 0.0017118004866238934], [0.0, -0.002127956204378778], [20.0, 0.002199219673266528], [40.0, -0.0017184289190177449], [60.0, -0.0011809019812321075], [80.0, 0.0016118004866239044], [0.0, -0.002127956204378778], [20.0, 0.003299219673266407], [40.0, -0.002218428919017912], [60.0, -0.0011809019812321075], [80.0, 0.0017118004866238934], [0.0, -0.0019279562043788001], [20.0, 0.003699219673266363], [40.0, -0.00241842891901789], [60.0, -0.00038090198123219565], [80.0, 0.0016118004866239044], [0.0, -0.002327956204378756], [20.0, 0.003199219673266418], [40.0, -0.00241842891901789], [60.0, -0.0005809019812321736], [80.0, -0.0013881995133759872], [0.0, -0.002327956204378756], [20.0, 0.003299219673266407], [40.0, -0.002318428919017901], [60.0, -0.0013809019812320855], [80.0, 0.0022118004866238383], [0.0, -0.002327956204378756], [10.0, 0.00275373479318497], [30.0, 0.0004084984358654342], [50.0, -0.0006815623913838387], [70.0, -0.00041644768856285985], [0.0, -0.002327956204378756], [10.0, 0.00275373479318497], [30.0, 0.0005084984358654232], [50.0, -0.0006815623913838387], [70.0, -0.0005164476885628488], [0.0, -0.002227956204378767], [10.0, 0.002653734793184981], [30.0, 0.0012084984358653461], [50.0, -0.0006815623913838387], [70.0, -0.0007164476885628268], [0.0, -2.795620437878732e-05], [10.0, 0.002353734793185014], [30.0, 0.0005084984358654232], [50.0, -0.0006815623913838387], [70.0, -0.0006164476885628378], [0.0, -0.0016279562043788331], [10.0, 0.003153734793185148], [30.0, 0.0007084984358654012], [50.0, -0.0005815623913838497], [70.0, -0.0005164476885628488], [0.0, -0.0016279562043788331], [10.0, 0.002253734793185025], [30.0, 0.00020849843586545624], [50.0, -0.0008815623913838166], [70.0, -0.0006164476885628378], [0.0, -0.0001279562043787763], [10.0, 0.002453734793185003], [30.0, 0.00030849843586544523], [50.0, -0.0005815623913838497], [70.0, -0.0006164476885628378], [0.0, -0.0001279562043787763], [10.0, 0.002253734793185025], [30.0, 8.498435865478271e-06], [50.0, -0.0005815623913838497], [70.0, -0.0006164476885628378], [0.0, -0.0006279562043787212], [10.0, 0.002453734793185003], [30.0, 0.00030849843586544523], [50.0, -0.0006815623913838387], [70.0, -0.0006164476885628378], [0.0, 0.0013720437956212805], [10.0, 0.00275373479318497], [30.0, 0.0005084984358654232], [50.0, -0.0005815623913838497], [70.0, -0.0005164476885628488]]}, {"name": "", "points": [[0, 0], [80, 0]], "line": true, "markers": false, "color": 3, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 1.5. Residuales del modelo cuadrático de <var>n</var>.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica si el término cuadrático elimina el patrón sistemático observado con la recta, condición necesaria para aceptar el modelo de calibración.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El arco característico de la recta desaparece y la amplitud de los residuales disminuye (<var>s</var><sub><var>y</var>/<var>x</var></sub> de 0,0025 a 0,0019).</p><p>Persiste, sin embargo, una oscilación entre niveles (≈ +0,003 en 10–20&#8239;%, −0,0023 en 40&#8239;% y +0,0015 en 80&#8239;%), responsable de la falta de ajuste residual.</p><p>El comportamiento sugiere sesgos propios de cada patrón más que un defecto del modelo; convendría verificar la composición declarada de los patrones suministrados.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Datos atípicos">
+  <h2>Datos atípicos</h2>
+  <p class="lead">Prueba de Grubbs en cada nivel (<var>α</var> = 0,05), residuales estudentizados y distancia de Cook del modelo lineal; luego se repite la curva sin los atípicos.</p>
+  <div class="grid-2">
+    <div class="stack">
+      <div class="table-wrap table-wrap--full">
+        <table class="data">
+          <caption>Tabla 1.8. Lecturas señaladas por Grubbs</caption>
+          <thead><tr><th scope="col">Escala</th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num">Grupo</th><th scope="col" class="num">Lectura</th><th scope="col" class="num">Promedio del nivel</th><th scope="col" class="num"><var>G</var></th><th scope="col" class="num"><var>G</var><sub>crít</sub></th></tr></thead>
+          <tbody><tr><td><var>n</var></td><td class="num">40</td><td class="num">3</td><td class="num mono">1,3925</td><td class="num">1,3919</td><td class="num">2,48</td><td class="num">2,29</td></tr><tr><td><var>n</var></td><td class="num">50</td><td class="num">8</td><td class="num mono">1,4067</td><td class="num">1,4069</td><td class="num">2,39</td><td class="num">2,29</td></tr><tr><td><var>n</var></td><td class="num">80</td><td class="num">5</td><td class="num mono">1,4429</td><td class="num">1,4457</td><td class="num">2,79</td><td class="num">2,29</td></tr><tr><td>°Brix</td><td class="num">0</td><td class="num">10</td><td class="num mono">2,5</td><td class="num">0,40</td><td class="num">2,76</td><td class="num">2,71</td></tr></tbody>
+        </table>
+      </div>
+      <div class="table-wrap table-wrap--full">
+        <table class="data">
+          <caption>Tabla 1.9. Curva de <var>n</var> con y sin atípicos</caption>
+          <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Todos (<var>N</var> = 100)</th><th scope="col" class="num">Sin atípicos (<var>N</var> = 97)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><var>m</var></th><td class="num">1,3772 × 10<sup>−3</sup></td><td class="num">1,3797 × 10<sup>−3</sup></td></tr>
+            <tr><th scope="row"><var>R</var><sup>2</sup> · <var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,9956 · 0,0025</td><td class="num">0,9956 · 0,0025</td></tr>
+            <tr><th scope="row">LOD · LOQ (% p/p)</th><td class="num">6,1 · 18,4</td><td class="num">6,1 · 18,3</td></tr>
+            <tr><th scope="row">M1 · M2 (% p/p)</th><td class="num">40,56 · 47,17</td><td class="num">40,53 · 47,12</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Grubbs señala 3 lecturas de <var>n</var> y 1 de °Brix; entre ellas, el patrón de 80&#8239;% del propio grupo 5 (<var>n</var> = 1,4429).</p><p>Ningún residual estudentizado supera ±2,5. La distancia de Cook supera 4/<var>N</var> en 7 lecturas, todas en los extremos de la curva (0&#8239;% (g1), 0&#8239;% (g3), 0&#8239;% (g5), 0&#8239;% (g6), 80&#8239;% (g5)), donde la palanca es mayor.</p><p>Al retirarlas, M1 y M2 cambian menos de 0,05&#8239;% p/p y LOD/LOQ casi no varían: <strong>los resultados son robustos</strong> y se conservan todas las lecturas.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Regresión ponderada">
+  <h2>Regresión ponderada</h2>
+  <p class="lead">Mínimos cuadrados ponderados (peso = 1/<var>s</var><sup>2</sup> de cada nivel), porque la varianza de <var>n</var> no es constante (Levene, <var>p</var> = 0,029).</p>
+  <div class="grid-2">
+    <div class="stack">
+      <div class="table-wrap table-wrap--full">
+        <table class="data">
+          <caption>Tabla 1.10. Regresión ordinaria frente a ponderada (curva de <var>n</var>)</caption>
+          <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Ordinaria</th><th scope="col" class="num">Ponderada</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><var>m</var> ± IC</th><td class="num">(1,377 ± 0,018) × 10<sup>−3</sup></td><td class="num">(1,306 ± 0,011) × 10<sup>−3</sup></td></tr>
+            <tr><th scope="row"><var>b</var> ± IC</th><td class="num">1,3370 ± 0,0008</td><td class="num">1,3409 ± 0,0006</td></tr>
+            <tr><th scope="row">M1 (% p/p ± IC)</th><td class="num">40,6 ± 3,7</td><td class="num">39,8 ± 1,7</td></tr>
+            <tr><th scope="row">M2 (% p/p ± IC)</th><td class="num">47,2 ± 2,6</td><td class="num">46,7 ± 0,7</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap table-wrap--full">
+        <table class="data">
+          <caption>Tabla 1.11. Desviación estándar de <var>n</var> por nivel (× 10<sup>−4</sup>)</caption>
+          <thead><tr><th scope="col" class="num">0&#8239;%</th><th scope="col" class="num">10&#8239;%</th><th scope="col" class="num">20&#8239;%</th><th scope="col" class="num">30&#8239;%</th><th scope="col" class="num">40&#8239;%</th><th scope="col" class="num">50&#8239;%</th><th scope="col" class="num">60&#8239;%</th><th scope="col" class="num">70&#8239;%</th><th scope="col" class="num">80&#8239;%</th></tr></thead>
+          <tbody><tr><td class="num">10,8</td><td class="num">2,8</td><td class="num">6,4</td><td class="num">3,2</td><td class="num">2,4</td><td class="num">0,9</td><td class="num">3,8</td><td class="num">0,8</td><td class="num">10,2</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La desviación varía de 0,8 a 10,8 × 10<sup>−4</sup> entre niveles: los pesos difieren unas 165 veces y dominan los niveles de 50 y 70&#8239;%.</p><p>La ponderación estrecha mucho el IC de M1 (±1,7&#8239;%) y M2 (±0,7&#8239;%), pero cambia la pendiente fuera del IC ordinario.</p><p>Como la recta no ajusta (falta de ajuste significativa), la ponderada sigue a los niveles más precisos y su IC <strong>subestima</strong> la incertidumbre real. Es útil para mostrar la heterocedasticidad; para informar, se prefiere el modelo cuadrático.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Desempeño por grupo (puntaje z)">
+  <h2>Desempeño por grupo (puntaje z)</h2>
+  <p class="lead"><var>z</var> = (<var>w</var><sub>grupo</sub> − <var>w</var><sub>asignado</sub>) / <var>σ</var>; <var>w</var><sub>asignado</sub> = mediana de los grupos 1–5; <var>σ</var> = <var>s</var><sub>R</sub>/<var>m</var> = 0,45&#8239;% p/p (ISO 13528).</p>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 1.12. Resultado y puntaje <var>z</var> de cada grupo (curva lineal de <var>n</var>)</caption>
+        <thead>
+          <tr><th scope="col" rowspan="2">Grupo</th><th scope="colgroup" colspan="3">M1 (asignado 40,34&#8239;%)</th><th scope="colgroup" colspan="3">M2 (asignado 47,24&#8239;%)</th></tr>
+          <tr><th scope="col" class="num"><var>k</var></th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num"><var>z</var></th><th scope="col" class="num"><var>k</var></th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num"><var>z</var></th></tr>
+        </thead>
+        <tbody><tr><th scope="row">Grupo 1</th><td class="num">2</td><td class="num">39,98</td><td class="num"><strong>−0,80</strong></td><td class="num">2</td><td class="num">47,24</td><td class="num"><strong>0,00</strong></td></tr><tr><th scope="row">Grupo 2</th><td class="num">2</td><td class="num">40,09</td><td class="num"><strong>−0,56</strong></td><td class="num">2</td><td class="num">47,17</td><td class="num"><strong>−0,16</strong></td></tr><tr><th scope="row">Grupo 3</th><td class="num">2</td><td class="num">40,34</td><td class="num"><strong>0,00</strong></td><td class="num">2</td><td class="num">47,68</td><td class="num"><strong>0,96</strong></td></tr><tr><th scope="row">Grupo 4</th><td class="num">2</td><td class="num">40,34</td><td class="num"><strong>0,00</strong></td><td class="num">2</td><td class="num">47,68</td><td class="num"><strong>0,96</strong></td></tr><tr class="row-own"><th scope="row">Grupo 5 (J5)</th><td class="num">1</td><td class="num">40,56</td><td class="num"><strong>0,48</strong></td><td class="num">2</td><td class="num">47,17</td><td class="num"><strong>−0,16</strong></td></tr></tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los grupos están en |<var>z</var>| ≤ 1,0: desempeño satisfactorio y resultados intercambiables entre grupos.</p><p>Grupo 5: <var>z</var> = 0,48 en M1 (una sola lectura) y −0,16 en M2. Su resultado coincide con el de la clase (figura 1.6).</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.6 · Puntaje z por grupo">
+  <h2>Puntaje z de los grupos 1–5</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Puntaje z de M1 y M2 por grupo", "aspect": 0.6, "x": {"label": "Grupo", "min": 0.5, "max": 5.5}, "y": {"label": "z", "min": -3, "max": 3}, "series": [{"name": "M1", "points": [[1, -0.804], [2, -0.563], [3, 0.0], [4, 0.0], [5, 0.482]]}, {"name": "M2", "points": [[1, 0.0], [2, -0.161], [3, 0.964], [4, 0.964], [5, -0.161]]}, {"name": "Límites ±2", "points": [[0.5, 2], [5.5, 2]], "line": true, "markers": false, "color": 3, "dash": 2}, {"name": "", "points": [[0.5, -2], [5.5, -2]], "line": true, "markers": false, "color": 3, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 1.6. Puntaje <var>z</var> de M1 y M2 por grupo; |<var>z</var>| ≤ 2 es satisfactorio.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Compara el resultado de cada grupo con un valor de consenso, como en los ensayos de aptitud (ISO 13528), y permite juzgar si los resultados de distintos operadores son intercambiables.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los puntajes se encuentran dentro de ±1, muy por debajo del límite de aceptación de ±2: el desempeño es satisfactorio en M1 y M2.</p><p>Los grupos 3 y 4 obtienen resultados idénticos en ambas muestras; el grupo 5 presenta <var>z</var> = 0,48 (M1) y −0,16 (M2).</p><p>La concordancia entre grupos confirma que la variación entre operadores es pequeña frente a la incertidumbre de la calibración.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Supuestos de la regresión">
+  <h2>Supuestos de la regresión</h2>
+  <div class="grid-2">
+      <div class="table-wrap table-wrap--full">
+        <table class="data">
+          <caption>Tabla 1.13. Pruebas sobre los residuales</caption>
+          <thead><tr><th scope="col">Prueba</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Shapiro–Wilk <var>W</var> (<var>p</var>)</th><td class="num">0,963 (0,007)</td><td class="num">0,907 (&lt; 0,001)</td></tr>
+            <tr><th scope="row">Durbin–Watson</th><td class="num">0,13</td><td class="num">0,06</td></tr>
+            <tr><th scope="row">Asimetría · curtosis</th><td class="num">−0,03 · −0,76</td><td class="num">−0,25 · −1,32</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales <strong>no son normales</strong> (Shapiro–Wilk <var>p</var> 0,007): son simétricos pero más planos que una normal (curtosis −0,76).</p><p>Durbin–Watson = 0,13, muy lejos de 2: los residuales vecinos se parecen (autocorrelación positiva). Es la huella de la curvatura, no de errores al azar.</p><p>Con el modelo cuadrático persiste la autocorrelación (Durbin–Watson = 0,24): queda una variación sistemática entre niveles. Los IC de la regresión deben tomarse como aproximados (figuras 1.7 y 1.8).</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.7 · Gráfico Q-Q de residuales">
+  <h2>Gráfico Q-Q de los residuales</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Gráfico Q-Q de residuales estandarizados de n", "aspect": 0.62, "x": {"label": "Cuantil normal teórico", "min": -3, "max": 3}, "y": {"label": "Residual estandarizado", "min": -3, "max": 3}, "series": [{"name": "Residuales (n)", "points": [[-2.499, -1.791], [-2.139, -1.712], [-1.94, -1.704], [-1.797, -1.673], [-1.684, -1.673], [-1.588, -1.673], [-1.506, -1.673], [-1.432, -1.633], [-1.366, -1.633], [-1.305, -1.594], [-1.248, -1.594], [-1.195, -1.594], [-1.146, -1.515], [-1.099, -1.396], [-1.054, -1.396], [-1.012, -1.199], [-0.971, -1.002], [-0.931, -0.804], [-0.894, -0.804], [-0.857, -0.765], [-0.821, -0.609], [-0.787, -0.57], [-0.753, -0.57], [-0.72, -0.57], [-0.688, -0.57], [-0.657, -0.57], [-0.626, -0.531], [-0.596, -0.531], [-0.566, -0.531], [-0.537, -0.52], [-0.509, -0.52], [-0.48, -0.52], [-0.453, -0.491], [-0.425, -0.48], [-0.398, -0.48], [-0.371, -0.48], [-0.344, -0.48], [-0.318, -0.362], [-0.292, -0.283], [-0.266, -0.265], [-0.24, -0.212], [-0.214, -0.208], [-0.189, -0.186], [-0.163, -0.186], [-0.138, -0.147], [-0.113, -0.129], [-0.088, -0.129], [-0.063, -0.129], [-0.038, -0.129], [-0.013, -0.09], [0.013, -0.09], [0.038, -0.068], [0.063, -0.068], [0.088, -0.05], [0.113, -0.05], [0.138, 0.051], [0.163, 0.13], [0.189, 0.13], [0.214, 0.13], [0.24, 0.147], [0.266, 0.316], [0.292, 0.395], [0.318, 0.395], [0.344, 0.395], [0.371, 0.395], [0.398, 0.395], [0.425, 0.435], [0.453, 0.435], [0.48, 0.435], [0.509, 0.435], [0.537, 0.768], [0.566, 0.847], [0.596, 0.865], [0.626, 0.865], [0.657, 0.886], [0.688, 0.886], [0.72, 0.904], [0.753, 0.926], [0.787, 0.944], [0.821, 0.944], [0.857, 0.965], [0.894, 0.965], [0.931, 0.965], [0.971, 1.022], [1.012, 1.044], [1.054, 1.062], [1.099, 1.062], [1.146, 1.062], [1.195, 1.152], [1.248, 1.22], [1.305, 1.242], [1.366, 1.349], [1.432, 1.547], [1.506, 1.586], [1.588, 1.744], [1.684, 1.744], [1.797, 1.783], [1.94, 1.783], [2.139, 1.941], [2.499, 1.941]]}, {"name": "Normal ideal", "points": [[-3, -3], [3, 3]], "line": true, "markers": false, "color": 2, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 1.7. Gráfico Q-Q de los residuales estandarizados de la recta de <var>n</var>.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Contrasta visualmente la normalidad de los residuales, supuesto en el que se fundamentan los intervalos de confianza y las pruebas <var>t</var> y <var>F</var> de la regresión.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los puntos forman escalones: los residuales se agrupan por nivel de concentración, consecuencia del sesgo sistemático de cada nivel.</p><p>Ambas colas quedan por dentro de la recta ideal (residuales extremos de ±1,9 frente a ±2,5 esperados): la distribución tiene colas más cortas que la normal (curtosis −0,76).</p><p>El resultado concuerda con Shapiro–Wilk (<var>p</var> = 0,007): la normalidad no se cumple en sentido estricto y los IC deben interpretarse como aproximados.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.8 · Bandas de confianza y de predicción">
+  <h2>Bandas de confianza y de predicción de la recta</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Recta de n con bandas de confianza y de predicción", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.325, "max": 1.455}, "series": [{"name": "Promedio por nivel", "points": [[0.0, 1.33358], [10.0, 1.35333], [20.0, 1.36878], [30.0, 1.38076], [40.0, 1.39191], [50.0, 1.40692], [60.0, 1.41955], [70.0, 1.43204], [80.0, 1.44574]], "color": 4}, {"name": "Recta", "points": [[0.0, 1.33704], [5.0, 1.34392], [10.0, 1.35081], [15.0, 1.3577], [20.0, 1.36458], [25.0, 1.37147], [30.0, 1.37835], [35.0, 1.38524], [40.0, 1.39213], [45.0, 1.39901], [50.0, 1.4059], [55.0, 1.41279], [60.0, 1.41967], [65.0, 1.42656], [70.0, 1.43344], [75.0, 1.44033], [80.0, 1.44722]], "line": true, "markers": false, "color": 1}, {"name": "IC 95 % de la recta", "points": [[0.0, 1.33787], [5.0, 1.34468], [10.0, 1.3515], [15.0, 1.35833], [20.0, 1.36517], [25.0, 1.37201], [30.0, 1.37887], [35.0, 1.38574], [40.0, 1.39264], [45.0, 1.39954], [50.0, 1.40646], [55.0, 1.4134], [60.0, 1.42034], [65.0, 1.42729], [70.0, 1.43425], [75.0, 1.44121], [80.0, 1.44817]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "Predicción 95 %", "points": [[0.0, 1.34213], [5.0, 1.34901], [10.0, 1.35588], [15.0, 1.36276], [20.0, 1.36964], [25.0, 1.37652], [30.0, 1.38341], [35.0, 1.39029], [40.0, 1.39718], [45.0, 1.40407], [50.0, 1.41096], [55.0, 1.41785], [60.0, 1.42474], [65.0, 1.43164], [70.0, 1.43853], [75.0, 1.44543], [80.0, 1.45233]], "line": true, "markers": false, "color": 3, "dash": 3}, {"name": "", "points": [[0.0, 1.33621], [5.0, 1.34316], [10.0, 1.35012], [15.0, 1.35706], [20.0, 1.364], [25.0, 1.37093], [30.0, 1.37784], [35.0, 1.38474], [40.0, 1.39162], [45.0, 1.39848], [50.0, 1.40533], [55.0, 1.41217], [60.0, 1.419], [65.0, 1.42582], [70.0, 1.43264], [75.0, 1.43945], [80.0, 1.44626]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "", "points": [[0.0, 1.33194], [5.0, 1.33884], [10.0, 1.34574], [15.0, 1.35263], [20.0, 1.35952], [25.0, 1.36641], [30.0, 1.3733], [35.0, 1.38019], [40.0, 1.38707], [45.0, 1.39396], [50.0, 1.40084], [55.0, 1.40772], [60.0, 1.4146], [65.0, 1.42148], [70.0, 1.42835], [75.0, 1.43523], [80.0, 1.4421]], "line": true, "markers": false, "color": 3, "dash": 3}]}</script>
+      </div>
+      <figcaption>Figura 1.8. Recta de <var>n</var> con bandas al 95&#8239;% y promedio de cada nivel.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Representa la incertidumbre de la recta ajustada y la de una predicción individual en todo el intervalo; esta última determina el intervalo de confianza de las muestras interpoladas.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La banda de confianza de la recta es estrecha (±0,0005 a ±0,0010 en <var>n</var>) gracias al elevado número de lecturas (<var>N</var> = 100).</p><p>La banda de predicción es mucho más ancha (±0,0051 en <var>n</var>, equivalente a ±3,7&#8239;% p/p) y casi constante: fija la incertidumbre de M1 y M2 obtenida con una sola lectura.</p><p>Ese ancho lo impone la falta de ajuste: la reproducibilidad del refractómetro (<var>s</var><sub>R</sub>) equivale apenas a 0,45&#8239;% p/p.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Sensibilidad analítica">
+  <h2>Sensibilidad analítica</h2>
+  <p class="lead">Sensibilidad de Mandel: <var>γ</var> = <var>m</var> / <var>s</var>. Su inverso, 1/<var>γ</var>, es la menor diferencia de concentración que se distingue con una lectura.</p>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 1.14. Sensibilidad de <var>n</var> y °Brix</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Pendiente <var>m</var> (por % p/p)</th><td class="num">1,377 × 10<sup>−3</sup></td><td class="num">0,757</td></tr>
+          <tr><th scope="row"><var>s</var><sub>r</sub> · <var>s</var><sub>R</sub></th><td class="num">5,34 × 10<sup>−4</sup> · 6,22 × 10<sup>−4</sup></td><td class="num">0,23 · 0,32</td></tr>
+          <tr><th scope="row"><var>γ</var> con <var>s</var><sub>r</sub> (por % p/p)</th><td class="num">2,58</td><td class="num">3,23</td></tr>
+          <tr><th scope="row"><var>γ</var> con <var>s</var><sub>R</sub> (por % p/p)</th><td class="num">2,21</td><td class="num">2,34</td></tr>
+          <tr><th scope="row">1/<var>γ</var> con <var>s</var><sub>r</sub> · <var>s</var><sub>R</sub> (% p/p)</th><td class="num"><strong>0,39 · 0,45</strong></td><td class="num"><strong>0,31 · 0,43</strong></td></tr>
+          <tr><th scope="row">LOQ de la recta (% p/p)</th><td class="num">18,4</td><td class="num">35,1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Ambas escalas distinguen diferencias de unas 0,3–0,5&#8239;% p/p de glicerina; °Brix es incluso algo más sensible con <var>s</var><sub>r</sub> (1/<var>γ</var> = 0,31 frente a 0,39&#8239;%).</p><p>La ventaja de <var>n</var> en el LOQ (18,4 frente a 35,1&#8239;%) se debe a que <var>n</var> se ajusta mejor a una recta, no a que se lea con más precisión.</p><p>El LOD y el LOQ calculados con <var>s</var><sub><var>y</var>/<var>x</var></sub> están inflados por la falta de ajuste; con un buen modelo, el límite real lo marca la precisión de lectura.</p></div>
+  </div>
+</section>
+<!-- P1-EXTRA:fin -->
+
+
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Resultados">
   <h2>Resultados</h2>
   <div class="grid-2">
@@ -445,7 +701,7 @@
   <h2>Discusión</h2>
   <ul class="points">
     <li>Linealidad: <var>R</var><sup>2</sup> = 0,9956 (<var>n</var>) y 0,9840 (°Brix), pero la falta de ajuste es significativa; un modelo cuadrático en <var>n</var> sube <var>R</var><sup>2</sup> a 0,99764 y baja <var>s</var><sub><var>y</var>/<var>x</var></sub> a 0,0019, aunque la falta de ajuste persiste (<var>p</var> &lt; 0,001).</li>
-    <li><var>n</var> es la respuesta más precisa: LOQ 18,4&#8239;% p/p frente a 35,1&#8239;% p/p con °Brix.</li>
+    <li><var>n</var> tiene menor LOQ por su mejor linealidad; en precisión de lectura ambas escalas distinguen 0,3–0,4&#8239;% p/p (sensibilidad de Mandel). LOQ 18,4&#8239;% p/p frente a 35,1&#8239;% p/p con °Brix.</li>
     <li>M1 (40,6 ± 3,7&#8239;%) y M2 (47,2 ± 2,6&#8239;%) caen dentro del intervalo calibrado; con las lecturas de los grupos 1–5 se obtiene 40,2 ± 1,3 y 47,4 ± 1,2&#8239;%.</li>
     <li>Efecto de la temperatura (19–20&#8239;°C) y del operador: [___]</li>
   </ul>
@@ -461,8 +717,8 @@
     <p class="box__label">Conclusión · Práctica 1</p>
     <ul class="points">
       <li>M1 contiene 40,6 ± 3,7&#8239;% p/p y M2 47,2 ± 2,6&#8239;% p/p de glicerina (curva de <var>n</var>, lecturas del grupo 5).</li>
-      <li>El índice de refracción es más sensible y preciso que °Brix para cuantificar glicerina.</li>
-      <li>La curvatura detectada sugiere [___]</li>
+      <li>La curva es cuadrática: con ese modelo M1 = 39,0 ± 2,7&#8239;% y M2 = 45,8 ± 2,0&#8239;% p/p, y <var>n</var> y °Brix coinciden.</li>
+      <li>La medición es repetible y reproducible entre grupos (|<var>z</var>| ≤ 1) y robusta a los atípicos; la incertidumbre la domina el modelo, no la lectura.</li>
     </ul>
   </div>
 </section>
@@ -565,22 +821,49 @@
   <p class="eq-legend">Mentol: <var>α</var> = lectura − 180°. Fuente: «Hoja 1», AIF Módulo II, jueves.</p>
 </section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Gráficos">
-  <h2>Gráficos</h2>
-  <div class="grid-3">
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.1 · Lecturas de la lactosa">
+  <h2>Lecturas de rotación óptica de la lactosa</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Rotación observada de la lactosa por lectura", "aspect": 0.62, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": 9, "max": 12}, "series": [{"name": "Lactosa 1", "points": [[1, 10.7], [2, 10.5], [3, 10.1], [4, 10.3], [5, 10.3], [6, 10.6], [7, 10.2], [8, 9.6], [9, 10.8], [10, 10.8]], "line": true}, {"name": "Lactosa 2", "points": [[1, 10.2], [2, 10.2], [3, 10.1], [4, 11.2], [5, 10.1], [6, 11.1], [7, 10.6], [8, 10.9], [9, 11.1], [10, 9.6]], "line": true}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Rotación observada de la lactosa por lectura", "aspect": 0.6, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": 9, "max": 12}, "series": [{"name": "Lactosa 1", "points": [[1, 10.7], [2, 10.5], [3, 10.1], [4, 10.3], [5, 10.3], [6, 10.6], [7, 10.2], [8, 9.6], [9, 10.8], [10, 10.8]], "line": true}, {"name": "Lactosa 2", "points": [[1, 10.2], [2, 10.2], [3, 10.1], [4, 11.2], [5, 10.1], [6, 11.1], [7, 10.6], [8, 10.9], [9, 11.1], [10, 9.6]], "line": true}]}</script>
       </div>
-      <figcaption>Figura 2.1. <var>α</var> de las dos soluciones de lactosa.</figcaption>
+      <figcaption>Figura 2.1. <var>α</var> de las dos soluciones de lactosa en el orden de lectura.</figcaption>
     </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite evaluar la estabilidad de la medición (deriva, tendencias o valores aislados) antes de resumirla mediante el promedio y la desviación estándar.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas fluctúan alrededor de +10,45° entre 9,6° y 11,2°, sin tendencia con el orden de lectura (Spearman: <var>p</var> = 0,60 y 0,83).</p><p>Las dos soluciones se superponen en todo el registro (Welch: <var>p</var> = 0,57), por lo que pueden combinarse en una sola serie (<var>n</var> = 20).</p><p>La ausencia de deriva sugiere que la mutarrotación de la lactosa no fue apreciable durante las mediciones.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.2 · Lecturas del mentol">
+  <h2>Lecturas de rotación óptica del mentol</h2>
+  <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Rotación observada del mentol por lectura", "aspect": 0.62, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": -5.5, "max": -3.5}, "series": [{"name": "Mentol 1", "points": [[1, -4.8], [2, -4.7], [3, -4.8], [4, -4.4], [5, -4.3], [6, -4.2], [7, -4.8], [8, -4.9], [9, -4.5], [10, -4.8]], "line": true}, {"name": "Mentol 2", "points": [[1, -5.0], [2, -4.9], [3, -4.7], [4, -4.7], [5, -4.9], [6, -4.2], [7, -4.5], [8, -5.0], [9, -4.9], [10, -4.1]], "line": true}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Rotación observada del mentol por lectura", "aspect": 0.6, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": -5.5, "max": -3.5}, "series": [{"name": "Mentol 1", "points": [[1, -4.8], [2, -4.7], [3, -4.8], [4, -4.4], [5, -4.3], [6, -4.2], [7, -4.8], [8, -4.9], [9, -4.5], [10, -4.8]], "line": true}, {"name": "Mentol 2", "points": [[1, -5.0], [2, -4.9], [3, -4.7], [4, -4.7], [5, -4.9], [6, -4.2], [7, -4.5], [8, -5.0], [9, -4.9], [10, -4.1]], "line": true}]}</script>
       </div>
-      <figcaption>Figura 2.2. <var>α</var> de las dos soluciones de mentol (lectura − 180°).</figcaption>
+      <figcaption>Figura 2.2. <var>α</var> de las dos soluciones de mentol (lectura − 180°) en el orden de lectura.</figcaption>
     </figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado · requiere <var>c</var> y <var>l</var></div><figcaption>Figura 2.3</figcaption></figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica la estabilidad de la lectura y la concordancia entre las dos soluciones antes de combinar los datos y calcular la precisión.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas oscilan alrededor de −4,66° entre −5,0° y −4,1°, sin tendencia significativa con el orden de lectura (Spearman: <var>p</var> = 0,76 y 0,28).</p><p>Las dos soluciones coinciden (Welch: <var>p</var> = 0,60) y el signo negativo confirma el carácter levógiro del mentol.</p><p>La distribución se aparta de la normal (Shapiro–Wilk: <var>p</var> = 0,030), posiblemente por la lectura en pasos discretos de 0,1°.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.3 · [α] experimental frente a tabulada">
+  <h2>Rotación específica experimental frente a la tabulada</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado · requiere <var>c</var>, <var>l</var> y <var>λ</var></div>
+      <figcaption>Figura 2.3. Pendiente.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Evalúa la exactitud del método: muestra si el intervalo de confianza de [<var>α</var>] experimental incluye el valor de referencia de cada analito.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: requiere la concentración de cada solución, la longitud del tubo y la longitud de onda. [___]</p></div>
+    </div>
   </div>
 </section>
 

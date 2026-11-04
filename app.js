@@ -499,8 +499,9 @@
 
     var legend = [];
     series.forEach(function (s, k) {
-      var cls = 's' + ((k % 4) + 1);
-      var dash = spec.type === 'species' && k > 0 ? ' dash-' + (k + 1 > 3 ? 3 : k + 1) : '';
+      // "color" (1–4) y "dash" (2 o 3) opcionales por serie
+      var cls = 's' + (s.color || ((k % 4) + 1));
+      var dash = s.dash ? ' dash-' + s.dash : (spec.type === 'species' && k > 0 ? ' dash-' + (k + 1 > 3 ? 3 : k + 1) : '');
       var shape = MARKERS[k % MARKERS.length];
       var eq = '';
 
@@ -525,7 +526,7 @@
         ? '<svg viewBox="0 0 28 14" aria-hidden="true"><line class="chart__line ' + cls + dash + '" x1="1" y1="7" x2="27" y2="7"/></svg>'
         : '<svg viewBox="0 0 28 14" aria-hidden="true">' + (s.fit ? '<line class="chart__fit ' + cls + '" x1="1" y1="7" x2="27" y2="7"/>' : '') + marker(shape, 14, 7, 4, cls) + '</svg>';
       // Los nombres vienen del autor (pueden llevar <sub>/<sup>)
-      legend.push('<li>' + sw + '<span>' + s.name + '</span>' + (eq ? '&ensp;' + eq : '') + '</li>');
+      if (s.name) legend.push('<li>' + sw + '<span>' + s.name + '</span>' + (eq ? '&ensp;' + eq : '') + '</li>');
     });
 
     svg.push('</svg>');
