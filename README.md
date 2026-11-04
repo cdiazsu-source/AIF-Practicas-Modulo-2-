@@ -42,6 +42,16 @@ vista del presentador (tecla S).
 - `app.js` — prepara las diapositivas (franja base, número de página, marcas de pendiente,
   estados, índice automático, gráficos SVG) y conecta la barra de controles con reveal.js.
 - `vendor/reveal/` — reveal.js 6.0.2 sin modificar: núcleo y plugins `notes`, `search` y `zoom`.
+- `assets/escudo-unal.png` — escudo de la Universidad Nacional de Colombia.
+- `assets/fonts/` — tipografía institucional Ancizar Sans (OFL 1.1), copia local.
+
+### Identidad gráfica
+
+Línea gráfica institucional UNAL: oliva `#677d29` / `#4c5c1e` (encabezados, franja base,
+botones), petróleo `#003241` / `#005e6f` (títulos y subtítulos), superficies `#f6f6f6` /
+`#fafafa`, tipografía Ancizar Sans, encabezado curvo con el escudo en insignia circular y
+tarjeta flotante en portada y cierre. Cada práctica conserva su color de acento (paleta
+apta para daltonismo) en el filete lateral, la franja base y los elementos de contenido.
 
 Cada diapositiva lleva una franja base con la asignatura, el módulo, la práctica
 (tomada de `data-group`) y el número de página. Los textos de asignatura y módulo se

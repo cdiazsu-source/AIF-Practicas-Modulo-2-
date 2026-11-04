@@ -20,15 +20,24 @@
 /* 1 · TOKENS ---------------------------------------------------------- */
 :root {
   color-scheme: light;
-  --bg: #f7f9fc;
+  /* Identidad institucional UNAL (línea gráfica de referencia):
+     oliva + petróleo, superficies casi blancas. */
+  --brand-olive: #677d29;
+  --brand-olive-deep: #4c5c1e;
+  --title: #003241;        /* títulos */
+  --subtitle: #005e6f;     /* subtítulos y enlaces */
+  --overlay-tint: #00566f80;
+
+  --bg: #f6f6f6;
   --surface: #ffffff;
-  --surface-2: #f2f6fa;
-  --text: #1c2733;
-  --muted: #4f5b69;
-  --line: #d6dde6;
-  --line-soft: #e8edf3;
-  --zebra: #f7f9fc;
-  --focus: #1559c7;
+  --surface-2: #f3f5ef;    /* gris con un toque oliva */
+  --text: #262626;
+  --muted: #555b5e;
+  --line: #d4d8d0;
+  --line-soft: #e8ebe4;
+  --line-strong: #a7a7a7;
+  --zebra: #f8f9f6;
+  --focus: #677d29;
 
   /* "Pendiente": fondo punteado */
   --pending-bg: #fff7dc;
@@ -43,7 +52,7 @@
 
   /* Acentos por práctica. Basados en la paleta Okabe–Ito (apta para
      daltonismo), oscurecidos para contraste AA sobre blanco. */
-  --neutral: #3d4b5c;
+  --neutral: var(--brand-olive);   /* Apertura y Cierre */
   --p1: #0b6aa8;  /* azul */
   --p2: #b04600;  /* bermellón */
   --p3: #007a5a;  /* verde azulado */
@@ -59,12 +68,15 @@
 
   --accent: var(--neutral);
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  /* Ancizar Sans: tipografía institucional (copia local en assets/fonts) */
+  --font-sans: "Ancizar Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   --toolbar-h: 56px;
   --toc-w: 380px;
-  --radius: 6px;
+  --radius: 10px;
+  --radius-slide: 14px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, .18), 0 4px 10px rgba(0, 0, 0, .12);
 }
 
 /* Asignación del acento: sirve para diapositivas, cuerpo, tarjetas y puntos */
@@ -173,12 +185,12 @@ a { color: inherit; }
   height: 40px; min-width: 40px; padding: 0 .8em;
   font: inherit; font-size: 14px; color: var(--text);
   background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border: .8px solid var(--line-strong);
+  border-radius: 999px;
   cursor: pointer;
   text-decoration: none;
 }
-.btn:hover { background: var(--surface-2); }
+.btn:hover { background: var(--surface-2); border-color: var(--brand-olive); }
 .btn[aria-pressed="true"], .btn[aria-expanded="true"] {
   background: var(--surface-2);
   border-color: var(--accent);
@@ -199,9 +211,9 @@ a { color: inherit; }
   width: 100%; height: 100%;
   flex-direction: column;
   background: var(--surface);
-  box-shadow: 0 1px 2px rgba(28, 39, 51, .06), 0 6px 24px rgba(28, 39, 51, .07);
+  box-shadow: var(--shadow-card);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-slide);
   overflow: hidden;
   /* Contenedor de consulta: todo el contenido escala con el ancho */
   container-type: inline-size;
@@ -235,42 +247,54 @@ a { color: inherit; }
   overflow: auto;
 }
 
-/* Franja base (creada por app.js): asignatura · módulo · práctica · página.
-   Fondo con un tinte suave del color de la práctica. */
+/* Franja base (creada por app.js), al estilo del pie institucional:
+   fondo oliva oscuro, escudo en insignia blanca y un filete superior con
+   el color de la práctica. */
 .slide__band {
   flex: none;
-  display: flex; align-items: center; gap: 1.4em;
-  height: 3.4cqw;
-  padding: 0 1.8cqw 0 4.8cqw;
-  font-size: 1.15cqw; line-height: 1.2;
-  color: var(--muted);
-  background: color-mix(in srgb, var(--accent) 9%, #ffffff);
-  border-top: 2px solid var(--accent);
+  display: flex; align-items: center; gap: 1.3em;
+  height: 3.6cqw;
+  padding: 0 1.8cqw 0 1.4cqw;
+  font-size: 1.12cqw; line-height: 1.2;
+  color: rgba(255, 255, 255, .86);
+  background: var(--brand-olive-deep);
+  border-top: .3cqw solid var(--accent);
   white-space: nowrap;
 }
 .slide__band > span { overflow: hidden; text-overflow: ellipsis; }
-.band__course { font-weight: 650; color: var(--text); }
+.band__seal {
+  flex: none;
+  display: grid; place-items: center;
+  width: 2.6cqw; height: 2.6cqw;
+  background: #fff; border-radius: 50%;
+}
+.band__seal img { width: 84%; height: 84%; object-fit: contain; display: block; }
+.band__fac { color: rgba(255, 255, 255, .8); }
+.band__course { font-weight: 600; color: #fff; }
 .band__short { display: none; }
+.band__course::before,
 .band__module::before,
 .band__practice::before {
   content: ""; display: inline-block; vertical-align: middle;
-  width: .35em; height: .35em; margin-right: 1.4em; margin-top: -.15em;
-  border-radius: 50%; background: var(--accent);
+  width: .35em; height: .35em; margin-right: 1.3em; margin-top: -.15em;
+  border-radius: 50%; background: rgba(255, 255, 255, .6);
 }
-.band__practice { font-weight: 650; color: var(--accent); flex: 1 1 auto; min-width: 0; }
+.band__practice { font-weight: 600; color: #fff; flex: 1 1 auto; min-width: 0; }
 /* Número de página */
 .slide__num {
   flex: none;
   margin-left: auto;
-  font-size: 1.25em; font-weight: 700; color: var(--accent);
+  font-size: 1.3em; font-weight: 700; color: #fff;
   font-variant-numeric: tabular-nums;
 }
-.band__of { font-weight: 500; color: var(--muted); font-size: .8em; }
+.band__of { font-weight: 400; color: rgba(255, 255, 255, .7); font-size: .8em; }
 
 .slide h2 {
-  font-size: 2em; font-weight: 650; line-height: 1.15;
-  letter-spacing: -.01em;
+  font-size: 2em; font-weight: 600; line-height: 1.15;
+  letter-spacing: .01em;
+  color: var(--title);
 }
+.slide h3 { color: var(--title); }
 .kicker {
   /* Sin mayúsculas forzadas: respetan la notación (pKa, NaOH) */
   font-size: .8em; font-weight: 650;
@@ -280,35 +304,75 @@ a { color: inherit; }
 }
 .lead { font-size: 1.05em; color: var(--muted); max-width: 70ch; }
 
-/* Portada y cierre */
-.slide--cover .slide__inner { justify-content: center; }
-.cover { display: flex; flex-direction: column; gap: 1.1em; }
-.cover__inst {
-  font-size: .85em; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--muted);
+/* Portada y cierre: fondo petróleo-oliva, encabezado curvo oliva con el
+   escudo en insignia circular y tarjeta flotante (línea gráfica UNAL). */
+.reveal .slides section.slide--cover {
+  background-color: #14303a;
+  background-image:
+    linear-gradient(var(--overlay-tint), var(--overlay-tint)),
+    radial-gradient(120% 90% at 15% 0%, #3a5f6b 0%, transparent 55%),
+    radial-gradient(120% 100% at 100% 100%, var(--brand-olive-deep) 0%, transparent 60%),
+    linear-gradient(160deg, #0d3b47 0%, #14303a 45%, #1c2b22 100%);
+  border-color: transparent;
 }
-.cover__title { font-size: 3.4em; font-weight: 700; line-height: 1.05; letter-spacing: -.02em; }
-.slide h2.cover__title { font-size: 3.4em; }
-.cover__subtitle { font-size: 1.3em; color: var(--muted); }
+.reveal .slides section.slide--cover::before { display: none; }
+.inst-header {
+  position: relative; flex: none;
+  margin-right: 22%;
+  padding: 2cqw 3cqw 2cqw 12.4cqw;
+  background: var(--brand-olive);
+  border-radius: 0 0 3.2cqw 0;
+  color: #fff;
+  font-size: 1.42cqw; line-height: 1.3;
+}
+.inst-header__badge {
+  position: absolute; left: 2.6cqw; top: 1cqw;
+  width: 8.2cqw; height: 8.2cqw;
+  display: grid; place-items: center;
+  background: #fff; border-radius: 50%;
+  box-shadow: var(--shadow-card);
+}
+.inst-header__badge img { width: 80%; height: 80%; object-fit: contain; }
+.inst-header__kicker {
+  font-size: .82em; letter-spacing: .04em; text-transform: uppercase; opacity: .92;
+}
+.inst-header__name { font-size: 1.25em; font-weight: 600; margin-top: .1em; }
+.inst-header__dept { font-size: .95em; opacity: .92; }
+
+.slide--cover .slide__inner { justify-content: center; padding-top: 2cqw; padding-bottom: 2cqw; }
+.cover {
+  display: flex; flex-direction: column; gap: .9em;
+  background: #fafafa;
+  border-radius: 1.6cqw;
+  box-shadow: var(--shadow-card);
+  padding: 1.8em 2.8em;
+  max-width: 62em;
+}
+.cover__inst {
+  font-size: .85em; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--subtitle);
+}
+.cover__title { font-size: 3.2em; font-weight: 600; line-height: 1.05; letter-spacing: .005em; color: var(--title); }
+.slide h2.cover__title { font-size: 3.2em; }
+.cover__subtitle { font-size: 1.3em; font-weight: 500; color: var(--subtitle); }
 .cover__bars { list-style: none; padding: 0; display: flex; gap: .4em; }
-.cover__bars li { width: 3.2em; height: .35em; border-radius: 1px; background: var(--accent); }
-.cover__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-top: .6em; }
+.cover__bars li { width: 3.2em; height: .35em; border-radius: 999px; background: var(--accent); }
+.cover__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-top: .4em; }
 .cover__label {
-  font-size: .75em; font-weight: 650; text-transform: uppercase; letter-spacing: .08em;
-  color: var(--muted); margin-bottom: .4em;
+  font-size: .75em; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--brand-olive-deep); margin-bottom: .4em;
 }
 .cover__team { list-style: none; padding: 0; font-size: 1.15em; display: grid; gap: .15em; }
 .cover__meta { display: grid; grid-template-columns: 1fr 1fr; gap: .8em 1.4em; align-content: start; }
 .cover__meta dt {
-  font-size: .75em; font-weight: 650; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+  font-size: .75em; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--brand-olive-deep);
 }
 .cover__meta dd { margin: 0; font-size: 1.1em; }
 
 /* Portada de sección */
 .slide--section .slide__inner { justify-content: center; gap: .7em; }
 /* Portadas con un lavado claro del color de la práctica */
-.reveal .slides section.slide--section,
-.reveal .slides section.slide--cover {
+.reveal .slides section.slide--section {
   background:
     radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
     var(--surface);
@@ -318,7 +382,7 @@ a { color: inherit; }
   color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -.03em;
 }
 .section__kicker {
-  font-size: .85em; font-weight: 650; text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
+  font-size: .85em; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--subtitle);
 }
 .slide h2.section__title { font-size: 2.6em; max-width: 26ch; }
 
@@ -364,7 +428,7 @@ a { color: inherit; }
   padding: .75em 1em;
   background: var(--surface-2);
   border-left: .28em solid var(--accent);
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
   display: grid; gap: .3em;
 }
 .box__label {
@@ -375,7 +439,7 @@ a { color: inherit; }
 .box.key {
   background: var(--surface);
   border: 1.5px solid var(--accent);
-  border-radius: 4px;
+  border-radius: var(--radius);
 }
 .key__value { font-size: 1.5em; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.2; }
 .key__meta { font-size: .85em; color: var(--muted); }
@@ -387,7 +451,7 @@ a { color: inherit; }
   background: var(--surface);
   border: 1px solid var(--line);
   border-top: .3em solid var(--accent);
-  border-radius: 4px;
+  border-radius: var(--radius);
   padding: 1em 1.2em;
 }
 .box.conclusion .points { font-size: 1.1em; gap: .7em; }
@@ -401,7 +465,7 @@ a { color: inherit; }
   font-size: 1.2em;
   padding: .45em 3.2em .45em .9em;
   background: var(--surface-2);
-  border-radius: 4px;
+  border-radius: var(--radius);
   font-variant-numeric: lining-nums;
   overflow-x: auto;
 }
@@ -596,11 +660,18 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 .toc[hidden] { display: none; }
 @keyframes toc-in { from { transform: translateX(-12px); opacity: 0; } to { transform: none; opacity: 1; } }
 
+/* Cabecera del índice: franja oliva con borde curvo, como el encabezado institucional */
 .toc__head {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 12px 8px 16px;
+  padding: 12px 12px 12px 16px;
+  margin: 0 24px 12px 0;
+  background: var(--brand-olive);
+  color: #fff;
+  border-radius: 0 0 22px 0;
 }
-.toc__head h2 { font-size: 17px; }
+.toc__head h2 { font-size: 17px; font-weight: 600; }
+.toc__head .btn { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .6); }
+.toc__head .btn:hover { background: rgba(255, 255, 255, .15); border-color: #fff; }
 .toc__filters { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 10px; border-bottom: 1px solid var(--line); }
 .chip {
   display: inline-flex; align-items: center; gap: 6px;
@@ -715,11 +786,21 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
     height: auto; min-height: 34px; padding: 6px 12px 6px 20px;
     font-size: 12px; gap: 10px;
   }
+  body.is-compact:not(.is-overview) .band__fac,
+  body.is-compact:not(.is-overview) .band__course::before,
   body.is-compact:not(.is-overview) .band__long,
   body.is-compact:not(.is-overview) .band__module::before,
   body.is-compact:not(.is-overview) .band__practice::before { display: none; }
   body.is-compact:not(.is-overview) .band__short { display: inline; }
   body.is-compact:not(.is-overview) .slide__num { font-size: 15px; }
+  body.is-compact:not(.is-overview) .band__seal { width: 24px; height: 24px; }
+  body.is-compact:not(.is-overview) .slide__band { padding-left: 10px; border-top-width: 3px; }
+  body.is-compact:not(.is-overview) .inst-header {
+    margin-right: 12%; font-size: 13px; padding: 14px 16px 14px 84px; border-radius: 0 0 28px 0;
+  }
+  body.is-compact:not(.is-overview) .inst-header__badge { width: 60px; height: 60px; left: 12px; top: 8px; }
+  body.is-compact:not(.is-overview) .cover { padding: 18px 16px; border-radius: 16px; }
+  body.is-compact:not(.is-overview) .slide--cover .slide__inner { padding: 20px 12px 24px; }
   body.is-compact:not(.is-overview) .slide__inner {
     font-size: 15px;
     padding: 20px 16px 28px 20px;

@@ -54,6 +54,8 @@
   var COURSE = body.dataset.course || 'Análisis Instrumental Farmacéutico';
   var MODULE = body.dataset.module || 'Módulo II';
   var COURSE_SHORT = body.dataset.courseShort || 'AIF';   // para pantallas estrechas
+  var FACULTY = body.dataset.faculty || 'Facultad de Ciencias';
+  var SEAL = body.dataset.seal || 'assets/escudo-unal.png';
 
   /* ---------- Utilidades ---------- */
 
@@ -91,6 +93,9 @@
       while (s.firstChild) inner.appendChild(s.firstChild);
       s.appendChild(inner);
     }
+    // El encabezado institucional (portada y cierre) va a sangre, fuera del contenido
+    var head = inner.querySelector(':scope > .inst-header');
+    if (head) s.insertBefore(head, inner);
 
     // Título para el índice
     var h = inner.querySelector('h1, h2');
@@ -111,6 +116,8 @@
     band.className = 'slide__band';
     band.setAttribute('aria-hidden', 'true');
     band.innerHTML =
+      '<span class="band__seal"><img src="' + esc(SEAL) + '" alt=""></span>' +
+      '<span class="band__fac">' + esc(FACULTY) + '</span>' +
       '<span class="band__course"><span class="band__long">' + esc(COURSE) + '</span>' +
         '<span class="band__short">' + esc(COURSE_SHORT) + '</span></span>' +
       '<span class="band__module">' + esc(MODULE) + '</span>' +
