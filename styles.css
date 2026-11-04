@@ -1084,3 +1084,17 @@ html.reveal-print .table-wrap--tall table.data td { padding-top: .1em; padding-b
 .data--compact th, .data--compact td { padding-top: .28em; padding-bottom: .28em; }
 .points--compact { gap: .35em; font-size: .92em; }
 body.is-compact:not(.is-overview) .mol-row--2 { grid-template-columns: 1fr 1fr; }
+
+/* Fórmulas: equivalente en Excel e interpretación coloquial */
+.eqd__xl, .eqd__plain { margin: 0; }
+.eqd__xl { padding-top: .35em; border-top: 1px dotted var(--line-strong); }
+.eqd__tagline {
+  display: inline-block; margin-right: .5em;
+  font-size: .78em; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 80%, var(--text));
+}
+.eqd__xl code {
+  font-family: var(--font-mono); font-size: .9em;
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px;
+  padding: .05em .35em; overflow-wrap: anywhere;
+}
