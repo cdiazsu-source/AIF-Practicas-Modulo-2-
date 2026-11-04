@@ -2056,9 +2056,9 @@
   <h2>Método</h2>
   <div class="grid-2">
     <ol class="steps">
-      <li>Preparar el solvente NaOH [___]&#8239;mol/L.</li>
-      <li>Preparar soluciones madre de ACE ([___]&#8239;μg/mL) y CAF ([___]&#8239;μg/mL).</li>
-      <li>Preparar 5 patrones de cada analito por duplicado independiente.</li>
+      <li>Preparar el solvente NaOH 0,1843&#8239;N (seleccionado en la prueba de solubilidad).</li>
+      <li>Preparar soluciones madre de ACE (12,4&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 99,2&#8239;μg/mL) y CAF (12,8&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 102,4&#8239;μg/mL).</li>
+      <li>Preparar 5 patrones de cada analito por duplicado independiente (0,50–1,20&#8239;mL de cada madre a 10&#8239;mL).</li>
       <li>Leer cada patrón a 256 y 273&#8239;nm.</li>
       <li>Preparar [___] mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
     </ol>
@@ -2095,11 +2095,11 @@
       <caption>Tabla 5.1. Avance de los datos de la práctica 5</caption>
       <thead><tr><th scope="col">Elemento</th><th scope="col">Detalle</th><th scope="col">Estado</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Curva C1 · ACE 256&#8239;nm</th><td>Propia: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Curva C2 · CAF 273&#8239;nm</th><td>Propia: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Curva C1 · ACE 256&#8239;nm</th><td>Propia: 5 niveles por duplicado</td><td><span class="status" data-status="done"></span></td></tr>
+        <tr><th scope="row">Curva C2 · CAF 273&#8239;nm</th><td>Propia: 5 niveles por duplicado + 19,46&#8239;μg/mL</td><td><span class="status" data-status="done"></span></td></tr>
         <tr><th scope="row">Curva C3 · ACE 273&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Curva C4 · CAF 256&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Pendientes e interceptos</th><td>4 regresiones con IC</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Pendientes e interceptos</th><td>4 regresiones con IC (listas: C1 y C2)</td><td><span class="status" data-status="partial"></span></td></tr>
         <tr><th scope="row">Determinante <var>D</var></th><td>Ecuación (5.3)</td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Absorbancias de mezclas</th><td><var>A</var><sub>1</sub> y <var>A</var><sub>2</sub></td><td><span class="status" data-status="pending"></span></td></tr>
         <tr><th scope="row">Concentraciones calculadas</th><td>Ecuación (5.4)</td><td><span class="status" data-status="pending"></span></td></tr>
@@ -2114,27 +2114,28 @@
   <div class="grid-2">
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 5.2. Patrones de acetaminofén</caption>
+        <caption>Tabla 5.2. Patrones de acetaminofén (duplicados)</caption>
         <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">1</th><td class="num">4,96</td><td class="num mono">0,335 · 0,315</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">6,94</td><td class="num mono">0,501 · 0,454</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">8,93</td><td class="num mono">0,515 · 0,533</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">9,92</td><td class="num mono">0,628 · 0,653</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">11,90</td><td class="num mono">0,766 · 0,738</td><td class="num mono">[___]</td></tr>
         </tbody>
       </table>
     </div>
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 5.3. Patrones de cafeína</caption>
+        <caption>Tabla 5.3. Patrones de cafeína (duplicados)</caption>
         <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">1</th><td class="num">5,12</td><td class="num mono">[___]</td><td class="num mono">0,317 · 0,325</td></tr>
+          <tr><th scope="row">2</th><td class="num">7,17</td><td class="num mono">[___]</td><td class="num mono">0,409 · 0,411</td></tr>
+          <tr><th scope="row">3</th><td class="num">8,70</td><td class="num mono">[___]</td><td class="num mono">0,443 · 0,518</td></tr>
+          <tr><th scope="row">4</th><td class="num">10,24</td><td class="num mono">[___]</td><td class="num mono">0,580 · 0,600</td></tr>
+          <tr><th scope="row">5</th><td class="num">12,29</td><td class="num mono">[___]</td><td class="num mono">0,600 · 0,562</td></tr>
+          <tr><th scope="row">6</th><td class="num">19,46</td><td class="num mono">[___]</td><td class="num mono">0,820 · —</td></tr>
         </tbody>
       </table>
     </div>
@@ -2150,8 +2151,8 @@
         <caption>Tabla G12. <var>λ</var><sub>máx</sub> de cada analito <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Acetaminofén</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">Cafeína</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Acetaminofén</th><td class="num">256</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Cafeína</th><td class="num">273</td><td class="num">[___]</td></tr>
         </tbody>
       </table>
     </div>
@@ -2160,10 +2161,10 @@
         <caption>Tabla G13. Curva de calibración · acetaminofén <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
-          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
-          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
-          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>256&#8239;nm · [___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>4,96–11,90&#8239;μg/mL (0,315–0,766&#8239;UA)</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>99,2&#8239;μg/mL (12,4&#8239;mg/25&#8239;mL; 10 → 50&#8239;mL)</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 4,96 · C2 6,94 · C3 8,93 · C4 9,92 · C5 11,90</td></tr>
         </tbody>
       </table>
     </div>
@@ -2173,10 +2174,10 @@
         <caption>Tabla G14. Curva de calibración · cafeína <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
-          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
-          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
-          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>273&#8239;nm · [___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>5,12–12,29&#8239;μg/mL (0,317–0,600&#8239;UA)</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>102,4&#8239;μg/mL (12,8&#8239;mg/25&#8239;mL; 10 → 50&#8239;mL)</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 5,12 · C2 7,17 · C3 8,70 · C4 10,24 · C5 12,29</td></tr>
         </tbody>
       </table>
     </div>
@@ -2184,13 +2185,228 @@
   <p class="eq-legend">Corresponde a la «Práctica 5» de las guías. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Gráficos">
-  <h2>Gráficos</h2>
+<!-- P5-ACE:inicio -->
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.1 · Curva C1 del acetaminofén">
+  <h2>Curva de calibración del acetaminofén (C1, 256&#8239;nm)</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Curva de calibración del acetaminofén a 256 nm", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 14}, "y": {"label": "A", "min": 0, "max": 0.9}, "series": [{"name": "Lecturas (duplicados)", "points": [[4.96, 0.335], [4.96, 0.315], [6.944, 0.501], [6.944, 0.454], [8.928, 0.515], [8.928, 0.533], [9.92, 0.628], [9.92, 0.653], [11.904, 0.766], [11.904, 0.738]], "fit": true, "color": 1}, {"name": "Media por nivel", "points": [[4.96, 0.325], [6.944, 0.4775], [8.928, 0.524], [9.92, 0.6405], [11.904, 0.752]], "color": 2}]}</script>
+      </div>
+      <figcaption>Figura 5.1. Absorbancia a 256&#8239;nm frente a concentración: 5 niveles por duplicado (<var>N</var> = 10) con la recta de mínimos cuadrados.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica la ley de Lambert-Beer para el fenolato del acetaminofén en NaOH y proporciona la pendiente <var>m</var><sub>ACE,1</sub> del sistema de ecuaciones (5.1)–(5.4).</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La respuesta es lineal en todo el intervalo: <var>A</var> = 0,0597·<var>c</var> + 0,035 (<var>R</var><sup>2</sup> = 0,962), con intercepto nulo (<var>p</var> = 0,38) y sin curvatura (término cuadrático, <var>p</var> = 0,73).</p><p>Todas las lecturas caen en 0,32–0,77&#8239;UA. Las medias de 8,93&#8239;μg/mL quedan bajo la recta y la lectura 0,501 de 6,94&#8239;μg/mL sobre ella.</p><p>El polinomio de grado 4 de la hoja (<var>R</var><sup>2</sup> = 0,990) usa 5 parámetros para 5 niveles: pasa por las medias y no tiene sentido físico.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.2 · Residuales C1">
+  <h2>Residuales de la curva del acetaminofén</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva del acetaminofén", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 13}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales", "points": [[4.96, 0.335], [4.96, 0.315], [6.944, 0.501], [6.944, 0.454], [8.928, 0.515], [8.928, 0.533], [9.92, 0.628], [9.92, 0.653], [11.904, 0.766], [11.904, 0.738]]}]}</script>
+      </div>
+      <figcaption>Figura 5.2. Residuales de la recta de C1 frente a la concentración.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Comprueba los supuestos de la regresión: un patrón curvo indicaría falta de linealidad y un embudo, varianza no constante.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales se reparten sin patrón curvo ni forma de embudo; son normales (Shapiro–Wilk, <var>p</var> = 0,98) y no hay puntos influyentes (<var>D</var> de Cook máxima = 0,26).</p><p>Los mayores son +0,052 (lectura 0,501, 1,6&#8239;<var>s</var><sub><var>y</var>/<var>x</var></sub>: no es atípica) y −0,053 y −0,035 en 8,93&#8239;μg/mL. Ese nivel es el único volumen fuera de la serie (0,90&#8239;mL), lo que apunta a un error de alícuota.</p><p>La falta de ajuste queda en el límite (<var>p</var> = 0,068) por ese nivel, no por curvatura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · acetaminofén">
+  <h2>Tratamiento estadístico de la curva del acetaminofén</h2>
+  <details class="eqd"><summary><span class="eqd__name">Absorbancia específica</span><span class="eqd__f"><var>A</var><sub>1&#8239;cm</sub><sup>1&#8239;%</sup> = <var>m</var> · 10<sup>4</sup> &ensp; <var>ε</var> = <var>A</var><sub>1&#8239;cm</sub><sup>1&#8239;%</sup> · <var>M</var> / 10</span></summary><div class="eqd__body"><p>Con la pendiente en mL/μg y una cubeta de 1&#8239;cm, multiplicar por 10<sup>4</sup> da la absorbancia de una solución al 1&#8239;% p/v, la forma en que las farmacopeas tabulan la absortividad. Multiplicada por <var>M</var>/10 (151,16&#8239;g/mol) se obtiene <var>ε</var>.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data data--compact">
+        <caption>Tabla 5.4. Regresión de C1 (IC 95&#8239;%, <var>t</var> = 2,306)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Valor</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>m</var> ± IC (mL/μg)</th><td class="num">0,0597 ± 0,0097</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC (<var>p</var> de <var>b</var> = 0)</th><td class="num">0,035 ± 0,086 (0,38)</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup> · <var>R</var><sup>2</sup> de las medias</th><td class="num">0,962 · 0,972</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub> · <var>F</var> de regresión</th><td class="num">0,0318 · 202 (<var>p</var> &lt; 0,001)</td></tr>
+          <tr><th scope="row">Falta de ajuste <var>F</var> (<var>p</var>)</th><td class="num">4,56 (0,068)</td></tr>
+          <tr><th scope="row">LOD · LOQ (μg/mL)</th><td class="num">1,8 · 5,3</td></tr>
+          <tr><th scope="row"><var>A</var><sub>1&#8239;cm</sub><sup>1&#8239;%</sup> · <var>ε</var><sub>256</sub> (L·mol<sup>−1</sup>·cm<sup>−1</sup>)</th><td class="num sig">597 · 9,0 × 10<sup>3</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <caption>Tabla 5.5. Precisión de los duplicados (rojo: %RSD &gt; 2&#8239;%)</caption>
+          <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><var>s</var></th><th scope="col" class="num">%RSD</th></tr></thead>
+          <tbody><tr><th scope="row">4,96</th><td class="num mono">0,335</td><td class="num mono">0,315</td><td class="num">0,0141</td><td class="num sig">4,4</td></tr><tr><th scope="row">6,94</th><td class="num mono">0,501</td><td class="num mono">0,454</td><td class="num">0,0332</td><td class="num sig">7,0</td></tr><tr><th scope="row">8,93</th><td class="num mono">0,515</td><td class="num mono">0,533</td><td class="num">0,0127</td><td class="num sig">2,4</td></tr><tr><th scope="row">9,92</th><td class="num mono">0,628</td><td class="num mono">0,653</td><td class="num">0,0177</td><td class="num sig">2,8</td></tr><tr><th scope="row">11,90</th><td class="num mono">0,766</td><td class="num mono">0,738</td><td class="num">0,0198</td><td class="num sig">2,6</td></tr></tbody>
+        </table>
+      </div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Regresión adecuada; se usa la curva completa. Ningún duplicado baja del 2&#8239;% de RSD (peor: 6,94&#8239;μg/mL, 7,0&#8239;%).</p><p><var>A</var><sub>1&#8239;cm</sub><sup>1&#8239;%</sup> = 597 es el 84&#8239;% del valor farmacopeico (715, NaOH 0,1&#8239;M): revisar el patrón, las diluciones o el NaOH.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Factor de respuesta · acetaminofén">
+  <h2>Linealidad por factor de respuesta (acetaminofén)</h2>
+  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la recta pasa por el origen es constante e igual a la pendiente. La versión corregida resta el intercepto, (<var>A</var> − 0,035)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data data--compact">
+        <caption>Tabla 5.6. <var>FR</var> en % de la mediana (0,0639 · 0,0601); rojo: fuera de 95–105&#8239;%</caption>
+        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" rowspan="2">4,96</th><td class="num mono">0,335</td><td class="num">0,0675</td><td class="num sig">105,7</td><td class="num">0,0606</td><td class="num">100,8</td></tr>
+          <tr><td class="num mono">0,315</td><td class="num">0,0635</td><td class="num">99,3</td><td class="num">0,0566</td><td class="num sig">94,1</td></tr>
+          <tr><th scope="row" rowspan="2">6,94</th><td class="num mono">0,501</td><td class="num">0,0721</td><td class="num sig">112,9</td><td class="num">0,0672</td><td class="num sig">111,7</td></tr>
+          <tr><td class="num mono">0,454</td><td class="num">0,0654</td><td class="num">102,3</td><td class="num">0,0604</td><td class="num">100,5</td></tr>
+          <tr><th scope="row" rowspan="2">8,93</th><td class="num mono">0,515</td><td class="num">0,0577</td><td class="num sig">90,2</td><td class="num">0,0538</td><td class="num sig">89,5</td></tr>
+          <tr><td class="num mono">0,533</td><td class="num">0,0597</td><td class="num sig">93,4</td><td class="num">0,0558</td><td class="num sig">92,9</td></tr>
+          <tr><th scope="row" rowspan="2">9,92</th><td class="num mono">0,628</td><td class="num">0,0633</td><td class="num">99,0</td><td class="num">0,0598</td><td class="num">99,5</td></tr>
+          <tr><td class="num mono">0,653</td><td class="num">0,0658</td><td class="num">103,0</td><td class="num">0,0623</td><td class="num">103,7</td></tr>
+          <tr><th scope="row" rowspan="2">11,90</th><td class="num mono">0,766</td><td class="num">0,0643</td><td class="num">100,7</td><td class="num">0,0614</td><td class="num">102,2</td></tr>
+          <tr><td class="num mono">0,738</td><td class="num">0,0620</td><td class="num">97,0</td><td class="num">0,0591</td><td class="num">98,3</td></tr>
+          
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Cumplen 6 de 10 lecturas sin corregir y 6 de 10 corregidas. Fallan 0,335 (105,7&#8239;%), 0,501 (112,9&#8239;%) y los dos duplicados de 8,93&#8239;μg/mL (90–93&#8239;%).</p><p>El factor no sigue una tendencia con la concentración y la corrección por el intercepto apenas lo cambia: el incumplimiento es de precisión, no de linealidad.</p><p>La hoja rotula el límite superior como «101&#8239;%», pero el valor que usa (0,06712) corresponde al 105&#8239;%.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.3 · Factor de respuesta">
+  <h2>Factor de respuesta del acetaminofén frente a la concentración</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Factor de respuesta del acetaminofén", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 13}, "y": {"label": "FR (% de la mediana)", "min": 80, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[4.96, 105.65], [4.96, 99.34], [6.944, 112.86], [6.944, 102.27], [8.928, 90.23], [8.928, 93.39], [9.92, 99.03], [9.92, 102.97], [11.904, 100.66], [11.904, 96.98]], "color": 1}, {"name": "(A − b)/c", "points": [[4.96, 100.77], [4.96, 94.07], [6.944, 111.74], [6.944, 100.49], [8.928, 89.52], [8.928, 92.87], [9.92, 99.51], [9.92, 103.71], [11.904, 102.21], [11.904, 98.3]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [13, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [13, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 5.3. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto (<var>b</var> = 0,035).</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos; una tendencia con la concentración revelaría intercepto o curvatura.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las dos series se superponen y oscilan alrededor del 100&#8239;% sin tendencia: a diferencia de la cafeína, el acetaminofén no se desvía de la ley de Lambert-Beer hasta 0,77&#8239;UA.</p><p>Los puntos fuera de la banda son lecturas aisladas (6,94 y 8,93&#8239;μg/mL), consistentes con errores de preparación de esos patrones.</p></div>
+    </div>
+  </div>
+</section>
+<!-- P5-ACE:fin -->
+
+<!-- P5-CAF:inicio -->
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.4 · Curva C2 de la cafeína">
+  <h2>Curva de calibración de la cafeína (C2, 273&#8239;nm)</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Curva de calibración de la cafeína a 273 nm", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 20}, "y": {"label": "A", "min": 0, "max": 1}, "series": [{"name": "Intervalo lineal (5,12–10,24)", "points": [[5.12, 0.317], [5.12, 0.325], [7.168, 0.409], [7.168, 0.411], [8.704, 0.443], [8.704, 0.518], [10.24, 0.58], [10.24, 0.6]], "fit": true, "color": 1}, {"name": "Fuera del intervalo lineal", "points": [[12.288, 0.6], [12.288, 0.562], [19.456, 0.82]], "color": 3}, {"name": "Recta con 5 niveles (hoja)", "points": [[4, 0.2896], [20, 0.9254]], "line": true, "markers": false, "color": 2, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 5.4. Absorbancia a 273&#8239;nm frente a concentración: recta del intervalo lineal (<var>N</var> = 8), puntos que se apartan y recta de los 5 niveles de la hoja.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Delimita el intervalo en que la cafeína cumple la ley de Lambert-Beer y proporciona la pendiente <var>m</var><sub>CAF,2</sub> que entra en el sistema de ecuaciones (5.1)–(5.4).</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Entre 5,12 y 10,24&#8239;μg/mL la respuesta es lineal: <var>A</var> = 0,0516·<var>c</var> + 0,048 (<var>R</var><sup>2</sup> = 0,947), con intercepto nulo (<var>p</var> = 0,28).</p><p>A 12,29 y 19,46&#8239;μg/mL la absorbancia queda por debajo de esa recta (0,58 y 0,82 frente a 0,68 y 1,05): desviación negativa. Incluir 12,29, como hace la hoja, baja la pendiente a 0,0397 y eleva el intercepto a 0,131 (<var>p</var> = 0,02).</p><p>El ajuste cúbico de la hoja (<var>R</var><sup>2</sup> = 0,965) no tiene base física y no debe usarse para cuantificar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.5 · Residuales C2">
+  <h2>Residuales de la curva de la cafeína</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la recta de 5 niveles", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 14}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales (5 niveles)", "points": [[5.12, 0.317], [5.12, 0.325], [7.168, 0.409], [7.168, 0.411], [8.704, 0.443], [8.704, 0.518], [10.24, 0.58], [10.24, 0.6], [12.288, 0.6], [12.288, 0.562]]}]}</script>
+      </div>
+      <figcaption>Figura 5.5. Residuales de la recta ajustada a los 5 niveles de la hoja (5,12–12,29&#8239;μg/mL, <var>N</var> = 10).</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Una curvatura que el <var>R</var><sup>2</sup> no revela aparece como un patrón ordenado de los residuales: positivos en el centro y negativos en los extremos.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales son negativos en 5,12–7,17, positivos en 10,24 y otra vez negativos en 12,29&#8239;μg/mL: es el arco de una curva cóncava, no ruido al azar.</p><p>La falta de ajuste es casi significativa (<var>p</var> = 0,089) y el término cuadrático es negativo. Al limitar la curva a 5,12–10,24&#8239;μg/mL la falta de ajuste desaparece (<var>p</var> = 0,51).</p><p>En 8,70&#8239;μg/mL los duplicados (0,443 y 0,518) difieren en 0,075&#8239;UA y dan residuales de signo opuesto.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · cafeína">
+  <h2>Tratamiento estadístico de la curva de la cafeína</h2>
+  <details class="eqd"><summary><span class="eqd__name">Absortividad molar a partir de la pendiente</span><span class="eqd__f"><var>ε</var> = <var>m</var> · <var>M</var> · 1000 / <var>l</var></span></summary><div class="eqd__body"><p>La pendiente en mL/μg equivale a L/g para una cubeta de 1&#8239;cm; multiplicarla por la masa molar (194,19&#8239;g/mol) la expresa en L·mol<sup>−1</sup>·cm<sup>−1</sup>. Permite contrastar la curva con el valor de literatura.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data data--compact">
+        <caption>Tabla 5.7. Regresión de C2 (IC 95&#8239;%)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">5 niveles (<var>N</var> = 10)</th><th scope="col" class="num">5,12–10,24 (<var>N</var> = 8)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>m</var> ± IC (mL/μg)</th><td class="num">0,0397 ± 0,0117</td><td class="num">0,0516 ± 0,0122</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC (<var>p</var> de <var>b</var> = 0)</th><td class="num sig">0,131 ± 0,106 (0,022)</td><td class="num">0,048 ± 0,098 (0,28)</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup> · <var>R</var><sup>2</sup> de las medias</th><td class="num">0,884 · 0,916</td><td class="num">0,947 · 0,985</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,0397</td><td class="num">0,0266</td></tr>
+          <tr><th scope="row">Falta de ajuste <var>F</var> (<var>p</var>)</th><td class="num">3,90 (0,089)</td><td class="num">0,79 (0,51)</td></tr>
+          <tr><th scope="row">LOD · LOQ (μg/mL)</th><td class="num">3,3 · 10,0</td><td class="num">1,7 · 5,2</td></tr>
+          <tr><th scope="row"><var>ε</var><sub>273</sub> (L·mol<sup>−1</sup>·cm<sup>−1</sup>)</th><td class="num">7,7 × 10<sup>3</sup></td><td class="num">1,00 × 10<sup>4</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data data--compact">
+          <caption>Tabla 5.8. Precisión de los duplicados (rojo: %RSD &gt; 2&#8239;%)</caption>
+          <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><var>s</var></th><th scope="col" class="num">%RSD</th></tr></thead>
+          <tbody><tr><th scope="row">5,12</th><td class="num mono">0,317</td><td class="num mono">0,325</td><td class="num">0,0057</td><td class="num">1,8</td></tr><tr><th scope="row">7,17</th><td class="num mono">0,409</td><td class="num mono">0,411</td><td class="num">0,0014</td><td class="num">0,3</td></tr><tr><th scope="row">8,70</th><td class="num mono">0,443</td><td class="num mono">0,518</td><td class="num">0,0530</td><td class="num sig">11,0</td></tr><tr><th scope="row">10,24</th><td class="num mono">0,580</td><td class="num mono">0,600</td><td class="num">0,0141</td><td class="num sig">2,4</td></tr><tr><th scope="row">12,29</th><td class="num mono">0,600</td><td class="num mono">0,562</td><td class="num">0,0269</td><td class="num sig">4,6</td></tr></tbody>
+        </table>
+      </div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Se adopta la curva de 5,12–10,24&#8239;μg/mL: intercepto nulo, sin falta de ajuste y <var>ε</var> = 1,00 × 10<sup>4</sup>, acorde con la literatura (log&#8239;<var>ε</var><sub>273</sub> ≈ 4,0); con 5 niveles sale un 23&#8239;% bajo.</p><p>El duplicado de 8,70&#8239;μg/mL (11&#8239;% RSD) limita el <var>R</var><sup>2</sup> a 0,947.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Factor de respuesta · cafeína">
+  <h2>Linealidad por factor de respuesta (cafeína)</h2>
+  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la recta pasa por el origen es constante e igual a la pendiente. La versión corregida resta el intercepto del intervalo lineal, (<var>A</var> − 0,048)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana de las 10 lecturas de la hoja.</p></div></details>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data data--compact">
+        <caption>Tabla 5.9. <var>FR</var> en % de la mediana (0,0572 · 0,0513); rojo: fuera de 95–105&#8239;%</caption>
+        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" rowspan="2">5,12</th><td class="num mono">0,317</td><td class="num">0,0619</td><td class="num sig">108,2</td><td class="num">0,0526</td><td class="num">102,5</td></tr>
+          <tr><td class="num mono">0,325</td><td class="num">0,0635</td><td class="num sig">111,0</td><td class="num">0,0542</td><td class="num sig">105,5</td></tr>
+          <tr><th scope="row" rowspan="2">7,17</th><td class="num mono">0,409</td><td class="num">0,0571</td><td class="num">99,8</td><td class="num">0,0504</td><td class="num">98,2</td></tr>
+          <tr><td class="num mono">0,411</td><td class="num">0,0573</td><td class="num">100,2</td><td class="num">0,0507</td><td class="num">98,7</td></tr>
+          <tr><th scope="row" rowspan="2">8,70</th><td class="num mono">0,443</td><td class="num">0,0509</td><td class="num sig">89,0</td><td class="num">0,0454</td><td class="num sig">88,5</td></tr>
+          <tr><td class="num mono">0,518</td><td class="num">0,0595</td><td class="num">104,0</td><td class="num">0,0540</td><td class="num sig">105,3</td></tr>
+          <tr><th scope="row" rowspan="2">10,24</th><td class="num mono">0,580</td><td class="num">0,0566</td><td class="num">99,0</td><td class="num">0,0520</td><td class="num">101,3</td></tr>
+          <tr><td class="num mono">0,600</td><td class="num">0,0586</td><td class="num">102,4</td><td class="num">0,0539</td><td class="num sig">105,1</td></tr>
+          <tr><th scope="row" rowspan="2">12,29</th><td class="num mono">0,600</td><td class="num">0,0488</td><td class="num sig">85,4</td><td class="num">0,0449</td><td class="num sig">87,6</td></tr>
+          <tr><td class="num mono">0,562</td><td class="num">0,0457</td><td class="num sig">80,0</td><td class="num">0,0419</td><td class="num sig">81,5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Sin corregir cumplen 5 de 10 lecturas, como en la hoja (límites 0,0543–0,0601). El factor baja con la concentración, de 110&#8239;% en 5,12 a 83&#8239;% en 12,29&#8239;μg/mL: es la firma de un intercepto positivo sumado a la curvatura del extremo alto.</p><p>Al restar el intercepto cumplen 4 de 10, pero otras tres quedan en el borde (105,0–105,6&#8239;%); fallan con claridad 12,29&#8239;μg/mL y la lectura baja de 8,70. El punto de 19,46&#8239;μg/mL (0,820) queda en 74&#8239;% sin corregir y 77&#8239;% corregido.</p><p>Ambos criterios coinciden: el intervalo útil termina en ≈&#8239;10&#8239;μg/mL (<var>A</var> ≈ 0,6).</p></div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.6 · Factor de respuesta">
+  <h2>Factor de respuesta de la cafeína frente a la concentración</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Factor de respuesta de la cafeína", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 20}, "y": {"label": "FR (% de la mediana)", "min": 70, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[5.12, 108.24], [5.12, 110.98], [7.168, 99.76], [7.168, 100.24], [8.704, 88.98], [8.704, 104.05], [10.24, 99.02], [10.24, 102.44], [12.288, 85.37], [12.288, 79.96], [19.456, 73.68]], "color": 1}, {"name": "(A − b)/c", "points": [[5.12, 102.46], [5.12, 105.51], [7.168, 98.19], [7.168, 98.73], [8.704, 88.47], [8.704, 105.26], [10.24, 101.27], [10.24, 105.07], [12.288, 87.56], [12.288, 81.53], [19.456, 77.33]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [20, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [20, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
+      </div>
+      <figcaption>Figura 5.6. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto (<var>b</var> = 0,048); incluye 19,46&#8239;μg/mL.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos; una tendencia con la concentración revela intercepto o curvatura que el <var>R</var><sup>2</sup> no muestra.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La serie sin corregir desciende de forma monótona: es la huella del intercepto positivo de la recta de 5 niveles.</p><p>Corregida, se mantiene en la banda o en su borde hasta 10,24&#8239;μg/mL, salvo la lectura baja de 8,70, y cae después. Esa caída no la explica el intercepto: es una desviación negativa de la ley de Lambert-Beer.</p><p>Causas probables: luz parásita o ancho de banda a absorbancias altas, o error en las alícuotas mayores.</p></div>
+    </div>
+  </div>
+</section>
+<!-- P5-CAF:fin -->
+
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Gráficos · curvas cruzadas">
+  <h2>Gráficos pendientes: curvas cruzadas</h2>
   <div class="grid-2 grid-2--figs">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C1">Gráfico: C1 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.1. Propia</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C2">Gráfico: C2 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.2. Propia</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.3. Cruzada</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.4. Cruzada</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.7. Cruzada</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.8. Cruzada</figcaption></figure>
   </div>
 </section>
 
@@ -2199,11 +2415,11 @@
   <div class="grid-2 grid-2--wide-left">
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 5.4. Parámetros de las cuatro curvas (IC 95&#8239;%)</caption>
+        <caption>Tabla 5.10. Parámetros de las cuatro curvas (IC 95&#8239;%)</caption>
         <thead><tr><th scope="col">Curva</th><th scope="col" class="num"><var>m</var> ± IC (mL/μg)</th><th scope="col" class="num"><var>b</var> ± IC</th><th scope="col" class="num"><var>R</var><sup>2</sup></th><th scope="col" class="num"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><th scope="col" class="num"><var>F</var></th></tr></thead>
         <tbody>
-          <tr><th scope="row">C1 · <var>m</var><sub>ACE,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">C2 · <var>m</var><sub>CAF,2</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C1 · <var>m</var><sub>ACE,1</sub></th><td class="num">0,0597 ± 0,0097</td><td class="num">0,035 ± 0,086</td><td class="num">0,962</td><td class="num">0,0318</td><td class="num">202</td></tr>
+          <tr><th scope="row">C2 · <var>m</var><sub>CAF,2</sub></th><td class="num">0,0516 ± 0,0122</td><td class="num">0,048 ± 0,098</td><td class="num">0,947</td><td class="num">0,0266</td><td class="num">108</td></tr>
           <tr><th scope="row">C3 · <var>m</var><sub>ACE,2</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
           <tr><th scope="row">C4 · <var>m</var><sub>CAF,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
         </tbody>
@@ -2221,7 +2437,7 @@
       </div>
       <div class="box note">
         <p class="box__label">Residuales</p>
-        <p>C1: [___] · C2: [___] · C3: [___] · C4: [___]</p>
+        <p>C1: al azar, sin curvatura (Figura 5.2) · C2: al azar en 5,12–10,24&#8239;μg/mL (Figura 5.5) · C3: [___] · C4: [___]</p>
       </div>
     </div>
   </div>
@@ -2231,7 +2447,7 @@
   <h2>Resultados</h2>
   <div class="table-wrap">
     <table class="data data--status">
-      <caption>Tabla 5.5. Recuperación en mezclas de composición conocida</caption>
+      <caption>Tabla 5.11. Recuperación en mezclas de composición conocida</caption>
       <thead><tr><th scope="col">Mezcla</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num">ACE añadido (μg/mL)</th><th scope="col" class="num">ACE hallado (μg/mL)</th><th scope="col" class="num">R<sub>ACE</sub> (%)</th><th scope="col" class="num">CAF añadida (μg/mL)</th><th scope="col" class="num">CAF hallada (μg/mL)</th><th scope="col" class="num">R<sub>CAF</sub> (%)</th><th scope="col">Estado</th></tr></thead>
       <tbody>
         <tr><th scope="row">M1</th><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td><span class="status" data-status="pending"></span></td></tr>
