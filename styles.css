@@ -644,6 +644,7 @@ a { color: inherit; }
   min-width: 0;
 }
 .table-wrap--tall { max-height: 30em; }
+.table-wrap--full { max-height: none; }
 .table-wrap--narrow { max-width: 46em; }
 
 table.data {

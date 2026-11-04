@@ -79,6 +79,12 @@
     // Signo menos tipográfico (U+2212)
     return nfCache[key].format(v).replace('-', '−');
   }
+  /** Formato con n cifras significativas (coma decimal). */
+  function sig(v, n) {
+    if (!v) return fmt(0, 0);
+    var d = Math.max(0, n - 1 - Math.floor(Math.log10(Math.abs(v))));
+    return fmt(v, Math.min(d, 10));
+  }
 
   /* ---------- 1. Preparar diapositivas ---------- */
 
@@ -129,6 +135,16 @@
     s.setAttribute('aria-roledescription', 'diapositiva');
     s.setAttribute('aria-label', (i + 1) + ' de ' + N + ': ' + title);
     s.tabIndex = -1;
+  });
+
+  // Marcadores de gráfico: el texto va en un solo bloque para que la
+  // notación (<var>, <sub>) no se reparta en celdas de la rejilla
+  doc.querySelectorAll('.chart-ph').forEach(function (ph) {
+    if (ph.children.length === 1 && ph.firstElementChild.classList.contains('chart-ph__text')) return;
+    var t = doc.createElement('span');
+    t.className = 'chart-ph__text';
+    while (ph.firstChild) t.appendChild(ph.firstChild);
+    ph.appendChild(t);
   });
 
   /* ---------- 1b. Iconos de laboratorio (assets/icons/lab-icons.js) ---------- */
@@ -494,7 +510,7 @@
         var f = linreg(s.points);
         var xa = tx.lo, xb = tx.hi;
         svg.push('<line class="chart__fit ' + cls + '" x1="' + r1(X(xa)) + '" y1="' + r1(Y(f.m * xa + f.b)) + '" x2="' + r1(X(xb)) + '" y2="' + r1(Y(f.m * xb + f.b)) + '"/>');
-        eq = '<span class="chart__eq"><var>y</var> = ' + fmt(f.m, 4) + '<var>x</var> ' + (f.b < 0 ? '−' : '+') + ' ' + fmt(Math.abs(f.b), 4) +
+        eq = '<span class="chart__eq"><var>y</var> = ' + sig(f.m, 4) + '<var>x</var> ' + (f.b < 0 ? '−' : '+') + ' ' + sig(Math.abs(f.b), 5) +
              '; <var>R</var><sup>2</sup> = ' + fmt(f.r2, 4) + '</span>';
       }
       if (s.line) {

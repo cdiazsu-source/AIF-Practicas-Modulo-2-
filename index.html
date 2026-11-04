@@ -140,8 +140,8 @@
       <caption>Tabla 0.1. Alcance del informe</caption>
       <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Analito(s)</th><th scope="col">Magnitud medida</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>Refractometría (Abbe)</td><td>Etanol–agua</td><td><var>n</var>, °Brix, °Baumé</td></tr>
-        <tr><td>2</td><td>Polarimetría</td><td>Sacarosa, ácido ascórbico</td><td><var>α</var>, [<var>α</var>]</td></tr>
+        <tr><td>1</td><td>Refractometría (Abbe)</td><td>Glicerina–agua</td><td><var>n</var>, °Brix</td></tr>
+        <tr><td>2</td><td>Polarimetría</td><td>Lactosa, mentol</td><td><var>α</var>, [<var>α</var>]</td></tr>
         <tr><td>3</td><td>Espectrofotometría UV</td><td>Ibuprofeno</td><td><var>A</var>, <var>λ</var><sub>máx</sub></td></tr>
         <tr><td>4</td><td>Espectrofotometría visible</td><td>Verde de bromocresol</td><td><var>A</var> frente a pH; p<var>K</var><sub>a</sub></td></tr>
         <tr><td>5</td><td>[___]</td><td>Ácido gálico</td><td>p<var>K</var><sub>a1</sub>, p<var>K</var><sub>a2</sub></td></tr>
@@ -241,9 +241,9 @@
 <section class="slide slide--section" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Presentación de la práctica">
   <p class="section__num">01</p>
   <p class="section__kicker">Práctica 1</p>
-  <h2 class="section__title">Refractometría de mezclas etanol–agua</h2>
-  <p class="lead">Refractómetro de Abbe · 5 niveles por duplicado · 2 muestras problema</p>
-  <ul class="chips"><li><var>n</var></li><li>% p/p</li><li>°Brix</li><li>°Baumé</li></ul>
+  <h2 class="section__title">Refractometría de mezclas glicerina–agua</h2>
+  <p class="lead">Refractómetro de Abbe · 9 niveles de 0 a 80&#8239;% p/p (datos de la clase, 10 grupos) · muestras M1 y M2 (grupo 5)</p>
+  <ul class="chips"><li><var>n</var></li><li>% p/p</li><li>°Brix</li></ul>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="refractometro"></span></div>
 </section>
 
@@ -251,13 +251,13 @@
   <h2>Objetivo</h2>
   <div class="box objective">
     <p class="box__label">Objetivo</p>
-    <p>Determinar la concentración de etanol en dos muestras problema mediante curvas de calibración refractométricas.</p>
+    <p>Determinar el contenido de glicerina de las muestras problema M1 y M2 mediante curvas de calibración refractométricas.</p>
   </div>
   <ul class="points">
-    <li>Construir las curvas de <var>n</var>, °Brix y °Baumé frente a % p/p de etanol.</li>
-    <li>Evaluar la linealidad con ANOVA de la regresión y residuales.</li>
+    <li>Construir las curvas de <var>n</var> y °Brix frente a % p/p de glicerina con los datos de la clase.</li>
+    <li>Evaluar la linealidad con ANOVA, falta de ajuste y residuales.</li>
     <li>Calcular LOD y LOQ de cada curva.</li>
-    <li>Interpolar las muestras problema con su intervalo de confianza.</li>
+    <li>Interpolar M1 y M2 con su intervalo de confianza.</li>
   </ul>
 </section>
 
@@ -272,8 +272,8 @@
     <ul class="points">
       <li>El refractómetro de Abbe mide el ángulo crítico entre un prisma de índice alto y la muestra.</li>
       <li><var>n</var> depende de la temperatura y de <var>λ</var>: se informa como <var>n</var><sub>D</sub><sup><var>T</var></sup> (línea D del sodio, 589&#8239;nm).</li>
-      <li>°Brix y °Baumé son escalas empíricas; en etanol–agua se usan como respuestas de calibración.</li>
-      <li>La relación <var>n</var>–composición del sistema etanol–agua puede no ser lineal en todo el intervalo.</li>
+      <li>La escala °Brix está calibrada para soluciones de sacarosa; con glicerina da un valor aparente que se usa como respuesta de calibración.</li>
+      <li>La relación <var>n</var>–composición de glicerina–agua puede apartarse de la linealidad: se evalúa con la prueba de falta de ajuste.</li>
     </ul>
   </div>
 </section>
@@ -282,11 +282,11 @@
   <h2>Método</h2>
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
-      <li>Verificar el cero del refractómetro con agua destilada a [___]&#8239;°C.</li>
-      <li>Preparar 5 patrones de etanol por pesada, de [___] a [___]&#8239;% p/p.</li>
-      <li>Leer <var>n</var>, °Brix y °Baumé de cada patrón por duplicado; limpiar los prismas entre lecturas.</li>
-      <li>Leer las muestras problema M1 y M2 en las mismas condiciones.</li>
-      <li>Registrar la temperatura del prisma en cada lectura.</li>
+      <li>Verificar el cero del refractómetro con agua destilada a 20&#8239;°C.</li>
+      <li>Preparar patrones de glicerina por pesada: grupos 1–5 a 20, 40, 60 y 80&#8239;% p/p; grupos 6–10 a 10, 30, 50 y 70&#8239;% p/p.</li>
+      <li>Leer <var>n</var> y °Brix de cada patrón por duplicado; limpiar los prismas entre lecturas.</li>
+      <li>Leer las muestras problema: M1 y M2 (grupos 1–5); M3 y M4 (grupos 6–10).</li>
+      <li>Temperatura del prisma: 20&#8239;°C (agua) y 19&#8239;°C (patrones y muestras).</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -295,7 +295,7 @@
           <tr><th scope="row">Refractómetro</th><td>Abbe, [___]</td></tr>
           <tr><th scope="row">Termostatización</th><td>[___]</td></tr>
           <tr><th scope="row">Balanza</th><td>[___]</td></tr>
-          <tr><th scope="row">Etanol</th><td>Pureza [___]&#8239;%</td></tr>
+          <tr><th scope="row">Glicerina</th><td>Pureza [___]&#8239;%</td></tr>
         </tbody>
       </table>
     </div>
@@ -308,68 +308,108 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Datos y tablas">
   <h2>Datos y tablas</h2>
-  <div class="table-wrap table-wrap--tall">
-    <table class="data">
-      <caption>Tabla 1.1. Lecturas refractométricas por duplicado (<var>T</var> = [___]&#8239;°C)</caption>
-      <thead>
-        <tr><th scope="col">Muestra</th><th scope="col" class="num"><var>w</var> etanol (% p/p)</th><th scope="col" class="num"><var>n</var><sub>1</sub></th><th scope="col" class="num"><var>n</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>n</var></span></th><th scope="col" class="num">°Brix<sub>1</sub></th><th scope="col" class="num">°Brix<sub>2</sub></th><th scope="col" class="num">°Bé<sub>1</sub></th><th scope="col" class="num">°Bé<sub>2</sub></th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">P1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">P2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">P3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">P4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">P5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">M1</th><td class="num">incógnita</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><th scope="row">M2</th><td class="num">incógnita</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-      </tbody>
-    </table>
+  <div class="grid-2 grid-2--tight">
+    <div class="table-wrap table-wrap--tall">
+      <table class="data">
+        <caption>Tabla 1.1. Lecturas de la clase por nivel (promedio y <var>s</var>; <var>T</var> = 19–20&#8239;°C)</caption>
+        <thead><tr><th scope="col" class="num"><var>w</var> (% p/p)</th><th scope="col" class="num">Grupos</th><th scope="col" class="num"><var>k</var></th><th scope="col" class="num"><span class="bar"><var>n</var></span></th><th scope="col" class="num"><var>s</var><sub><var>n</var></sub></th><th scope="col" class="num"><span class="bar">°Brix</span></th><th scope="col" class="num"><var>s</var><sub>°Brix</sub></th></tr></thead>
+        <tbody>
+        <tr><td class="num">0</td><td class="num">1–10</td><td class="num">20</td><td class="num mono">1,3336</td><td class="num">0,0011</td><td class="num mono">0,40</td><td class="num">0,76</td></tr>
+        <tr><td class="num">10</td><td class="num">6–10</td><td class="num">10</td><td class="num mono">1,3533</td><td class="num">0,0003</td><td class="num mono">13,51</td><td class="num">0,06</td></tr>
+        <tr><td class="num">20</td><td class="num">1–5</td><td class="num">10</td><td class="num mono">1,3688</td><td class="num">0,0006</td><td class="num mono">22,95</td><td class="num">0,33</td></tr>
+        <tr><td class="num">30</td><td class="num">6–10</td><td class="num">10</td><td class="num mono">1,3808</td><td class="num">0,0003</td><td class="num mono">29,71</td><td class="num">0,18</td></tr>
+        <tr><td class="num">40</td><td class="num">1–5</td><td class="num">10</td><td class="num mono">1,3919</td><td class="num">0,0002</td><td class="num mono">35,60</td><td class="num">0,28</td></tr>
+        <tr><td class="num">50</td><td class="num">6–10</td><td class="num">10</td><td class="num mono">1,4069</td><td class="num">0,0001</td><td class="num mono">43,63</td><td class="num">0,11</td></tr>
+        <tr><td class="num">60</td><td class="num">1–5</td><td class="num">10</td><td class="num mono">1,4196</td><td class="num">0,0004</td><td class="num mono">49,81</td><td class="num">0,18</td></tr>
+        <tr><td class="num">70</td><td class="num">6–10</td><td class="num">10</td><td class="num mono">1,4320</td><td class="num">0,0001</td><td class="num mono">55,43</td><td class="num">0,21</td></tr>
+        <tr><td class="num">80</td><td class="num">1–5</td><td class="num">10</td><td class="num mono">1,4457</td><td class="num">0,0010</td><td class="num mono">61,86</td><td class="num">0,09</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 1.2. Lecturas del grupo 5 (J5) por duplicado</caption>
+        <thead><tr><th scope="col">Muestra</th><th scope="col" class="num"><var>w</var> (% p/p)</th><th scope="col" class="num"><var>n</var><sub>1</sub></th><th scope="col" class="num"><var>n</var><sub>2</sub></th><th scope="col" class="num">°Brix<sub>1</sub></th><th scope="col" class="num">°Brix<sub>2</sub></th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Agua</th><td class="num">0</td><td class="num mono">1,3328</td><td class="num mono">1,3328</td><td class="num mono">0,0</td><td class="num mono">0,0</td></tr>
+        <tr><th scope="row">P20</th><td class="num">20</td><td class="num mono">1,3690</td><td class="num mono">1,3691</td><td class="num mono">23,1</td><td class="num mono">23,1</td></tr>
+        <tr><th scope="row">P40</th><td class="num">40</td><td class="num mono">1,3918</td><td class="num mono">1,3919</td><td class="num mono">35,6</td><td class="num mono">35,6</td></tr>
+        <tr><th scope="row">P60</th><td class="num">60</td><td class="num mono">1,4198</td><td class="num mono">1,4190</td><td class="num mono">49,9</td><td class="num mono">49,9</td></tr>
+        <tr><th scope="row">P80</th><td class="num">80</td><td class="num mono">1,4429</td><td class="num mono">1,4465</td><td class="num mono">61,9</td><td class="num mono">62,0</td></tr>
+        <tr><th scope="row">M1</th><td class="num">incógnita</td><td class="num" title="Lectura no registrada">—</td><td class="num mono">1,3929</td><td class="num" title="Lectura no registrada">—</td><td class="num mono">36,1</td></tr>
+        <tr><th scope="row">M2</th><td class="num">incógnita</td><td class="num mono">1,4020</td><td class="num mono">1,4020</td><td class="num mono">41,3</td><td class="num mono">41,2</td></tr>
+        </tbody>
+      </table>
+      <p class="eq-legend">—: lectura no registrada en la hoja de datos. Fuente: hoja «RefractometriaGlicerina», AIF Módulo II, jueves.</p>
+    </div>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Gráficos">
   <h2>Gráficos</h2>
-  <div class="grid-3 grid-3--figs">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: n frente a porcentaje en peso">Gráfico: <var>n</var> frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.1</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Brix frente a porcentaje en peso">Gráfico: °Brix frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.2</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Baumé frente a porcentaje en peso">Gráfico: °Baumé frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.3</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente">Gráfico: [___]</div><figcaption>Figura 1.4</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente">Gráfico: [___]</div><figcaption>Figura 1.5</figcaption></figure>
+  <div class="grid-2 grid-2--tight grid-2--charts">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Índice de refracción frente al porcentaje de glicerina, datos de la clase", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.33, "max": 1.45}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]], "fit": true}, {"name": "M1 y M2 (grupo 5)", "points": [[40.56, 1.3929], [47.17, 1.402]]}]}</script>
+      </div>
+      <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var>; M1 y M2 interpoladas (grupo 5).</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al porcentaje de glicerina, datos de la clase", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]], "fit": true}]}</script>
+      </div>
+      <figcaption>Figura 1.2. °Brix frente a <var>w</var>.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de índice de refracción", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n"}, "series": [{"name": "Residuales (n)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.3335], [0, 1.3335], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]]}]}</script>
+      </div>
+      <figcaption>Figura 1.3. Residuales de la curva de <var>n</var>.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de grados Brix", "aspect": 0.31, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de °Brix"}, "series": [{"name": "Residuales (°Brix)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 0.0], [0, 0.0], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]]}]}</script>
+      </div>
+      <figcaption>Figura 1.4. Residuales de la curva de °Brix.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
   <div class="grid-2">
-    <div class="table-wrap">
+    <div class="table-wrap table-wrap--tall">
       <table class="data">
-        <caption>Tabla 1.2. Parámetros de regresión (IC 95&#8239;%)</caption>
-        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th><th scope="col" class="num">°Baumé</th></tr></thead>
+        <caption>Tabla 1.3. Parámetros de regresión lineal (IC 95&#8239;%; <var>N</var> = 100 lecturas)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>m</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">LOD (% p/p)</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">LOQ (% p/p)</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>m</var> ± IC (por % p/p)</th><td class="num">(1,377 ± 0,018) × 10<sup>−3</sup></td><td class="num">0,757 ± 0,019</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">1,3370 ± 0,0008</td><td class="num">4,1 ± 0,9</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">0,9956</td><td class="num">0,9840</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,0025</td><td class="num">2,66</td></tr>
+          <tr><th scope="row">LOD (% p/p)</th><td class="num">6,1</td><td class="num">11,6</td></tr>
+          <tr><th scope="row">LOQ (% p/p)</th><td class="num">18,4</td><td class="num">35,1</td></tr>
         </tbody>
       </table>
+      <p class="eq-legend">LOD = 3,3 · <var>s</var><sub><var>y</var>/<var>x</var></sub> / <var>m</var>; LOQ = 10 · <var>s</var><sub><var>y</var>/<var>x</var></sub> / <var>m</var>.</p>
     </div>
     <div class="stack">
       <div class="table-wrap">
         <table class="data">
-          <caption>Tabla 1.3. ANOVA de la regresión (curva de <var>n</var>)</caption>
+          <caption>Tabla 1.4. ANOVA de la regresión (curva de <var>n</var>)</caption>
           <thead><tr><th scope="col">Fuente</th><th scope="col" class="num">gl</th><th scope="col" class="num">SC</th><th scope="col" class="num">MC</th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
           <tbody>
-            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-            <tr><th scope="row">Residual</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td></tr>
-            <tr><th scope="row">Total</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">1,41 × 10<sup>−1</sup></td><td class="num">1,41 × 10<sup>−1</sup></td><td class="num">2,20 × 10<sup>4</sup></td><td class="num">&lt; 0,001</td></tr>
+            <tr><th scope="row">Residual</th><td class="num">98</td><td class="num">6,29 × 10<sup>−4</sup></td><td class="num">6,42 × 10<sup>−6</sup></td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">· Falta de ajuste</th><td class="num">7</td><td class="num">5,90 × 10<sup>−4</sup></td><td class="num">8,43 × 10<sup>−5</sup></td><td class="num">197</td><td class="num">&lt; 0,001</td></tr>
+            <tr><th scope="row">· Error puro</th><td class="num">91</td><td class="num">3,90 × 10<sup>−5</sup></td><td class="num">4,28 × 10<sup>−7</sup></td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Total</th><td class="num">99</td><td class="num">1,42 × 10<sup>−1</sup></td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
           </tbody>
         </table>
       </div>
       <div class="box note">
-        <p class="box__label">Residuales</p>
-        <p>Comportamiento: [___] (homocedástico / heterocedástico). Repetir el ANOVA para °Brix y °Baumé.</p>
+        <p class="box__label">Residuales y supuestos</p>
+        <p>Falta de ajuste significativa en <var>n</var> y en °Brix (<var>p</var> &lt; 0,001 y &lt; 0,001). Levene entre niveles: <var>n</var>, <var>p</var> = 0,029 (heterocedástico); °Brix, <var>p</var> = 0,219.</p>
       </div>
     </div>
   </div>
@@ -380,22 +420,22 @@
   <div class="grid-2">
     <div class="box key">
       <p class="box__label">Resultado clave · M1</p>
-      <p class="key__value"><var>w</var> = [___] ± [___]&#8239;% p/p</p>
-      <p class="key__meta">Curva de <var>n</var>, IC 95&#8239;%</p>
+      <p class="key__value"><var>w</var> = 40,6 ± 3,7&#8239;% p/p</p>
+      <p class="key__meta">Curva de <var>n</var> · grupo 5: <var>n</var> = 1,3929 (<var>k</var> = 1) · IC 95&#8239;%</p>
     </div>
     <div class="box key">
       <p class="box__label">Resultado clave · M2</p>
-      <p class="key__value"><var>w</var> = [___] ± [___]&#8239;% p/p</p>
-      <p class="key__meta">Curva de <var>n</var>, IC 95&#8239;%</p>
+      <p class="key__value"><var>w</var> = 47,2 ± 2,6&#8239;% p/p</p>
+      <p class="key__meta">Curva de <var>n</var> · grupo 5: <span class="bar"><var>n</var></span> = 1,4020 (<var>k</var> = 2) · IC 95&#8239;%</p>
     </div>
   </div>
   <div class="table-wrap">
     <table class="data">
-      <caption>Tabla 1.4. Concentración de las muestras problema según cada escala (% p/p ± IC 95&#8239;%)</caption>
-      <thead><tr><th scope="col">Muestra</th><th scope="col" class="num">Por <var>n</var></th><th scope="col" class="num">Por °Brix</th><th scope="col" class="num">Por °Baumé</th></tr></thead>
+      <caption>Tabla 1.5. Glicerina en las muestras problema (% p/p ± IC 95&#8239;%)</caption>
+      <thead><tr><th scope="col">Muestra</th><th scope="col" class="num">Por <var>n</var> · grupo 5</th><th scope="col" class="num">Por °Brix · grupo 5</th><th scope="col" class="num">Por <var>n</var> · grupos 1–5</th><th scope="col" class="num">Por °Brix · grupos 1–5</th></tr></thead>
       <tbody>
-        <tr><th scope="row">M1</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">M2</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">M1</th><td class="num">40,6 ± 3,7</td><td class="num">42,3 ± 7,0</td><td class="num">40,2 ± 1,3 (<var>k</var> = 9)</td><td class="num">42,4 ± 2,4</td></tr>
+        <tr><th scope="row">M2</th><td class="num">47,2 ± 2,6</td><td class="num">49,1 ± 5,0</td><td class="num">47,4 ± 1,2 (<var>k</var> = 10)</td><td class="num">49,0 ± 2,3</td></tr>
       </tbody>
     </table>
   </div>
@@ -404,14 +444,14 @@
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
-    <li>Linealidad en el intervalo estudiado: [___]</li>
-    <li>Comparación entre <var>n</var>, °Brix y °Baumé como respuesta: [___]</li>
-    <li>Efecto de la temperatura sobre las lecturas: [___]</li>
-    <li>Ubicación de M1 y M2 dentro del intervalo de calibración: [___]</li>
+    <li>Linealidad: <var>R</var><sup>2</sup> = 0,9956 (<var>n</var>) y 0,9840 (°Brix), pero la falta de ajuste es significativa; un modelo cuadrático en <var>n</var> sube <var>R</var><sup>2</sup> a 0,99764 y baja <var>s</var><sub><var>y</var>/<var>x</var></sub> a 0,0019, aunque la falta de ajuste persiste (<var>p</var> &lt; 0,001).</li>
+    <li><var>n</var> es la respuesta más precisa: LOQ 18,4&#8239;% p/p frente a 35,1&#8239;% p/p con °Brix.</li>
+    <li>M1 (40,6 ± 3,7&#8239;%) y M2 (47,2 ± 2,6&#8239;%) caen dentro del intervalo calibrado; con las lecturas de los grupos 1–5 se obtiene 40,2 ± 1,3 y 47,4 ± 1,2&#8239;%.</li>
+    <li>Efecto de la temperatura (19–20&#8239;°C) y del operador: [___]</li>
   </ul>
   <div class="box warning">
-    <p class="box__label">Observación</p>
-    <p>[___]</p>
+    <p class="box__label">Lecturas atípicas</p>
+    <p>Agua con 1,1–2,5&#8239;°Brix en los grupos 7, 9 y 10; patrón de 80&#8239;% del grupo 5 con <var>n</var> = 1,4429 y 1,4465 frente a 1,4459–1,4463 del resto; falta una lectura de M1 del grupo 5.</p>
   </div>
 </section>
 
@@ -420,9 +460,9 @@
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 1</p>
     <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
+      <li>M1 contiene 40,6 ± 3,7&#8239;% p/p y M2 47,2 ± 2,6&#8239;% p/p de glicerina (curva de <var>n</var>, lecturas del grupo 5).</li>
+      <li>El índice de refracción es más sensible y preciso que °Brix para cuantificar glicerina.</li>
+      <li>La curvatura detectada sugiere [___]</li>
     </ul>
   </div>
 </section>
@@ -434,8 +474,8 @@
 <section class="slide slide--section" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Presentación de la práctica">
   <p class="section__num">02</p>
   <p class="section__kicker">Práctica 2</p>
-  <h2 class="section__title">Polarimetría de sacarosa y ácido ascórbico</h2>
-  <p class="lead">20 lecturas de <var>α</var> por analito · rotación específica · prueba <var>t</var> frente al valor tabulado</p>
+  <h2 class="section__title">Polarimetría de lactosa y mentol</h2>
+  <p class="lead">2 soluciones por analito × 10 lecturas de <var>α</var> · promedio, %RSD e IC · rotación específica y prueba <var>t</var></p>
   <ul class="chips"><li><var>α</var></li><li>[<var>α</var>]</li><li>%RSD</li><li><var>t</var> de Student</li></ul>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="polarimetro"></span></div>
 </section>
@@ -444,13 +484,13 @@
   <h2>Objetivo</h2>
   <div class="box objective">
     <p class="box__label">Objetivo</p>
-    <p>Determinar la rotación específica de la sacarosa y del ácido ascórbico y evaluar su precisión y exactitud.</p>
+    <p>Medir la rotación óptica de soluciones de lactosa y de mentol, evaluar su precisión y calcular su rotación específica.</p>
   </div>
   <ul class="points">
-    <li>Registrar 20 lecturas de <var>α</var> por analito.</li>
-    <li>Calcular promedio, desviación estándar y %RSD.</li>
-    <li>Calcular [<var>α</var>] y su intervalo de confianza.</li>
-    <li>Comparar con el valor tabulado mediante la prueba <var>t</var> de Student.</li>
+    <li>Registrar 10 lecturas de <var>α</var> en cada una de dos soluciones por analito (20 por analito).</li>
+    <li>Calcular promedio, desviación estándar, %RSD e IC 95&#8239;%.</li>
+    <li>Comparar las dos soluciones de cada analito (prueba <var>t</var> de Welch).</li>
+    <li>Calcular [<var>α</var>] y compararla con el valor tabulado (prueba <var>t</var>).</li>
   </ul>
 </section>
 
@@ -464,7 +504,8 @@
     </div>
     <ul class="points">
       <li>Las sustancias quirales rotan el plano de la luz polarizada.</li>
-      <li>Dextrógira: rotación positiva (+); levógira: negativa (−).</li>
+      <li>Dextrógira: rotación positiva (+), como la lactosa; levógira: negativa (−), como el mentol natural.</li>
+      <li>En solución, la lactosa presenta mutarrotación (equilibrio entre anómeros <var>α</var> y <var>β</var>) hasta un valor estable.</li>
       <li><var>α</var> depende de <var>λ</var>, temperatura, disolvente, concentración y longitud de paso.</li>
     </ul>
   </div>
@@ -475,10 +516,10 @@
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
       <li>Ajustar el cero con el disolvente ([___]) en el tubo.</li>
-      <li>Preparar sacarosa (<var>c</var> = [___]&#8239;g/mL) y ácido ascórbico (<var>c</var> = [___]&#8239;g/mL).</li>
+      <li>Preparar dos soluciones de lactosa (<var>c</var> = [___]&#8239;g/mL) y dos de mentol (<var>c</var> = [___]&#8239;g/mL).</li>
       <li>Llenar el tubo sin burbujas.</li>
-      <li>Tomar 20 lecturas de <var>α</var> por analito.</li>
-      <li>Registrar temperatura y longitud de onda.</li>
+      <li>Tomar 10 lecturas de <var>α</var> por solución; en el mentol, <var>α</var> = lectura − 180°.</li>
+      <li>Registrar la temperatura de cada lectura.</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -487,7 +528,7 @@
           <tr><th scope="row">Polarímetro</th><td>[___]</td></tr>
           <tr><th scope="row"><var>l</var></th><td>[___]&#8239;dm</td></tr>
           <tr><th scope="row"><var>λ</var></th><td>[___]&#8239;nm</td></tr>
-          <tr><th scope="row"><var>T</var></th><td>[___]&#8239;°C</td></tr>
+          <tr><th scope="row"><var>T</var></th><td>19–26&#8239;°C</td></tr>
         </tbody>
       </table>
     </div>
@@ -500,61 +541,65 @@
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Datos y tablas">
   <h2>Datos y tablas</h2>
-  <div class="table-wrap table-wrap--tall table-wrap--narrow">
+  <div class="table-wrap table-wrap--full">
     <table class="data">
-      <caption>Tabla 2.1. Lecturas de rotación óptica observada</caption>
-      <thead><tr><th scope="col" class="num">Lectura</th><th scope="col" class="num"><var>α</var> sacarosa (°)</th><th scope="col" class="num"><var>α</var> ácido ascórbico (°)</th></tr></thead>
+      <caption>Tabla 2.1. Lecturas de rotación óptica (°) y temperatura (°C)</caption>
+      <thead>
+        <tr><th scope="col" rowspan="2" class="num">Lectura</th><th scope="colgroup" colspan="2">Lactosa 1</th><th scope="colgroup" colspan="2">Lactosa 2</th><th scope="colgroup" colspan="3">Mentol 1</th><th scope="colgroup" colspan="3">Mentol 2</th></tr>
+        <tr><th scope="col" class="num"><var>α</var></th><th scope="col" class="num"><var>T</var></th><th scope="col" class="num"><var>α</var></th><th scope="col" class="num"><var>T</var></th><th scope="col" class="num">Lectura</th><th scope="col" class="num"><var>α</var></th><th scope="col" class="num"><var>T</var></th><th scope="col" class="num">Lectura</th><th scope="col" class="num"><var>α</var></th><th scope="col" class="num"><var>T</var></th></tr>
+      </thead>
       <tbody>
-        <tr><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">9</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">11</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">12</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">13</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">14</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">15</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">16</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">17</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">18</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">19</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
-        <tr><td class="num">20</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">1</td><td class="num mono">10,7</td><td class="num">26</td><td class="num mono">10,2</td><td class="num">26</td><td class="num mono">175,2</td><td class="num">−4,8</td><td class="num">26</td><td class="num mono">175,0</td><td class="num">−5,0</td><td class="num">26</td></tr>
+        <tr><td class="num">2</td><td class="num mono">10,5</td><td class="num">23</td><td class="num mono">10,2</td><td class="num">22</td><td class="num mono">175,3</td><td class="num">−4,7</td><td class="num">23</td><td class="num mono">175,1</td><td class="num">−4,9</td><td class="num">23</td></tr>
+        <tr><td class="num">3</td><td class="num mono">10,1</td><td class="num">23</td><td class="num mono">10,1</td><td class="num">22</td><td class="num mono">175,2</td><td class="num">−4,8</td><td class="num">26</td><td class="num mono">175,3</td><td class="num">−4,7</td><td class="num">26</td></tr>
+        <tr><td class="num">4</td><td class="num mono">10,3</td><td class="num">22</td><td class="num mono">11,2</td><td class="num">23</td><td class="num mono">175,6</td><td class="num">−4,4</td><td class="num">26</td><td class="num mono">175,3</td><td class="num">−4,7</td><td class="num">26</td></tr>
+        <tr><td class="num">5</td><td class="num mono">10,3</td><td class="num">22</td><td class="num mono">10,1</td><td class="num">22</td><td class="num mono">175,7</td><td class="num">−4,3</td><td class="num">23</td><td class="num mono">175,1</td><td class="num">−4,9</td><td class="num">23</td></tr>
+        <tr><td class="num">6</td><td class="num mono">10,6</td><td class="num">26</td><td class="num mono">11,1</td><td class="num">26</td><td class="num mono">175,8</td><td class="num">−4,2</td><td class="num">20</td><td class="num mono">175,8</td><td class="num">−4,2</td><td class="num">20</td></tr>
+        <tr><td class="num">7</td><td class="num mono">10,2</td><td class="num">20</td><td class="num mono">10,6</td><td class="num">20</td><td class="num mono">175,2</td><td class="num">−4,8</td><td class="num">20</td><td class="num mono">175,5</td><td class="num">−4,5</td><td class="num">20</td></tr>
+        <tr><td class="num">8</td><td class="num mono">9,6</td><td class="num">21</td><td class="num mono">10,9</td><td class="num">20</td><td class="num mono">175,1</td><td class="num">−4,9</td><td class="num">21</td><td class="num mono">175,0</td><td class="num">−5,0</td><td class="num">21</td></tr>
+        <tr><td class="num">9</td><td class="num mono">10,8</td><td class="num">19</td><td class="num mono">11,1</td><td class="num">20</td><td class="num mono">175,5</td><td class="num">−4,5</td><td class="num">20</td><td class="num mono">175,1</td><td class="num">−4,9</td><td class="num">20</td></tr>
+        <tr><td class="num">10</td><td class="num mono">10,8</td><td class="num">20</td><td class="num mono">9,6</td><td class="num">20</td><td class="num mono">175,2</td><td class="num">−4,8</td><td class="num">20</td><td class="num mono">175,9</td><td class="num">−4,1</td><td class="num">20</td></tr>
       </tbody>
     </table>
   </div>
+  <p class="eq-legend">Mentol: <var>α</var> = lectura − 180°. Fuente: «Hoja 1», AIF Módulo II, jueves.</p>
 </section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Gráficos">
   <h2>Gráficos</h2>
   <div class="grid-3">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: alfa de sacarosa frente al número de lectura">Gráfico: <var>α</var> (°) frente a n.º de lectura · sacarosa</div><figcaption>Figura 2.1</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: alfa de ácido ascórbico frente al número de lectura">Gráfico: <var>α</var> (°) frente a n.º de lectura · ácido ascórbico</div><figcaption>Figura 2.2</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado</div><figcaption>Figura 2.3</figcaption></figure>
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Rotación observada de la lactosa por lectura", "aspect": 0.62, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": 9, "max": 12}, "series": [{"name": "Lactosa 1", "points": [[1, 10.7], [2, 10.5], [3, 10.1], [4, 10.3], [5, 10.3], [6, 10.6], [7, 10.2], [8, 9.6], [9, 10.8], [10, 10.8]], "line": true}, {"name": "Lactosa 2", "points": [[1, 10.2], [2, 10.2], [3, 10.1], [4, 11.2], [5, 10.1], [6, 11.1], [7, 10.6], [8, 10.9], [9, 11.1], [10, 9.6]], "line": true}]}</script>
+      </div>
+      <figcaption>Figura 2.1. <var>α</var> de las dos soluciones de lactosa.</figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Rotación observada del mentol por lectura", "aspect": 0.62, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": -5.5, "max": -3.5}, "series": [{"name": "Mentol 1", "points": [[1, -4.8], [2, -4.7], [3, -4.8], [4, -4.4], [5, -4.3], [6, -4.2], [7, -4.8], [8, -4.9], [9, -4.5], [10, -4.8]], "line": true}, {"name": "Mentol 2", "points": [[1, -5.0], [2, -4.9], [3, -4.7], [4, -4.7], [5, -4.9], [6, -4.2], [7, -4.5], [8, -5.0], [9, -4.9], [10, -4.1]], "line": true}]}</script>
+      </div>
+      <figcaption>Figura 2.2. <var>α</var> de las dos soluciones de mentol (lectura − 180°).</figcaption>
+    </figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado · requiere <var>c</var> y <var>l</var></div><figcaption>Figura 2.3</figcaption></figure>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
-  <div class="table-wrap">
+  <div class="table-wrap table-wrap--tall">
     <table class="data">
-      <caption>Tabla 2.2. Estadística descriptiva y prueba <var>t</var> (<var>α</var> = 0,05; bilateral)</caption>
-      <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Sacarosa</th><th scope="col" class="num">Ácido ascórbico</th></tr></thead>
+      <caption>Tabla 2.2. Estadística descriptiva y pruebas <var>t</var> (<var>α</var> = 0,05; bilateral)</caption>
+      <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Lactosa 1</th><th scope="col" class="num">Lactosa 2</th><th scope="col" class="num">Lactosa</th><th scope="col" class="num">Mentol 1</th><th scope="col" class="num">Mentol 2</th><th scope="col" class="num">Mentol</th></tr></thead>
       <tbody>
-        <tr><th scope="row"><var>n</var></th><td class="num">20</td><td class="num">20</td></tr>
-        <tr><th scope="row"><span class="bar"><var>α</var></span> (°)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row"><var>s</var> (°)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">%RSD</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">[<var>α</var>] experimental ± IC 95&#8239;%</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">[<var>α</var>] tabulado (ref.)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row"><var>t</var><sub>calc</sub></th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row"><var>t</var><sub>crít</sub> (gl = 19)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
-        <tr><th scope="row">Decisión</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row"><var>n</var></th><td class="num">10</td><td class="num">10</td><td class="num">20</td><td class="num">10</td><td class="num">10</td><td class="num">20</td></tr>
+        <tr><th scope="row"><span class="bar"><var>α</var></span> (°)</th><td class="num">+10,39</td><td class="num">+10,51</td><td class="num"><strong>+10,45</strong></td><td class="num">−4,62</td><td class="num">−4,69</td><td class="num"><strong>−4,66</strong></td></tr>
+        <tr><th scope="row"><var>s</var> (°)</th><td class="num">0,37</td><td class="num">0,55</td><td class="num">0,46</td><td class="num">0,25</td><td class="num">0,32</td><td class="num">0,28</td></tr>
+        <tr><th scope="row">%RSD</th><td class="num">3,6</td><td class="num">5,2</td><td class="num">4,4</td><td class="num">5,4</td><td class="num">6,9</td><td class="num">6,1</td></tr>
+        <tr><th scope="row">IC 95&#8239;% de <span class="bar"><var>α</var></span> (±°)</th><td class="num">0,27</td><td class="num">0,39</td><td class="num">0,22</td><td class="num">0,18</td><td class="num">0,23</td><td class="num">0,13</td></tr>
+        <tr><th scope="row">Solución 1 frente a 2 (Welch)</th><td class="num" colspan="3"><var>t</var> = −0,57; <var>p</var> = 0,57 · sin diferencia</td><td class="num" colspan="3"><var>t</var> = 0,54; <var>p</var> = 0,60 · sin diferencia</td></tr>
+        <tr><th scope="row">[<var>α</var>] experimental ± IC 95&#8239;%</th><td class="num" colspan="3">[___]</td><td class="num" colspan="3">[___]</td></tr>
+        <tr><th scope="row">[<var>α</var>] tabulado (ref.)</th><td class="num" colspan="3">[___]</td><td class="num" colspan="3">[___]</td></tr>
+        <tr><th scope="row"><var>t</var><sub>calc</sub> · <var>t</var><sub>crít</sub> (gl = 19)</th><td class="num" colspan="3">[___] · 2,093</td><td class="num" colspan="3">[___] · 2,093</td></tr>
       </tbody>
     </table>
   </div>
@@ -564,29 +609,33 @@
   <h2>Resultados</h2>
   <div class="grid-2">
     <div class="box key">
-      <p class="box__label">Resultado clave · sacarosa</p>
-      <p class="key__value">[<var>α</var>] = [___] ± [___]&#8239;°·mL·g<sup>−1</sup>·dm<sup>−1</sup></p>
-      <p class="key__meta">Tabulado: [___] · error relativo: [___]&#8239;% · %RSD: [___]</p>
+      <p class="box__label">Resultado clave · lactosa</p>
+      <p class="key__value"><span class="bar"><var>α</var></span> = +10,45 ± 0,22°</p>
+      <p class="key__meta"><var>n</var> = 20 · %RSD: 4,4 · [<var>α</var>] = [___] (tabulado: [___])</p>
     </div>
     <div class="box key">
-      <p class="box__label">Resultado clave · ácido ascórbico</p>
-      <p class="key__value">[<var>α</var>] = [___] ± [___]&#8239;°·mL·g<sup>−1</sup>·dm<sup>−1</sup></p>
-      <p class="key__meta">Tabulado: [___] · error relativo: [___]&#8239;% · %RSD: [___]</p>
+      <p class="box__label">Resultado clave · mentol</p>
+      <p class="key__value"><span class="bar"><var>α</var></span> = −4,66 ± 0,13°</p>
+      <p class="key__meta"><var>n</var> = 20 · %RSD: 6,1 · [<var>α</var>] = [___] (tabulado: [___])</p>
     </div>
+  </div>
+  <div class="box note">
+    <p class="box__label">Para completar</p>
+    <p>[<var>α</var>] = <span class="bar"><var>α</var></span> / (<var>l</var> · <var>c</var>) requiere la concentración de cada solución, la longitud del tubo y <var>λ</var>.</p>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
-    <li>Precisión (%RSD) frente al criterio de aceptación [___]: [___]</li>
-    <li>Diferencia significativa frente al valor tabulado: [___]</li>
-    <li>Signo de la rotación y su relación con la estructura: [___]</li>
-    <li>Fuentes probables de desviación (temperatura, burbujas, cero, concentración): [___]</li>
+    <li>Precisión: %RSD de 4,4 (lactosa) y 6,1 (mentol) frente al criterio de aceptación [___].</li>
+    <li>Las dos soluciones de cada analito dan el mismo <var>α</var> (Welch: <var>p</var> = 0,57 y 0,60).</li>
+    <li>Signos esperados: lactosa dextrógira (+) y mentol levógiro (−).</li>
+    <li>Sin relación significativa entre <var>α</var> y la temperatura (19–26&#8239;°C): <var>r</var> = 0,12 (<var>p</var> = 0,62) y −0,28 (<var>p</var> = 0,23).</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>[___]</p>
+    <p>Las lecturas se registran en pasos de 0,1° y se alejan hasta 0,85° (lactosa) y 0,56° (mentol) del promedio. Posible causa: [___]</p>
   </div>
 </section>
 
@@ -595,8 +644,8 @@
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 2</p>
     <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
+      <li>La lactosa rota la luz a la derecha (<span class="bar"><var>α</var></span> = +10,45 ± 0,22°) y el mentol a la izquierda (−4,66 ± 0,13°).</li>
+      <li>La precisión es de 4,4&#8239;% (lactosa) y 6,1&#8239;% (mentol) en %RSD, sin diferencia entre soluciones replicadas.</li>
       <li>[___]</li>
     </ul>
   </div>
@@ -1422,7 +1471,7 @@
       <caption>Tabla 7.1. Resumen comparativo</caption>
       <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Magnitud medida</th><th scope="col">Modelo</th><th scope="col">Resultado clave</th><th scope="col">Observación principal</th></tr></thead>
       <tbody>
-        <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix, °Baumé</td><td>Lineal, mínimos cuadrados</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix</td><td>Lineal, mínimos cuadrados</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td>[___]</td><td>[___]</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>[___]</td><td>[___]</td></tr>
