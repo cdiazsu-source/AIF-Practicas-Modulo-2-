@@ -801,7 +801,7 @@
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La guía solicita la curva de °Baumé frente a la concentración para comparar una tercera escala empírica con <var>n</var> y °Brix.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Bé crece de 0,4 (agua) a 33,7 (80&#8239;%) con la misma concavidad que °Brix: la recta deja <var>R</var><sup>2</sup> = 0,9836 y un polinomio de segundo grado, 0,9959.</p><p>El cociente °Brix/°Bé pasa de 1,79 a 1,83, por lo que la regla práctica °Bé ≈ °Brix/1,8 solo vale de forma aproximada.</p><p>El Baumé refractométrico sobrestima al hidrométrico (≈&#8239;25 frente a 34 a 80&#8239;%): la glicerina refracta más que la sacarosa para una densidad dada, así que la escala no mide densidad en estas mezclas.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Bé crece de 0,4 (agua) a 33,7 (80&#8239;%) con la misma concavidad que °Brix: la recta deja <var>R</var><sup>2</sup> = 0,9836 y un polinomio de segundo grado, 0,9959.</p><p>El cociente °Brix/°Bé pasa de 1,79 a 1,83, por lo que la regla práctica °Bé ≈ °Brix/1,8 solo vale de forma aproximada.</p><p>El Baumé refractométrico sobrestima al hidrométrico (≈&#8239;34 frente a ≈&#8239;25 a 80&#8239;%): la glicerina refracta más que la sacarosa para una densidad dada, así que la escala no mide densidad en estas mezclas.</p></div>
     </div>
   </div>
 </section>
@@ -2175,7 +2175,7 @@
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
           <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>273&#8239;nm · [___]</td></tr>
-          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>5,12–12,29&#8239;μg/mL (0,317–0,600&#8239;UA)</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>Lineal: 5,12–10,24&#8239;μg/mL (0,317–0,600&#8239;UA); medido hasta 12,29</td></tr>
           <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>102,4&#8239;μg/mL (12,8&#8239;mg/25&#8239;mL; 10 → 50&#8239;mL)</td></tr>
           <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 5,12 · C2 7,17 · C3 8,70 · C4 10,24 · C5 12,29</td></tr>
         </tbody>
@@ -2437,7 +2437,7 @@
       </div>
       <div class="box note">
         <p class="box__label">Residuales</p>
-        <p>C1: al azar, sin curvatura (Figura 5.2) · C2: al azar en 5,12–10,24&#8239;μg/mL (Figura 5.5) · C3: [___] · C4: [___]</p>
+        <p>C1: al azar, sin curvatura (Figura 5.2) · C2: en arco con 5 niveles (Figura 5.5), sin falta de ajuste en 5,12–10,24&#8239;μg/mL · C3: [___] · C4: [___]</p>
       </div>
     </div>
   </div>
@@ -2469,11 +2469,12 @@
     <li>Magnitud de <var>D</var> y condicionamiento del sistema: [___]</li>
     <li>Recuperaciones frente al criterio de aceptación [___]: [___]</li>
     <li>Solapamiento espectral y aporte de las curvas cruzadas: [___]</li>
-    <li>Cumplimiento de la aditividad (interceptos, interacción): [___]</li>
+    <li>Cumplimiento de la aditividad (interceptos, interacción): los interceptos de C1 (0,035) y C2 (0,048, intervalo lineal) no difieren de cero, como exige el sistema (5.1)–(5.2); C3 y C4: [___]</li>
+    <li>Curvas propias: el acetaminofén es lineal en todo el intervalo (4,96–11,90&#8239;μg/mL, <var>R</var><sup>2</sup> = 0,962); la cafeína se desvía por debajo de la recta desde 12,29&#8239;μg/mL, así que las mezclas deben dar <var>A</var><sub>273</sub> ≤ 0,6.</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>[___]</p>
+    <p>La absorbancia específica del acetaminofén (597) es el 84&#8239;% de la farmacopeica (715) y la precisión de los duplicados supera el 2&#8239;% de RSD en casi todos los niveles de ambas curvas: conviene verificar la masa del patrón y repetir 6,94 (ACE) y 8,70&#8239;μg/mL (CAF).</p>
   </div>
 </section>
 
@@ -2482,9 +2483,9 @@
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 5</p>
     <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
+      <li>El acetaminofén cumple la ley de Lambert-Beer a 256&#8239;nm entre 4,96 y 11,90&#8239;μg/mL: <var>A</var> = (0,0597 ± 0,0097)·<var>c</var> + 0,035, sin curvatura ni intercepto significativo.</li>
+      <li>La cafeína es lineal a 273&#8239;nm solo entre 5,12 y 10,24&#8239;μg/mL: <var>A</var> = (0,0516 ± 0,0122)·<var>c</var> + 0,048 (<var>ε</var> = 1,00 × 10<sup>4</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup>); a mayor concentración se desvía negativamente.</li>
+      <li>Determinante, recuperaciones y validez de la aditividad: [___] (faltan las curvas cruzadas C3 y C4 y las mezclas).</li>
     </ul>
   </div>
 </section>
@@ -2500,11 +2501,11 @@
       <caption>Tabla 6.1. Resumen comparativo</caption>
       <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Magnitud medida</th><th scope="col">Modelo</th><th scope="col">Resultado clave</th><th scope="col">Observación principal</th></tr></thead>
       <tbody>
-        <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix</td><td>Lineal, mínimos cuadrados</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>[___]</td><td>[___]</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix, °Bé</td><td>Lineal; término cuadrático significativo</td><td>M1 40,5 ± 3,6 · M2 47,2 ± 2,6&#8239;% p/p (recta de <var>n</var>)</td><td>Falta de ajuste por curvatura; lectura muy repetible (|<var>z</var>| ≤ 1)</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td><var>α</var>: lactosa +10,45 ± 0,22° · mentol −4,66 ± 0,13°</td><td>%RSD 4,4 y 6,1; [<var>α</var>] pendiente (faltan <var>C</var> y <var>l</var>)</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td><var>λ</var><sub>máx</sub> 221&#8239;nm · 56,2 ± 19,6&#8239;% p/p en el polvo</td><td>Lineal (<var>p</var><sub>fa</sub> = 0,97) pero duplicados imprecisos; muestra bajo el LOQ</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>p<var>K</var><sub>a</sub> = 5,35 ± 0,28 (445&#8239;nm); isosbéstico 510&#8239;nm</td><td>+0,65 sobre la referencia (4,7); serie de 615&#8239;nm incoherente</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td><var>m</var><sub>ACE,256</sub> = 0,0597 · <var>m</var><sub>CAF,273</sub> = 0,0516&#8239;mL/μg</td><td>Cafeína lineal solo hasta 10,24&#8239;μg/mL; faltan curvas cruzadas y mezclas</td></tr>
       </tbody>
     </table>
   </div>
@@ -2536,7 +2537,7 @@
         <tr><td>Calibración del pH-metro</td><td>4</td><td>Calibrar con dos o tres patrones antes de medir</td></tr>
         <tr><td>Celdas y blanco</td><td>3, 4, 5</td><td>Celdas limpias y emparejadas; blanco con el mismo disolvente</td></tr>
         <tr><td>Burbujas en el tubo</td><td>2</td><td>Llenado lento y revisión visual</td></tr>
-        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 5</td><td>Diluir hasta <var>A</var> dentro de [___]</td></tr>
+        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 5</td><td>Diluir hasta <var>A</var> dentro de 0,17–0,85&#8239;UA</td></tr>
       </tbody>
     </table>
   </div>
