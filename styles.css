@@ -4,16 +4,17 @@
    ---------------------------------------------------------------------
    1  Tokens (colores, tipografía) · tema claro único
    2  Base
-   3  Marco: barra de progreso, área de diapositiva, barra de controles
-   4  Diapositiva (escalado 16:9 con unidades de contenedor)
+   3  Marco: área de reveal.js, barra de progreso, barra de controles
+   4  Diapositiva (reveal.js escala el lienzo 1280 × 720; el contenido
+      usa unidades de contenedor)
    5  Componentes reutilizables
    6  Tablas
    7  Figuras y gráficos
    8  Índice lateral y diapositiva de índice
-   9  Vista general (cuadrícula de miniaturas)
+   9  Vista general (la de reveal.js)
    10 Pantallas pequeñas
    11 Movimiento reducido
-   12 Impresión (una diapositiva por página)
+   12 Impresión y PDF (index.html?print-pdf)
    ===================================================================== */
 
 /* 1 · TOKENS ---------------------------------------------------------- */
@@ -121,24 +122,24 @@ a { color: inherit; }
 .skip-link:focus { top: 8px; }
 
 /* 3 · MARCO ----------------------------------------------------------- */
-.progress {
-  position: fixed; top: 0; left: 0; right: 0; height: 3px;
-  background: var(--line-soft); z-index: 40;
-}
-.progress__bar {
-  height: 100%; width: 0;
-  background: var(--accent);
-  transition: width .25s ease;
-}
-
 .viewport {
   flex: 1;
   min-height: 0;
-  display: grid;
-  place-items: center;
-  padding: 16px;
-  transition: padding .2s ease;
+  position: relative;
 }
+/* Contenedor de reveal.js (modo embebido) */
+.reveal {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.45;
+}
+.reveal .slides { text-align: left; }
+/* Barra de progreso de reveal.js, en el color de la práctica actual */
+.reveal .progress { height: 3px; color: var(--accent); background: var(--line-soft); }
+/* Si reveal.js no carga, al menos se muestra la primera diapositiva */
+.no-reveal .reveal .slides section:first-child { display: flex; position: relative; height: 100%; }
 
 .toolbar {
   height: var(--toolbar-h);
@@ -175,6 +176,7 @@ a { color: inherit; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   cursor: pointer;
+  text-decoration: none;
 }
 .btn:hover { background: var(--surface-2); }
 .btn[aria-pressed="true"], .btn[aria-expanded="true"] {
@@ -190,17 +192,11 @@ a { color: inherit; }
 }
 
 /* 4 · DIAPOSITIVA ----------------------------------------------------- */
-/* El mazo conserva 16:9 y cabe en el alto disponible. */
-.deck {
-  position: relative;
-  width: min(100%, calc((100dvh - var(--toolbar-h) - 32px) * 16 / 9));
-  aspect-ratio: 16 / 9;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
+/* reveal.js fija el lienzo en 1280 × 720 y lo escala; cada <section> ocupa
+   el lienzo completo. reveal.js pone display:flex en la diapositiva visible. */
+.reveal .slides section.slide {
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   flex-direction: column;
   background: var(--surface);
   box-shadow: 0 1px 2px rgba(28, 39, 51, .06), 0 6px 24px rgba(28, 39, 51, .07);
@@ -209,26 +205,22 @@ a { color: inherit; }
   overflow: hidden;
   /* Contenedor de consulta: todo el contenido escala con el ancho */
   container-type: inline-size;
-  --accent: var(--neutral);
 }
+.slide { --accent: var(--neutral); }
 .slide[data-accent="p1"] { --accent: var(--p1); }
 .slide[data-accent="p2"] { --accent: var(--p2); }
 .slide[data-accent="p3"] { --accent: var(--p3); }
 .slide[data-accent="p4"] { --accent: var(--p4); }
 .slide[data-accent="p5"] { --accent: var(--p5); }
 .slide[data-accent="p6"] { --accent: var(--p6); }
-.slide[hidden] { display: none; }
 .slide:focus { outline: none; }
 .slide:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 
 /* Filete de acento en el borde izquierdo */
-.slide::before {
+.reveal .slides section.slide::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
   background: var(--accent);
 }
-
-.slide.is-current { animation: slide-in .22s ease both; }
-@keyframes slide-in { from { opacity: 0; } to { opacity: 1; } }
 
 /* Envoltorio interior creado por app.js; aquí se fija el tamaño base */
 .slide__inner {
@@ -315,7 +307,8 @@ a { color: inherit; }
 /* Portada de sección */
 .slide--section .slide__inner { justify-content: center; gap: .7em; }
 /* Portadas con un lavado claro del color de la práctica */
-.slide--section, .slide--cover {
+.reveal .slides section.slide--section,
+.reveal .slides section.slide--cover {
   background:
     radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
     var(--surface);
@@ -693,78 +686,64 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 .toc-card__list .n { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 1.6em; text-align: right; }
 
 /* 9 · VISTA GENERAL --------------------------------------------------- */
-body.is-overview .viewport { place-items: stretch; padding: 0; }
-body.is-overview .deck {
-  width: 100%; height: 100%; aspect-ratio: auto;
-  overflow: auto;
-  display: grid;
-  /* Tamaño fijo de miniatura: aspect-ratio no basta para dimensionar filas de cuadrícula */
-  --thumb-w: 240px;
-  grid-template-columns: repeat(auto-fill, var(--thumb-w));
-  grid-auto-rows: calc(var(--thumb-w) * 9 / 16);
-  justify-content: center;
-  align-content: start;
-  gap: 16px; padding: 16px;
-}
-body.is-overview .slide {
-  position: relative; inset: auto;
-  display: flex;
-  width: var(--thumb-w); height: calc(var(--thumb-w) * 9 / 16);
-  cursor: pointer;
-  animation: none;
-}
-body.is-overview .slide:hover { border-color: var(--accent); }
-body.is-overview .slide.is-current { outline: 3px solid var(--accent); outline-offset: 2px; }
-body.is-overview .slide__inner { overflow: hidden; pointer-events: none; }
+/* reveal.js dibuja la cuadrícula; aquí solo se ajusta el aspecto */
+.reveal.overview .slides section.slide { cursor: pointer; }
+.reveal.overview .slides section.slide:hover { outline: 8px solid var(--line); outline-offset: 6px; }
+.reveal.overview .slides section.slide.present { outline: 10px solid var(--accent); outline-offset: 8px; }
+.reveal.overview .slides section.slide::before { display: block !important; }
+.reveal.overview .slide__inner { overflow: hidden; pointer-events: none; }
 /* En miniatura, la franja solo muestra el número de página, grande */
-body.is-overview .slide__band { height: 9cqw; padding: 0 3cqw; }
-body.is-overview .slide__band > span:not(.slide__num) { display: none; }
-body.is-overview .slide__num { font-size: 5.5cqw; }
+.reveal.overview .slide__band { height: 9cqw; padding: 0 3cqw; }
+.reveal.overview .slide__band > span:not(.slide__num) { display: none; }
+.reveal.overview .slide__num { font-size: 5.5cqw; }
 
 /* 10 · PANTALLAS PEQUEÑAS -------------------------------------------- */
-/* En móvil o ventanas bajas la diapositiva deja de ser 16:9: ocupa todo
-   el espacio y se desplaza en vertical. Nunca hay scroll horizontal de
+/* En móvil o ventanas bajas (app.js pone body.is-compact y desactiva el
+   escalado de reveal.js) la diapositiva deja de ser 16:9: ocupa todo el
+   espacio y se desplaza en vertical. Nunca hay scroll horizontal de
    página (las tablas anchas se desplazan dentro de su marco). */
-@media screen and (max-width: 760px), screen and (max-height: 520px) {
-  body:not(.is-overview) .viewport { padding: 0; place-items: stretch; }
-  body:not(.is-overview) .deck { width: 100%; height: 100%; aspect-ratio: auto; }
-  body:not(.is-overview) .slide { border: 0; border-radius: 0; }
-  body:not(.is-overview) .slide::before { width: 4px; }
-  body:not(.is-overview) .slide { box-shadow: none; }
-  body:not(.is-overview) .slide__band {
+@media screen {
+  body.is-compact:not(.is-overview) .reveal .slides {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    transform: none; zoom: 1;
+  }
+  body.is-compact .reveal .slides section.slide {
+    border: 0; border-radius: 0; box-shadow: none;
+  }
+  body.is-compact .reveal .slides section.slide::before { width: 4px; }
+  body.is-compact:not(.is-overview) .slide__band {
     height: auto; min-height: 34px; padding: 6px 12px 6px 20px;
     font-size: 12px; gap: 10px;
   }
-  body:not(.is-overview) .band__long,
-  body:not(.is-overview) .band__module::before,
-  body:not(.is-overview) .band__practice::before { display: none; }
-  body:not(.is-overview) .band__short { display: inline; }
-  body:not(.is-overview) .slide__num { font-size: 15px; }
-  body:not(.is-overview) .slide__inner {
+  body.is-compact:not(.is-overview) .band__long,
+  body.is-compact:not(.is-overview) .band__module::before,
+  body.is-compact:not(.is-overview) .band__practice::before { display: none; }
+  body.is-compact:not(.is-overview) .band__short { display: inline; }
+  body.is-compact:not(.is-overview) .slide__num { font-size: 15px; }
+  body.is-compact:not(.is-overview) .slide__inner {
     font-size: 15px;
     padding: 20px 16px 28px 20px;
     gap: 14px;
   }
-  body:not(.is-overview) .grid-2,
-  body:not(.is-overview) .grid-3,
-  body:not(.is-overview) .cover__grid { grid-template-columns: 1fr; }
-  body:not(.is-overview) .toc-slide { grid-template-columns: 1fr 1fr; }
-  body:not(.is-overview) .slide h2 { font-size: 1.55em; }
-  body:not(.is-overview) .cover__title,
-  body:not(.is-overview) .slide h2.cover__title { font-size: 2.1em; }
-  body:not(.is-overview) .section__num { font-size: 4em; }
-  body:not(.is-overview) .slide h2.section__title { font-size: 1.8em; }
-  body:not(.is-overview) .table-wrap { max-height: none; }
-  body:not(.is-overview) .eq { font-size: 1.05em; }
-  body.is-overview .deck { --thumb-w: 160px; gap: 10px; padding: 10px; }
+  body.is-compact:not(.is-overview) .grid-2,
+  body.is-compact:not(.is-overview) .grid-3,
+  body.is-compact:not(.is-overview) .cover__grid { grid-template-columns: 1fr; }
+  body.is-compact:not(.is-overview) .toc-slide { grid-template-columns: 1fr 1fr; }
+  body.is-compact:not(.is-overview) .slide h2 { font-size: 1.55em; }
+  body.is-compact:not(.is-overview) .cover__title,
+  body.is-compact:not(.is-overview) .slide h2.cover__title { font-size: 2.1em; }
+  body.is-compact:not(.is-overview) .section__num { font-size: 4em; }
+  body.is-compact:not(.is-overview) .slide h2.section__title { font-size: 1.8em; }
+  body.is-compact:not(.is-overview) .table-wrap { max-height: none; }
+  body.is-compact:not(.is-overview) .eq { font-size: 1.05em; }
 }
 @media (max-width: 760px) {
-  .btn__text, .toolbar__title { display: none; }
+  .btn__text, .toolbar__title, .btn--wide-only { display: none; }
   .pager { margin-left: auto; margin-right: auto; }
   .toolbar { gap: 6px; padding: 0 8px; }
 }
 @media (max-width: 420px) {
-  body:not(.is-overview) .toc-slide { grid-template-columns: 1fr; }
+  body.is-compact:not(.is-overview) .toc-slide { grid-template-columns: 1fr; }
 }
 
 /* 11 · MOVIMIENTO REDUCIDO ------------------------------------------- */
@@ -777,40 +756,38 @@ body.is-overview .slide__num { font-size: 5.5cqw; }
   }
 }
 
-/* 12 · IMPRESIÓN ------------------------------------------------------ */
-/* Una diapositiva por página, 16:9 (13,333 × 7,5 in), siempre en claro. */
-@page { size: 338.67mm 190.5mm; margin: 0; }
+/* 12 · IMPRESIÓN Y PDF ------------------------------------------------ */
+/* Se usa la vista de impresión de reveal.js: abrir index.html?print-pdf
+   (botón de impresora) y luego Imprimir → Guardar como PDF. reveal.js
+   genera una página de 1280 × 720 por diapositiva. */
+html.reveal-print, html.reveal-print body {
+  height: auto; overflow: visible; background: #fff;
+}
+html.reveal-print body { display: block; }
+html.reveal-print .toolbar,
+html.reveal-print .toc,
+html.reveal-print .backdrop,
+html.reveal-print .skip-link { display: none !important; }
+html.reveal-print .viewport { padding: 0 !important; }
+html.reveal-print .reveal { background: #fff; }
+html.reveal-print .reveal .slides section.slide {
+  /* Mismo lienzo que en pantalla: 1280 × 720 */
+  width: 1280px !important; height: 720px !important;
+  display: flex !important;
+  box-shadow: none; border-radius: 0;
+}
+html.reveal-print .slide__inner { overflow: hidden; }
+html.reveal-print .table-wrap { max-height: none; overflow: visible; }
+html.reveal-print table.data thead th { position: static; }
+/* Tablas largas (con desplazamiento en pantalla): filas compactas para que
+   quepan completas en la página */
+html.reveal-print .table-wrap--tall table.data { font-size: .78em; }
+html.reveal-print .table-wrap--tall table.data th,
+html.reveal-print .table-wrap--tall table.data td { padding-top: .1em; padding-bottom: .1em; }
 
+/* Impresión directa (Ctrl+P) sin ?print-pdf: solo la diapositiva actual */
 @media print {
-  :root {
-    color-scheme: light;
-    --bg: #ffffff; --surface: #ffffff; --surface-2: #f3f5f8;
-    --text: #18212b; --muted: #4d5866; --line: #cfd6df; --line-soft: #e4e8ee; --zebra: #f6f8fa;
-    --pending-bg: #fff7dc; --pending-dot: #d9b44a; --pending-line: #a88210; --pending-text: #5c4300;
-    --ok: #1d7340; --ok-bg: #e5f3ea; --partial: #8a5a00; --partial-bg: #fcf0d9; --warn: #9a4a00; --warn-bg: #fff3e8;
-    --neutral: #3d4b5c;
-    --p1: #0b6aa8; --p2: #b04600; --p3: #007a5a; --p4: #a3427b; --p5: #866000; --p6: #4a58a8;
-    --s1: #0072b2; --s2: #d55e00; --s3: #009e73; --s4: #cc79a7;
-  }
-  html, body { height: auto; overflow: visible; background: #fff; }
-  body { display: block; }
-  .toolbar, .progress, .toc, .backdrop, .skip-link { display: none !important; }
-  .viewport, body.is-overview .viewport { display: block; padding: 0 !important; }
-  .deck, body.is-overview .deck {
-    display: block; width: auto; height: auto; aspect-ratio: auto; overflow: visible; padding: 0;
-  }
-  .slide, .slide[hidden], body.is-overview .slide {
-    position: relative !important; inset: auto;
-    display: flex !important;
-    width: 338.67mm; height: 190.5mm;
-    border: 0; border-radius: 0; outline: 0 !important;
-    break-after: page; page-break-after: always;
-    animation: none !important;
-    print-color-adjust: exact; -webkit-print-color-adjust: exact;
-  }
-  .slide:last-child { break-after: auto; page-break-after: auto; }
-  .slide__inner { overflow: hidden; }
-  .slide { box-shadow: none; }
-  .table-wrap { max-height: none; overflow: visible; }
-  table.data thead th { position: static; }
+  html:not(.reveal-print) .toolbar,
+  html:not(.reveal-print) .toc,
+  html:not(.reveal-print) .backdrop { display: none !important; }
 }

@@ -1,7 +1,7 @@
 /* =====================================================================
    Prácticas Módulo II · AIF · J5 — motor de la presentación
-   JavaScript puro, sin dependencias. Funciona abriendo index.html
-   directamente (file://).
+   JavaScript puro sobre reveal.js (copia local, sin CDN). Funciona
+   abriendo index.html directamente (file://).
 
    Qué hace:
    1. Prepara cada <section class="slide">: envoltorio interior, rótulo
@@ -12,8 +12,9 @@
    4. Construye el índice lateral y la diapositiva de índice a partir de
       data-title y data-group.
    5. Dibuja los gráficos SVG declarados con <div class="chart">.
-   6. Navegación: teclado, botones, deslizamiento táctil, enlaces #/n,
-      y vista general (G).
+   6. Navegación: conecta la barra de controles y el índice con reveal.js
+      (vendor/reveal), que maneja teclado, táctil, enlaces #/n, vista
+      general, notas del orador y la versión PDF.
    ===================================================================== */
 (function () {
   'use strict';
@@ -31,7 +32,6 @@
 
   var $ = function (id) { return doc.getElementById(id); };
   var ui = {
-    progress: $('progressBar'),
     counter: $('counter'),
     title: $('currentTitle'),
     prev: $('btnPrev'),
@@ -42,8 +42,9 @@
     tocList: $('tocList'),
     tocFilters: $('tocFilters'),
     grid: $('btnGrid'),
-    backdrop: $('backdrop'),
-    live: $('live')
+    notes: $('btnNotes'),
+    full: $('btnFull'),
+    backdrop: $('backdrop')
   };
 
   var state = { current: 0, overview: false, tocOpen: false, filter: 'all' };
@@ -80,7 +81,7 @@
   /* ---------- 1. Preparar diapositivas ---------- */
 
   slides.forEach(function (s, i) {
-    if (!s.id) s.id = 'diapositiva-' + (i + 1);
+    // Sin id: así reveal.js usa enlaces numéricos (#/7) y no #/id
 
     // Envoltorio interior: el tamaño de letra se calcula con unidades cqw
     var inner = s.querySelector(':scope > .slide__inner');
@@ -455,33 +456,35 @@
     charts.forEach(function (c) { ro.observe(c); });
   }
 
-  /* ---------- 6. Navegación ---------- */
+  /* ---------- 6. Navegación con reveal.js ---------- */
+  /* reveal.js se encarga de: teclado, deslizamiento táctil, enlaces #/n,
+     transiciones, vista general (O / Esc), pantalla completa (F), notas del
+     orador (S), búsqueda (Ctrl+Mayús+F), zoom (Alt+clic) y versión PDF
+     (?print-pdf). Aquí solo se conectan la barra de controles y el índice. */
 
-  function indexFromHash() {
-    var m = /^#\/(\d+)/.exec(window.location.hash);
-    if (!m) return null;
-    var n = parseInt(m[1], 10);
-    return isNaN(n) ? null : clamp(n - 1);
+  var Reveal = window.Reveal;
+  if (!Reveal) {
+    doc.documentElement.classList.add('no-reveal');
+    return;
   }
 
-  function setHash() {
-    var h = '#/' + (state.current + 1);
-    if (window.location.hash === h) return;
-    try { history.replaceState(null, '', h); } catch (e) { window.location.hash = h; }
+  var printMode = /print-pdf/.test(window.location.search);
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Pantallas estrechas o bajas: la diapositiva deja de escalarse (16:9) y
+  // pasa a ocupar todo el espacio con desplazamiento vertical.
+  var narrowMq = window.matchMedia('screen and (max-width: 760px), screen and (max-height: 520px)');
+  var compact = !printMode && narrowMq.matches;
+  body.classList.toggle('is-compact', compact);
+
+  function current() {
+    return clamp(Reveal.getIndices().h || 0);
   }
 
-  function render(announce) {
-    var i = state.current, s = slides[i];
-    slides.forEach(function (sl, k) {
-      var on = k === i;
-      sl.classList.toggle('is-current', on);
-      sl.hidden = state.overview ? false : !on;
-      sl.tabIndex = state.overview ? 0 : -1;
-    });
-
+  function render() {
+    var i = current(), s = slides[i];
+    state.current = i;
     ui.counter.textContent = (i + 1) + ' / ' + N;
     ui.counter.setAttribute('aria-label', 'Página ' + (i + 1) + ' de ' + N);
-    ui.progress.style.width = ((i + 1) / N * 100) + '%';
     ui.prev.disabled = i === 0;
     ui.next.disabled = i === N - 1;
     ui.title.innerHTML = '<strong>' + esc(s.dataset.group || '') + '</strong> · ' + esc(s.dataset.title);
@@ -495,35 +498,13 @@
       if (+a.dataset.goto === i + 1) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
-
-    if (announce) ui.live.textContent = 'Diapositiva ' + (i + 1) + ' de ' + N + ': ' + s.dataset.title;
-  }
-
-  function go(i, opts) {
-    opts = opts || {};
-    i = clamp(i);
-    var changed = i !== state.current;
-    state.current = i;
-    render(changed);
-    if (opts.updateHash !== false) setHash();
-    var s = slides[i];
-    if (changed) {
-      var inner = s.querySelector('.slide__inner');
-      if (inner) inner.scrollTop = 0;
-    }
-    if (state.overview) {
-      s.scrollIntoView({ block: 'nearest' });
-      s.focus({ preventScroll: true });
-    } else if (opts.focus) {
-      s.focus({ preventScroll: true });
-    }
     if (state.tocOpen) {
       var cur = ui.toc.querySelector('.toc__link[aria-current="page"]');
       if (cur) cur.scrollIntoView({ block: 'nearest' });
     }
   }
-  var next = function () { go(state.current + 1); };
-  var prev = function () { go(state.current - 1); };
+
+  function go(i) { Reveal.slide(clamp(i)); }
 
   /* Índice lateral */
   function setToc(open, restoreFocus) {
@@ -532,6 +513,8 @@
     ui.tocBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     body.classList.toggle('toc-open', open);
     ui.backdrop.hidden = !(open && isNarrow());
+    // En pantallas anchas el panel reduce el área de la presentación;
+    // el ResizeObserver de .viewport vuelve a escalar la diapositiva.
     if (open) {
       var cur = ui.toc.querySelector('.toc__link[aria-current="page"]');
       if (cur && cur.closest('.toc__group').hidden) setFilter('all');
@@ -542,8 +525,9 @@
     }
   }
 
-  /* Vista general */
-  function setOverview(on) {
+  /* Vista general (la de reveal.js) */
+  function syncOverview() {
+    var on = Reveal.isOverview();
     state.overview = on;
     body.classList.toggle('is-overview', on);
     ui.grid.setAttribute('aria-pressed', on ? 'true' : 'false');
@@ -551,24 +535,28 @@
       var inner = s.querySelector('.slide__inner');
       if (on) inner.setAttribute('inert', ''); else inner.removeAttribute('inert');
     });
-    render(false);
-    var s = slides[state.current];
-    if (on) {
-      if (state.tocOpen && isNarrow()) setToc(false, false);
-      s.scrollIntoView({ block: 'center' });
-      s.focus({ preventScroll: true });
-    } else {
-      s.focus({ preventScroll: true });
-    }
+  }
+  function toggleOverview() {
+    if (!Reveal.isOverview() && state.tocOpen && isNarrow()) setToc(false, false);
+    Reveal.toggleOverview();
   }
 
   /* Botones */
-  ui.prev.addEventListener('click', prev);
-  ui.next.addEventListener('click', next);
+  ui.prev.addEventListener('click', function () { Reveal.prev(); });
+  ui.next.addEventListener('click', function () { Reveal.next(); });
   ui.tocBtn.addEventListener('click', function () { setToc(!state.tocOpen); });
   ui.tocClose.addEventListener('click', function () { setToc(false); });
   ui.backdrop.addEventListener('click', function () { setToc(false); });
-  ui.grid.addEventListener('click', function () { setOverview(!state.overview); });
+  ui.grid.addEventListener('click', toggleOverview);
+  if (ui.notes) ui.notes.addEventListener('click', function () {
+    var notes = Reveal.getPlugin('notes');
+    if (notes) notes.open();
+  });
+  if (ui.full) ui.full.addEventListener('click', function () {
+    var el = doc.getElementById('reveal');
+    if (doc.fullscreenElement) doc.exitFullscreen();
+    else if (el.requestFullscreen) el.requestFullscreen();
+  });
 
   /* Enlaces internos (#/n) en el índice lateral y en la diapositiva de índice */
   doc.addEventListener('click', function (e) {
@@ -576,58 +564,16 @@
     if (!a || state.overview) return;
     e.preventDefault();
     var fromPanel = !!a.closest('.toc');
-    go(+a.dataset.goto - 1, { focus: !fromPanel || isNarrow() });
+    go(+a.dataset.goto - 1);
     if (fromPanel && isNarrow()) setToc(false, false);
   });
 
-  /* Clic o Intro sobre una miniatura en la vista general */
-  function openThumb(s) {
-    var i = slides.indexOf(s);
-    if (i < 0) return;
-    state.current = i;
-    setOverview(false);
-    go(i, { focus: true });
-  }
-  deck.addEventListener('click', function (e) {
-    if (!state.overview) return;
-    var s = e.target.closest('.slide');
-    if (s) openThumb(s);
-  });
-
-  /* Teclado */
-  doc.addEventListener('keydown', function (e) {
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
-    var t = e.target;
-    if (t.closest && t.closest('input, textarea, select, [contenteditable="true"]')) return;
-
-    switch (e.key) {
-      case 'ArrowRight': case 'PageDown':
-        e.preventDefault(); next(); break;
-      case 'ArrowLeft': case 'PageUp':
-        e.preventDefault(); prev(); break;
-      case 'Home':
-        e.preventDefault(); go(0); break;
-      case 'End':
-        e.preventDefault(); go(N - 1); break;
-      case 'i': case 'I':
-        e.preventDefault(); setToc(!state.tocOpen); break;
-      case 'g': case 'G':
-        e.preventDefault(); setOverview(!state.overview); break;
-      case 'Escape':
-        if (state.tocOpen) { e.preventDefault(); setToc(false); }
-        else if (state.overview) { e.preventDefault(); setOverview(false); }
-        break;
-      case 'Enter': case ' ':
-        if (state.overview && t.classList && t.classList.contains('slide')) { e.preventDefault(); openThumb(t); }
-        break;
-    }
-  });
-
-  /* Deslizamiento táctil (horizontal) */
+  /* Deslizamiento táctil propio en modo compacto: el de reveal.js impide
+     desplazar en vertical el contenido de la diapositiva. */
   var touch = null;
   deck.addEventListener('touchstart', function (e) {
-    if (state.overview || e.touches.length !== 1) { touch = null; return; }
-    if (e.target.closest('.table-wrap, .eq')) { touch = null; return; } // estas zonas se desplazan solas
+    if (!compact || state.overview || e.touches.length !== 1) { touch = null; return; }
+    if (e.target.closest('.table-wrap, .eq')) { touch = null; return; }
     touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
   }, { passive: true });
   deck.addEventListener('touchend', function (e) {
@@ -637,24 +583,91 @@
     var dt = Date.now() - touch.t;
     touch = null;
     if (dt < 700 && Math.abs(dx) > 50 && Math.abs(dx) > 1.5 * Math.abs(dy)) {
-      if (dx < 0) next(); else prev();
+      if (dx < 0) Reveal.next(); else Reveal.prev();
     }
   }, { passive: true });
 
-  /* Cambios de hash (enlace compartido, atrás/adelante, edición manual) */
-  window.addEventListener('hashchange', function () {
-    var i = indexFromHash();
-    if (i !== null && i !== state.current) go(i, { updateHash: false });
-  });
+  function applyCompact(on) {
+    compact = on;
+    body.classList.toggle('is-compact', on);
+    Reveal.configure({ disableLayout: on, touch: !on });
+    if (on) {
+      // reveal.js deja medidas en línea del modo escalado: se limpian
+      ['width', 'height', 'zoom', 'transform', 'left', 'top', 'bottom', 'right', 'inset'].forEach(function (p) {
+        deck.style.removeProperty(p);
+      });
+    }
+    Reveal.layout();
+  }
+  if (narrowMq.addEventListener) {
+    narrowMq.addEventListener('change', function (m) { if (!printMode) applyCompact(m.matches); });
+  }
 
-  /* Al pasar entre pantalla ancha y estrecha, ajustar el fondo del índice */
   window.addEventListener('resize', function () {
     ui.backdrop.hidden = !(state.tocOpen && isNarrow());
   });
 
-  /* ---------- Inicio ---------- */
-  var start = indexFromHash();
-  state.current = start === null ? 0 : start;
-  render(false);
-  setHash();
+  /* ---------- 7. Inicio de reveal.js ---------- */
+
+  Reveal.initialize({
+    embedded: true,              // ocupa el área .viewport, no toda la ventana
+    width: 1280,
+    height: 720,
+    margin: 0.035,
+    minScale: 0.2,
+    maxScale: 2.5,
+    center: false,
+    display: 'flex',
+    disableLayout: compact,
+    touch: !compact,
+    controls: false,             // se usa la barra propia
+    progress: true,
+    slideNumber: false,          // el número va en la franja base
+    hash: true,
+    hashOneBasedIndex: true,     // enlaces #/1 … #/N
+    history: false,
+    respondToHashChanges: true,
+    transition: reduceMotion ? 'none' : 'fade',
+    backgroundTransition: 'none',
+    transitionSpeed: 'fast',
+    scrollActivationWidth: null, // el modo compacto lo maneja este archivo
+    pdfSeparateFragments: false,
+    help: true,
+    plugins: [window.RevealNotes, window.RevealSearch, window.RevealZoom].filter(Boolean)
+  }).then(function () {
+    // Atajos propios (aparecen en la ayuda, tecla ?)
+    Reveal.addKeyBinding({ keyCode: 73, key: 'I', description: 'Índice lateral' }, function () { setToc(!state.tocOpen); });
+    Reveal.addKeyBinding({ keyCode: 71, key: 'G', description: 'Vista general' }, toggleOverview);
+    Reveal.addKeyBinding({ keyCode: 27, key: 'Esc', description: 'Cerrar índice o vista general' }, function () {
+      if (state.tocOpen) setToc(false);
+      else toggleOverview();
+    });
+
+    Reveal.on('slidechanged', function (ev) {
+      var inner = ev.currentSlide && ev.currentSlide.querySelector('.slide__inner');
+      if (inner) inner.scrollTop = 0;
+      render();
+    });
+    Reveal.on('overviewshown', syncOverview);
+    Reveal.on('overviewhidden', syncOverview);
+
+    // reveal.js solo recalcula al cambiar la ventana; el área también cambia
+    // al abrir o cerrar el índice lateral.
+    if ('ResizeObserver' in window) {
+      var raf = 0;
+      new ResizeObserver(function () {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () { Reveal.layout(); });
+      }).observe(doc.getElementById('viewport'));
+    }
+
+    render();
+    if (compact) applyCompact(true);
+    // Los gráficos visibles se vuelven a dibujar con su ancho real
+    charts.forEach(function (c) { if (c.clientWidth) renderChart(c); });
+
+    if (printMode && /autoprint/.test(window.location.search)) {
+      setTimeout(function () { window.print(); }, 600);
+    }
+  });
 })();

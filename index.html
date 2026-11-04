@@ -50,8 +50,19 @@
   6. Notación: subíndices y superíndices con <sub>/<sup>; espacio fino
      entre número y unidad con &#8239; (por ejemplo 256&#8239;nm);
      coma decimal (3,3); signo menos real (−).
+
+  7. Motor reveal.js (copia local en vendor/reveal; no requiere internet):
+       · Notas del orador: <aside class="notes">texto</aside> dentro de la
+         <section>. Se ven con la tecla S (vista del presentador).
+       · Aparición por pasos: class="fragment" en un elemento.
+       · PDF: botón de impresora (abre index.html?print-pdf) y luego
+         Imprimir → Guardar como PDF, con márgenes "Ninguno" y gráficos
+         de fondo activados.
+       · Las diapositivas deben ser hijas directas de <div class="slides">.
   =====================================================================
 -->
+<!-- Motor de diapositivas: reveal.js 6.0.2 (MIT), copia local en vendor/reveal -->
+<link rel="stylesheet" href="vendor/reveal/reveal.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <!-- data-course y data-module: textos de la franja base de cada diapositiva -->
@@ -59,11 +70,9 @@
 
 <a class="skip-link" href="#toolbar">Saltar a los controles de la presentación</a>
 
-<!-- Barra de progreso fina (decorativa; el número de página es el dato accesible) -->
-<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
-
 <main class="viewport" id="viewport">
-<div class="deck" id="deck" role="region" aria-roledescription="presentación" aria-label="Prácticas de laboratorio, Módulo II de Análisis Instrumental Farmacéutico">
+<div class="reveal" id="reveal" role="region" aria-roledescription="presentación" aria-label="Prácticas de laboratorio, Módulo II de Análisis Instrumental Farmacéutico">
+<div class="slides" id="deck">
 
 <!-- =================================================================
      SECCIÓN 0 · APERTURA
@@ -1444,7 +1453,8 @@
   </div>
 </section>
 
-</div><!-- /deck -->
+</div><!-- /slides -->
+</div><!-- /reveal -->
 </main>
 
 <!-- Controles: índice, anterior/siguiente, número de página, vista general, tema -->
@@ -1462,9 +1472,18 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </button>
   </div>
-  <button type="button" class="btn" id="btnGrid" aria-pressed="false" aria-keyshortcuts="G" title="Vista general (tecla G)">
+  <button type="button" class="btn" id="btnGrid" aria-pressed="false" aria-keyshortcuts="G" title="Vista general (tecla G u O)">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg><span class="btn__text">Vista general</span>
   </button>
+  <button type="button" class="btn btn--icon btn--wide-only" id="btnNotes" aria-keyshortcuts="S" title="Vista del presentador (tecla S)" aria-label="Vista del presentador">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h12v9H3zM17 8h4v9h-9M7 18h6"/></svg>
+  </button>
+  <button type="button" class="btn btn--icon btn--wide-only" id="btnFull" aria-keyshortcuts="F" title="Pantalla completa (tecla F)" aria-label="Pantalla completa">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+  </button>
+  <a class="btn btn--icon btn--wide-only" id="btnPdf" href="?print-pdf" target="_blank" rel="noopener" title="Versión para imprimir o guardar en PDF" aria-label="Versión para imprimir o guardar en PDF">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg>
+  </a>
 </nav>
 
 <!-- Índice lateral: se genera en app.js -->
@@ -1479,13 +1498,14 @@
   <nav class="toc__nav" aria-label="Diapositivas">
     <ol class="toc__list" id="tocList"></ol>
   </nav>
-  <p class="toc__hint">Teclas: ← → Inicio Fin · I índice · G vista general · Esc cerrar</p>
+  <p class="toc__hint">Teclas: ← → Inicio Fin · I índice · G/O vista general · S presentador · F pantalla completa · ? ayuda · Esc cerrar</p>
 </aside>
 <div class="backdrop" id="backdrop" hidden></div>
 
-<!-- Región viva para lectores de pantalla -->
-<div class="sr-only" id="live" aria-live="polite" aria-atomic="true"></div>
-
-<script src="app.js" defer></script>
+<script src="vendor/reveal/reveal.js"></script>
+<script src="vendor/reveal/plugin/notes.js"></script>
+<script src="vendor/reveal/plugin/search.js"></script>
+<script src="vendor/reveal/plugin/zoom.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
