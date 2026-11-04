@@ -44,7 +44,7 @@
 
   5. Gráficos reales: dentro de <div class="chart" data-chart> ponga un
      <script type="application/json"> con la especificación (ver los
-     ejemplos de las diapositivas 5 y 51, y la función renderChart en
+     ejemplos de las diapositivas 5 y 52, y la función renderChart en
      app.js). Tipos: "xy" (con "fit": true traza la recta de mínimos
      cuadrados), "residuals" y "species".
 
@@ -60,6 +60,13 @@
          Imprimir → Guardar como PDF, con márgenes "Ninguno" y gráficos
          de fondo activados.
        · Las diapositivas deben ser hijas directas de <div class="slides">.
+
+  8. Iconos de laboratorio (assets/icons/lab-icons.js):
+       <span class="lab-ico" data-icon="vaso"></span>  icono suelto.
+       <ul class="lab-kit" data-kit="espectro cubeta | balanza"></ul>
+       lista de equipos; lo que va después de "|" sale punteado («por
+       confirmar»). La diapositiva «Equipos e implementos» se arma sola
+       con todas las listas. Nombres disponibles: ver lab-icons.js.
   =====================================================================
 -->
 <!-- Motor de diapositivas: reveal.js 6.0.2 (MIT), copia local en vendor/reveal -->
@@ -101,14 +108,14 @@
         <ul class="cover__team">
           <li>César Díaz Suárez</li>
           <li>Paula Melo</li>
-          <li>Karen [___]</li>
+          <li>Karen Pachon</li>
           <li>Diana Arguello</li>
         </ul>
       </div>
       <dl class="cover__meta">
         <div><dt>Semestre</dt><dd>2026-2S</dd></div>
         <div><dt>Subgrupo</dt><dd>J5</dd></div>
-        <div><dt>Docente</dt><dd>[___]</dd></div>
+        <div><dt>Docente</dt><dd>Nicolas Mateo Gonzalez Lopez</dd></div>
         <div><dt>Fecha</dt><dd>[___]</dd></div>
       </dl>
     </div>
@@ -221,6 +228,12 @@
   </div>
 </section>
 
+<section class="slide" data-group="Apertura" data-title="Equipos e implementos">
+  <h2>Equipos e implementos de laboratorio</h2>
+  <p class="lead">Instrumentos y material de las seis prácticas. Contorno punteado: implemento habitual que la guía no menciona, por confirmar.</p>
+  <div class="lab-catalog" data-lab-catalog></div>
+</section>
+
 <!-- =================================================================
      SECCIÓN 1 · PRÁCTICA 1 — REFRACTOMETRÍA
      ================================================================= -->
@@ -231,6 +244,7 @@
   <h2 class="section__title">Refractometría de mezclas etanol–agua</h2>
   <p class="lead">Refractómetro de Abbe · 5 niveles por duplicado · 2 muestras problema</p>
   <ul class="chips"><li><var>n</var></li><li>% p/p</li><li>°Brix</li><li>°Baumé</li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="refractometro"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Objetivo">
@@ -285,6 +299,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="refractometro termometro balanza | gotero frasco vaso"></ul>
   </div>
 </section>
 
@@ -419,6 +437,7 @@
   <h2 class="section__title">Polarimetría de sacarosa y ácido ascórbico</h2>
   <p class="lead">20 lecturas de <var>α</var> por analito · rotación específica · prueba <var>t</var> frente al valor tabulado</p>
   <ul class="chips"><li><var>α</var></li><li>[<var>α</var>]</li><li>%RSD</li><li><var>t</var> de Student</li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="polarimetro"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Objetivo">
@@ -472,6 +491,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="polarimetro termometro | balanza aforado vaso pasteur"></ul>
   </div>
 </section>
 
@@ -589,6 +612,7 @@
   <h2 class="section__title">Cuantificación UV del ibuprofeno</h2>
   <p class="lead">Solubilidad y disolvente · barrido espectral · curva de calibración · extracción desde tabletas · verificación</p>
   <ul class="chips"><li>Solubilidad</li><li><var>λ</var><sub>máx</sub></li><li><var>A</var></li><li>% recuperación</li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Objetivo">
@@ -642,6 +666,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="espectro cubeta balanza mortero embudo aforado tableta | pipeta vaso"></ul>
   </div>
 </section>
 
@@ -785,6 +813,7 @@
   <h2 class="section__title">Espectrofotometría visible con verde de bromocresol</h2>
   <p class="lead">Curva de calibración · absorbancia frente a pH en 10 valores · p<var>K</var><sub>a</sub> por método gráfico y por pendientes</p>
   <ul class="chips"><li><var>A</var></li><li>pH</li><li>p<var>K</var><sub>a</sub></li><li>Henderson–Hasselbalch</li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Objetivo">
@@ -838,6 +867,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="espectro cubeta phmetro | aforado pipeta vaso"></ul>
   </div>
 </section>
 
@@ -977,6 +1010,7 @@
   <h2 class="section__title">p<var>K</var><sub>a</sub> del ácido gálico</h2>
   <p class="lead">Preparación del buffer · tabla de pH · dos transiciones (p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub>) · diagrama de distribución de especies</p>
   <ul class="chips"><li>pH</li><li>p<var>K</var><sub>a1</sub></li><li>p<var>K</var><sub>a2</sub></li><li><var>α</var><sub>i</sub></li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Objetivo">
@@ -1031,6 +1065,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="phmetro | balanza aforado pipeta probeta vaso"></ul>
   </div>
 </section>
 
@@ -1161,6 +1199,7 @@
   <h2 class="section__title">Aditividad de absorbancias: acetaminofén + cafeína</h2>
   <p class="lead">Solvente NaOH · <var>λ</var><sub>1</sub> = 256&#8239;nm y <var>λ</var><sub>2</sub> = 273&#8239;nm · cuatro curvas · sistema 2 × 2 con determinante <var>D</var></p>
   <ul class="chips"><li>ACE</li><li>CAF</li><li><var>D</var></li><li>% recuperación</li></ul>
+  <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
 </section>
 
 <section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Objetivo">
@@ -1216,6 +1255,10 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="lab-kit-wrap">
+    <p class="lab-kit__title">Equipos e implementos</p>
+    <ul class="lab-kit" data-kit="espectro cubeta | balanza aforado pipeta probeta vaso"></ul>
   </div>
 </section>
 
@@ -1444,7 +1487,7 @@
   <div class="cover">
     <p class="cover__inst">Cierre</p>
     <h2 class="cover__title">Agradecimientos</h2>
-    <p class="cover__subtitle">Al docente [___] y al personal del laboratorio [___].</p>
+    <p class="cover__subtitle">Al docente Nicolas Mateo Gonzalez Lopez y al personal del laboratorio [___].</p>
     <ul class="cover__bars" aria-hidden="true">
       <li data-accent="p1"></li><li data-accent="p2"></li><li data-accent="p3"></li>
       <li data-accent="p4"></li><li data-accent="p5"></li><li data-accent="p6"></li>
@@ -1455,7 +1498,7 @@
         <ul class="cover__team">
           <li>César Díaz Suárez</li>
           <li>Paula Melo</li>
-          <li>Karen [___]</li>
+          <li>Karen Pachon</li>
           <li>Diana Arguello</li>
         </ul>
       </div>
@@ -1520,6 +1563,7 @@
 <script src="vendor/reveal/plugin/notes.js"></script>
 <script src="vendor/reveal/plugin/search.js"></script>
 <script src="vendor/reveal/plugin/zoom.js"></script>
+<script src="assets/icons/lab-icons.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

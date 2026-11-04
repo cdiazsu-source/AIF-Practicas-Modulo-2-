@@ -131,6 +131,76 @@
     s.tabIndex = -1;
   });
 
+  /* ---------- 1b. Iconos de laboratorio (assets/icons/lab-icons.js) ---------- */
+
+  var ICONS = window.LAB_ICONS || {};
+
+  function icoSvg(id) {
+    var ic = ICONS[id];
+    if (!ic) return '';
+    return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + ic.svg + '</svg>';
+  }
+
+  // Iconos sueltos
+  doc.querySelectorAll('.lab-ico[data-icon]').forEach(function (el) {
+    var ic = ICONS[el.dataset.icon];
+    if (!ic) return;
+    el.innerHTML = icoSvg(el.dataset.icon);
+    if (!el.closest('[aria-hidden="true"]')) {
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', ic.label);
+    }
+    el.title = ic.label;
+  });
+
+  // Listas de equipos: "a b c | d e" → a, b, c citados; d, e por confirmar
+  var kitUse = {};   // id → { practica: 'ok' | 'check' }
+  function kitItem(id, check) {
+    var ic = ICONS[id];
+    if (!ic) return '';
+    return '<li class="lab-kit__item' + (check ? ' lab-kit__item--check' : '') + '"' +
+      (check ? ' title="Implemento habitual, por confirmar"' : '') + '>' +
+      icoSvg(id) + '<span>' + esc(ic.label) + '</span>' +
+      (check ? '<span class="sr-only"> (por confirmar)</span>' : '') + '</li>';
+  }
+  doc.querySelectorAll('.lab-kit[data-kit]').forEach(function (ul) {
+    var parts = ul.dataset.kit.split('|');
+    var ok = (parts[0] || '').trim().split(/\s+/).filter(Boolean);
+    var check = (parts[1] || '').trim().split(/\s+/).filter(Boolean);
+    ul.innerHTML = ok.map(function (id) { return kitItem(id, false); }).join('') +
+                   check.map(function (id) { return kitItem(id, true); }).join('');
+    if (check.length) {
+      var note = doc.createElement('p');
+      note.className = 'lab-kit__note';
+      note.textContent = 'Contorno punteado: implemento habitual no citado en la guía, por confirmar.';
+      ul.insertAdjacentElement('afterend', note);
+    }
+    var s = ul.closest('.slide');
+    var key = s && s.dataset.group ? s.dataset.group : '';
+    ok.concat(check).forEach(function (id, k) {
+      kitUse[id] = kitUse[id] || {};
+      var st = k < ok.length ? 'ok' : 'check';
+      if (kitUse[id][key] !== 'ok') kitUse[id][key] = st;
+    });
+  });
+
+  // Catálogo: todos los iconos y las prácticas que los usan
+  doc.querySelectorAll('[data-lab-catalog]').forEach(function (box) {
+    var accentOf = {};
+    slides.forEach(function (s) { if (s.dataset.group) accentOf[s.dataset.group] = s.dataset.accent || ''; });
+    box.innerHTML = '<ul class="lab-catalog__list">' + Object.keys(ICONS).map(function (id) {
+      var uses = kitUse[id] || {};
+      var tags = Object.keys(uses).map(function (g) {
+        return '<span class="lab-tag' + (uses[g] === 'check' ? ' lab-tag--check' : '') + '"' +
+          (accentOf[g] ? ' data-accent="' + accentOf[g] + '"' : '') +
+          ' title="' + esc(g) + (uses[g] === 'check' ? ' (por confirmar)' : '') + '">' + esc(shortGroup(g)) + '</span>';
+      }).join('');
+      return '<li class="lab-catalog__item">' + icoSvg(id) +
+        '<span class="lab-catalog__name">' + esc(ICONS[id].label) + '</span>' +
+        '<span class="lab-catalog__tags">' + tags + '</span></li>';
+    }).join('') + '</ul>';
+  });
+
   /* ---------- 2. Marcas de pendiente [___] ---------- */
 
   function makeTbd() {
