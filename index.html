@@ -181,7 +181,7 @@
 
 <section class="slide" data-group="Apertura" data-title="Tratamiento común: precisión, límites y residuales">
   <h2>Tratamiento experimental común (2/2): precisión, límites y residuales</h2>
-  <div class="grid-2 grid-2--wide-right">
+  <div>
     <div class="stack">
       <details class="eqd"><summary><span class="eqd__name">Desviación estándar relativa (coeficiente de variación)</span><span class="eqd__f">%RSD = <span class="frac"><span><var>s</var></span><span><span class="bar"><var>x</var></span></span></span> · 100</span><span class="eq__tag">(5)</span></summary><div class="eqd__body"><p>Expresa la dispersión como porcentaje del promedio, lo que permite comparar la precisión de mediciones de distinta magnitud o unidad. Valores bajos indican alta repetibilidad; el criterio de aceptación depende del método y del nivel de concentración.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=DESVEST.M(C2:C21)/PROMEDIO(C2:C21)*100</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Cuánto «bailan» las lecturas repetidas, en porcentaje del promedio. Un 1&#8239;% significa que las lecturas se separan del promedio, en general, en una centésima parte.</p></div></details>
       <details class="eqd"><summary><span class="eqd__name">Límites de detección y de cuantificación (ICH Q2)</span><span class="eqd__f">LOD = <span class="frac"><span>3,3 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span>&ensp; LOQ = <span class="frac"><span>10 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span></span><span class="eq__tag">(6)</span></summary><div class="eqd__body"><p>El LOD es la menor concentración que se distingue del blanco; el LOQ, la menor que se cuantifica con precisión y exactitud aceptables. Ambos dependen del cociente entre el ruido (<var>s</var><sub><var>y</var>/<var>x</var></sub>) y la sensibilidad (<var>m</var>): una pendiente mayor o una dispersión menor los reducen.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>LOD: <code>=3,3*ERROR.TIPICO.XY(B2:B11;A2:A11)/PENDIENTE(B2:B11;A2:A11)</code> · LOQ: el mismo con 10 en lugar de 3,3</p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>El LOD es la cantidad más pequeña que el método «alcanza a ver» por encima del ruido; el LOQ, la más pequeña que puede medir con un número confiable.</p></div></details>
@@ -191,38 +191,6 @@
         <li>Residuales en forma de embudo: heterocedasticidad; considerar regresión ponderada.</li>
         <li>Prueba <var>t</var> de Student: |<var>t</var>| &gt; <var>t</var><sub>crít</sub> indica diferencia significativa frente a <var>μ</var>.</li>
       </ul>
-    </div>
-    <div class="grid-2 grid-2--tight">
-      <figure class="fig">
-        <div class="chart" data-chart>
-          <script type="application/json">
-            {
-              "type": "xy",
-              "title": "Curva de calibración ilustrativa con datos de ejemplo",
-              "example": true,
-              "x": { "label": "Concentración (u. a.)" },
-              "y": { "label": "Respuesta (u. a.)" },
-              "series": [ { "name": "Patrones (ejemplo)", "points": [[1,0.105],[2,0.198],[3,0.304],[4,0.395],[5,0.508]], "fit": true } ]
-            }
-          </script>
-        </div>
-        <figcaption>Figura 0.1. Curva ilustrativa. <strong>Datos de ejemplo</strong>, no experimentales.</figcaption>
-      </figure>
-      <figure class="fig">
-        <div class="chart" data-chart>
-          <script type="application/json">
-            {
-              "type": "residuals",
-              "title": "Residuales de la curva ilustrativa con datos de ejemplo",
-              "example": true,
-              "x": { "label": "Concentración (u. a.)" },
-              "y": { "label": "Residual (u. a.)" },
-              "series": [ { "name": "Residuales (ejemplo)", "points": [[1,0.105],[2,0.198],[3,0.304],[4,0.395],[5,0.508]] } ]
-            }
-          </script>
-        </div>
-        <figcaption>Figura 0.2. Residuales de la figura 0.1. <strong>Datos de ejemplo.</strong></figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -243,6 +211,18 @@
   <h2 class="section__title">Refractometría de mezclas glicerina–agua</h2>
   <p class="lead">Refractómetro de Abbe · 9 niveles de 0 a 80&#8239;% p/p (datos de la clase, 10 grupos) · muestras M1 y M2 (grupo 5)</p>
   <ul class="chips"><li><var>n</var></li><li>% p/p</li><li>°Brix</li></ul>
+  <div class="section__obj">
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar el contenido de glicerina de las muestras problema M1 y M2 mediante curvas de calibración refractométricas.</p>
+  </div>
+  <ul class="points points--compact">
+    <li>Identificar los componentes y el principio óptico del refractómetro de Abbe.</li>
+    <li>Medir <var>n</var> del agua destilada y compararlo con el valor tabulado.</li>
+    <li>Construir las curvas de <var>n</var> y °Brix frente a % p/p de glicerina con los datos de la clase.</li>
+    <li>Evaluar linealidad (ANOVA, residuos), %RSD por nivel, LOD y LOQ, e interpolar M1 y M2.</li>
+  </ul>
+  </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="refractometro"></span></div>
 </section>
 
@@ -258,19 +238,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Determinar el contenido de glicerina de las muestras problema M1 y M2 mediante curvas de calibración refractométricas.</p>
-  </div>
-  <ul class="points">
-    <li>Identificar los componentes y el principio óptico del refractómetro de Abbe.</li>
-    <li>Medir <var>n</var> del agua destilada y compararlo con el valor tabulado.</li>
-    <li>Construir las curvas de <var>n</var> y °Brix frente a % p/p de glicerina con los datos de la clase.</li>
-    <li>Evaluar linealidad (ANOVA, residuos), %RSD por nivel, LOD y LOQ, e interpolar M1 y M2.</li>
-  </ul>
-</section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Fundamento">
   <h2>Fundamento</h2>
@@ -440,13 +407,13 @@
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Índice de refracción frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.33, "max": 1.45}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.335], [0, 1.3345], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]], "fit": true}, {"name": "M1 y M2 (grupo 5)", "points": [[40.55, 1.3929], [47.16, 1.402]]}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Índice de refracción frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.33, "max": 1.45}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.335], [0, 1.3345], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]], "fit": true}, {"name": "Modelo cuadrático", "points": [[0, 1.33523], [2, 1.33839], [4, 1.34152], [6, 1.34464], [8, 1.34773], [10, 1.3508], [12, 1.35385], [14, 1.35688], [16, 1.35988], [18, 1.36287], [20, 1.36583], [22, 1.36876], [24, 1.37168], [26, 1.37457], [28, 1.37744], [30, 1.38029], [32, 1.38312], [34, 1.38592], [36, 1.38871], [38, 1.39147], [40, 1.3942], [42, 1.39692], [44, 1.39961], [46, 1.40229], [48, 1.40494], [50, 1.40756], [52, 1.41017], [54, 1.41275], [56, 1.41531], [58, 1.41785], [60, 1.42037], [62, 1.42286], [64, 1.42533], [66, 1.42778], [68, 1.43021], [70, 1.43261], [72, 1.435], [74, 1.43736], [76, 1.4397], [78, 1.44201], [80, 1.44431]], "line": true, "markers": false, "color": 3, "dash": 2}, {"name": "M1 y M2 (grupo 5)", "points": [[40.55, 1.3929], [47.16, 1.402]]}]}</script>
       </div>
-      <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var> (datos de la clase); M1 y M2 interpoladas con las lecturas del grupo 5.</figcaption>
+      <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var> (datos de la clase) con la recta y el modelo cuadrático; M1 y M2 interpoladas con las lecturas del grupo 5.</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona la respuesta instrumental con la composición de los patrones. Es la base para interpolar las muestras problema y la primera evidencia, visual, de la linealidad del método.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El índice de refracción aumenta de forma monótona con la fracción másica de glicerina (<var>m</var> = 1,377 × 10<sup>−3</sup> por % p/p; <var>R</var><sup>2</sup> = 0,9956) y la dispersión entre réplicas es mínima frente al intervalo de respuesta.</p><p>Se aprecia una ligera concavidad: los niveles de 10–30&#8239;% quedan por encima de la recta y los extremos, por debajo.</p><p>M1 (<var>n</var> = 1,3929) y M2 (<var>n</var> = 1,4020) se sitúan en la zona central del intervalo calibrado, la región de menor incertidumbre de interpolación.</p></div>
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona la respuesta instrumental con la composición de los patrones. Es la base para interpolar las muestras problema y, con el modelo cuadrático superpuesto, muestra si la recta describe bien los datos.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p><var>n</var> aumenta de forma monótona con <var>w</var> (<var>m</var> = 1,377 × 10<sup>−3</sup> por % p/p; <var>R</var><sup>2</sup> = 0,9956) y la dispersión entre réplicas es mínima.</p><p>La recta no basta: sus residuales forman un arco (negativos en 0 y 80&#8239;%, positivos en 10–30&#8239;%, hasta +0,0042) y la falta de ajuste es significativa (<var>p</var> &lt; 0,001). El modelo cuadrático (línea discontinua) sigue esa curvatura (<var>R</var><sup>2</sup> = 0,9977).</p><p>M1 (<var>n</var> = 1,3929) y M2 (<var>n</var> = 1,4020) quedan en la zona central del intervalo, la de menor incertidumbre de interpolación.</p></div>
     </div>
   </div>
 </section>
@@ -456,48 +423,18 @@
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 1.4], [0, 3.2], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]], "fit": true}]}</script>
+        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al porcentaje de glicerina, datos de la clase", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Patrones (10 grupos)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 1.4], [0, 3.2], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]], "fit": true}, {"name": "Modelo cuadrático", "points": [[0, 1.733], [2, 3.781], [4, 5.8], [6, 7.789], [8, 9.75], [10, 11.68], [12, 13.582], [14, 15.454], [16, 17.297], [18, 19.11], [20, 20.894], [22, 22.648], [24, 24.374], [26, 26.07], [28, 27.736], [30, 29.373], [32, 30.981], [34, 32.559], [36, 34.108], [38, 35.628], [40, 37.118], [42, 38.579], [44, 40.011], [46, 41.413], [48, 42.786], [50, 44.129], [52, 45.443], [54, 46.728], [56, 47.983], [58, 49.209], [60, 50.406], [62, 51.573], [64, 52.711], [66, 53.819], [68, 54.898], [70, 55.948], [72, 56.968], [74, 57.959], [76, 58.921], [78, 59.853], [80, 60.756]], "line": true, "markers": false, "color": 3, "dash": 2}]}</script>
       </div>
-      <figcaption>Figura 1.2. °Brix frente a <var>w</var> (datos de la clase).</figcaption>
+      <figcaption>Figura 1.2. °Brix frente a <var>w</var> (datos de la clase) con la recta y el modelo cuadrático.</figcaption>
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Evalúa una escala refractométrica alternativa, de amplio uso industrial, como respuesta de calibración para glicerina y permite compararla con el índice de refracción.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Brix también crece con <var>w</var> (<var>m</var> = 0,757 °Brix por % p/p), pero con menor linealidad (<var>R</var><sup>2</sup> = 0,9840) y una curvatura más pronunciada.</p><p>El intercepto ajustado (4,1&#8239;°Brix) difiere del valor medido en agua (0,4&#8239;°Brix): la recta no representa el extremo inferior del intervalo.</p><p>La escala °Brix está definida para soluciones de sacarosa; con glicerina proporciona un valor aparente, lo que contribuye a su comportamiento no lineal.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Brix también crece con <var>w</var> (<var>m</var> = 0,757 °Brix por % p/p), con menor linealidad (<var>R</var><sup>2</sup> = 0,9840) y una curvatura más marcada: residuales de −3,7&#8239;°Brix en 0&#8239;%, +3,7 en 20&#8239;% y −2,8 en 80&#8239;%, muy por encima de la dispersión entre réplicas.</p><p>Con el modelo cuadrático (<var>R</var><sup>2</sup> = 0,9961), °Brix y <var>n</var> dan el mismo contenido para M1 y M2 (≈&#8239;39 y 46&#8239;% p/p); con la recta difieren casi 2 puntos.</p><p>La escala °Brix está definida para sacarosa: con glicerina da un valor aparente.</p></div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.3 · Residuales de n">
-  <h2>Residuales de la curva del índice de refracción</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de índice de refracción", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n"}, "series": [{"name": "Residuales (n)", "points": [[0, 1.3329], [0, 1.3327], [20, 1.3695], [20, 1.369], [40, 1.3916], [40, 1.3918], [60, 1.4195], [60, 1.4193], [80, 1.4463], [80, 1.446], [0, 1.333], [0, 1.334], [20, 1.3686], [20, 1.3685], [40, 1.3918], [40, 1.3919], [60, 1.4195], [60, 1.42], [80, 1.4459], [80, 1.446], [0, 1.3325], [0, 1.333], [20, 1.3675], [20, 1.368], [40, 1.392], [40, 1.3925], [60, 1.42], [60, 1.4192], [80, 1.446], [80, 1.4459], [0, 1.333], [0, 1.3332], [20, 1.3691], [20, 1.3695], [40, 1.392], [40, 1.3918], [60, 1.4192], [60, 1.42], [80, 1.446], [80, 1.4459], [0, 1.3328], [0, 1.3328], [20, 1.369], [20, 1.3691], [40, 1.3918], [40, 1.3919], [60, 1.4198], [60, 1.419], [80, 1.4429], [80, 1.4465], [0, 1.3328], [0, 1.3328], [10, 1.3535], [10, 1.3535], [30, 1.3807], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4322], [70, 1.4321], [0, 1.3329], [0, 1.3351], [10, 1.3534], [10, 1.3531], [30, 1.3815], [30, 1.3808], [50, 1.4069], [50, 1.4069], [70, 1.4319], [70, 1.432], [0, 1.335], [0, 1.3345], [10, 1.3539], [10, 1.353], [30, 1.381], [30, 1.3805], [50, 1.407], [50, 1.4067], [70, 1.4321], [70, 1.432], [0, 1.335], [0, 1.335], [10, 1.3532], [10, 1.353], [30, 1.3806], [30, 1.3803], [50, 1.407], [50, 1.407], [70, 1.432], [70, 1.432], [0, 1.3345], [0, 1.3365], [10, 1.3532], [10, 1.3535], [30, 1.3806], [30, 1.3808], [50, 1.4069], [50, 1.407], [70, 1.432], [70, 1.4321]]}]}</script>
-      </div>
-      <figcaption>Figura 1.3. Residuales de la recta de <var>n</var>.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Los residuales ponen en evidencia desviaciones sistemáticas del modelo y cambios de varianza que el coeficiente de determinación no detecta.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales no se distribuyen al azar en torno a cero: forman un arco, negativos en los extremos (−0,0035 en 0&#8239;% y −0,0015 en 80&#8239;%) y positivos entre 10 y 30&#8239;% (hasta +0,0042).</p><p>Este patrón es propio de una relación cóncava y concuerda con la falta de ajuste significativa (<var>p</var> &lt; 0,001) y con el estadístico de Durbin–Watson (0,13).</p><p>La dispersión dentro de cada nivel es mucho menor que la desviación sistemática entre niveles: el error dominante es del modelo, no de la lectura.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.4 · Residuales de °Brix">
-  <h2>Residuales de la curva en grados Brix</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de grados Brix", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de °Brix"}, "series": [{"name": "Residuales (°Brix)", "points": [[0, 0.0], [0, 0.0], [20, 23.25], [20, 23.2], [40, 35.05], [40, 35.57], [60, 49.57], [60, 49.53], [80, 61.98], [80, 61.7], [0, 0.0], [0, 0.0], [20, 22.9], [20, 22.9], [40, 35.8], [40, 35.9], [60, 49.8], [60, 50.0], [80, 61.9], [80, 61.9], [0, 0.0], [0, 0.0], [20, 22.25], [20, 22.5], [40, 35.6], [40, 36.0], [60, 50.0], [60, 49.7], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.2], [40, 35.3], [40, 35.6], [60, 49.7], [60, 50.0], [80, 61.8], [80, 61.8], [0, 0.0], [0, 0.0], [20, 23.1], [20, 23.1], [40, 35.6], [40, 35.6], [60, 49.9], [60, 49.9], [80, 61.9], [80, 62.0], [0, 0.0], [0, 0.0], [10, 13.51], [10, 13.51], [30, 29.75], [30, 29.75], [50, 43.52], [50, 43.6], [70, 55.55], [70, 55.5], [0, 0.0], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.61], [50, 43.7], [70, 55.1], [70, 55.1], [0, 1.4], [0, 3.2], [10, 13.6], [10, 13.4], [30, 29.3], [30, 29.5], [50, 43.8], [50, 43.5], [70, 55.6], [70, 55.2], [0, 1.5], [0, 1.5], [10, 13.5], [10, 13.5], [30, 29.75], [30, 29.75], [50, 43.7], [50, 43.75], [70, 55.5], [70, 55.55], [0, 1.1], [0, 2.5], [10, 13.5], [10, 13.6], [30, 29.9], [30, 29.9], [50, 43.6], [50, 43.5], [70, 55.6], [70, 55.6]]}]}</script>
-      </div>
-      <figcaption>Figura 1.4. Residuales de la recta de °Brix.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite contrastar si la escala °Brix presenta la misma desviación del modelo lineal que el índice de refracción y en qué magnitud.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El patrón en arco se repite con mayor amplitud: −3,7&#8239;°Brix en 0&#8239;%, +3,7&#8239;°Brix en 20&#8239;% y −2,8&#8239;°Brix en 80&#8239;%.</p><p>En el agua se observa además la mayor dispersión entre lecturas (0 a 2,5&#8239;°Brix), atribuible a los grupos 7, 9 y 10.</p><p>La desviación sistemática (hasta ±4&#8239;°Brix) supera ampliamente la repetibilidad (<var>s</var><sub>r</sub> = 0,23&#8239;°Brix): la recta no es un modelo adecuado para esta escala.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
@@ -540,46 +477,8 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Precisión por nivel (%RSD)">
-  <h2>Precisión por nivel (%RSD)</h2>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 1.5b. %RSD de cada nivel de concentración (datos de la clase)</caption>
-        <thead><tr><th scope="col" class="num"><var>w</var> (% p/p)</th><th scope="col" class="num"><var>k</var></th><th scope="col" class="num">%RSD de <var>n</var></th><th scope="col" class="num">%RSD de °Brix</th></tr></thead>
-        <tbody>
-          <tr><td class="num">0</td><td class="num">20</td><td class="num">0,086</td><td class="num">no aplica</td></tr>
-          <tr><td class="num">10</td><td class="num">10</td><td class="num">0,021</td><td class="num">0,42</td></tr>
-          <tr><td class="num">20</td><td class="num">10</td><td class="num">0,047</td><td class="num">1,44</td></tr>
-          <tr><td class="num">30</td><td class="num">10</td><td class="num">0,023</td><td class="num">0,61</td></tr>
-          <tr><td class="num">40</td><td class="num">10</td><td class="num">0,017</td><td class="num">0,77</td></tr>
-          <tr><td class="num">50</td><td class="num">10</td><td class="num">0,007</td><td class="num">0,24</td></tr>
-          <tr><td class="num">60</td><td class="num">10</td><td class="num">0,027</td><td class="num">0,36</td></tr>
-          <tr><td class="num">70</td><td class="num">10</td><td class="num">0,006</td><td class="num">0,38</td></tr>
-          <tr><td class="num">80</td><td class="num">10</td><td class="num">0,070</td><td class="num">0,15</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los niveles presentan un %RSD de <var>n</var> inferior a 0,1&#8239;% (entre 0,006 y 0,086&#8239;%): la lectura refractométrica es muy repetible en todo el intervalo.</p><p>Los valores más altos corresponden al agua (0,086&#8239;%) y al nivel de 80&#8239;% (0,070&#8239;%), donde algunos grupos registraron lecturas atípicas.</p><p>En °Brix la dispersión relativa es mayor (0,15–1,44&#8239;%) por la resolución de la escala; en el agua no se calcula porque el promedio es cercano a cero.</p></div>
-  </div>
-</section>
 
 <!-- P1-EXTRA:inicio (análisis estadísticos adicionales) -->
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Precisión: repetibilidad y reproducibilidad">
-  <h2>Precisión: repetibilidad y reproducibilidad</h2>
-  <details class="eqd"><summary><span class="eqd__name">Repetibilidad y reproducibilidad (ANOVA de un factor, ISO 5725-2)</span><span class="eqd__f"><var>s</var><sub>r</sub> = √<span class="ovl">MC<sub>dentro</sub></span> &ensp; <var>s</var><sub>L</sub><sup>2</sup> = (MC<sub>entre</sub> − MC<sub>dentro</sub>) / <var>n</var><sub>rep</sub> &ensp; <var>s</var><sub>R</sub> = √<span class="ovl"><var>s</var><sub>r</sub><sup>2</sup> + <var>s</var><sub>L</sub><sup>2</sup></span> &ensp; <var>r</var> = 2,8·<var>s</var><sub>r</sub></span></summary><div class="eqd__body"><p>Se aplica un ANOVA con el grupo como factor en cada nivel. <var>s</var><sub>r</sub> cuantifica la variación entre lecturas repetidas de un mismo grupo; <var>s</var><sub>L</sub>, la variación adicional entre grupos (operador, momento, ajuste del equipo); <var>s</var><sub>R</sub> combina ambas.</p><p>Los límites <var>r</var> y <var>R</var> = 2,8·<var>s</var><sub>R</sub> (2,8 ≈ 1,96·√2) son la diferencia máxima esperada, con 95&#8239;% de confianza, entre dos resultados individuales en cada condición.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>Datos &gt; Análisis de datos &gt; «Análisis de varianza de un factor» (grupos en columnas) · <var>s</var><sub>r</sub>: <code>=RAIZ(MC_dentro)</code> · <var>s</var><sub>R</sub>: <code>=RAIZ(sr^2+(MC_entre-MC_dentro)/n_rep)</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>La repetibilidad es cuánto varía un mismo grupo al repetir la lectura; la reproducibilidad, cuánto varía cuando la hacen grupos distintos. Si ambas se parecen, da igual quién mida.</p></div></details>
-  <div class="grid-2 grid-2--wide-left">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 1.6. Precisión de <var>n</var> por nivel</caption>
-        <thead><tr><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num">Grupos</th><th scope="col" class="num"><var>s</var><sub>r</sub></th><th scope="col" class="num"><var>s</var><sub>R</sub></th><th scope="col" class="num"><var>s</var><sub>R</sub>/<var>s</var><sub>r</sub></th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
-        <tbody><tr><td class="num">0</td><td class="num">10</td><td class="num">7,22 × 10<sup>−4</sup></td><td class="num">1,16 × 10<sup>−3</sup></td><td class="num">1,6</td><td class="num">4,20</td><td class="num sig">0,018</td></tr><tr><td class="num">10</td><td class="num">5</td><td class="num">3,21 × 10<sup>−4</sup></td><td class="num">3,21 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,50</td><td class="num">0,739</td></tr><tr><td class="num">20</td><td class="num">5</td><td class="num">2,61 × 10<sup>−4</sup></td><td class="num">6,73 × 10<sup>−4</sup></td><td class="num">2,6</td><td class="num">12,34</td><td class="num sig">0,008</td></tr><tr><td class="num">30</td><td class="num">5</td><td class="num">2,97 × 10<sup>−4</sup></td><td class="num">3,27 × 10<sup>−4</sup></td><td class="num">1,1</td><td class="num">1,43</td><td class="num">0,346</td></tr><tr><td class="num">40</td><td class="num">5</td><td class="num">1,87 × 10<sup>−4</sup></td><td class="num">2,43 × 10<sup>−4</sup></td><td class="num">1,3</td><td class="num">2,39</td><td class="num">0,183</td></tr><tr><td class="num">50</td><td class="num">5</td><td class="num">1,00 × 10<sup>−4</sup></td><td class="num">1,00 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,65</td><td class="num">0,651</td></tr><tr><td class="num">60</td><td class="num">5</td><td class="num">4,70 × 10<sup>−4</sup></td><td class="num">4,70 × 10<sup>−4</sup></td><td class="num">1,0</td><td class="num">0,20</td><td class="num">0,926</td></tr><tr><td class="num">70</td><td class="num">5</td><td class="num">6,32 × 10<sup>−5</sup></td><td class="num">8,66 × 10<sup>−5</sup></td><td class="num">1,4</td><td class="num">2,75</td><td class="num">0,148</td></tr><tr><td class="num">80</td><td class="num">5</td><td class="num">1,14 × 10<sup>−3</sup></td><td class="num">1,14 × 10<sup>−3</sup></td><td class="num">1,0</td><td class="num">0,53</td><td class="num">0,722</td></tr></tbody>
-        <tfoot><tr><th scope="row" colspan="2">Combinado</th><td class="num"><strong>5,37 × 10<sup>−4</sup></strong></td><td class="num"><strong>6,35 × 10<sup>−4</sup></strong></td><td class="num">1,2</td><td class="num" colspan="2">—</td></tr></tfoot>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas son muy repetibles: <var>s</var><sub>r</sub> = 5,37 × 10<sup>−4</sup> y <var>s</var><sub>R</sub> = 6,35 × 10<sup>−4</sup>; dos lecturas del mismo grupo difieren menos de <var>r</var> = 0,0015 y de grupos distintos menos de <var>R</var> = 0,0018 (95&#8239;%).</p><p>Solo 2 de 9 niveles (0, 20&#8239;%) muestran diferencias entre grupos (<var>p</var> &lt; 0,05). En °Brix, 3 de 9 (0, 20, 30&#8239;%).</p><p><strong>Clave:</strong> <var>s</var><sub><var>y</var>/<var>x</var></sub> de la recta (0,0025) es unas 4 veces <var>s</var><sub>R</sub>. La falta de ajuste no viene de la imprecisión ni de los operadores, sino del modelo lineal.</p></div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Modelo cuadrático">
   <h2>Modelo cuadrático</h2>
@@ -601,282 +500,47 @@
         </tbody>
       </table>
     </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El término <var>c</var> es significativo en ambas escalas (<var>F</var> parcial, <var>p</var> &lt; 0,001) y el AIC baja: la curvatura es real.</p><p>Con este modelo <var>n</var> y °Brix coinciden (M1: 39,0 y 38,6&#8239;%; M2: 45,8 y 45,8&#8239;%); con la recta difieren casi 2 puntos.</p><p>La falta de ajuste persiste (<var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,0018 &gt; <var>s</var><sub>R</sub>): queda variación sistemática entre niveles (figura 1.5), posiblemente por diferencias entre los dos juegos de patrones suministrados (pares: grupos 1–5; impares: 6–10).</p></div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El término <var>c</var> es significativo en ambas escalas (<var>F</var> parcial, <var>p</var> &lt; 0,001) y el AIC baja: la curvatura es real.</p><p>Con este modelo <var>n</var> y °Brix coinciden (M1: 39,0 y 38,6&#8239;%; M2: 45,8 y 45,8&#8239;%); con la recta difieren casi 2 puntos.</p><p>La falta de ajuste persiste (<var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,0018 &gt; <var>s</var><sub>R</sub>): queda variación sistemática entre niveles, posiblemente por diferencias entre los dos juegos de patrones suministrados (pares: grupos 1–5; impares: 6–10).</p></div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.5 · Residuales del modelo cuadrático">
-  <h2>Residuales del modelo cuadrático</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Residuales del modelo cuadrático de n", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "Residual de n", "min": -0.0046, "max": 0.0046}, "series": [{"name": "Residuales (modelo cuadrático)", "points": [[0.0, -0.002327408759123184], [20.0, 0.003674584636770062], [40.0, -0.002604742787631009], [60.0, -0.0008653910323268565], [80.0, 0.0019926399026828356], [0.0, -0.002527408759123162], [20.0, 0.003174584636770117], [40.0, -0.0024047427876310312], [60.0, -0.0010653910323268345], [80.0, 0.0016926399026828687], [0.0, -0.002227408759123195], [20.0, 0.002774584636770161], [40.0, -0.0024047427876310312], [60.0, -0.0008653910323268565], [80.0, 0.0015926399026828797], [0.0, -0.0012274087591230831], [20.0, 0.002674584636770172], [40.0, -0.0023047427876310422], [60.0, -0.0003653910323269116], [80.0, 0.0016926399026828687], [0.0, -0.00272740875912314], [20.0, 0.00167458463677006], [40.0, -0.0022047427876310532], [60.0, -0.0003653910323269116], [80.0, 0.0016926399026828687], [0.0, -0.002227408759123195], [20.0, 0.002174584636770227], [40.0, -0.0017047427876308863], [60.0, -0.0011653910323268235], [80.0, 0.0015926399026828797], [0.0, -0.002227408759123195], [20.0, 0.003274584636770106], [40.0, -0.0022047427876310532], [60.0, -0.0011653910323268235], [80.0, 0.0016926399026828687], [0.0, -0.002027408759123217], [20.0, 0.003674584636770062], [40.0, -0.0024047427876310312], [60.0, -0.0003653910323269116], [80.0, 0.0015926399026828797], [0.0, -0.002427408759123173], [20.0, 0.003174584636770117], [40.0, -0.0024047427876310312], [60.0, -0.0005653910323268896], [80.0, -0.001407360097317012], [0.0, -0.002427408759123173], [20.0, 0.003274584636770106], [40.0, -0.0023047427876310422], [60.0, -0.0013653910323268015], [80.0, 0.0021926399026828136], [0.0, -0.002427408759123173], [10.0, 0.0026962530413601193], [30.0, 0.0004075860271062215], [50.0, -0.0006624018074421478], [70.0, -0.0004137104622852217], [0.0, -0.002427408759123173], [10.0, 0.0026962530413601193], [30.0, 0.0005075860271062105], [50.0, -0.0006624018074421478], [70.0, -0.0005137104622852107], [0.0, -0.002327408759123184], [10.0, 0.0025962530413601304], [30.0, 0.0012075860271061334], [50.0, -0.0006624018074421478], [70.0, -0.0007137104622851886], [0.0, -0.00012740875912320426], [10.0, 0.0022962530413601634], [30.0, 0.0005075860271062105], [50.0, -0.0006624018074421478], [70.0, -0.0006137104622851997], [0.0, -0.00022740875912319325], [10.0, 0.0030962530413602973], [30.0, 0.0007075860271061885], [50.0, -0.0005624018074421588], [70.0, -0.0005137104622852107], [0.0, -0.0007274087591231382], [10.0, 0.0021962530413601744], [30.0, 0.00020758602710624352], [50.0, -0.0008624018074421258], [70.0, -0.0006137104622851997], [0.0, -0.00022740875912319325], [10.0, 0.0023962530413601524], [30.0, 0.0003075860271062325], [50.0, -0.0005624018074421588], [70.0, -0.0006137104622851997], [0.0, -0.00022740875912319325], [10.0, 0.0021962530413601744], [30.0, 7.586027106265547e-06], [50.0, -0.0005624018074421588], [70.0, -0.0006137104622851997], [0.0, -0.0007274087591231382], [10.0, 0.0023962530413601524], [30.0, 0.0003075860271062325], [50.0, -0.0006624018074421478], [70.0, -0.0006137104622851997], [0.0, 0.0012725912408768636], [10.0, 0.0026962530413601193], [30.0, 0.0005075860271062105], [50.0, -0.0005624018074421588], [70.0, -0.0005137104622852107]]}, {"name": "", "points": [[0, 0], [80, 0]], "line": true, "markers": false, "color": 3, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 1.5. Residuales del modelo cuadrático de <var>n</var>.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica si el término cuadrático elimina el patrón sistemático observado con la recta, condición necesaria para aceptar el modelo de calibración.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El arco característico de la recta desaparece y la amplitud de los residuales disminuye (<var>s</var><sub><var>y</var>/<var>x</var></sub> de 0,0025 a 0,0018).</p><p>Persiste, sin embargo, una oscilación entre niveles (≈ +0,003 en 10–20&#8239;%, −0,0023 en 40&#8239;% y +0,0015 en 80&#8239;%), responsable de la falta de ajuste residual.</p><p>El comportamiento sugiere sesgos propios de cada patrón más que un defecto del modelo; convendría verificar la composición declarada de los patrones suministrados.</p></div>
-    </div>
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Análisis complementarios">
+  <h2>Análisis complementarios</h2>
+  <div class="table-wrap table-wrap--full">
+    <table class="data data--compact">
+      <caption>Tabla 1.16. Resumen de los análisis complementarios (curva de <var>n</var> salvo indicación)</caption>
+      <thead><tr><th scope="col">Análisis</th><th scope="col">Resultado</th><th scope="col">Implicación</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Precisión por nivel</th><td>%RSD de <var>n</var> 0,006–0,086&#8239;%; de °Brix 0,15–1,44&#8239;%</td><td>Lectura muy repetible en todo el intervalo</td></tr>
+        <tr><th scope="row">Repetibilidad y reproducibilidad</th><td><var>s</var><sub>r</sub> = 5,37 × 10<sup>−4</sup>; <var>s</var><sub>R</sub> = 6,35 × 10<sup>−4</sup>; <var>s</var><sub><var>y</var>/<var>x</var></sub> ≈ 4·<var>s</var><sub>R</sub></td><td>La falta de ajuste viene del modelo, no de la lectura ni del operador</td></tr>
+        <tr><th scope="row">Residuales y supuestos</th><td>Arco; Durbin–Watson 0,13 (<var>n</var>) y 0,07 (°Brix); Shapiro–Wilk <var>p</var> = 0,009 y &lt; 0,001</td><td>Curvatura real; los IC de la recta son aproximados</td></tr>
+        <tr><th scope="row">Datos atípicos</th><td>Grubbs: 3 lecturas de <var>n</var> (incluye 80&#8239;% del grupo 5); al retirarlas M1 y M2 cambian &lt; 0,05&#8239;% p/p</td><td>Resultados robustos; se conservan todas las lecturas</td></tr>
+        <tr><th scope="row">Regresión ponderada</th><td>Pesos que difieren 184 veces; M1 39,8 ± 1,7 y M2 46,7 ± 0,7&#8239;% p/p</td><td>Confirma la heterocedasticidad; su IC subestima la incertidumbre</td></tr>
+        <tr><th scope="row">Puntaje <var>z</var> por grupo</th><td>Todos |<var>z</var>| ≤ 1,0; grupo 5: 0,47 (M1) y −0,16 (M2)</td><td>Desempeño satisfactorio; grupos intercambiables</td></tr>
+        <tr><th scope="row">Sensibilidad analítica</th><td>1/<var>γ</var> ≈ 0,4–0,5&#8239;% p/p en ambas escalas</td><td>La ventaja de <var>n</var> en el LOQ se debe a su mejor linealidad</td></tr>
+        <tr><th scope="row">Factor de respuesta</th><td>Corregido por el blanco cumple 95–105&#8239;% en 40–80&#8239;% p/p (<var>n</var>) y 40–50&#8239;% p/p (°Brix)</td><td>M1 y M2 caen en el intervalo lineal</td></tr>
+        <tr><th scope="row">Grados Baumé</th><td>Calculados desde °Brix (Tabla G2)</td><td>No aportan información independiente de °Brix</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Datos atípicos">
-  <h2>Datos atípicos</h2>
-  <details class="eqd"><summary><span class="eqd__name">Prueba de Grubbs y distancia de Cook</span><span class="eqd__f"><var>G</var> = máx|<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>| / <var>s</var> &ensp; <var>D</var><sub>i</sub> = <var>r</var><sub>i</sub><sup>2</sup>·<var>h</var><sub>i</sub> / [<var>p</var>(1 − <var>h</var><sub>i</sub>)]</span></summary><div class="eqd__body"><p><var>G</var> indica cuántas desviaciones estándar se aleja el valor más extremo del promedio de su nivel; si supera <var>G</var><sub>crít</sub> (<var>α</var> = 0,05) se considera atípico.</p><p>La distancia de Cook combina el residual estudentizado <var>r</var><sub>i</sub> con la palanca <var>h</var><sub>i</sub> (lejanía de <var>x</var><sub>i</sub> respecto del centro) y estima cuánto cambiaría la recta al eliminar el punto; valores mayores que 4/<var>N</var> merecen revisión. Después se repite la curva sin los atípicos.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><var>G</var>: <code>=MAX(ABS(C2:C11-PROMEDIO(C2:C11)))/DESVEST.M(C2:C11)</code> · Cook: sin función directa (complemento estadístico o cálculo por columnas)</p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Grubbs busca el dato «raro», el que está demasiado lejos del resto. Cook mide cuánto cambiaría la recta si ese punto se quitara: un punto puede ser raro sin pesar, o pesar mucho sin ser raro.</p></div></details>
-  <div class="grid-2">
-    <div class="stack">
-      <div class="table-wrap table-wrap--full">
-        <table class="data">
-          <caption>Tabla 1.8. Lecturas señaladas por Grubbs</caption>
-          <thead><tr><th scope="col">Escala</th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num">Grupo</th><th scope="col" class="num">Lectura</th><th scope="col" class="num">Promedio del nivel</th><th scope="col" class="num"><var>G</var></th><th scope="col" class="num"><var>G</var><sub>crít</sub></th></tr></thead>
-          <tbody><tr><td><var>n</var></td><td class="num">40</td><td class="num">3</td><td class="num mono">1,3925</td><td class="num">1,3919</td><td class="num">2,48</td><td class="num">2,29</td></tr><tr><td><var>n</var></td><td class="num">50</td><td class="num">8</td><td class="num mono">1,4067</td><td class="num">1,4069</td><td class="num">2,39</td><td class="num">2,29</td></tr><tr><td><var>n</var></td><td class="num">80</td><td class="num">5</td><td class="num mono">1,4429</td><td class="num">1,4457</td><td class="num">2,79</td><td class="num">2,29</td></tr></tbody>
-        </table>
-      </div>
-      <div class="table-wrap table-wrap--full">
-        <table class="data">
-          <caption>Tabla 1.9. Curva de <var>n</var> con y sin atípicos</caption>
-          <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Todos (<var>N</var> = 100)</th><th scope="col" class="num">Sin atípicos (<var>N</var> = 97)</th></tr></thead>
-          <tbody>
-            <tr><th scope="row"><var>m</var></th><td class="num">1,3760 × 10<sup>−3</sup></td><td class="num">1,3785 × 10<sup>−3</sup></td></tr>
-            <tr><th scope="row"><var>R</var><sup>2</sup> · <var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,9957 · 0,0025</td><td class="num">0,9957 · 0,0025</td></tr>
-            <tr><th scope="row">LOD · LOQ (% p/p)</th><td class="num">6,0 · 18,2</td><td class="num">6,0 · 18,1</td></tr>
-            <tr><th scope="row">M1 · M2 (% p/p)</th><td class="num">40,55 · 47,16</td><td class="num">40,51 · 47,12</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Grubbs señala 3 lecturas de <var>n</var> y ninguna de °Brix; entre ellas, el patrón de 80&#8239;% del propio grupo 5 (<var>n</var> = 1,4429).</p><p>Ningún residual estudentizado supera ±2,5. La distancia de Cook supera 4/<var>N</var> en 9 lecturas, todas en los extremos de la curva (0&#8239;% (g1), 0&#8239;% (g3), 0&#8239;% (g5), 0&#8239;% (g6), 80&#8239;% (g5)), donde la palanca es mayor.</p><p>Al retirarlas, M1 y M2 cambian menos de 0,05&#8239;% p/p y LOD/LOQ casi no varían: <strong>los resultados son robustos</strong> y se conservan todas las lecturas.</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Regresión ponderada">
-  <h2>Regresión ponderada</h2>
-  <details class="eqd"><summary><span class="eqd__name">Regresión por mínimos cuadrados ponderados</span><span class="eqd__f"><var>w</var><sub>i</sub> = 1 / <var>s</var><sub>i</sub><sup>2</sup> &ensp; <var>m</var><sub>w</sub> = <span class="frac"><span>Σ<var>w</var><sub>i</sub>(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span><sub>w</sub>)(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span><sub>w</sub>)</span><span>Σ<var>w</var><sub>i</sub>(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span><sub>w</sub>)<sup>2</sup></span></span></span></summary><div class="eqd__body"><p>Cada punto pesa en proporción inversa a la varianza de su nivel, de modo que los niveles más precisos influyen más en la recta; <span class="bar"><var>x</var></span><sub>w</sub> e <span class="bar"><var>y</var></span><sub>w</sub> son medias ponderadas.</p><p>Es el estimador adecuado cuando la varianza no es constante (aquí, Levene <var>p</var> = 0,005 en <var>n</var> y 0,016 en °Brix). Si el modelo no ajusta, sin embargo, los pesos desplazan la recta hacia los niveles más precisos.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><var>w</var><sub>i</sub>: <code>=1/D2^2</code> (D: <var>s</var> del nivel) · <var>m</var><sub>w</sub>: <code>=SUMAPRODUCTO(W;A-xw;B-yw)/SUMAPRODUCTO(W;(A-xw)^2)</code>, con <code>xw=SUMAPRODUCTO(W;A)/SUMA(W)</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es una recta que «hace más caso» a los puntos más precisos y menos a los más dispersos, como un promedio en el que los datos confiables valen más.</p></div></details>
-  <div class="grid-2">
-    <div class="stack">
-      <div class="table-wrap table-wrap--full">
-        <table class="data">
-          <caption>Tabla 1.10. Regresión ordinaria frente a ponderada (curva de <var>n</var>)</caption>
-          <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Ordinaria</th><th scope="col" class="num">Ponderada</th></tr></thead>
-          <tbody>
-            <tr><th scope="row"><var>m</var> ± IC</th><td class="num">(1,376 ± 0,018) × 10<sup>−3</sup></td><td class="num">(1,305 ± 0,010) × 10<sup>−3</sup></td></tr>
-            <tr><th scope="row"><var>b</var> ± IC</th><td class="num">1,3371 ± 0,0008</td><td class="num">1,3410 ± 0,0006</td></tr>
-            <tr><th scope="row">M1 (% p/p ± IC)</th><td class="num">40,5 ± 3,6</td><td class="num">39,8 ± 1,7</td></tr>
-            <tr><th scope="row">M2 (% p/p ± IC)</th><td class="num">47,2 ± 2,6</td><td class="num">46,7 ± 0,7</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="table-wrap table-wrap--full">
-        <table class="data">
-          <caption>Tabla 1.11. Desviación estándar de <var>n</var> por nivel (× 10<sup>−4</sup>)</caption>
-          <thead><tr><th scope="col" class="num">0&#8239;%</th><th scope="col" class="num">10&#8239;%</th><th scope="col" class="num">20&#8239;%</th><th scope="col" class="num">30&#8239;%</th><th scope="col" class="num">40&#8239;%</th><th scope="col" class="num">50&#8239;%</th><th scope="col" class="num">60&#8239;%</th><th scope="col" class="num">70&#8239;%</th><th scope="col" class="num">80&#8239;%</th></tr></thead>
-          <tbody><tr><td class="num">11,5</td><td class="num">2,8</td><td class="num">6,4</td><td class="num">3,2</td><td class="num">2,4</td><td class="num">0,9</td><td class="num">3,8</td><td class="num">0,8</td><td class="num">10,2</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La desviación varía de 0,8 a 11,5 × 10<sup>−4</sup> entre niveles: los pesos difieren unas 184 veces y dominan los niveles de 50 y 70&#8239;%.</p><p>La ponderación estrecha mucho el IC de M1 (±1,7&#8239;%) y M2 (±0,7&#8239;%), pero cambia la pendiente fuera del IC ordinario.</p><p>Como la recta no ajusta (falta de ajuste significativa), la ponderada sigue a los niveles más precisos y su IC <strong>subestima</strong> la incertidumbre real. Es útil para mostrar la heterocedasticidad; para informar, se prefiere el modelo cuadrático.</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Desempeño por grupo (puntaje z)">
-  <h2>Desempeño por grupo (puntaje z)</h2>
-  <details class="eqd"><summary><span class="eqd__name">Puntaje z (ISO 13528)</span><span class="eqd__f"><var>z</var> = (<var>x</var><sub>i</sub> − <var>X</var>) / <var>σ</var><sub>pt</sub></span></summary><div class="eqd__body"><p>Expresa la desviación del resultado de cada grupo respecto del valor asignado <var>X</var>, en unidades de la desviación objetivo <var>σ</var><sub>pt</sub>. |<var>z</var>| ≤ 2 es satisfactorio; 2 &lt; |<var>z</var>| &lt; 3, cuestionable; |<var>z</var>| ≥ 3, insatisfactorio.</p><p>Aquí <var>X</var> es la mediana de los grupos 1–5 y <var>σ</var><sub>pt</sub> = <var>s</var><sub>R</sub>/<var>m</var> = 0,45&#8239;% p/p (reproducibilidad expresada en concentración).</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=NORMALIZACION(x;X_asignado;sigma_pt)</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Dice qué tan lejos quedó un grupo del valor de referencia, medido en «pasos» de dispersión aceptable. Hasta 2 está bien; entre 2 y 3, atención; más de 3, hay un problema.</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 1.12. Resultado y puntaje <var>z</var> de cada grupo (curva lineal de <var>n</var>)</caption>
-        <thead>
-          <tr><th scope="col" rowspan="2">Grupo</th><th scope="colgroup" colspan="3">M1 (asignado 40,33&#8239;%)</th><th scope="colgroup" colspan="3">M2 (asignado 47,23&#8239;%)</th></tr>
-          <tr><th scope="col" class="num"><var>k</var></th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num"><var>z</var></th><th scope="col" class="num"><var>k</var></th><th scope="col" class="num"><var>w</var> (%)</th><th scope="col" class="num"><var>z</var></th></tr>
-        </thead>
-        <tbody><tr><th scope="row">Grupo 1</th><td class="num">2</td><td class="num">39,97</td><td class="num"><strong>−0,79</strong></td><td class="num">2</td><td class="num">47,23</td><td class="num"><strong>0,00</strong></td></tr><tr><th scope="row">Grupo 2</th><td class="num">2</td><td class="num">40,07</td><td class="num"><strong>−0,55</strong></td><td class="num">2</td><td class="num">47,16</td><td class="num"><strong>−0,16</strong></td></tr><tr><th scope="row">Grupo 3</th><td class="num">2</td><td class="num">40,33</td><td class="num"><strong>0,00</strong></td><td class="num">2</td><td class="num">47,67</td><td class="num"><strong>0,95</strong></td></tr><tr><th scope="row">Grupo 4</th><td class="num">2</td><td class="num">40,33</td><td class="num"><strong>0,00</strong></td><td class="num">2</td><td class="num">47,67</td><td class="num"><strong>0,95</strong></td></tr><tr class="row-own"><th scope="row">Grupo 5 (J5)</th><td class="num">1</td><td class="num">40,55</td><td class="num"><strong>0,47</strong></td><td class="num">2</td><td class="num">47,16</td><td class="num"><strong>−0,16</strong></td></tr></tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los grupos están en |<var>z</var>| ≤ 1,0: desempeño satisfactorio y resultados intercambiables entre grupos.</p><p>Grupo 5: <var>z</var> = 0,47 en M1 (una sola lectura) y −0,16 en M2. Su resultado coincide con el de la clase (figura 1.6).</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.6 · Puntaje z por grupo">
-  <h2>Puntaje z de los grupos 1–5</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Puntaje z de M1 y M2 por grupo", "aspect": 0.6, "x": {"label": "Grupo", "min": 0.5, "max": 5.5}, "y": {"label": "z", "min": -3, "max": 3}, "series": [{"name": "M1", "points": [[1, -0.788], [2, -0.552], [3, 0.0], [4, 0.0], [5, 0.473]]}, {"name": "M2", "points": [[1, 0.0], [2, -0.158], [3, 0.945], [4, 0.945], [5, -0.158]]}, {"name": "Límites ±2", "points": [[0.5, 2], [5.5, 2]], "line": true, "markers": false, "color": 3, "dash": 2}, {"name": "", "points": [[0.5, -2], [5.5, -2]], "line": true, "markers": false, "color": 3, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 1.6. Puntaje <var>z</var> de M1 y M2 por grupo; |<var>z</var>| ≤ 2 es satisfactorio.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Compara el resultado de cada grupo con un valor de consenso, como en los ensayos de aptitud (ISO 13528), y permite juzgar si los resultados de distintos operadores son intercambiables.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los puntajes se encuentran dentro de ±1, muy por debajo del límite de aceptación de ±2: el desempeño es satisfactorio en M1 y M2.</p><p>Los grupos 3 y 4 obtienen resultados idénticos en ambas muestras; el grupo 5 presenta <var>z</var> = 0,47 (M1) y −0,16 (M2).</p><p>La concordancia entre grupos confirma que la variación entre operadores es pequeña frente a la incertidumbre de la calibración.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Supuestos de la regresión">
-  <h2>Supuestos de la regresión</h2>
-  <details class="eqd"><summary><span class="eqd__name">Estadístico de Durbin–Watson y prueba de Shapiro–Wilk</span><span class="eqd__f">DW = <span class="frac"><span>Σ(<var>e</var><sub>i</sub> − <var>e</var><sub>i−1</sub>)<sup>2</sup></span><span>Σ<var>e</var><sub>i</sub><sup>2</sup></span></span></span></summary><div class="eqd__body"><p>DW evalúa si residuales consecutivos (ordenados por concentración) están correlacionados: vale ≈ 2 si son independientes, tiende a 0 con autocorrelación positiva y a 4 con autocorrelación negativa.</p><p>Shapiro–Wilk compara los residuales ordenados con los cuantiles esperados de una distribución normal: <var>W</var> cercano a 1 y <var>p</var> &gt; 0,05 sostienen la normalidad.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>DW: <code>=SUMAXMENOSY2(E3:E11;E2:E10)/SUMA.CUADRADOS(E2:E11)</code> (E: residuales en orden de <var>x</var>) · Shapiro–Wilk: sin función en Excel (complemento estadístico)</p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Durbin–Watson revisa si los errores van «en racha» (un residual positivo seguido de otro positivo): cerca de 2 es azar; cerca de 0, hay una tendencia que la recta no capta. Shapiro–Wilk revisa si los errores tienen forma de campana.</p></div></details>
-  <div class="grid-2">
-      <div class="table-wrap table-wrap--full">
-        <table class="data">
-          <caption>Tabla 1.13. Pruebas sobre los residuales</caption>
-          <thead><tr><th scope="col">Prueba</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Shapiro–Wilk <var>W</var> (<var>p</var>)</th><td class="num">0,965 (0,009)</td><td class="num">0,914 (&lt; 0,001)</td></tr>
-            <tr><th scope="row">Durbin–Watson</th><td class="num">0,13</td><td class="num">0,07</td></tr>
-            <tr><th scope="row">Asimetría · curtosis</th><td class="num">−0,05 · −0,70</td><td class="num">−0,28 · −1,25</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales <strong>no son normales</strong> (Shapiro–Wilk <var>p</var> 0,009): son simétricos pero más planos que una normal (curtosis −0,70).</p><p>Durbin–Watson = 0,13, muy lejos de 2: los residuales vecinos se parecen (autocorrelación positiva). Es la huella de la curvatura, no de errores al azar.</p><p>Con el modelo cuadrático persiste la autocorrelación (Durbin–Watson = 0,24): queda una variación sistemática entre niveles. Los IC de la regresión deben tomarse como aproximados (figuras 1.7 y 1.8).</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.7 · Gráfico Q-Q de residuales">
-  <h2>Gráfico Q-Q de los residuales</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Gráfico Q-Q de residuales estandarizados de n", "aspect": 0.62, "x": {"label": "Cuantil normal teórico", "min": -3, "max": 3}, "y": {"label": "Residual estandarizado", "min": -3, "max": 3}, "series": [{"name": "Residuales (n)", "points": [[-2.499, -1.84], [-2.139, -1.76], [-1.94, -1.72], [-1.797, -1.72], [-1.684, -1.72], [-1.588, -1.72], [-1.506, -1.713], [-1.432, -1.68], [-1.366, -1.68], [-1.305, -1.64], [-1.248, -1.64], [-1.195, -1.64], [-1.146, -1.56], [-1.099, -1.241], [-1.054, -1.041], [-1.012, -1.041], [-0.971, -0.841], [-0.931, -0.841], [-0.894, -0.841], [-0.857, -0.801], [-0.821, -0.61], [-0.787, -0.57], [-0.753, -0.57], [-0.72, -0.57], [-0.688, -0.57], [-0.657, -0.57], [-0.626, -0.53], [-0.596, -0.53], [-0.566, -0.53], [-0.537, -0.514], [-0.509, -0.514], [-0.48, -0.514], [-0.453, -0.49], [-0.425, -0.475], [-0.398, -0.475], [-0.371, -0.475], [-0.344, -0.475], [-0.318, -0.355], [-0.292, -0.275], [-0.266, -0.267], [-0.24, -0.242], [-0.214, -0.219], [-0.189, -0.187], [-0.163, -0.187], [-0.138, -0.147], [-0.113, -0.139], [-0.088, -0.139], [-0.063, -0.139], [-0.038, -0.139], [-0.013, -0.099], [0.013, -0.099], [0.038, -0.067], [0.063, -0.067], [0.088, -0.059], [0.113, -0.059], [0.138, 0.053], [0.163, 0.133], [0.189, 0.133], [0.214, 0.133], [0.24, 0.141], [0.266, 0.317], [0.292, 0.396], [0.318, 0.396], [0.344, 0.396], [0.371, 0.396], [0.398, 0.396], [0.425, 0.436], [0.453, 0.436], [0.48, 0.436], [0.509, 0.436], [0.537, 0.764], [0.566, 0.844], [0.596, 0.852], [0.626, 0.852], [0.657, 0.884], [0.688, 0.884], [0.72, 0.892], [0.753, 0.924], [0.787, 0.932], [0.821, 0.932], [0.857, 0.964], [0.894, 0.964], [0.931, 0.964], [0.971, 1.012], [1.012, 1.044], [1.054, 1.052], [1.099, 1.052], [1.146, 1.052], [1.195, 1.148], [1.248, 1.212], [1.305, 1.243], [1.366, 1.347], [1.432, 1.547], [1.506, 1.587], [1.588, 1.747], [1.684, 1.747], [1.797, 1.787], [1.94, 1.787], [2.139, 1.947], [2.499, 1.947]]}, {"name": "Normal ideal", "points": [[-3, -3], [3, 3]], "line": true, "markers": false, "color": 2, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 1.7. Gráfico Q-Q de los residuales estandarizados de la recta de <var>n</var>.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Contrasta visualmente la normalidad de los residuales, supuesto en el que se fundamentan los intervalos de confianza y las pruebas <var>t</var> y <var>F</var> de la regresión.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los puntos forman escalones: los residuales se agrupan por nivel de concentración, consecuencia del sesgo sistemático de cada nivel.</p><p>Ambas colas quedan por dentro de la recta ideal (residuales extremos de ±1,9 frente a ±2,5 esperados): la distribución tiene colas más cortas que la normal (curtosis −0,70).</p><p>El resultado concuerda con Shapiro–Wilk (<var>p</var> = 0,009): la normalidad no se cumple en sentido estricto y los IC deben interpretarse como aproximados.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.8 · Bandas de confianza y de predicción">
-  <h2>Bandas de confianza y de predicción de la recta</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Recta de n con bandas de confianza y de predicción", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "n", "min": 1.325, "max": 1.455}, "series": [{"name": "Promedio por nivel", "points": [[0.0, 1.3337], [10.0, 1.35333], [20.0, 1.36878], [30.0, 1.38076], [40.0, 1.39191], [50.0, 1.40692], [60.0, 1.41955], [70.0, 1.43204], [80.0, 1.44574]], "color": 4}, {"name": "Recta", "points": [[0.0, 1.33711], [5.0, 1.34399], [10.0, 1.35087], [15.0, 1.35775], [20.0, 1.36463], [25.0, 1.37151], [30.0, 1.37839], [35.0, 1.38527], [40.0, 1.39215], [45.0, 1.39903], [50.0, 1.40591], [55.0, 1.41279], [60.0, 1.41967], [65.0, 1.42655], [70.0, 1.43343], [75.0, 1.44031], [80.0, 1.44719]], "line": true, "markers": false, "color": 1}, {"name": "IC 95 % de la recta", "points": [[0.0, 1.33793], [5.0, 1.34474], [10.0, 1.35155], [15.0, 1.35837], [20.0, 1.3652], [25.0, 1.37204], [30.0, 1.3789], [35.0, 1.38576], [40.0, 1.39265], [45.0, 1.39955], [50.0, 1.40647], [55.0, 1.41339], [60.0, 1.42033], [65.0, 1.42727], [70.0, 1.43422], [75.0, 1.44117], [80.0, 1.44813]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "Predicción 95 %", "points": [[0.0, 1.34214], [5.0, 1.34901], [10.0, 1.35588], [15.0, 1.36275], [20.0, 1.36963], [25.0, 1.3765], [30.0, 1.38338], [35.0, 1.39026], [40.0, 1.39714], [45.0, 1.40402], [50.0, 1.41091], [55.0, 1.41779], [60.0, 1.42468], [65.0, 1.43157], [70.0, 1.43846], [75.0, 1.44535], [80.0, 1.45225]], "line": true, "markers": false, "color": 3, "dash": 3}, {"name": "", "points": [[0.0, 1.33628], [5.0, 1.34323], [10.0, 1.35018], [15.0, 1.35712], [20.0, 1.36405], [25.0, 1.37097], [30.0, 1.37788], [35.0, 1.38477], [40.0, 1.39164], [45.0, 1.3985], [50.0, 1.40535], [55.0, 1.41218], [60.0, 1.41901], [65.0, 1.42582], [70.0, 1.43263], [75.0, 1.43944], [80.0, 1.44625]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "", "points": [[0.0, 1.33207], [5.0, 1.33896], [10.0, 1.34585], [15.0, 1.35274], [20.0, 1.35963], [25.0, 1.36651], [30.0, 1.37339], [35.0, 1.38027], [40.0, 1.38715], [45.0, 1.39403], [50.0, 1.40091], [55.0, 1.40778], [60.0, 1.41466], [65.0, 1.42153], [70.0, 1.4284], [75.0, 1.43526], [80.0, 1.44213]], "line": true, "markers": false, "color": 3, "dash": 3}]}</script>
-      </div>
-      <figcaption>Figura 1.8. Recta de <var>n</var> con bandas al 95&#8239;% y promedio de cada nivel.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Representa la incertidumbre de la recta ajustada y la de una predicción individual en todo el intervalo; esta última determina el intervalo de confianza de las muestras interpoladas.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La banda de confianza de la recta es estrecha (±0,0005 a ±0,0009 en <var>n</var>) gracias al elevado número de lecturas (<var>N</var> = 100).</p><p>La banda de predicción es mucho más ancha (±0,0050 en <var>n</var>, equivalente a ±3,6&#8239;% p/p) y casi constante: fija la incertidumbre de M1 y M2 obtenida con una sola lectura.</p><p>Ese ancho lo impone la falta de ajuste: la reproducibilidad del refractómetro (<var>s</var><sub>R</sub>) equivale apenas a 0,46&#8239;% p/p.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Sensibilidad analítica">
-  <h2>Sensibilidad analítica</h2>
-  <details class="eqd"><summary><span class="eqd__name">Sensibilidad analítica de Mandel</span><span class="eqd__f"><var>γ</var> = <var>m</var> / <var>s</var> &ensp; Δ<var>c</var><sub>mín</sub> ≈ 1/<var>γ</var></span></summary><div class="eqd__body"><p>Relaciona la sensibilidad de calibración (<var>m</var>) con el ruido de la medición (<var>s</var>). A diferencia de <var>m</var>, no depende de las unidades de la señal, por lo que permite comparar respuestas distintas como <var>n</var> y °Brix.</p><p>Su inverso estima la menor diferencia de concentración que se distingue con una sola lectura; se calculó con la repetibilidad y con la reproducibilidad.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><var>γ</var>: <code>=PENDIENTE(B2:B11;A2:A11)/s</code> · diferencia mínima: <code>=1/gamma</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es la diferencia de concentración más pequeña que el método logra distinguir, considerando cuánto cambia la señal y cuánto ruido tiene.</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 1.14. Sensibilidad de <var>n</var> y °Brix</caption>
-        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Pendiente <var>m</var> (por % p/p)</th><td class="num">1,376 × 10<sup>−3</sup></td><td class="num">0,754</td></tr>
-          <tr><th scope="row"><var>s</var><sub>r</sub> · <var>s</var><sub>R</sub></th><td class="num">5,37 × 10<sup>−4</sup> · 6,35 × 10<sup>−4</sup></td><td class="num">0,30 · 0,39</td></tr>
-          <tr><th scope="row"><var>γ</var> con <var>s</var><sub>r</sub> (por % p/p)</th><td class="num">2,56</td><td class="num">2,55</td></tr>
-          <tr><th scope="row"><var>γ</var> con <var>s</var><sub>R</sub> (por % p/p)</th><td class="num">2,17</td><td class="num">1,95</td></tr>
-          <tr><th scope="row">1/<var>γ</var> con <var>s</var><sub>r</sub> · <var>s</var><sub>R</sub> (% p/p)</th><td class="num"><strong>0,39 · 0,46</strong></td><td class="num"><strong>0,39 · 0,51</strong></td></tr>
-          <tr><th scope="row">LOQ de la recta (% p/p)</th><td class="num">18,2</td><td class="num">34,6</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Ambas escalas distinguen diferencias de unas 0,4–0,5&#8239;% p/p de glicerina; con <var>s</var><sub>r</sub> su sensibilidad es prácticamente igual (1/<var>γ</var> = 0,39&#8239;% en ambas) y con <var>s</var><sub>R</sub> <var>n</var> es algo mejor (0,46 frente a 0,51&#8239;%).</p><p>La ventaja de <var>n</var> en el LOQ (18,2 frente a 34,6&#8239;%) se debe a que <var>n</var> se ajusta mejor a una recta, no a que se lea con más precisión.</p><p>El LOD y el LOQ calculados con <var>s</var><sub><var>y</var>/<var>x</var></sub> están inflados por la falta de ajuste; con un buen modelo, el límite real lo marca la precisión de lectura.</p></div>
-  </div>
-</section>
+
 <!-- P1-EXTRA:fin -->
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.9 · °Brix frente a n">
-  <h2>Grados Brix frente al índice de refracción</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al índice de refracción", "aspect": 0.6, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Lecturas (10 grupos)", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 23.25], [1.369, 23.2], [1.3916, 35.05], [1.3918, 35.57], [1.4195, 49.57], [1.4193, 49.53], [1.4463, 61.98], [1.446, 61.7], [1.333, 0.0], [1.334, 0.0], [1.3686, 22.9], [1.3685, 22.9], [1.3918, 35.8], [1.3919, 35.9], [1.4195, 49.8], [1.42, 50.0], [1.4459, 61.9], [1.446, 61.9], [1.3325, 0.0], [1.333, 0.0], [1.3675, 22.25], [1.368, 22.5], [1.392, 35.6], [1.3925, 36.0], [1.42, 50.0], [1.4192, 49.7], [1.446, 61.8], [1.4459, 61.8], [1.333, 0.0], [1.3332, 0.0], [1.3691, 23.1], [1.3695, 23.2], [1.392, 35.3], [1.3918, 35.6], [1.4192, 49.7], [1.42, 50.0], [1.446, 61.8], [1.4459, 61.8], [1.3328, 0.0], [1.3328, 0.0], [1.369, 23.1], [1.3691, 23.1], [1.3918, 35.6], [1.3919, 35.6], [1.4198, 49.9], [1.419, 49.9], [1.4429, 61.9], [1.4465, 62.0], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 13.51], [1.3535, 13.51], [1.3807, 29.75], [1.3808, 29.75], [1.4069, 43.52], [1.4069, 43.6], [1.4322, 55.55], [1.4321, 55.5], [1.3329, 0.0], [1.3351, 1.5], [1.3534, 13.5], [1.3531, 13.5], [1.3815, 29.75], [1.3808, 29.75], [1.4069, 43.61], [1.4069, 43.7], [1.4319, 55.1], [1.432, 55.1], [1.335, 1.4], [1.3345, 3.2], [1.3539, 13.6], [1.353, 13.4], [1.381, 29.3], [1.3805, 29.5], [1.407, 43.8], [1.4067, 43.5], [1.4321, 55.6], [1.432, 55.2], [1.335, 1.5], [1.335, 1.5], [1.3532, 13.5], [1.353, 13.5], [1.3806, 29.75], [1.3803, 29.75], [1.407, 43.7], [1.407, 43.75], [1.432, 55.5], [1.432, 55.55], [1.3345, 1.1], [1.3365, 2.5], [1.3532, 13.5], [1.3535, 13.6], [1.3806, 29.9], [1.3808, 29.9], [1.4069, 43.6], [1.407, 43.5], [1.432, 55.6], [1.4321, 55.6]], "fit": true}]}</script>
-      </div>
-      <figcaption>Figura 1.9. °Brix frente a <var>n</var> para todas las lecturas de la clase (gráfico solicitado por la guía).</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona directamente las dos escalas del refractómetro y permite establecer si °Brix aporta información independiente del índice de refracción.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La relación es casi perfecta: con una recta, <var>R</var><sup>2</sup> = 0,9956; con un polinomio de segundo grado, <var>R</var><sup>2</sup> = 0,99974 y <var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,34&#8239;°Brix, del orden de la resolución de la escala.</p><p>La curvatura sistemática indica que el instrumento no mide °Brix de forma independiente: lo calcula a partir de <var>n</var> mediante la tabla de conversión de la sacarosa.</p><p>En consecuencia, °Brix es una transformación no lineal de <var>n</var>; su menor linealidad frente a la glicerina proviene de esa conversión y no de una medición distinta.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.10 · °Baumé frente a w">
-  <h2>Grados Baumé frente a la concentración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Grados Baumé frente a la concentración de glicerina", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Bé", "min": 0, "max": 36}, "series": [{"name": "Clase (promedios, 9 niveles)", "points": [[0.0, 0.36], [10.0, 7.53], [20.0, 12.73], [30.0, 16.43], [40.0, 19.64], [50.0, 23.98], [60.0, 27.3], [70.0, 30.3], [80.0, 33.71]], "fit": true, "color": 1}, {"name": "Grupo 5", "points": [[0, 0.0], [20, 12.81], [40, 19.64], [60, 27.34], [80, 33.76]], "color": 2}, {"name": "Baumé hidrométrico (densidad de la glicerina)", "points": [[0, 0.0], [10.0, 3.14], [20.0, 6.51], [30.0, 9.83], [40.0, 13.07], [50.0, 16.26], [60.0, 19.27], [70.0, 22.16], [80.0, 25.02]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 1.10. °Bé calculado desde °Brix: promedios de la clase con la recta de mínimos cuadrados y lecturas del grupo 5; en línea discontinua, el Baumé que daría un densímetro (tablas de densidad de glicerina–agua a 20&#8239;°C).</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La guía solicita la curva de °Baumé frente a la concentración para comparar una tercera escala empírica con <var>n</var> y °Brix.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>°Bé crece de 0,4 (agua) a 33,7 (80&#8239;%) con la misma concavidad que °Brix: la recta deja <var>R</var><sup>2</sup> = 0,9836 y un polinomio de segundo grado, 0,9959.</p><p>El cociente °Brix/°Bé pasa de 1,79 a 1,83, por lo que la regla práctica °Bé ≈ °Brix/1,8 solo vale de forma aproximada.</p><p>El Baumé refractométrico sobrestima al hidrométrico (≈&#8239;34 frente a ≈&#8239;25 a 80&#8239;%): la glicerina refracta más que la sacarosa para una densidad dada, así que la escala no mide densidad en estas mezclas.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.11 · °Baumé frente a n">
-  <h2>Grados Baumé frente al índice de refracción</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Grados Baumé frente al índice de refracción", "aspect": 0.6, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Bé", "min": 0, "max": 36}, "series": [{"name": "Lecturas (10 grupos)", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 12.9], [1.369, 12.87], [1.3916, 19.34], [1.3918, 19.62], [1.4195, 27.17], [1.4193, 27.15], [1.4463, 33.78], [1.446, 33.63], [1.333, 0.0], [1.334, 0.0], [1.3686, 12.7], [1.3685, 12.7], [1.3918, 19.74], [1.3919, 19.8], [1.4195, 27.29], [1.42, 27.4], [1.4459, 33.74], [1.446, 33.74], [1.3325, 0.0], [1.333, 0.0], [1.3675, 12.35], [1.368, 12.49], [1.392, 19.64], [1.3925, 19.85], [1.42, 27.4], [1.4192, 27.24], [1.446, 33.68], [1.4459, 33.68], [1.333, 0.0], [1.3332, 0.0], [1.3691, 12.81], [1.3695, 12.87], [1.392, 19.47], [1.3918, 19.64], [1.4192, 27.24], [1.42, 27.4], [1.446, 33.68], [1.4459, 33.68], [1.3328, 0.0], [1.3328, 0.0], [1.369, 12.81], [1.3691, 12.81], [1.3918, 19.64], [1.3919, 19.64], [1.4198, 27.34], [1.419, 27.34], [1.4429, 33.74], [1.4465, 33.79], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 7.53], [1.3535, 7.53], [1.3807, 16.45], [1.3808, 16.45], [1.4069, 23.92], [1.4069, 23.96], [1.4322, 30.36], [1.4321, 30.34], [1.3329, 0.0], [1.3351, 0.84], [1.3534, 7.52], [1.3531, 7.52], [1.3815, 16.45], [1.3808, 16.45], [1.4069, 23.97], [1.4069, 24.01], [1.4319, 30.12], [1.432, 30.12], [1.335, 0.78], [1.3345, 1.79], [1.3539, 7.58], [1.353, 7.47], [1.381, 16.21], [1.3805, 16.32], [1.407, 24.07], [1.4067, 23.91], [1.4321, 30.39], [1.432, 30.18], [1.335, 0.84], [1.335, 0.84], [1.3532, 7.52], [1.353, 7.52], [1.3806, 16.45], [1.3803, 16.45], [1.407, 24.01], [1.407, 24.04], [1.432, 30.34], [1.432, 30.36], [1.3345, 0.62], [1.3365, 1.4], [1.3532, 7.52], [1.3535, 7.58], [1.3806, 16.53], [1.3808, 16.53], [1.4069, 23.96], [1.407, 23.91], [1.432, 30.39], [1.4321, 30.39]], "fit": true, "color": 1}]}</script>
-      </div>
-      <figcaption>Figura 1.11. °Bé (calculado desde °Brix) frente a <var>n</var> para las 100 lecturas de patrones y agua de la clase, con la recta de mínimos cuadrados.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona la escala Baumé con la magnitud física que mide el refractómetro y muestra si ambas escalas son intercambiables.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La relación es casi exacta: la recta da <var>R</var><sup>2</sup> = 0,9945 y un polinomio de segundo grado, 0,99973 con <var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,19&#8239;°Bé. La curvatura residual es la de la conversión Brix → Baumé.</p><p>Como las tres escalas dependen de la misma lectura óptica, interpolar M1 y M2 con °Bé da los mismos resultados que con °Brix; la escala no añade exactitud y solo resulta útil para comparar con especificaciones expresadas en Baumé.</p></div>
-    </div>
-  </div>
-</section>
 
 
 <!-- P1-FR:inicio -->
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Factor de respuesta">
-  <h2>Linealidad por factor de respuesta</h2>
-  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta corregido por el blanco</span><span class="eqd__f"><var>FR</var> = (<var>y</var> − <var>y</var><sub>0</sub>) / <var>w</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la señal neta por unidad de concentración, donde <var>y</var><sub>0</sub> es la lectura del agua (<var>n</var><sub>0</sub> = 1,3337; °Brix<sub>0</sub> = 0,64; promedio de la clase, <var>k</var> = 20). En un método lineal que pasa por el blanco el cociente es constante en todo el intervalo.</p><p>Se acepta la linealidad en los niveles cuyo factor queda entre el 95 y el 105&#8239;% de la mediana; una tendencia sistemática con la concentración indica curvatura. A diferencia de <var>R</var><sup>2</sup>, la prueba es sensible a desviaciones en los niveles bajos.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=(B2-y0)/A2</code> · en % de la mediana: <code>=F2/MEDIANA($F$2:$F$11)*100</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es la señal que da cada unidad de concentración. Si el método es lineal, ese valor debe ser casi el mismo en todos los niveles (entre 95 y 105&#8239;% del típico).</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 1.15. Factor de respuesta por nivel (en rojo, fuera de 95–105&#8239;% de la mediana)</caption>
-        <thead><tr><th scope="col"><var>w</var> (% p/p)</th><th scope="col" class="num"><var>n</var>/<var>w</var><br><small>hoja de clase</small></th><th scope="col" class="num">(<var>n</var> − <var>n</var><sub>0</sub>)/<var>w</var><br><small>× 10<sup>−3</sup></small></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(°Brix − °Brix<sub>0</sub>)/<var>w</var></th><th scope="col" class="num">% med.</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">10</th><td class="num">0,1353</td><td class="num">1,963</td><td class="num sig">134,3</td><td class="num">1,288</td><td class="num sig">149,2</td></tr>
-          <tr><th scope="row">20</th><td class="num">0,0684</td><td class="num">1,754</td><td class="num sig">120,0</td><td class="num">1,116</td><td class="num sig">129,3</td></tr>
-          <tr><th scope="row">30</th><td class="num">0,0460</td><td class="num">1,569</td><td class="num sig">107,3</td><td class="num">0,969</td><td class="num sig">112,3</td></tr>
-          <tr><th scope="row">40</th><td class="num">0,0348</td><td class="num">1,455</td><td class="num">99,5</td><td class="num">0,874</td><td class="num">101,3</td></tr>
-          <tr><th scope="row">50</th><td class="num">0,0281</td><td class="num">1,464</td><td class="num">100,2</td><td class="num">0,860</td><td class="num">99,7</td></tr>
-          <tr><th scope="row">60</th><td class="num">0,0237</td><td class="num">1,431</td><td class="num">97,9</td><td class="num">0,820</td><td class="num sig">94,99</td></tr>
-          <tr><th scope="row">70</th><td class="num">0,0205</td><td class="num">1,405</td><td class="num">96,1</td><td class="num">0,783</td><td class="num sig">90,7</td></tr>
-          <tr><th scope="row">80</th><td class="num">0,0181</td><td class="num">1,400</td><td class="num">95,8</td><td class="num">0,765</td><td class="num sig">88,7</td></tr>
-          <tr><th scope="row">Mediana</th><td class="num">0,0315</td><td class="num">1,462</td><td class="num">100</td><td class="num">0,863</td><td class="num">100</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El factor de la hoja de clase (<var>n</var>/<var>w</var>) incluye el índice del disolvente (≈&#8239;1,333), por lo que decrece como 1/<var>w</var> (430 a 57&#8239;% de la mediana): ningún nivel cumple, pero el resultado refleja el cálculo, no el método. Debe restarse el blanco.</p><p>Corregido por el blanco, el factor de <var>n</var> cumple de 40 a 80&#8239;% p/p y supera el criterio en los niveles bajos (134&#8239;% a 10&#8239;%): la respuesta por unidad de concentración disminuye al aumentar <var>w</var>, la misma concavidad que detectan la falta de ajuste y el modelo cuadrático.</p><p>Con este criterio, el intervalo lineal es ≈&#8239;40–80&#8239;% p/p para <var>n</var> y 40–50&#8239;% p/p para °Brix. M1 y M2 (≈&#8239;40–47&#8239;%) caen dentro, por lo que su interpolación es confiable.</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.12 · Factor de respuesta">
-  <h2>Factor de respuesta frente a la concentración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Factor de respuesta frente a la concentración", "aspect": 0.6, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "FR (% de la mediana)", "min": 80, "max": 155}, "series": [{"name": "n (corregido)", "points": [[10, 134.27], [20, 119.97], [30, 107.3], [40, 99.54], [50, 100.16], [60, 97.87], [70, 96.09], [80, 95.79]], "line": true, "color": 1}, {"name": "°Brix (corregido)", "points": [[10, 149.25], [20, 129.32], [30, 112.33], [40, 101.32], [50, 99.66], [60, 94.99], [70, 90.73], [80, 88.7]], "line": true, "color": 2}, {"name": "Banda 95–105 %", "points": [[0, 105], [80, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[0, 95], [80, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 1.12. Factor de respuesta corregido por el blanco de <var>n</var> y de °Brix, como porcentaje de su mediana (10 lecturas por nivel).</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Muestra en qué parte del intervalo se cumple la proporcionalidad entre señal y concentración; complementa al gráfico de residuales porque expresa la desviación en términos relativos y la contrasta con un criterio de aceptación.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Ambos factores decrecen de forma monótona con la concentración (Spearman <var>ρ</var> = −0,97 para <var>n</var>, <var>p</var> &lt; 0,001): no hay un valor constante, sino una tendencia sistemática.</p><p><var>n</var> entra en la banda a partir de 40&#8239;% y se mantiene en ella; °Brix la atraviesa y sale por debajo a 60&#8239;%, porque su escala está calibrada para sacarosa.</p><p>El cociente entre ambos factores tampoco es constante (90 a 108&#8239;%), lo que confirma que °Brix es una transformación no lineal de <var>n</var> (Figura 1.9).</p></div>
-    </div>
-  </div>
-</section>
 <!-- P1-FR:fin -->
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Resultados">
@@ -945,6 +609,18 @@
   <h2 class="section__title">Polarimetría de lactosa y mentol</h2>
   <p class="lead">2 soluciones por analito × 10 lecturas de <var>α</var> · promedio, %RSD e IC · rotación específica y prueba <var>t</var></p>
   <ul class="chips"><li><var>α</var></li><li>[<var>α</var>]</li><li>%RSD</li><li><var>t</var> de Student</li></ul>
+  <div class="section__obj">
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Medir la rotación óptica de soluciones de lactosa y de mentol, evaluar su precisión y calcular su rotación específica.</p>
+  </div>
+  <ul class="points points--compact">
+    <li>Identificar los componentes del polarímetro.</li>
+    <li>Registrar 20 lecturas de <var>α</var> por analito (una por estudiante, en dos series de 10).</li>
+    <li>Calcular promedio, %RSD, CV e IC 95&#8239;%, y comparar las dos series (Welch).</li>
+    <li>Calcular [<var>α</var>] y compararla con el valor tabulado (prueba <var>t</var>).</li>
+  </ul>
+  </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="polarimetro"></span></div>
 </section>
 
@@ -960,19 +636,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Medir la rotación óptica de soluciones de lactosa y de mentol, evaluar su precisión y calcular su rotación específica.</p>
-  </div>
-  <ul class="points">
-    <li>Identificar los componentes del polarímetro.</li>
-    <li>Registrar 20 lecturas de <var>α</var> por analito (una por estudiante, en dos series de 10).</li>
-    <li>Calcular promedio, %RSD, CV e IC 95&#8239;%, y comparar las dos series (Welch).</li>
-    <li>Calcular [<var>α</var>] y compararla con el valor tabulado (prueba <var>t</var>).</li>
-  </ul>
-</section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Fundamento">
   <h2>Fundamento</h2>
@@ -1099,51 +762,8 @@
 
 </section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.1 · Lecturas de la lactosa">
-  <h2>Lecturas de rotación óptica de la lactosa</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Rotación observada de la lactosa por lectura", "aspect": 0.6, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": 9, "max": 12}, "series": [{"name": "Lactosa 1", "points": [[1, 10.7], [2, 10.5], [3, 10.1], [4, 10.3], [5, 10.3], [6, 10.6], [7, 10.2], [8, 9.6], [9, 10.8], [10, 10.8]], "line": true}, {"name": "Lactosa 2", "points": [[1, 10.2], [2, 10.2], [3, 10.1], [4, 11.2], [5, 10.1], [6, 11.1], [7, 10.6], [8, 10.9], [9, 11.1], [10, 9.6]], "line": true}]}</script>
-      </div>
-      <figcaption>Figura 2.1. <var>α</var> de las dos soluciones de lactosa en el orden de lectura.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite evaluar la estabilidad de la medición (deriva, tendencias o valores aislados) antes de resumirla mediante el promedio y la desviación estándar.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas fluctúan alrededor de +10,45° entre 9,6° y 11,2°, sin tendencia con el orden de lectura (Spearman: <var>p</var> = 0,60 y 0,83).</p><p>Las dos soluciones se superponen en todo el registro (Welch: <var>p</var> = 0,57), por lo que pueden combinarse en una sola serie (<var>n</var> = 20).</p><p>La ausencia de deriva sugiere que la mutarrotación de la lactosa no fue apreciable durante las mediciones.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.2 · Lecturas del mentol">
-  <h2>Lecturas de rotación óptica del mentol</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Rotación observada del mentol por lectura", "aspect": 0.6, "x": {"label": "N.º de lectura", "min": 0, "max": 10}, "y": {"label": "α (°)", "min": -5.5, "max": -3.5}, "series": [{"name": "Mentol 1", "points": [[1, -4.8], [2, -4.7], [3, -4.8], [4, -4.4], [5, -4.3], [6, -4.2], [7, -4.8], [8, -4.9], [9, -4.5], [10, -4.8]], "line": true}, {"name": "Mentol 2", "points": [[1, -5.0], [2, -4.9], [3, -4.7], [4, -4.7], [5, -4.9], [6, -4.2], [7, -4.5], [8, -5.0], [9, -4.9], [10, -4.1]], "line": true}]}</script>
-      </div>
-      <figcaption>Figura 2.2. <var>α</var> de las dos soluciones de mentol (lectura − 180°) en el orden de lectura.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica la estabilidad de la lectura y la concordancia entre las dos soluciones antes de combinar los datos y calcular la precisión.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las lecturas oscilan alrededor de −4,66° entre −5,0° y −4,1°, sin tendencia significativa con el orden de lectura (Spearman: <var>p</var> = 0,76 y 0,28).</p><p>Las dos soluciones coinciden (Welch: <var>p</var> = 0,60) y el signo negativo confirma el carácter levógiro del mentol.</p><p>La distribución se aparta de la normal (Shapiro–Wilk: <var>p</var> = 0,030), posiblemente por la lectura en pasos discretos de 0,1°.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.3 · [α] experimental frente a tabulada">
-  <h2>Rotación específica experimental frente a la tabulada</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado · requiere <var>c</var>, <var>l</var> y <var>λ</var></div>
-      <figcaption>Figura 2.3. Pendiente.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Evalúa la exactitud del método: muestra si el intervalo de confianza de [<var>α</var>] experimental incluye el valor de referencia de cada analito.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: requiere la concentración de cada solución, la longitud del tubo y la longitud de onda. [___]</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
@@ -1187,8 +807,8 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Discusión">
-  <h2>Discusión</h2>
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Discusión y conclusión">
+  <h2>Discusión y conclusión</h2>
   <ul class="points">
     <li>Precisión: %RSD de 4,4 (lactosa) y 6,1 (mentol) frente al criterio de aceptación [___].</li>
     <li>Las dos soluciones de cada analito dan el mismo <var>α</var> (Welch: <var>p</var> = 0,57 y 0,60).</li>
@@ -1199,10 +819,6 @@
     <p class="box__label">Observación</p>
     <p>Las lecturas se registran en pasos de 0,1° y se alejan hasta 0,85° (lactosa) y 0,56° (mentol) del promedio. Posible causa: [___]</p>
   </div>
-</section>
-
-<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Conclusión">
-  <h2>Conclusión</h2>
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 2</p>
     <ul class="points">
@@ -1212,6 +828,7 @@
     </ul>
   </div>
 </section>
+
 
 <!-- =================================================================
      SECCIÓN 3 · PRÁCTICA 3 — UV DEL IBUPROFENO
@@ -1223,6 +840,18 @@
   <h2 class="section__title">Cuantificación UV del ibuprofeno</h2>
   <p class="lead">Solubilidad y disolvente · barrido espectral · curva de calibración · extracción desde tabletas · verificación</p>
   <ul class="chips"><li>Solubilidad</li><li><var>λ</var><sub>máx</sub></li><li><var>A</var></li><li>% recuperación</li></ul>
+  <div class="section__obj">
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Cuantificar el ibuprofeno en tabletas por espectrofotometría UV.</p>
+  </div>
+  <ul class="points points--compact">
+    <li>Manejar el espectrofotómetro UV-Vis y seleccionar el disolvente por solubilidad.</li>
+    <li>Determinar <var>λ</var><sub>máx</sub> del activo en el medio de trabajo (barrido 200–400&#8239;nm).</li>
+    <li>Construir y validar la curva de calibración.</li>
+    <li>Verificar el método con soluciones baja, media y alta.</li>
+  </ul>
+  </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
 </section>
 
@@ -1238,19 +867,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Cuantificar el ibuprofeno en tabletas por espectrofotometría UV.</p>
-  </div>
-  <ul class="points">
-    <li>Manejar el espectrofotómetro UV-Vis y seleccionar el disolvente por solubilidad.</li>
-    <li>Determinar <var>λ</var><sub>máx</sub> del activo en el medio de trabajo (barrido 200–400&#8239;nm).</li>
-    <li>Construir y validar la curva de calibración.</li>
-    <li>Verificar el método con soluciones baja, media y alta.</li>
-  </ul>
-</section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Fundamento">
   <h2>Fundamento</h2>
@@ -1439,21 +1055,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.3 · Residuales">
-  <h2>Residuales de la curva de calibración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de calibración", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 16}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales", "points": [[5.04, 0.169], [5.04, 0.184], [7.56, 0.305], [7.56, 0.209], [10.08, 0.361], [10.08, 0.391], [12.6, 0.536], [12.6, 0.423], [15.12, 0.567], [15.12, 0.585]]}]}</script>
-      </div>
-      <figcaption>Figura 3.3. Residuales de la recta frente a la concentración.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Comprueba los supuestos de la regresión: un patrón curvo indicaría falta de linealidad y un embudo, varianza no constante (heterocedasticidad).</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales se reparten al azar alrededor de cero, sin tendencia curva: concuerda con la falta de ajuste no significativa (<var>p</var> = 0,97).</p><p>Los residuales mayores (±0,06) aparecen en pares opuestos en 7,56 y 12,60&#8239;μg/mL: es la diferencia entre duplicados, no un desvío del modelo. No hay valores influyentes (<var>D</var> de Cook máxima = 0,26).</p><p>La dispersión no crece con la concentración (sin forma de embudo); la prueba de Cochran no es significativa (<var>C</var> = 0,54 &lt; 0,84), aunque con dos réplicas por nivel su potencia es baja. Se asume un modelo homocedástico.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
@@ -1492,76 +1093,25 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Precisión por nivel y supuestos">
-  <h2>Precisión por nivel y supuestos de la regresión</h2>
-  <div class="grid-2">
-    <div class="stack">
-      <div class="table-wrap">
-        <table class="data">
-          <caption>Tabla 3.5. Precisión de los duplicados (en rojo, %RSD &gt; 2&#8239;%)</caption>
-          <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><var>s</var></th><th scope="col" class="num">%RSD</th></tr></thead>
-          <tbody><tr><th scope="row">5,04</th><td class="num mono">0,169</td><td class="num mono">0,184</td><td class="num">0,0106</td><td class="num sig">6,0</td></tr><tr><th scope="row">7,56</th><td class="num mono">0,305</td><td class="num mono">0,209</td><td class="num">0,0679</td><td class="num sig">26,4</td></tr><tr><th scope="row">10,08</th><td class="num mono">0,361</td><td class="num mono">0,391</td><td class="num">0,0212</td><td class="num sig">5,6</td></tr><tr><th scope="row">12,60</th><td class="num mono">0,536</td><td class="num mono">0,423</td><td class="num">0,0799</td><td class="num sig">16,7</td></tr><tr><th scope="row">15,12</th><td class="num mono">0,567</td><td class="num mono">0,585</td><td class="num">0,0127</td><td class="num sig">2,2</td></tr></tbody>
-        </table>
-      </div>
-      <div class="table-wrap">
-        <table class="data">
-          <caption>Tabla 3.6. Pruebas sobre los residuales</caption>
-          <thead><tr><th scope="col">Prueba</th><th scope="col" class="num">Resultado</th><th scope="col">Decisión</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Shapiro–Wilk <var>W</var> (<var>p</var>)</th><td class="num">0,961 (0,80)</td><td>Normales</td></tr>
-            <tr><th scope="row">Durbin–Watson</th><td class="num">2,43</td><td>Sin autocorrelación</td></tr>
-            <tr><th scope="row">Cochran <var>C</var> (crítico)</th><td class="num">0,54 (0,84)</td><td>Homocedástico</td></tr>
-            <tr><th scope="row"><var>D</var> de Cook máxima</th><td class="num">0,26</td><td>Sin puntos influyentes</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales cumplen los supuestos de la regresión: son normales, independientes y sin puntos influyentes.</p><p>La precisión, en cambio, es insuficiente: solo el nivel más alto se acerca al 2&#8239;% de RSD que suele exigirse a los patrones de una curva espectrofotométrica, y los niveles de 7,56 y 12,60&#8239;μg/mL superan el 15&#8239;%.</p><p>Como cada duplicado lo prepara una pareja distinta, la diferencia refleja errores de pipeteo o de aforo entre preparaciones, no del espectrofotómetro. Conviene repetir esos dos niveles antes de cuantificar las tabletas.</p></div>
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Análisis complementarios">
+  <h2>Análisis complementarios</h2>
+  <div class="table-wrap table-wrap--full">
+    <table class="data">
+      <caption>Tabla 3.10. Resumen de los análisis complementarios</caption>
+      <thead><tr><th scope="col">Análisis</th><th scope="col">Resultado</th><th scope="col">Implicación</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Residuales</th><td>Al azar, sin curvatura ni embudo; falta de ajuste <var>p</var> = 0,97; <var>D</var> de Cook máxima 0,26</td><td>El modelo lineal es adecuado</td></tr>
+        <tr><th scope="row">Supuestos</th><td>Shapiro–Wilk <var>p</var> = 0,80; Durbin–Watson 2,43; Cochran 0,54 (crítico 0,84)</td><td>Normales, independientes y homocedásticos</td></tr>
+        <tr><th scope="row">Precisión de los duplicados</th><td>%RSD 2,2–26,4&#8239;%; 7,56 y 12,60&#8239;μg/mL superan el 15&#8239;%</td><td>La imprecisión explica el <var>R</var><sup>2</sup> de 0,944; conviene repetir esos niveles</td></tr>
+        <tr><th scope="row">Factor de respuesta</th><td>Cumplen 5 de 10 lecturas, sin corregir y corregidas; sin tendencia tras restar el intercepto</td><td>El incumplimiento es de precisión, no de linealidad</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
+
 
 <!-- P3-IBP:inicio -->
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Factor de respuesta">
-  <h2>Linealidad por factor de respuesta</h2>
-  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la curva pasa por el origen, es constante e igual a la pendiente. La hoja lo calcula sin corregir; la versión corregida resta el intercepto (<var>A</var> − <var>b</var>)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana. A diferencia de <var>R</var><sup>2</sup>, el criterio evalúa cada punto por separado.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=B2/A2</code> · en % de la mediana: <code>=F2/MEDIANA($F$2:$F$11)*100</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es la absorbancia que da cada µg/mL. Si se cumple Lambert-Beer, debe ser casi igual en todos los patrones; si sube o baja con la concentración, hay intercepto o curvatura.</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 3.7. Factor de respuesta en % de la mediana (0,0370 · 0,0408); rojo: fuera de 95–105&#8239;%</caption>
-        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
-        <tbody>
-          <tr><th scope="row" rowspan="2">5,04</th><td class="num mono">0,169</td><td class="num">0,0335</td><td class="num sig">90,6</td><td class="num">0,0406</td><td class="num">99,4</td></tr>
-          <tr><td class="num mono">0,184</td><td class="num">0,0365</td><td class="num">98,7</td><td class="num">0,0436</td><td class="num sig">106,7</td></tr>
-          <tr><th scope="row" rowspan="2">7,56</th><td class="num mono">0,305</td><td class="num">0,0403</td><td class="num sig">109,0</td><td class="num">0,0451</td><td class="num sig">110,4</td></tr>
-          <tr><td class="num mono">0,209</td><td class="num">0,0276</td><td class="num sig">74,7</td><td class="num">0,0324</td><td class="num sig">79,3</td></tr>
-          <tr><th scope="row" rowspan="2">10,08</th><td class="num mono">0,361</td><td class="num">0,0358</td><td class="num">96,8</td><td class="num">0,0393</td><td class="num">96,4</td></tr>
-          <tr><td class="num mono">0,391</td><td class="num">0,0388</td><td class="num">104,8</td><td class="num">0,0423</td><td class="num">103,7</td></tr>
-          <tr><th scope="row" rowspan="2">12,60</th><td class="num mono">0,536</td><td class="num">0,0425</td><td class="num sig">115,0</td><td class="num">0,0454</td><td class="num sig">111,1</td></tr>
-          <tr><td class="num mono">0,423</td><td class="num">0,0336</td><td class="num sig">90,7</td><td class="num">0,0364</td><td class="num sig">89,2</td></tr>
-          <tr><th scope="row" rowspan="2">15,12</th><td class="num mono">0,567</td><td class="num">0,0375</td><td class="num">101,3</td><td class="num">0,0399</td><td class="num">97,6</td></tr>
-          <tr><td class="num mono">0,585</td><td class="num">0,0387</td><td class="num">104,6</td><td class="num">0,0410</td><td class="num">100,6</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Solo 5 de las 10 lecturas cumplen el criterio con el factor de la hoja (74,7–115,0&#8239;%). Las que fallan son, otra vez, los duplicados dispersos de 7,56 y 12,60&#8239;μg/mL y el nivel más bajo.</p><p>Por nivel, el factor sin corregir crece con la concentración (95&#8239;% a 103&#8239;%) porque el intercepto es negativo. Al restarlo desaparece la tendencia y cumplen 5 de 10: la proporcionalidad se sostiene y el incumplimiento es de precisión, no de linealidad.</p><p>La hoja rotula el límite superior como «101&#8239;%», pero el valor que usa (0,03885) corresponde al 105&#8239;%.</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.4 · Factor de respuesta">
-  <h2>Factor de respuesta frente a la concentración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Factor de respuesta frente a la concentración", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 16}, "y": {"label": "FR (% de la mediana)", "min": 70, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[5.04, 90.62], [5.04, 98.66], [7.56, 109.03], [7.56, 74.71], [10.08, 96.78], [10.08, 104.83], [12.6, 114.96], [12.6, 90.72], [15.12, 101.34], [15.12, 104.56]], "color": 1}, {"name": "(A − b)/c", "points": [[5.04, 99.45], [5.04, 106.74], [7.56, 110.37], [7.56, 79.26], [10.08, 96.39], [10.08, 103.68], [12.6, 111.13], [12.6, 89.16], [15.12, 97.63], [15.12, 100.55]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [16, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [16, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 3.4. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos y la contrasta con un criterio de aceptación; una tendencia con la concentración indicaría curvatura o un intercepto distinto de cero.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los puntos se separan de la banda en pares opuestos, simétricos alrededor del 100&#8239;%, en 7,56 y 12,60&#8239;μg/mL: es la firma de la imprecisión de los duplicados.</p><p>La corrección por el intercepto sube los niveles bajos y deja los altos casi iguales; con ella los factores ya no siguen una tendencia, en acuerdo con la falta de ajuste no significativa (<var>p</var> = 0,97).</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Análisis de la muestra">
   <h2>Análisis de la muestra de tabletas</h2>
@@ -1653,6 +1203,18 @@
   <h2 class="section__title">Espectrofotometría visible con verde de bromocresol</h2>
   <p class="lead">Curva de calibración · absorbancia frente a pH en 10 valores · p<var>K</var><sub>a</sub> por método gráfico y por pendientes</p>
   <ul class="chips"><li><var>A</var></li><li>pH</li><li>p<var>K</var><sub>a</sub></li><li>Henderson–Hasselbalch</li></ul>
+  <div class="section__obj">
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar el p<var>K</var><sub>a</sub> del verde de bromocresol por espectrofotometría visible.</p>
+  </div>
+  <ul class="points points--compact">
+    <li>Construir la curva de calibración a la <var>λ</var><sub>máx</sub> seleccionada (445 o 615&#8239;nm).</li>
+    <li>Medir la absorbancia en 10 valores de pH.</li>
+    <li>Calcular p<var>K</var><sub>a</sub> por el método gráfico y por el de pendientes.</li>
+    <li>Determinar el punto isosbéstico y comparar con el valor de referencia.</li>
+  </ul>
+  </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
 </section>
 
@@ -1668,19 +1230,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Determinar el p<var>K</var><sub>a</sub> del verde de bromocresol por espectrofotometría visible.</p>
-  </div>
-  <ul class="points">
-    <li>Construir la curva de calibración a la <var>λ</var><sub>máx</sub> seleccionada (445 o 615&#8239;nm).</li>
-    <li>Medir la absorbancia en 10 valores de pH.</li>
-    <li>Calcular p<var>K</var><sub>a</sub> por el método gráfico y por el de pendientes.</li>
-    <li>Determinar el punto isosbéstico y comparar con el valor de referencia.</li>
-  </ul>
-</section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Fundamento">
   <h2>Fundamento</h2>
@@ -1880,28 +1429,15 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.2 · Curva de calibración">
-  <h2>Curva de calibración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva de calibración">Gráfico: <var>A</var> frente a <var>c</var> (μg/mL) · requiere las lecturas de los 5 patrones por duplicado</div>
-      <figcaption>Figura 4.2. Pendiente.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica el cumplimiento de la ley de Beer–Lambert en el intervalo de trabajo (0,17–0,85&#8239;UA) y permite cuantificar el colorante.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: la hoja de datos no contiene la curva de calibración. [___]</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.3 · Absorbancia frente a pH">
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.2 · Absorbancia frente a pH">
   <h2>Absorbancia frente a pH: método gráfico</h2>
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Absorbancia frente a pH", "aspect": 0.6, "x": {"label": "pH", "min": 0, "max": 14}, "y": {"label": "A", "min": 0, "max": 0.7}, "series": [{"name": "<var>A</var><sub>445</sub> (HIn)", "points": [[0.8, 0.244], [1.84, 0.265], [3.07, 0.283], [3.72, 0.263], [5.25, 0.159], [6.24, 0.09], [7.0, 0.048], [8.03, 0.043], [10.23, 0.036], [13.38, 0.043]], "color": 2}, {"name": "Ajuste sigmoidal 445 nm", "points": [[0.5, 0.2646], [0.75, 0.2646], [1.0, 0.2646], [1.25, 0.2646], [1.5, 0.2646], [1.75, 0.2645], [2.0, 0.2645], [2.25, 0.2644], [2.5, 0.2643], [2.75, 0.264], [3.0, 0.2636], [3.25, 0.2629], [3.5, 0.2616], [3.75, 0.2593], [4.0, 0.2553], [4.25, 0.2486], [4.5, 0.2376], [4.75, 0.2208], [5.0, 0.1972], [5.25, 0.1678], [5.5, 0.1364], [5.75, 0.1078], [6.0, 0.0853], [6.25, 0.0695], [6.5, 0.0594], [6.75, 0.0532], [7.0, 0.0495], [7.25, 0.0474], [7.5, 0.0462], [7.75, 0.0456], [8.0, 0.0452], [8.25, 0.0449], [8.5, 0.0448], [8.75, 0.0448], [9.0, 0.0447], [9.25, 0.0447], [9.5, 0.0447], [9.75, 0.0447], [10.0, 0.0447], [10.25, 0.0447], [10.5, 0.0447], [10.75, 0.0447], [11.0, 0.0447], [11.25, 0.0447], [11.5, 0.0447], [11.75, 0.0447], [12.0, 0.0447], [12.25, 0.0447], [12.5, 0.0447], [12.75, 0.0447], [13.0, 0.0447], [13.25, 0.0447], [13.5, 0.0447], [13.75, 0.0447], [14.0, 0.0447]], "line": true, "markers": false, "color": 2}, {"name": "<var>A</var><sub>615</sub> (In<sup>−</sup>)", "points": [[0.8, 0.004], [1.84, 0.674], [3.07, 0.274], [3.72, 0.408], [5.25, 0.51], [6.24, 0.592], [7.0, 0.572], [8.03, 0.663], [10.23, 0.619], [13.38, 0.571]], "color": 1}, {"name": "Ajuste 615 nm (sin pH 1,84)", "points": [[0.5, 0.0117], [0.75, 0.0125], [1.0, 0.0139], [1.25, 0.0165], [1.5, 0.0209], [1.75, 0.0287], [2.0, 0.0421], [2.25, 0.0643], [2.5, 0.0996], [2.75, 0.1518], [3.0, 0.2215], [3.25, 0.3024], [3.5, 0.3828], [3.75, 0.451], [4.0, 0.5016], [4.25, 0.5355], [4.5, 0.5567], [4.75, 0.5694], [5.0, 0.5768], [5.25, 0.581], [5.5, 0.5834], [5.75, 0.5848], [6.0, 0.5856], [6.25, 0.586], [6.5, 0.5863], [6.75, 0.5864], [7.0, 0.5865], [7.25, 0.5865], [7.5, 0.5865], [7.75, 0.5866], [8.0, 0.5866], [8.25, 0.5866], [8.5, 0.5866], [8.75, 0.5866], [9.0, 0.5866], [9.25, 0.5866], [9.5, 0.5866], [9.75, 0.5866], [10.0, 0.5866], [10.25, 0.5866], [10.5, 0.5866], [10.75, 0.5866], [11.0, 0.5866], [11.25, 0.5866], [11.5, 0.5866], [11.75, 0.5866], [12.0, 0.5866], [12.25, 0.5866], [12.5, 0.5866], [12.75, 0.5866], [13.0, 0.5866], [13.25, 0.5866], [13.5, 0.5866], [13.75, 0.5866], [14.0, 0.5866]], "line": true, "markers": false, "color": 1, "dash": 2}, {"name": "p<var>K</var><sub>a</sub> = 5,35 (445 nm)", "points": [[5.355, 0], [5.355, 0.7]], "line": true, "markers": false, "color": 4, "dash": 3}]}</script>
       </div>
-      <figcaption>Figura 4.3. Absorbancia a 445 y 615&#8239;nm frente al pH real (serie única), con el ajuste sigmoidal de Henderson–Hasselbalch.</figcaption>
+      <figcaption>Figura 4.2. Absorbancia a 445 y 615&#8239;nm frente al pH real (serie única), con el ajuste sigmoidal de Henderson–Hasselbalch.</figcaption>
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La curva sigmoidea es la base del método gráfico: el p<var>K</var><sub>a</sub> corresponde al pH del punto de inflexión, donde las formas ácida y básica están en igual concentración.</p></div>
@@ -1910,14 +1446,14 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.4 · Método de pendientes">
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.3 · Método de pendientes">
   <h2>Método de pendientes (linealización)</h2>
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Linealización de Henderson–Hasselbalch", "aspect": 0.6, "x": {"label": "pH", "min": 2, "max": 8}, "y": {"label": "log[f/(1 − f)]", "min": -2.5, "max": 2.5}, "series": [{"name": "445 nm", "points": [[5.25, -0.035], [6.24, 0.586]], "color": 2, "zero": true}, {"name": "Pendiente 1, p<var>K</var><sub>a</sub> = 5,35", "points": [[2.855, -2.5], [7.855, 2.5]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "615 nm", "points": [[3.07, -0.074], [3.72, 0.347], [5.25, 0.814], [7.0, 1.586]], "color": 1}, {"name": "Pendiente 1, p<var>K</var><sub>a</sub> = 3,24", "points": [[2, -1.238], [5.738, 2.5]], "line": true, "markers": false, "color": 1, "dash": 2}]}</script>
       </div>
-      <figcaption>Figura 4.4. log[<var>f</var>/(1 − <var>f</var>)] frente a pH para los puntos con 2–98&#8239;% de forma básica entre pH 2 y 8; las rectas tienen la pendiente teórica 1.</figcaption>
+      <figcaption>Figura 4.3. log[<var>f</var>/(1 − <var>f</var>)] frente a pH para los puntos con 2–98&#8239;% de forma básica entre pH 2 y 8; las rectas tienen la pendiente teórica 1.</figcaption>
     </figure>
     <div class="stack">
       <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Linealiza la ecuación de Henderson–Hasselbalch (4.3): si el modelo se cumple, los puntos forman una recta de pendiente 1 que corta el eje en pH = p<var>K</var><sub>a</sub>, y cada punto aporta una estimación independiente.</p></div>
@@ -1943,24 +1479,12 @@
           <tr><th scope="row">Curva de calibración</th><td class="num" colspan="2">[___] (sin datos)</td></tr>
         </tbody>
       </table>
+      <p class="eq-legend">La segunda tabla «Réplica 1» de la hoja (p<var>K</var><sub>a</sub> aparente 8,6–9,7, incompatible con el indicador) se excluye del resultado.</p>
     </div>
     <div class="box note box--interp"><p class="box__label">Interpretación</p><p>A 445&#8239;nm el método gráfico (5,24) y el ajuste sigmoidal (5,35) concuerdan dentro de su incertidumbre; el residual típico (0,014&#8239;UA) es del orden del ruido instrumental.</p><p>Los valores por punto del método de pendientes (5,28 y 5,65) se dispersan 0,4 unidades; con solo dos puntos útiles no puede contrastarse la pendiente teórica 1.</p><p>La serie de 615&#8239;nm da un p<var>K</var><sub>a</sub> unas 2 unidades menor, con valores por punto que aumentan con el pH (no constantes): indica un error sistemático en esas lecturas, no un segundo equilibrio. Se informa el valor de 445&#8239;nm.</p></div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Segunda serie de la hoja">
-  <h2>Segunda serie de la hoja de datos</h2>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data">
-        <caption>Tabla 4.4. Segunda tabla «Réplica 1» del archivo (no usada en el resultado)</caption>
-        <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH real</th><th scope="col" class="num">Abs [HA]</th><th scope="col" class="num">Abs [A<sup>−</sup>]</th></tr></thead>
-        <tbody><tr><td class="num">1</td><td class="num mono">2,2</td><td class="num mono">0,78</td><td class="num mono">0,05</td></tr><tr><td class="num">2</td><td class="num mono">3,0</td><td class="num mono">0,82</td><td class="num mono">0,06</td></tr><tr><td class="num">3</td><td class="num mono">4,3</td><td class="num mono">0,98</td><td class="num mono">0,11</td></tr><tr><td class="num">4</td><td class="num mono">5,5</td><td class="num mono">0,95</td><td class="num mono">0,10</td></tr><tr><td class="num">5</td><td class="num mono">6,5</td><td class="num mono">0,85</td><td class="num mono">0,13</td></tr><tr><td class="num">6</td><td class="num mono">7,0</td><td class="num mono">0,87</td><td class="num mono">0,32</td></tr><tr><td class="num">7</td><td class="num mono">7,5</td><td class="num mono">0,72</td><td class="num mono">0,43</td></tr><tr><td class="num">8</td><td class="num mono">9,0</td><td class="num mono">0,60</td><td class="num mono">1,23</td></tr><tr><td class="num">9</td><td class="num mono">9,8</td><td class="num mono">0,55</td><td class="num mono">1,65</td></tr><tr><td class="num">10</td><td class="num mono">10,9</td><td class="num mono">0,20</td><td class="num mono">1,82</td></tr></tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Sus absorbancias son unas 3 veces mayores y su transición ocurre a pH mucho más alto: p<var>K</var><sub>a</sub> aparente de 8,6 ± 0,4 (615&#8239;nm) y 9,7 ± 0,8 (445&#8239;nm), incompatible con el verde de bromocresol (p<var>K</var><sub>a</sub> ≈ 4,7) y con la serie anterior.</p><p>El cálculo de la hoja tiene además errores: suma las absorbancias de ambas longitudes de onda (<var>A</var> = <var>A</var><sub>HA</sub> + <var>A</var><sub>A<sup>−</sup></sub>), toma los extremos de longitudes de onda distintas, y la columna «LOG R» contiene en realidad pH − log <var>R</var>; los cocientes negativos producen #NUM!.</p><p>Se excluye del resultado hasta confirmar su procedencia (otro grupo u otro indicador): la práctica se hizo sin réplica. [___]</p></div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Resultados">
   <h2>Resultados</h2>
@@ -2034,6 +1558,19 @@
   <h2 class="section__title">Aditividad de absorbancias: acetaminofén + cafeína</h2>
   <p class="lead">Solvente NaOH · <var>λ</var><sub>1</sub> = 256&#8239;nm y <var>λ</var><sub>2</sub> = 273&#8239;nm · cuatro curvas · sistema 2 × 2 con determinante <var>D</var></p>
   <ul class="chips"><li>ACE</li><li>CAF</li><li><var>D</var></li><li>% recuperación</li></ul>
+  <div class="section__obj">
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Cuantificar simultáneamente acetaminofén (ACE) y cafeína (CAF) en mezclas aplicando la aditividad de absorbancias.</p>
+  </div>
+  <ul class="points points--compact">
+    <li>Identificar p<var>K</var><sub>a</sub>, solubilidad y estructura de ACE y CAF, y construir sus diagramas de distribución de especies.</li>
+    <li>Seleccionar el solvente según el pH y la especie dominante de cada analito.</li>
+    <li>Obtener los espectros individuales y elegir las dos <var>λ</var> de trabajo.</li>
+    <li>Determinar la absortividad de cada analito a ambas <var>λ</var> (curvas de 5 niveles con duplicado independiente).</li>
+    <li>Resolver el sistema por determinantes y calcular el % de recuperación.</li>
+  </ul>
+  </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
 </section>
 
@@ -2049,20 +1586,6 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Objetivo">
-  <h2>Objetivo</h2>
-  <div class="box objective">
-    <p class="box__label">Objetivo</p>
-    <p>Cuantificar simultáneamente acetaminofén (ACE) y cafeína (CAF) en mezclas aplicando la aditividad de absorbancias.</p>
-  </div>
-  <ul class="points">
-    <li>Identificar p<var>K</var><sub>a</sub>, solubilidad y estructura de ACE y CAF, y construir sus diagramas de distribución de especies.</li>
-    <li>Seleccionar el solvente según el pH y la especie dominante de cada analito.</li>
-    <li>Obtener los espectros individuales y elegir las dos <var>λ</var> de trabajo.</li>
-    <li>Determinar la absortividad de cada analito a ambas <var>λ</var> (curvas de 5 niveles con duplicado independiente).</li>
-    <li>Resolver el sistema por determinantes y calcular el % de recuperación.</li>
-  </ul>
-</section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Fundamento">
   <h2>Fundamento</h2>
@@ -2148,27 +1671,6 @@
        data-status="partial"  → Parcial
        data-status="pending"  → Pendiente
      El resumen superior se recalcula solo. -->
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Estado de los datos">
-  <h2>Estado de los datos</h2>
-  <div class="status-summary" data-status-summary></div>
-  <div class="table-wrap table-wrap--tall">
-    <table class="data data--status">
-      <caption>Tabla 5.1. Avance de los datos de la práctica 5</caption>
-      <thead><tr><th scope="col">Elemento</th><th scope="col">Detalle</th><th scope="col">Estado</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Curva C1 · ACE 256&#8239;nm</th><td>Propia: 5 niveles por duplicado</td><td><span class="status" data-status="done"></span></td></tr>
-        <tr><th scope="row">Curva C2 · CAF 273&#8239;nm</th><td>Propia: 5 niveles por duplicado + 19,46&#8239;μg/mL</td><td><span class="status" data-status="done"></span></td></tr>
-        <tr><th scope="row">Curva C3 · ACE 273&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Curva C4 · CAF 256&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Pendientes e interceptos</th><td>4 regresiones con IC (listas: C1 y C2)</td><td><span class="status" data-status="partial"></span></td></tr>
-        <tr><th scope="row">Determinante <var>D</var></th><td>Ecuación (5.3)</td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Absorbancias de mezclas</th><td><var>A</var><sub>1</sub> y <var>A</var><sub>2</sub></td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">Concentraciones calculadas</th><td>Ecuación (5.4)</td><td><span class="status" data-status="pending"></span></td></tr>
-        <tr><th scope="row">% recuperación</th><td>ACE y CAF por mezcla</td><td><span class="status" data-status="pending"></span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Datos y tablas">
   <h2>Datos y tablas</h2>
@@ -2247,37 +1749,22 @@
 </section>
 
 <!-- P5-ACE:inicio -->
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.1 · Curva C1 del acetaminofén">
-  <h2>Curva de calibración del acetaminofén (C1, 256&#8239;nm)</h2>
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.1 · Curvas a 256 nm">
+  <h2>Curvas de calibración a 256&#8239;nm (C1 y C4)</h2>
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Curva de calibración del acetaminofén a 256 nm", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 14}, "y": {"label": "A", "min": 0, "max": 0.9}, "series": [{"name": "Lecturas (duplicados)", "points": [[4.96, 0.335], [4.96, 0.315], [6.944, 0.501], [6.944, 0.454], [8.928, 0.515], [8.928, 0.533], [9.92, 0.628], [9.92, 0.653], [11.904, 0.766], [11.904, 0.738]], "fit": true, "color": 1}, {"name": "Media por nivel", "points": [[4.96, 0.325], [6.944, 0.4775], [8.928, 0.524], [9.92, 0.6405], [11.904, 0.752]], "color": 2}]}</script>
       </div>
-      <figcaption>Figura 5.1. Absorbancia a 256&#8239;nm frente a concentración: 5 niveles por duplicado (<var>N</var> = 10) con la recta de mínimos cuadrados.</figcaption>
+      <figcaption>Figura 5.1. Absorbancia a 256&#8239;nm frente a concentración: 5 niveles por duplicado (<var>N</var> = 10) con la recta de mínimos cuadrados. C4 (cafeína a 256&#8239;nm) se agrega a esta figura: [___].</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica la ley de Lambert-Beer para el fenolato del acetaminofén en NaOH y proporciona la pendiente <var>m</var><sub>ACE,1</sub> del sistema de ecuaciones (5.1)–(5.4).</p></div>
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica la ley de Lambert-Beer para el fenolato del acetaminofén en NaOH y proporciona la pendiente <var>m</var><sub>ACE,1</sub> del sistema de ecuaciones (5.1)–(5.4). Con la curva cruzada a la misma longitud de onda completa una fila de la matriz del sistema.</p></div>
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La respuesta es lineal en todo el intervalo: <var>A</var> = 0,0597·<var>c</var> + 0,035 (<var>R</var><sup>2</sup> = 0,962), con intercepto nulo (<var>p</var> = 0,38) y sin curvatura (término cuadrático, <var>p</var> = 0,73).</p><p>Todas las lecturas caen en 0,32–0,77&#8239;UA. Las medias de 8,93&#8239;μg/mL quedan bajo la recta y la lectura 0,501 de 6,94&#8239;μg/mL sobre ella.</p><p>El polinomio de grado 4 de la hoja (<var>R</var><sup>2</sup> = 0,990) usa 5 parámetros para 5 niveles: pasa por las medias y no tiene sentido físico.</p></div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.2 · Residuales C1">
-  <h2>Residuales de la curva del acetaminofén</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva del acetaminofén", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 13}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales", "points": [[4.96, 0.335], [4.96, 0.315], [6.944, 0.501], [6.944, 0.454], [8.928, 0.515], [8.928, 0.533], [9.92, 0.628], [9.92, 0.653], [11.904, 0.766], [11.904, 0.738]]}]}</script>
-      </div>
-      <figcaption>Figura 5.2. Residuales de la recta de C1 frente a la concentración.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Comprueba los supuestos de la regresión: un patrón curvo indicaría falta de linealidad y un embudo, varianza no constante.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales se reparten sin patrón curvo ni forma de embudo; son normales (Shapiro–Wilk, <var>p</var> = 0,98) y no hay puntos influyentes (<var>D</var> de Cook máxima = 0,26).</p><p>Los mayores son +0,052 (lectura 0,501, 1,6&#8239;<var>s</var><sub><var>y</var>/<var>x</var></sub>: no es atípica) y −0,053 y −0,035 en 8,93&#8239;μg/mL. Ese nivel es el único volumen fuera de la serie (0,90&#8239;mL), lo que apunta a un error de alícuota.</p><p>La falta de ajuste queda en el límite (<var>p</var> = 0,068) por ese nivel, no por curvatura.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · acetaminofén">
   <h2>Tratamiento estadístico de la curva del acetaminofén</h2>
@@ -2311,82 +1798,26 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Factor de respuesta · acetaminofén">
-  <h2>Linealidad por factor de respuesta (acetaminofén)</h2>
-  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la recta pasa por el origen es constante e igual a la pendiente. La versión corregida resta el intercepto, (<var>A</var> − 0,035)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=B2/A2</code> · en % de la mediana: <code>=F2/MEDIANA($F$2:$F$11)*100</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es la absorbancia que da cada µg/mL. Si se cumple Lambert-Beer, debe ser casi igual en todos los patrones; si sube o baja con la concentración, hay intercepto o curvatura.</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data data--compact">
-        <caption>Tabla 5.6. <var>FR</var> en % de la mediana (0,0639 · 0,0601); rojo: fuera de 95–105&#8239;%</caption>
-        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
-        <tbody>
-          <tr><th scope="row" rowspan="2">4,96</th><td class="num mono">0,335</td><td class="num">0,0675</td><td class="num sig">105,7</td><td class="num">0,0606</td><td class="num">100,8</td></tr>
-          <tr><td class="num mono">0,315</td><td class="num">0,0635</td><td class="num">99,3</td><td class="num">0,0566</td><td class="num sig">94,1</td></tr>
-          <tr><th scope="row" rowspan="2">6,94</th><td class="num mono">0,501</td><td class="num">0,0721</td><td class="num sig">112,9</td><td class="num">0,0672</td><td class="num sig">111,7</td></tr>
-          <tr><td class="num mono">0,454</td><td class="num">0,0654</td><td class="num">102,3</td><td class="num">0,0604</td><td class="num">100,5</td></tr>
-          <tr><th scope="row" rowspan="2">8,93</th><td class="num mono">0,515</td><td class="num">0,0577</td><td class="num sig">90,2</td><td class="num">0,0538</td><td class="num sig">89,5</td></tr>
-          <tr><td class="num mono">0,533</td><td class="num">0,0597</td><td class="num sig">93,4</td><td class="num">0,0558</td><td class="num sig">92,9</td></tr>
-          <tr><th scope="row" rowspan="2">9,92</th><td class="num mono">0,628</td><td class="num">0,0633</td><td class="num">99,0</td><td class="num">0,0598</td><td class="num">99,5</td></tr>
-          <tr><td class="num mono">0,653</td><td class="num">0,0658</td><td class="num">103,0</td><td class="num">0,0623</td><td class="num">103,7</td></tr>
-          <tr><th scope="row" rowspan="2">11,90</th><td class="num mono">0,766</td><td class="num">0,0643</td><td class="num">100,7</td><td class="num">0,0614</td><td class="num">102,2</td></tr>
-          <tr><td class="num mono">0,738</td><td class="num">0,0620</td><td class="num">97,0</td><td class="num">0,0591</td><td class="num">98,3</td></tr>
-          
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Cumplen 6 de 10 lecturas sin corregir y 6 de 10 corregidas. Fallan 0,335 (105,7&#8239;%), 0,501 (112,9&#8239;%) y los dos duplicados de 8,93&#8239;μg/mL (90–93&#8239;%).</p><p>El factor no sigue una tendencia con la concentración y la corrección por el intercepto apenas lo cambia: el incumplimiento es de precisión, no de linealidad.</p><p>La hoja rotula el límite superior como «101&#8239;%», pero el valor que usa (0,06712) corresponde al 105&#8239;%.</p></div>
-  </div>
-</section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.3 · Factor de respuesta">
-  <h2>Factor de respuesta del acetaminofén frente a la concentración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Factor de respuesta del acetaminofén", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 13}, "y": {"label": "FR (% de la mediana)", "min": 80, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[4.96, 105.65], [4.96, 99.34], [6.944, 112.86], [6.944, 102.27], [8.928, 90.23], [8.928, 93.39], [9.92, 99.03], [9.92, 102.97], [11.904, 100.66], [11.904, 96.98]], "color": 1}, {"name": "(A − b)/c", "points": [[4.96, 100.77], [4.96, 94.07], [6.944, 111.74], [6.944, 100.49], [8.928, 89.52], [8.928, 92.87], [9.92, 99.51], [9.92, 103.71], [11.904, 102.21], [11.904, 98.3]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [13, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [13, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 5.3. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto (<var>b</var> = 0,035).</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos; una tendencia con la concentración revelaría intercepto o curvatura.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Las dos series se superponen y oscilan alrededor del 100&#8239;% sin tendencia: a diferencia de la cafeína, el acetaminofén no se desvía de la ley de Lambert-Beer hasta 0,77&#8239;UA.</p><p>Los puntos fuera de la banda son lecturas aisladas (6,94 y 8,93&#8239;μg/mL), consistentes con errores de preparación de esos patrones.</p></div>
-    </div>
-  </div>
-</section>
 <!-- P5-ACE:fin -->
 
 <!-- P5-CAF:inicio -->
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.4 · Curva C2 de la cafeína">
-  <h2>Curva de calibración de la cafeína (C2, 273&#8239;nm)</h2>
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.2 · Curvas a 273 nm">
+  <h2>Curvas de calibración a 273&#8239;nm (C2 y C3)</h2>
   <div class="fig-slide">
     <figure class="fig">
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Curva de calibración de la cafeína a 273 nm", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 20}, "y": {"label": "A", "min": 0, "max": 1}, "series": [{"name": "Intervalo lineal (5,12–10,24)", "points": [[5.12, 0.317], [5.12, 0.325], [7.168, 0.409], [7.168, 0.411], [8.704, 0.443], [8.704, 0.518], [10.24, 0.58], [10.24, 0.6]], "fit": true, "color": 1}, {"name": "Fuera del intervalo lineal", "points": [[12.288, 0.6], [12.288, 0.562], [19.456, 0.82]], "color": 3}, {"name": "Recta con 5 niveles (hoja)", "points": [[4, 0.2896], [20, 0.9254]], "line": true, "markers": false, "color": 2, "dash": 2}]}</script>
       </div>
-      <figcaption>Figura 5.4. Absorbancia a 273&#8239;nm frente a concentración: recta del intervalo lineal (<var>N</var> = 8), puntos que se apartan y recta de los 5 niveles de la hoja.</figcaption>
+      <figcaption>Figura 5.2. Absorbancia a 273&#8239;nm frente a concentración: recta del intervalo lineal (<var>N</var> = 8), puntos que se apartan y recta de los 5 niveles de la hoja. C3 (acetaminofén a 273&#8239;nm) se agrega a esta figura: [___].</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Delimita el intervalo en que la cafeína cumple la ley de Lambert-Beer y proporciona la pendiente <var>m</var><sub>CAF,2</sub> que entra en el sistema de ecuaciones (5.1)–(5.4).</p></div>
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Delimita el intervalo en que la cafeína cumple la ley de Lambert-Beer y proporciona la pendiente <var>m</var><sub>CAF,2</sub> que entra en el sistema de ecuaciones (5.1)–(5.4). Con la curva cruzada a la misma longitud de onda completa una fila de la matriz del sistema.</p></div>
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Entre 5,12 y 10,24&#8239;μg/mL la respuesta es lineal: <var>A</var> = 0,0516·<var>c</var> + 0,048 (<var>R</var><sup>2</sup> = 0,947), con intercepto nulo (<var>p</var> = 0,28).</p><p>A 12,29 y 19,46&#8239;μg/mL la absorbancia queda por debajo de esa recta (0,58 y 0,82 frente a 0,68 y 1,05): desviación negativa. Incluir 12,29, como hace la hoja, baja la pendiente a 0,0397 y eleva el intercepto a 0,131 (<var>p</var> = 0,02).</p><p>El ajuste cúbico de la hoja (<var>R</var><sup>2</sup> = 0,965) no tiene base física y no debe usarse para cuantificar.</p></div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.5 · Residuales C2">
-  <h2>Residuales de la curva de la cafeína</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "residuals", "title": "Residuales de la recta de 5 niveles", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 14}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales (5 niveles)", "points": [[5.12, 0.317], [5.12, 0.325], [7.168, 0.409], [7.168, 0.411], [8.704, 0.443], [8.704, 0.518], [10.24, 0.58], [10.24, 0.6], [12.288, 0.6], [12.288, 0.562]]}]}</script>
-      </div>
-      <figcaption>Figura 5.5. Residuales de la recta ajustada a los 5 niveles de la hoja (5,12–12,29&#8239;μg/mL, <var>N</var> = 10).</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Una curvatura que el <var>R</var><sup>2</sup> no revela aparece como un patrón ordenado de los residuales: positivos en el centro y negativos en los extremos.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales son negativos en 5,12–7,17, positivos en 10,24 y otra vez negativos en 12,29&#8239;μg/mL: es el arco de una curva cóncava, no ruido al azar.</p><p>La falta de ajuste es casi significativa (<var>p</var> = 0,089) y el término cuadrático es negativo. Al limitar la curva a 5,12–10,24&#8239;μg/mL la falta de ajuste desaparece (<var>p</var> = 0,51).</p><p>En 8,70&#8239;μg/mL los duplicados (0,443 y 0,518) difieren en 0,075&#8239;UA y dan residuales de signo opuesto.</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · cafeína">
   <h2>Tratamiento estadístico de la curva de la cafeína</h2>
@@ -2420,56 +1851,25 @@
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Factor de respuesta · cafeína">
-  <h2>Linealidad por factor de respuesta (cafeína)</h2>
-  <details class="eqd"><summary><span class="eqd__name">Factor de respuesta</span><span class="eqd__f"><var>FR</var> = <var>A</var> / <var>c</var> &ensp; 95&#8239;% ≤ <var>FR</var> / <span class="bar"><var>FR</var></span><sub>med</sub> ≤ 105&#8239;%</span></summary><div class="eqd__body"><p>Es la absorbancia por unidad de concentración; si la recta pasa por el origen es constante e igual a la pendiente. La versión corregida resta el intercepto del intervalo lineal, (<var>A</var> − 0,048)/<var>c</var>.</p><p>Se acepta cada lectura cuyo factor queda entre el 95 y el 105&#8239;% de la mediana de las 10 lecturas de la hoja.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=B2/A2</code> · en % de la mediana: <code>=F2/MEDIANA($F$2:$F$11)*100</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es la absorbancia que da cada µg/mL. Si se cumple Lambert-Beer, debe ser casi igual en todos los patrones; si sube o baja con la concentración, hay intercepto o curvatura.</p></div></details>
-  <div class="grid-2">
-    <div class="table-wrap table-wrap--full">
-      <table class="data data--compact">
-        <caption>Tabla 5.9. <var>FR</var> en % de la mediana (0,0572 · 0,0513); rojo: fuera de 95–105&#8239;%</caption>
-        <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var>/<var>c</var></th><th scope="col" class="num">% med.</th><th scope="col" class="num">(<var>A</var> − <var>b</var>)/<var>c</var></th><th scope="col" class="num">% med.</th></tr></thead>
-        <tbody>
-          <tr><th scope="row" rowspan="2">5,12</th><td class="num mono">0,317</td><td class="num">0,0619</td><td class="num sig">108,2</td><td class="num">0,0526</td><td class="num">102,5</td></tr>
-          <tr><td class="num mono">0,325</td><td class="num">0,0635</td><td class="num sig">111,0</td><td class="num">0,0542</td><td class="num sig">105,5</td></tr>
-          <tr><th scope="row" rowspan="2">7,17</th><td class="num mono">0,409</td><td class="num">0,0571</td><td class="num">99,8</td><td class="num">0,0504</td><td class="num">98,2</td></tr>
-          <tr><td class="num mono">0,411</td><td class="num">0,0573</td><td class="num">100,2</td><td class="num">0,0507</td><td class="num">98,7</td></tr>
-          <tr><th scope="row" rowspan="2">8,70</th><td class="num mono">0,443</td><td class="num">0,0509</td><td class="num sig">89,0</td><td class="num">0,0454</td><td class="num sig">88,5</td></tr>
-          <tr><td class="num mono">0,518</td><td class="num">0,0595</td><td class="num">104,0</td><td class="num">0,0540</td><td class="num sig">105,3</td></tr>
-          <tr><th scope="row" rowspan="2">10,24</th><td class="num mono">0,580</td><td class="num">0,0566</td><td class="num">99,0</td><td class="num">0,0520</td><td class="num">101,3</td></tr>
-          <tr><td class="num mono">0,600</td><td class="num">0,0586</td><td class="num">102,4</td><td class="num">0,0539</td><td class="num sig">105,1</td></tr>
-          <tr><th scope="row" rowspan="2">12,29</th><td class="num mono">0,600</td><td class="num">0,0488</td><td class="num sig">85,4</td><td class="num">0,0449</td><td class="num sig">87,6</td></tr>
-          <tr><td class="num mono">0,562</td><td class="num">0,0457</td><td class="num sig">80,0</td><td class="num">0,0419</td><td class="num sig">81,5</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Sin corregir cumplen 5 de 10 lecturas, como en la hoja (límites 0,0543–0,0601). El factor baja con la concentración, de 110&#8239;% en 5,12 a 83&#8239;% en 12,29&#8239;μg/mL: es la firma de un intercepto positivo sumado a la curvatura del extremo alto.</p><p>Al restar el intercepto cumplen 4 de 10, pero otras tres quedan en el borde (105,0–105,6&#8239;%); fallan con claridad 12,29&#8239;μg/mL y la lectura baja de 8,70. El punto de 19,46&#8239;μg/mL (0,820) queda en 74&#8239;% sin corregir y 77&#8239;% corregido.</p><p>Ambos criterios coinciden: el intervalo útil termina en ≈&#8239;10&#8239;μg/mL (<var>A</var> ≈ 0,6).</p></div>
+<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Análisis complementarios">
+  <h2>Análisis complementarios</h2>
+  <div class="table-wrap table-wrap--full">
+    <table class="data">
+      <caption>Tabla 5.12. Residuales y factor de respuesta de C1 y C2</caption>
+      <thead><tr><th scope="col">Análisis</th><th scope="col">Resultado</th><th scope="col">Implicación</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Residuales C1</th><td>Sin patrón; Shapiro–Wilk <var>p</var> = 0,98; <var>D</var> de Cook máxima 0,26; falta de ajuste <var>p</var> = 0,068 por el nivel de 8,93&#8239;μg/mL</td><td>Lineal en todo el intervalo; probable error de alícuota en 8,93</td></tr>
+        <tr><th scope="row">Residuales C2</th><td>En arco con 5 niveles (falta de ajuste <var>p</var> = 0,089); en 5,12–10,24&#8239;μg/mL, <var>p</var> = 0,51</td><td>Se adopta el intervalo 5,12–10,24&#8239;μg/mL</td></tr>
+        <tr><th scope="row">Factor de respuesta C1</th><td>Cumplen 6 de 10 lecturas, sin corregir y corregidas; sin tendencia</td><td>Incumplimiento de precisión, no de linealidad</td></tr>
+        <tr><th scope="row">Factor de respuesta C2</th><td>Cumplen 5 de 10 sin corregir y 4 de 10 corregidas (tres más en el borde, 105,0–105,6&#8239;%); 12,29 y 19,46&#8239;μg/mL caen a 74–88&#8239;%</td><td>Desviación negativa de Lambert-Beer por encima de ≈&#8239;10&#8239;μg/mL (<var>A</var> ≈ 0,6)</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.6 · Factor de respuesta">
-  <h2>Factor de respuesta de la cafeína frente a la concentración</h2>
-  <div class="fig-slide">
-    <figure class="fig">
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Factor de respuesta de la cafeína", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 4, "max": 20}, "y": {"label": "FR (% de la mediana)", "min": 70, "max": 120}, "series": [{"name": "A/c (hoja)", "points": [[5.12, 108.24], [5.12, 110.98], [7.168, 99.76], [7.168, 100.24], [8.704, 88.98], [8.704, 104.05], [10.24, 99.02], [10.24, 102.44], [12.288, 85.37], [12.288, 79.96], [19.456, 73.68]], "color": 1}, {"name": "(A − b)/c", "points": [[5.12, 102.46], [5.12, 105.51], [7.168, 98.19], [7.168, 98.73], [8.704, 88.47], [8.704, 105.26], [10.24, 101.27], [10.24, 105.07], [12.288, 87.56], [12.288, 81.53], [19.456, 77.33]], "color": 2}, {"name": "Banda 95–105 %", "points": [[4, 105], [20, 105]], "line": true, "markers": false, "color": 4, "dash": 2}, {"name": "", "points": [[4, 95], [20, 95]], "line": true, "markers": false, "color": 4, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 5.6. Factor de respuesta de cada lectura como porcentaje de su mediana, sin corregir y corregido por el intercepto (<var>b</var> = 0,048); incluye 19,46&#8239;μg/mL.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Expresa la desviación de cada patrón respecto a la proporcionalidad en términos relativos; una tendencia con la concentración revela intercepto o curvatura que el <var>R</var><sup>2</sup> no muestra.</p></div>
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La serie sin corregir desciende de forma monótona: es la huella del intercepto positivo de la recta de 5 niveles.</p><p>Corregida, se mantiene en la banda o en su borde hasta 10,24&#8239;μg/mL, salvo la lectura baja de 8,70, y cae después. Esa caída no la explica el intercepto: es una desviación negativa de la ley de Lambert-Beer.</p><p>Causas probables: luz parásita o ancho de banda a absorbancias altas, o error en las alícuotas mayores.</p></div>
-    </div>
-  </div>
-</section>
+
 <!-- P5-CAF:fin -->
 
-<section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Gráficos · curvas cruzadas">
-  <h2>Gráficos pendientes: curvas cruzadas</h2>
-  <div class="grid-2 grid-2--figs">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 5.7. Cruzada</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 5.8. Cruzada</figcaption></figure>
-  </div>
-</section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
@@ -2498,7 +1898,7 @@
       </div>
       <div class="box note">
         <p class="box__label">Residuales</p>
-        <p>C1: al azar, sin curvatura (Figura 5.2) · C2: en arco con 5 niveles (Figura 5.5), sin falta de ajuste en 5,12–10,24&#8239;μg/mL · C3: [___] · C4: [___]</p>
+        <p>C1: al azar, sin curvatura · C2: en arco con 5 niveles, sin falta de ajuste en 5,12–10,24&#8239;μg/mL · C3: [___] · C4: [___]</p>
       </div>
     </div>
   </div>
