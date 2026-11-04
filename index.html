@@ -155,10 +155,10 @@
   <h2>Tratamiento experimental común (1/2): regresión y ANOVA</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq"><var>y</var> = <var>m</var><var>x</var> + <var>b</var><span class="eq__tag">(1)</span></p>
-      <p class="eq"><var>m</var> = <span class="frac"><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span>)</span><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)<sup>2</sup></span></span>&ensp; <var>b</var> = <span class="bar"><var>y</var></span> − <var>m</var><span class="bar"><var>x</var></span><span class="eq__tag">(2)</span></p>
-      <p class="eq"><var>s</var><sub><var>y</var>/<var>x</var></sub> = √<span class="ovl"><span class="frac"><span>Σ(<var>y</var><sub>i</sub> − <var>ŷ</var><sub>i</sub>)<sup>2</sup></span><span><var>n</var> − 2</span></span></span><span class="eq__tag">(3)</span></p>
-      <p class="eq"><var>m</var> ± <var>t</var>·<var>s</var><sub><var>m</var></sub> &ensp; <var>b</var> ± <var>t</var>·<var>s</var><sub><var>b</var></sub> &ensp; <small><var>t</var>(0,05; <var>n</var> − 2)</small><span class="eq__tag">(4)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Modelo de calibración lineal</span><span class="eqd__f"><var>y</var> = <var>m</var><var>x</var> + <var>b</var></span><span class="eq__tag">(1)</span></summary><div class="eqd__body"><p>Describe la respuesta instrumental <var>y</var> como función lineal de la concentración <var>x</var>. La pendiente <var>m</var> es la sensibilidad de calibración (cambio de señal por unidad de concentración) y el intercepto <var>b</var>, la señal esperada del blanco. Se invierte, <var>x</var> = (<var>y</var> − <var>b</var>)/<var>m</var>, para cuantificar las muestras.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Estimadores de mínimos cuadrados</span><span class="eqd__f"><var>m</var> = <span class="frac"><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span>)</span><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)<sup>2</sup></span></span>&ensp; <var>b</var> = <span class="bar"><var>y</var></span> − <var>m</var><span class="bar"><var>x</var></span></span><span class="eq__tag">(2)</span></summary><div class="eqd__body"><p>Dan la pendiente y el intercepto que minimizan la suma de cuadrados de los residuales. <var>m</var> es la covarianza de <var>x</var> e <var>y</var> dividida entre la varianza de <var>x</var>, y la recta pasa siempre por el punto medio (<span class="bar"><var>x</var></span>, <span class="bar"><var>y</var></span>). Suponen error solo en <var>y</var> y varianza constante.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Desviación estándar de los residuales</span><span class="eqd__f"><var>s</var><sub><var>y</var>/<var>x</var></sub> = √<span class="ovl"><span class="frac"><span>Σ(<var>y</var><sub>i</sub> − <var>ŷ</var><sub>i</sub>)<sup>2</sup></span><span><var>n</var> − 2</span></span></span></span><span class="eq__tag">(3)</span></summary><div class="eqd__body"><p>Mide la dispersión de los puntos alrededor de la recta, en unidades de la respuesta. Se divide entre <var>n</var> − 2 porque se estimaron dos parámetros. Alimenta los intervalos de confianza, el LOD y el LOQ; si supera claramente la repetibilidad del instrumento, indica falta de ajuste.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Intervalos de confianza de la pendiente y del intercepto</span><span class="eqd__f"><var>m</var> ± <var>t</var>·<var>s</var><sub><var>m</var></sub> &ensp; <var>b</var> ± <var>t</var>·<var>s</var><sub><var>b</var></sub> &ensp; <small><var>t</var>(0,05; <var>n</var> − 2)</small></span><span class="eq__tag">(4)</span></summary><div class="eqd__body"><p>Delimitan, con 95&#8239;% de confianza, los valores verdaderos de <var>m</var> y <var>b</var>, con <var>t</var> de Student de <var>n</var> − 2 grados de libertad. Si el intervalo de <var>b</var> incluye el cero, el intercepto no difiere del origen; un intervalo estrecho de <var>m</var> indica una sensibilidad bien determinada.</p></div></details>
     </div>
     <div class="stack">
       <div class="table-wrap">
@@ -184,9 +184,9 @@
   <h2>Tratamiento experimental común (2/2): precisión, límites y residuales</h2>
   <div class="grid-2 grid-2--wide-right">
     <div class="stack">
-      <p class="eq">%RSD = <span class="frac"><span><var>s</var></span><span><span class="bar"><var>x</var></span></span></span> · 100<span class="eq__tag">(5)</span></p>
-      <p class="eq">LOD = <span class="frac"><span>3,3 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span>&ensp; LOQ = <span class="frac"><span>10 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span><span class="eq__tag">(6)</span></p>
-      <p class="eq"><var>t</var> = <span class="frac"><span>|<span class="bar"><var>x</var></span> − <var>μ</var>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span><span class="eq__tag">(7)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Desviación estándar relativa (coeficiente de variación)</span><span class="eqd__f">%RSD = <span class="frac"><span><var>s</var></span><span><span class="bar"><var>x</var></span></span></span> · 100</span><span class="eq__tag">(5)</span></summary><div class="eqd__body"><p>Expresa la dispersión como porcentaje del promedio, lo que permite comparar la precisión de mediciones de distinta magnitud o unidad. Valores bajos indican alta repetibilidad; el criterio de aceptación depende del método y del nivel de concentración.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Límites de detección y de cuantificación (ICH Q2)</span><span class="eqd__f">LOD = <span class="frac"><span>3,3 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span>&ensp; LOQ = <span class="frac"><span>10 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span></span><span class="eq__tag">(6)</span></summary><div class="eqd__body"><p>El LOD es la menor concentración que se distingue del blanco; el LOQ, la menor que se cuantifica con precisión y exactitud aceptables. Ambos dependen del cociente entre el ruido (<var>s</var><sub><var>y</var>/<var>x</var></sub>) y la sensibilidad (<var>m</var>): una pendiente mayor o una dispersión menor los reducen.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Prueba t de Student para una media</span><span class="eqd__f"><var>t</var> = <span class="frac"><span>|<span class="bar"><var>x</var></span> − <var>μ</var>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span></span><span class="eq__tag">(7)</span></summary><div class="eqd__body"><p>Compara un promedio experimental con un valor de referencia <var>μ</var>: el numerador es la diferencia observada y el denominador, el error estándar de la media. Si |<var>t</var>| supera <var>t</var><sub>crít</sub> (<var>n</var> − 1 gl; <var>α</var> = 0,05), la diferencia es significativa y sugiere un error sistemático.</p></div></details>
       <ul class="points">
         <li>Residuales sin patrón: homocedasticidad.</li>
         <li>Residuales en forma de embudo: heterocedasticidad; considerar regresión ponderada.</li>
@@ -265,9 +265,9 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq"><var>n</var> = <span class="frac"><span><var>c</var></span><span><var>v</var></span></span><span class="eq__tag">(1.1)</span></p>
-      <p class="eq"><var>n</var><sub>1</sub> sen <var>θ</var><sub>1</sub> = <var>n</var><sub>2</sub> sen <var>θ</var><sub>2</sub><span class="eq__tag">(1.2)</span></p>
-      <p class="eq">sen <var>θ</var><sub>c</sub> = <span class="frac"><span><var>n</var><sub>muestra</sub></span><span><var>n</var><sub>prisma</sub></span></span><span class="eq__tag">(1.3)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Índice de refracción absoluto</span><span class="eqd__f"><var>n</var> = <span class="frac"><span><var>c</var></span><span><var>v</var></span></span></span><span class="eq__tag">(1.1)</span></summary><div class="eqd__body"><p>Cociente entre la velocidad de la luz en el vacío (<var>c</var>) y en el medio (<var>v</var>): indica cuánto se ralentiza la luz al atravesar la sustancia. En mezclas aumenta con la proporción del componente más refringente, como la glicerina frente al agua.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Ley de Snell</span><span class="eqd__f"><var>n</var><sub>1</sub> sen <var>θ</var><sub>1</sub> = <var>n</var><sub>2</sub> sen <var>θ</var><sub>2</sub></span><span class="eq__tag">(1.2)</span></summary><div class="eqd__body"><p>Relaciona los ángulos de incidencia y de refracción en la interfase entre dos medios con sus índices. Al pasar a un medio de mayor índice, la luz se acerca a la normal. Es el principio físico de todos los refractómetros.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Ángulo crítico (reflexión total)</span><span class="eqd__f">sen <var>θ</var><sub>c</sub> = <span class="frac"><span><var>n</var><sub>muestra</sub></span><span><var>n</var><sub>prisma</sub></span></span></span><span class="eq__tag">(1.3)</span></summary><div class="eqd__body"><p>Es el ángulo de incidencia a partir del cual la luz ya no se refracta y se refleja por completo. El refractómetro de Abbe localiza ese límite (línea de sombra) y, conocido el índice del prisma, calcula el de la muestra; por eso el prisma debe tener un índice mayor.</p></div></details>
     </div>
     <ul class="points">
       <li>El refractómetro de Abbe mide el ángulo crítico entre un prisma de índice alto y la muestra.</li>
@@ -411,6 +411,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
+  <details class="eqd"><summary><span class="eqd__name">Prueba de falta de ajuste</span><span class="eqd__f"><var>F</var><sub>lof</sub> = <span class="frac"><span>MC<sub>lof</sub></span><span>MC<sub>pe</sub></span></span> = <span class="frac"><span>SC<sub>lof</sub> / (<var>k</var> − 2)</span><span>SC<sub>pe</sub> / (<var>N</var> − <var>k</var>)</span></span></span></summary><div class="eqd__body"><p>Divide la suma de cuadrados residual en error puro (dispersión entre réplicas de un mismo nivel) y falta de ajuste (distancia entre el promedio de cada nivel y la recta); <var>k</var> es el número de niveles y <var>N</var>, el de lecturas.</p><p>Si <var>F</var><sub>lof</sub> es significativo, la recta no describe la forma de los datos aunque <var>R</var><sup>2</sup> sea alto. Requiere réplicas en cada nivel.</p></div></details>
   <div class="grid-2">
     <div class="table-wrap table-wrap--tall">
       <table class="data">
@@ -452,7 +453,7 @@
 <!-- P1-EXTRA:inicio (análisis estadísticos adicionales) -->
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Precisión: repetibilidad y reproducibilidad">
   <h2>Precisión: repetibilidad y reproducibilidad</h2>
-  <p class="lead">ANOVA de un factor (grupo) en cada nivel de <var>n</var>: <var>s</var><sub>r</sub> = variación dentro del grupo; <var>s</var><sub>R</sub> = <var>s</var><sub>r</sub> más la variación entre grupos (ISO 5725-2).</p>
+  <details class="eqd"><summary><span class="eqd__name">Repetibilidad y reproducibilidad (ANOVA de un factor, ISO 5725-2)</span><span class="eqd__f"><var>s</var><sub>r</sub> = √<span class="ovl">MC<sub>dentro</sub></span> &ensp; <var>s</var><sub>L</sub><sup>2</sup> = (MC<sub>entre</sub> − MC<sub>dentro</sub>) / <var>n</var><sub>rep</sub> &ensp; <var>s</var><sub>R</sub> = √<span class="ovl"><var>s</var><sub>r</sub><sup>2</sup> + <var>s</var><sub>L</sub><sup>2</sup></span> &ensp; <var>r</var> = 2,8·<var>s</var><sub>r</sub></span></summary><div class="eqd__body"><p>Se aplica un ANOVA con el grupo como factor en cada nivel. <var>s</var><sub>r</sub> cuantifica la variación entre lecturas repetidas de un mismo grupo; <var>s</var><sub>L</sub>, la variación adicional entre grupos (operador, momento, ajuste del equipo); <var>s</var><sub>R</sub> combina ambas.</p><p>Los límites <var>r</var> y <var>R</var> = 2,8·<var>s</var><sub>R</sub> (2,8 ≈ 1,96·√2) son la diferencia máxima esperada, con 95&#8239;% de confianza, entre dos resultados individuales en cada condición.</p></div></details>
   <div class="grid-2 grid-2--wide-left">
     <div class="table-wrap table-wrap--full">
       <table class="data">
@@ -468,6 +469,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Modelo cuadrático">
   <h2>Modelo cuadrático</h2>
+  <details class="eqd"><summary><span class="eqd__name">Modelo cuadrático y prueba F parcial</span><span class="eqd__f"><var>y</var> = <var>a</var> + <var>b</var>·<var>w</var> + <var>c</var>·<var>w</var><sup>2</sup> &ensp; <var>F</var> = (SC<sub>res,lin</sub> − SC<sub>res,cuad</sub>) / MC<sub>res,cuad</sub></span></summary><div class="eqd__body"><p>El término <var>c</var>·<var>w</var><sup>2</sup> permite que la pendiente cambie a lo largo del intervalo (curvatura). La prueba <var>F</var> parcial compara la reducción de la suma de cuadrados residual que aporta ese término con el error del modelo cuadrático (1 y <var>N</var> − 3 gl): si es significativa, la curvatura es real.</p><p>El criterio de información de Akaike (AIC) confirma la elección: penaliza el parámetro adicional y favorece el modelo con menor valor.</p></div></details>
   <div class="grid-2 grid-2--wide-left">
     <div class="table-wrap table-wrap--full">
       <table class="data">
@@ -507,7 +509,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Datos atípicos">
   <h2>Datos atípicos</h2>
-  <p class="lead">Prueba de Grubbs en cada nivel (<var>α</var> = 0,05), residuales estudentizados y distancia de Cook del modelo lineal; luego se repite la curva sin los atípicos.</p>
+  <details class="eqd"><summary><span class="eqd__name">Prueba de Grubbs y distancia de Cook</span><span class="eqd__f"><var>G</var> = máx|<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>| / <var>s</var> &ensp; <var>D</var><sub>i</sub> = <var>r</var><sub>i</sub><sup>2</sup>·<var>h</var><sub>i</sub> / [<var>p</var>(1 − <var>h</var><sub>i</sub>)]</span></summary><div class="eqd__body"><p><var>G</var> indica cuántas desviaciones estándar se aleja el valor más extremo del promedio de su nivel; si supera <var>G</var><sub>crít</sub> (<var>α</var> = 0,05) se considera atípico.</p><p>La distancia de Cook combina el residual estudentizado <var>r</var><sub>i</sub> con la palanca <var>h</var><sub>i</sub> (lejanía de <var>x</var><sub>i</sub> respecto del centro) y estima cuánto cambiaría la recta al eliminar el punto; valores mayores que 4/<var>N</var> merecen revisión. Después se repite la curva sin los atípicos.</p></div></details>
   <div class="grid-2">
     <div class="stack">
       <div class="table-wrap table-wrap--full">
@@ -536,7 +538,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Regresión ponderada">
   <h2>Regresión ponderada</h2>
-  <p class="lead">Mínimos cuadrados ponderados (peso = 1/<var>s</var><sup>2</sup> de cada nivel), porque la varianza de <var>n</var> no es constante (Levene, <var>p</var> = 0,029).</p>
+  <details class="eqd"><summary><span class="eqd__name">Regresión por mínimos cuadrados ponderados</span><span class="eqd__f"><var>w</var><sub>i</sub> = 1 / <var>s</var><sub>i</sub><sup>2</sup> &ensp; <var>m</var><sub>w</sub> = <span class="frac"><span>Σ<var>w</var><sub>i</sub>(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span><sub>w</sub>)(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span><sub>w</sub>)</span><span>Σ<var>w</var><sub>i</sub>(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span><sub>w</sub>)<sup>2</sup></span></span></span></summary><div class="eqd__body"><p>Cada punto pesa en proporción inversa a la varianza de su nivel, de modo que los niveles más precisos influyen más en la recta; <span class="bar"><var>x</var></span><sub>w</sub> e <span class="bar"><var>y</var></span><sub>w</sub> son medias ponderadas.</p><p>Es el estimador adecuado cuando la varianza no es constante (aquí, Levene <var>p</var> = 0,029). Si el modelo no ajusta, sin embargo, los pesos desplazan la recta hacia los niveles más precisos.</p></div></details>
   <div class="grid-2">
     <div class="stack">
       <div class="table-wrap table-wrap--full">
@@ -565,7 +567,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Desempeño por grupo (puntaje z)">
   <h2>Desempeño por grupo (puntaje z)</h2>
-  <p class="lead"><var>z</var> = (<var>w</var><sub>grupo</sub> − <var>w</var><sub>asignado</sub>) / <var>σ</var>; <var>w</var><sub>asignado</sub> = mediana de los grupos 1–5; <var>σ</var> = <var>s</var><sub>R</sub>/<var>m</var> = 0,45&#8239;% p/p (ISO 13528).</p>
+  <details class="eqd"><summary><span class="eqd__name">Puntaje z (ISO 13528)</span><span class="eqd__f"><var>z</var> = (<var>x</var><sub>i</sub> − <var>X</var>) / <var>σ</var><sub>pt</sub></span></summary><div class="eqd__body"><p>Expresa la desviación del resultado de cada grupo respecto del valor asignado <var>X</var>, en unidades de la desviación objetivo <var>σ</var><sub>pt</sub>. |<var>z</var>| ≤ 2 es satisfactorio; 2 &lt; |<var>z</var>| &lt; 3, cuestionable; |<var>z</var>| ≥ 3, insatisfactorio.</p><p>Aquí <var>X</var> es la mediana de los grupos 1–5 y <var>σ</var><sub>pt</sub> = <var>s</var><sub>R</sub>/<var>m</var> = 0,45&#8239;% p/p (reproducibilidad expresada en concentración).</p></div></details>
   <div class="grid-2">
     <div class="table-wrap table-wrap--full">
       <table class="data">
@@ -599,6 +601,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Supuestos de la regresión">
   <h2>Supuestos de la regresión</h2>
+  <details class="eqd"><summary><span class="eqd__name">Estadístico de Durbin–Watson y prueba de Shapiro–Wilk</span><span class="eqd__f">DW = <span class="frac"><span>Σ(<var>e</var><sub>i</sub> − <var>e</var><sub>i−1</sub>)<sup>2</sup></span><span>Σ<var>e</var><sub>i</sub><sup>2</sup></span></span></span></summary><div class="eqd__body"><p>DW evalúa si residuales consecutivos (ordenados por concentración) están correlacionados: vale ≈ 2 si son independientes, tiende a 0 con autocorrelación positiva y a 4 con autocorrelación negativa.</p><p>Shapiro–Wilk compara los residuales ordenados con los cuantiles esperados de una distribución normal: <var>W</var> cercano a 1 y <var>p</var> &gt; 0,05 sostienen la normalidad.</p></div></details>
   <div class="grid-2">
       <div class="table-wrap table-wrap--full">
         <table class="data">
@@ -649,7 +652,7 @@
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Sensibilidad analítica">
   <h2>Sensibilidad analítica</h2>
-  <p class="lead">Sensibilidad de Mandel: <var>γ</var> = <var>m</var> / <var>s</var>. Su inverso, 1/<var>γ</var>, es la menor diferencia de concentración que se distingue con una lectura.</p>
+  <details class="eqd"><summary><span class="eqd__name">Sensibilidad analítica de Mandel</span><span class="eqd__f"><var>γ</var> = <var>m</var> / <var>s</var> &ensp; Δ<var>c</var><sub>mín</sub> ≈ 1/<var>γ</var></span></summary><div class="eqd__body"><p>Relaciona la sensibilidad de calibración (<var>m</var>) con el ruido de la medición (<var>s</var>). A diferencia de <var>m</var>, no depende de las unidades de la señal, por lo que permite comparar respuestas distintas como <var>n</var> y °Brix.</p><p>Su inverso estima la menor diferencia de concentración que se distingue con una sola lectura; se calculó con la repetibilidad y con la reproducibilidad.</p></div></details>
   <div class="grid-2">
     <div class="table-wrap table-wrap--full">
       <table class="data">
@@ -695,6 +698,7 @@
       </tbody>
     </table>
   </div>
+  <details class="eqd"><summary><span class="eqd__name">Incertidumbre de la concentración interpolada</span><span class="eqd__f"><var>s</var><sub><var>x</var>0</sub> = <span class="frac"><span><var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span> √<span class="ovl"><span class="frac"><span>1</span><span><var>k</var></span></span> + <span class="frac"><span>1</span><span><var>N</var></span></span> + <span class="frac"><span>(<span class="bar"><var>y</var></span><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup></span><span><var>m</var><sup>2</sup>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)<sup>2</sup></span></span></span> &ensp; IC = <var>x</var><sub>0</sub> ± <var>t</var>·<var>s</var><sub><var>x</var>0</sub></span></summary><div class="eqd__body"><p>Propaga la incertidumbre de la recta a la concentración calculada. El término 1/<var>k</var> disminuye al aumentar las lecturas de la muestra (por eso M1, con una sola lectura, tiene un IC mayor que M2); 1/<var>N</var> refleja el número de puntos de calibración.</p><p>El último término crece cuando la muestra se aleja del centro de la curva: la interpolación es más precisa en la zona media del intervalo.</p></div></details>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Discusión">
@@ -754,9 +758,9 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq">[<var>α</var>]<sub><var>λ</var></sub><sup><var>T</var></sup> = <span class="frac"><span><var>α</var></span><span><var>l</var> · <var>c</var></span></span><span class="eq__tag">(2.1)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Rotación específica (ley de Biot)</span><span class="eqd__f">[<var>α</var>]<sub><var>λ</var></sub><sup><var>T</var></sup> = <span class="frac"><span><var>α</var></span><span><var>l</var> · <var>c</var></span></span></span><span class="eq__tag">(2.1)</span></summary><div class="eqd__body"><p>Normaliza la rotación observada por la longitud del tubo y la concentración, y así obtiene una propiedad característica de la sustancia quiral a <var>λ</var> y <var>T</var> dadas. Permite identificar compuestos, verificar su pureza óptica o despejar <var>c</var> para cuantificar.</p></div></details>
       <p class="eq-legend"><var>α</var>: rotación observada (°) · <var>l</var>: longitud del tubo (dm) · <var>c</var>: concentración (g/mL)</p>
-      <p class="eq"><var>t</var> = <span class="frac"><span>|<span class="bar">[<var>α</var>]</span> − [<var>α</var>]<sub>tab</sub>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span><span class="eq__tag">(2.2)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Prueba t frente al valor tabulado</span><span class="eqd__f"><var>t</var> = <span class="frac"><span>|<span class="bar">[<var>α</var>]</span> − [<var>α</var>]<sub>tab</sub>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span></span><span class="eq__tag">(2.2)</span></summary><div class="eqd__body"><p>Contrasta la rotación específica experimental con la de referencia. Si |<var>t</var>| &gt; <var>t</var><sub>crít</sub> (<var>n</var> − 1 gl), la discrepancia no se explica por el error aleatorio y sugiere un error sistemático (concentración, temperatura, cero del equipo o pureza).</p></div></details>
     </div>
     <ul class="points">
       <li>Las sustancias quirales rotan el plano de la luz polarizada.</li>
@@ -869,6 +873,7 @@
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
+  <details class="eqd"><summary><span class="eqd__name">Intervalo de confianza de la media y prueba t de Welch</span><span class="eqd__f">IC = <span class="bar"><var>x</var></span> ± <var>t</var>·<span class="frac"><span><var>s</var></span><span>√<span class="ovl"><var>n</var></span></span></span> &ensp; <var>t</var> = <span class="frac"><span><span class="bar"><var>x</var></span><sub>1</sub> − <span class="bar"><var>x</var></span><sub>2</sub></span><span>√<span class="ovl"><var>s</var><sub>1</sub><sup>2</sup>/<var>n</var><sub>1</sub> + <var>s</var><sub>2</sub><sup>2</sup>/<var>n</var><sub>2</sub></span></span></span></span></summary><div class="eqd__body"><p>El IC delimita, con 95&#8239;% de confianza, el valor verdadero de <var>α</var> a partir de <var>n</var> lecturas; se estrecha con √<var>n</var>.</p><p>La prueba de Welch compara los promedios de dos soluciones sin suponer varianzas iguales; si <var>p</var> &gt; 0,05 no hay evidencia de diferencia y las lecturas pueden combinarse.</p></div></details>
   <div class="table-wrap table-wrap--tall">
     <table class="data">
       <caption>Tabla 2.2. Estadística descriptiva y pruebas <var>t</var> (<var>α</var> = 0,05; bilateral)</caption>
@@ -965,8 +970,8 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq"><var>A</var> = <var>ε</var> · <var>b</var> · <var>c</var><span class="eq__tag">(3.1)</span></p>
-      <p class="eq"><var>A</var> = −log <var>T</var> = log <span class="frac"><span><var>I</var><sub>0</sub></span><span><var>I</var></span></span><span class="eq__tag">(3.2)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Ley de Lambert-Beer</span><span class="eqd__f"><var>A</var> = <var>ε</var> · <var>b</var> · <var>c</var></span><span class="eq__tag">(3.1)</span></summary><div class="eqd__body"><p>La absorbancia es proporcional a la concentración y al paso óptico; la constante de proporcionalidad es la absortividad molar <var>ε</var>, propia de la sustancia a cada <var>λ</var>. Es la base de la cuantificación espectrofotométrica y se cumple en soluciones diluidas con luz monocromática.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Absorbancia y transmitancia</span><span class="eqd__f"><var>A</var> = −log <var>T</var> = log <span class="frac"><span><var>I</var><sub>0</sub></span><span><var>I</var></span></span></span><span class="eq__tag">(3.2)</span></summary><div class="eqd__body"><p>Define la absorbancia como el logaritmo negativo de la fracción de luz transmitida. La escala logarítmica hace que <var>A</var> sea lineal con la concentración; la mejor precisión fotométrica se obtiene con absorbancias intermedias.</p></div></details>
       <p class="eq-legend"><var>ε</var>: absortividad molar (L·mol<sup>−1</sup>·cm<sup>−1</sup>) · <var>b</var>: paso óptico (cm) · <var>c</var>: concentración (mol/L)</p>
     </div>
     <ul class="points">
@@ -1166,9 +1171,9 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq">HIn ⇌ H<sup>+</sup> + In<sup>−</sup><span class="eq__tag">(4.1)</span></p>
-      <p class="eq">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span>[In<sup>−</sup>]</span><span>[HIn]</span></span><span class="eq__tag">(4.2)</span></p>
-      <p class="eq">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span><var>A</var> − <var>A</var><sub>HIn</sub></span><span><var>A</var><sub>In<sup>−</sup></sub> − <var>A</var></span></span><span class="eq__tag">(4.3)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Equilibrio ácido-base del indicador</span><span class="eqd__f">HIn ⇌ H<sup>+</sup> + In<sup>−</sup></span><span class="eq__tag">(4.1)</span></summary><div class="eqd__body"><p>El indicador existe en una forma ácida (HIn) y otra básica (In<sup>−</sup>) de distinto color; el pH fija su proporción. Esa diferencia espectral permite seguir el equilibrio midiendo la absorbancia.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Ecuación de Henderson-Hasselbalch</span><span class="eqd__f">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span>[In<sup>−</sup>]</span><span>[HIn]</span></span></span><span class="eq__tag">(4.2)</span></summary><div class="eqd__body"><p>Relaciona el pH con el p<var>K</var><sub>a</sub> y el cociente entre las formas básica y ácida. Cuando ambas concentraciones son iguales, pH = p<var>K</var><sub>a</sub>: el p<var>K</var><sub>a</sub> corresponde al punto medio de la transición de color.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Henderson-Hasselbalch en función de la absorbancia</span><span class="eqd__f">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span><var>A</var> − <var>A</var><sub>HIn</sub></span><span><var>A</var><sub>In<sup>−</sup></sub> − <var>A</var></span></span></span><span class="eq__tag">(4.3)</span></summary><div class="eqd__body"><p>Sustituye el cociente de concentraciones por absorbancias medidas a una <var>λ</var>, usando las de la forma totalmente ácida y totalmente básica. Al graficar pH frente al logaritmo se obtiene una recta de pendiente 1 cuyo intercepto es el p<var>K</var><sub>a</sub>.</p></div></details>
     </div>
     <ul class="points">
       <li>La forma ácida (HIn) es amarilla y la básica (In<sup>−</sup>) es azul.</li>
@@ -1363,9 +1368,9 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq">H<sub>2</sub>A ⇌ HA<sup>−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a1</sub>)<span class="eq__tag">(5.1)</span></p>
-      <p class="eq">HA<sup>−</sup> ⇌ A<sup>2−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a2</sub>)<span class="eq__tag">(5.2)</span></p>
-      <p class="eq"><var>α</var><sub>0</sub> = <span class="frac"><span>[H<sup>+</sup>]<sup>2</sup></span><span><var>D</var></span></span> &ensp; <var>α</var><sub>1</sub> = <span class="frac"><span><var>K</var><sub>a1</sub>[H<sup>+</sup>]</span><span><var>D</var></span></span> &ensp; <var>α</var><sub>2</sub> = <span class="frac"><span><var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></span><span><var>D</var></span></span><span class="eq__tag">(5.3)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Primera disociación del ácido gálico</span><span class="eqd__f">H<sub>2</sub>A ⇌ HA<sup>−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a1</sub>)</span><span class="eq__tag">(5.1)</span></summary><div class="eqd__body"><p>El ácido cede su primer protón (grupo carboxilo); <var>K</var><sub>a1</sub> mide la fuerza de este equilibrio. p<var>K</var><sub>a1</sub> es el pH al que H<sub>2</sub>A y HA<sup>−</sup> están en igual proporción.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Segunda disociación del ácido gálico</span><span class="eqd__f">HA<sup>−</sup> ⇌ A<sup>2−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a2</sub>)</span><span class="eq__tag">(5.2)</span></summary><div class="eqd__body"><p>HA<sup>−</sup> cede un segundo protón, de un grupo fenólico mucho menos ácido, por lo que <var>K</var><sub>a2</sub> &lt; <var>K</var><sub>a1</sub>. p<var>K</var><sub>a2</sub> es el pH al que HA<sup>−</sup> y A<sup>2−</sup> se igualan.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Fracciones molares de las especies</span><span class="eqd__f"><var>α</var><sub>0</sub> = <span class="frac"><span>[H<sup>+</sup>]<sup>2</sup></span><span><var>D</var></span></span> &ensp; <var>α</var><sub>1</sub> = <span class="frac"><span><var>K</var><sub>a1</sub>[H<sup>+</sup>]</span><span><var>D</var></span></span> &ensp; <var>α</var><sub>2</sub> = <span class="frac"><span><var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></span><span><var>D</var></span></span></span><span class="eq__tag">(5.3)</span></summary><div class="eqd__body"><p>Indican qué fracción del total corresponde a cada especie a un pH dado; su suma es 1. Con ellas se construye el diagrama de distribución, cuyos cruces (<var>α</var> = 0,5) ocurren en p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub>.</p></div></details>
       <p class="eq-legend"><var>D</var> = [H<sup>+</sup>]<sup>2</sup> + <var>K</var><sub>a1</sub>[H<sup>+</sup>] + <var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></p>
     </div>
     <ul class="points">
@@ -1551,10 +1556,10 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <p class="eq"><var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub><span class="eq__tag">(6.1)</span></p>
-      <p class="eq"><var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub><span class="eq__tag">(6.2)</span></p>
-      <p class="eq"><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub><span class="eq__tag">(6.3)</span></p>
-      <p class="eq"><var>c</var><sub>ACE</sub> = <span class="frac"><span><var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub></span><span><var>D</var></span></span>&ensp; <var>c</var><sub>CAF</sub> = <span class="frac"><span><var>m</var><sub>ACE,1</sub><var>A</var><sub>2</sub> − <var>m</var><sub>ACE,2</sub><var>A</var><sub>1</sub></span><span><var>D</var></span></span><span class="eq__tag">(6.4)</span></p>
+      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>1</sub></span><span class="eqd__f"><var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(6.1)</span></summary><div class="eqd__body"><p>La absorbancia de la mezcla es la suma de las contribuciones de cada analito, cada una igual a su pendiente de calibración por su concentración. Exige que los analitos no interactúen y que cada uno cumpla la ley de Lambert-Beer.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Aditividad de absorbancias a λ<sub>2</sub></span><span class="eqd__f"><var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub></span><span class="eq__tag">(6.2)</span></summary><div class="eqd__body"><p>Segunda ecuación del sistema, a la otra longitud de onda. Con dos longitudes de onda se obtienen dos ecuaciones para las dos concentraciones desconocidas.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Determinante del sistema</span><span class="eqd__f"><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub></span><span class="eq__tag">(6.3)</span></summary><div class="eqd__body"><p>Indica si el sistema 2 × 2 tiene solución única y qué tan bien condicionado está. Un <var>D</var> alejado de cero significa que los espectros de ACE y CAF son suficientemente distintos a las dos <var>λ</var>; un <var>D</var> cercano a cero amplifica los errores de medición.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Regla de Cramer</span><span class="eqd__f"><var>c</var><sub>ACE</sub> = <span class="frac"><span><var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub></span><span><var>D</var></span></span>&ensp; <var>c</var><sub>CAF</sub> = <span class="frac"><span><var>m</var><sub>ACE,1</sub><var>A</var><sub>2</sub> − <var>m</var><sub>ACE,2</sub><var>A</var><sub>1</sub></span><span><var>D</var></span></span></span><span class="eq__tag">(6.4)</span></summary><div class="eqd__body"><p>Despeja las concentraciones de ambos analitos a partir de las absorbancias medidas y de las pendientes de las cuatro curvas de calibración. La exactitud del resultado depende de esas pendientes y del valor de <var>D</var>.</p></div></details>
     </div>
     <ul class="points">
       <li>La absorbancia total a cada <var>λ</var> es la suma de las contribuciones de cada analito.</li>

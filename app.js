@@ -147,6 +147,14 @@
     ph.appendChild(t);
   });
 
+  // Fórmulas desplegables: Espacio/Intro abren la interpretación sin que
+  // reveal.js cambie de diapositiva
+  doc.querySelectorAll('.eqd > summary').forEach(function (sm) {
+    sm.addEventListener('keydown', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') e.stopPropagation();
+    });
+  });
+
   /* ---------- 1b. Iconos de laboratorio (assets/icons/lab-icons.js) ---------- */
 
   var ICONS = window.LAB_ICONS || {};
@@ -363,9 +371,17 @@
           return '<li>' + gotoLink(i, '', '<span class="n">' + (i + 1) + '</span><span>' + esc(slides[i].dataset.title) + '</span>') + '</li>';
         }).join('') + '</ol>';
       }
+      // Objetivo de la práctica, tomado de su diapositiva «Objetivo»
+      var obj = '';
+      if (isPractice) {
+        var os = g.items.map(function (i) { return slides[i]; })
+          .filter(function (sl) { return sl.dataset.title === 'Objetivo'; })[0];
+        var op = os && os.querySelector('.box.objective p:not(.box__label)');
+        if (op) obj = '<p class="toc-card__obj"><span class="toc-card__objlabel">Objetivo</span>' + op.innerHTML + '</p>';
+      }
       return '<div class="toc-card"' + (g.accent ? ' data-accent="' + g.accent + '"' : '') + '>' +
         '<h3 class="toc-card__title">' + gotoLink(g.first, '', esc(g.name)) + '</h3>' +
-        '<p class="toc-card__range">pp. ' + (g.first + 1) + '–' + (g.last + 1) + '</p>' + body + '</div>';
+        '<p class="toc-card__range">pp. ' + (g.first + 1) + '–' + (g.last + 1) + '</p>' + obj + body + '</div>';
     }).join('');
   });
 

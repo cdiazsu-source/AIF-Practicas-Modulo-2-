@@ -469,6 +469,54 @@ a { color: inherit; }
   font-variant-numeric: lining-nums;
   overflow-x: auto;
 }
+/* Fórmula desplegable: nombre + fórmula visibles; interpretación al abrir */
+.eqd {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  border-left: .22em solid color-mix(in srgb, var(--accent) 55%, #ffffff);
+}
+.eqd > summary {
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+  padding: .3em 3.4em .15em .9em;
+  border-radius: var(--radius);
+}
+.eqd > summary::-webkit-details-marker { display: none; }
+.eqd > summary:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.eqd > summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.eqd__name {
+  display: block;
+  font-size: .7em; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  line-height: 1.35;
+  color: var(--brand-olive-deep);
+}
+.eqd__name::before {
+  content: "▸"; display: inline-block; width: 1em;
+  color: var(--accent); font-size: 1.15em; line-height: 1;
+  transition: transform .15s ease;
+}
+.eqd__name::after {
+  content: " · ver interpretación"; text-transform: none; letter-spacing: 0;
+  font-weight: 500; color: var(--muted);
+}
+.eqd[open] .eqd__name::before { transform: rotate(90deg); }
+.eqd[open] .eqd__name::after { content: " · ocultar"; }
+.eqd__f {
+  display: block;
+  font-size: 1.15em; line-height: 1.95;
+  font-variant-numeric: lining-nums;
+  overflow-x: auto;
+}
+.eqd > summary .eq__tag { top: 58%; }
+.eqd__body {
+  margin: 0 .9em; padding: .45em 0 .65em;
+  border-top: 1px dashed var(--line-strong);
+  font-size: .88em; line-height: 1.45; color: var(--text);
+  display: grid; gap: .35em;
+}
+.eqd[open] { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent); }
+
 .eq__tag {
   position: absolute; right: .8em; top: 50%; transform: translateY(-50%);
   font-size: .7em; color: var(--muted); font-style: normal;
@@ -836,8 +884,8 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 
 /* Diapositiva de índice: tarjetas por sección */
 .toc-slide {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: .9em;
-  font-size: .82em;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: .7em .9em;
+  font-size: .8em;
 }
 .toc-card {
   border: 1px solid var(--line); border-top: .3em solid var(--accent);
@@ -845,6 +893,17 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
   display: grid; gap: .35em; align-content: start;
 }
 .toc-card__title { font-size: 1em; font-weight: 650; line-height: 1.2; }
+/* Objetivo de la práctica dentro de su tarjeta */
+.toc-card__obj {
+  font-size: .86em; line-height: 1.35; color: var(--text);
+  padding: .35em .5em; border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 7%, #ffffff);
+}
+.toc-card__objlabel {
+  display: block; margin-bottom: .1em;
+  font-size: .8em; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent);
+}
 .toc-card__title a { text-decoration: none; }
 .toc-card__title a:hover { text-decoration: underline; }
 .toc-card__range { font-size: .85em; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -923,7 +982,8 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
   body.is-compact:not(.is-overview) .section__num { font-size: 4em; }
   body.is-compact:not(.is-overview) .slide h2.section__title { font-size: 1.8em; }
   body.is-compact:not(.is-overview) .table-wrap { max-height: none; }
-  body.is-compact:not(.is-overview) .eq { font-size: 1.05em; }
+  body.is-compact:not(.is-overview) .eq,
+  body.is-compact:not(.is-overview) .eqd__f { font-size: 1.05em; }
   body.is-compact:not(.is-overview) .section__art { position: static; transform: none; order: -1; }
   body.is-compact:not(.is-overview) .lab-ico--hero { width: 84px; height: 84px; }
   body.is-compact:not(.is-overview) .section__art .lab-ico--hero:nth-child(2) { width: 60px; height: 60px; }
@@ -983,3 +1043,6 @@ html.reveal-print .table-wrap--tall table.data td { padding-top: .1em; padding-b
   html:not(.reveal-print) .toc,
   html:not(.reveal-print) .backdrop { display: none !important; }
 }
+
+/* Ajuste puntual: dos tablas apiladas en «Datos atípicos» */
+.slide[data-title="Datos atípicos"] .stack { gap: .45em; }
