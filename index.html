@@ -1,0 +1,1501 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prácticas Módulo II · AIF · J5</title>
+<meta name="description" content="Informe-presentación de las prácticas de laboratorio del Módulo II de Análisis Instrumental Farmacéutico, Universidad Nacional de Colombia, 2026-2S, subgrupo J5.">
+<!--
+  =====================================================================
+  CÓMO AGREGAR UNA DIAPOSITIVA NUEVA
+  =====================================================================
+  1. Copie un bloque <section class="slide" ...> ... </section> existente
+     y péguelo en el lugar donde debe aparecer. El orden en este archivo
+     es el orden de la presentación: los números de página, el índice
+     lateral, la diapositiva de índice y los enlaces #/n se recalculan
+     solos. No escriba números de página a mano.
+
+  2. Atributos de la <section>:
+       data-title  = nombre corto que aparece en el índice ("Método").
+       data-group  = sección a la que pertenece. Debe ser EXACTAMENTE el
+                     mismo texto en todas las diapositivas de esa sección
+                     ("Práctica 1 · Refractometría"). Con él se agrupa y
+                     se filtra el índice.
+       data-accent = color de la práctica: p1 … p6. Omítalo para el
+                     color neutro (Apertura y Cierre).
+     Clases opcionales: slide--cover (portada), slide--section (portada
+     de sección). El rótulo superior (kicker) se agrega solo.
+
+  3. Componentes disponibles (ver styles.css, sección 5):
+       .box.objective · .box.key (resultado clave) · .box.note
+       (observación) · .box.warning (advertencia) · .box.conclusion
+       .points (viñetas) · .steps (pasos numerados) · .eq (ecuación)
+       .table-wrap > table.data (tabla; td.num alinea a la derecha,
+       td.mono para lecturas de instrumento) · figure.fig (figura con
+       pie) · .chart-ph (marcador de gráfico) · .chips · .grid-2/.grid-3
+       · .status (estado: data-status="done | partial | pending").
+
+  4. Datos pendientes: escriba [___] tal cual. El script lo convierte en
+     una marca punteada de "pendiente" y lo cuenta en el índice.
+     Cuando tenga el valor, reemplace [___] por el dato.
+
+  5. Gráficos reales: dentro de <div class="chart" data-chart> ponga un
+     <script type="application/json"> con la especificación (ver los
+     ejemplos de las diapositivas 5 y 51, y la función renderChart en
+     app.js). Tipos: "xy" (con "fit": true traza la recta de mínimos
+     cuadrados), "residuals" y "species".
+
+  6. Notación: subíndices y superíndices con <sub>/<sup>; espacio fino
+     entre número y unidad con &#8239; (por ejemplo 256&#8239;nm);
+     coma decimal (3,3); signo menos real (−).
+  =====================================================================
+-->
+<script>
+  /* Aplica el tema guardado antes de pintar, para evitar parpadeo.
+     Si localStorage no está disponible, se usa el tema del sistema. */
+  (function () {
+    try {
+      var t = localStorage.getItem('aif-tema');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { /* sin almacenamiento: no pasa nada */ }
+  })();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#toolbar">Saltar a los controles de la presentación</a>
+
+<!-- Barra de progreso fina (decorativa; el número de página es el dato accesible) -->
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<main class="viewport" id="viewport">
+<div class="deck" id="deck" role="region" aria-roledescription="presentación" aria-label="Prácticas de laboratorio, Módulo II de Análisis Instrumental Farmacéutico">
+
+<!-- =================================================================
+     SECCIÓN 0 · APERTURA
+     ================================================================= -->
+
+<section class="slide slide--cover" data-group="Apertura" data-title="Portada">
+  <div class="cover">
+    <p class="cover__inst">Universidad Nacional de Colombia · Programa de Farmacia</p>
+    <h1 class="cover__title">Prácticas de laboratorio<br>Módulo II</h1>
+    <p class="cover__subtitle">Análisis Instrumental Farmacéutico · Informe-presentación</p>
+    <ul class="cover__bars" aria-hidden="true">
+      <li data-accent="p1"></li><li data-accent="p2"></li><li data-accent="p3"></li>
+      <li data-accent="p4"></li><li data-accent="p5"></li><li data-accent="p6"></li>
+    </ul>
+    <div class="cover__grid">
+      <div>
+        <p class="cover__label">Integrantes</p>
+        <ul class="cover__team">
+          <li>César Díaz Suárez</li>
+          <li>Paula Melo</li>
+          <li>Karen [___]</li>
+          <li>Diana Arguello</li>
+        </ul>
+      </div>
+      <dl class="cover__meta">
+        <div><dt>Semestre</dt><dd>2026-2S</dd></div>
+        <div><dt>Subgrupo</dt><dd>J5</dd></div>
+        <div><dt>Docente</dt><dd>[___]</dd></div>
+        <div><dt>Fecha</dt><dd>[___]</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Apertura" data-title="Índice">
+  <h2>Índice</h2>
+  <p class="lead">Cada práctica sigue la misma secuencia: Objetivo → Fundamento → Método → Datos → Gráficos → Tratamiento estadístico → Resultados → Discusión → Conclusión.</p>
+  <!-- Se llena desde app.js a partir de data-title y data-group -->
+  <div class="toc-slide" data-toc-slide></div>
+</section>
+
+<section class="slide" data-group="Apertura" data-title="Objetivo general y alcance">
+  <h2>Objetivo general y alcance</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo general</p>
+    <p>Aplicar técnicas de análisis instrumental a la caracterización y cuantificación de analitos de interés farmacéutico, con tratamiento estadístico de los datos.</p>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 0.1. Alcance del informe</caption>
+      <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Analito(s)</th><th scope="col">Magnitud medida</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Refractometría (Abbe)</td><td>Etanol–agua</td><td><var>n</var>, °Brix, °Baumé</td></tr>
+        <tr><td>2</td><td>Polarimetría</td><td>Sacarosa, ácido ascórbico</td><td><var>α</var>, [<var>α</var>]</td></tr>
+        <tr><td>3</td><td>Espectrofotometría UV</td><td>Ibuprofeno</td><td><var>A</var>, <var>λ</var><sub>máx</sub></td></tr>
+        <tr><td>4</td><td>Espectrofotometría visible</td><td>Verde de bromocresol</td><td><var>A</var> frente a pH; p<var>K</var><sub>a</sub></td></tr>
+        <tr><td>5</td><td>[___]</td><td>Ácido gálico</td><td>p<var>K</var><sub>a1</sub>, p<var>K</var><sub>a2</sub></td></tr>
+        <tr><td>6</td><td>Espectrofotometría UV multicomponente</td><td>Acetaminofén + cafeína</td><td><var>A</var> a 256 y 273&#8239;nm</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Apertura" data-title="Tratamiento común: regresión y ANOVA">
+  <h2>Tratamiento experimental común (1/2): regresión y ANOVA</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq"><var>y</var> = <var>m</var><var>x</var> + <var>b</var><span class="eq__tag">(1)</span></p>
+      <p class="eq"><var>m</var> = <span class="frac"><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span>)</span><span>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)<sup>2</sup></span></span>&ensp; <var>b</var> = <span class="bar"><var>y</var></span> − <var>m</var><span class="bar"><var>x</var></span><span class="eq__tag">(2)</span></p>
+      <p class="eq"><var>s</var><sub><var>y</var>/<var>x</var></sub> = √<span class="ovl"><span class="frac"><span>Σ(<var>y</var><sub>i</sub> − <var>ŷ</var><sub>i</sub>)<sup>2</sup></span><span><var>n</var> − 2</span></span></span><span class="eq__tag">(3)</span></p>
+      <p class="eq"><var>m</var> ± <var>t</var>·<var>s</var><sub><var>m</var></sub> &ensp; <var>b</var> ± <var>t</var>·<var>s</var><sub><var>b</var></sub> &ensp; <small><var>t</var>(0,05; <var>n</var> − 2)</small><span class="eq__tag">(4)</span></p>
+    </div>
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data">
+          <caption>Tabla 0.2. Estructura del ANOVA de la regresión</caption>
+          <thead><tr><th scope="col">Fuente</th><th scope="col" class="num">gl</th><th scope="col">SC</th><th scope="col">MC</th><th scope="col"><var>F</var></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Regresión</th><td class="num">1</td><td>Σ(<var>ŷ</var><sub>i</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup></td><td>SC<sub>reg</sub>/1</td><td>MC<sub>reg</sub>/MC<sub>res</sub></td></tr>
+            <tr><th scope="row">Residual</th><td class="num"><var>n</var> − 2</td><td>Σ(<var>y</var><sub>i</sub> − <var>ŷ</var><sub>i</sub>)<sup>2</sup></td><td>SC<sub>res</sub>/(<var>n</var> − 2)</td><td>—</td></tr>
+            <tr><th scope="row">Total</th><td class="num"><var>n</var> − 1</td><td>Σ(<var>y</var><sub>i</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup></td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <p class="box__label">Criterio</p>
+        <p>Si <var>F</var> &gt; <var>F</var><sub>crít</sub>(1; <var>n</var> − 2; 0,05), la regresión es significativa. <var>R</var><sup>2</sup> por sí solo no demuestra linealidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Apertura" data-title="Tratamiento común: precisión, límites y residuales">
+  <h2>Tratamiento experimental común (2/2): precisión, límites y residuales</h2>
+  <div class="grid-2 grid-2--wide-right">
+    <div class="stack">
+      <p class="eq">%RSD = <span class="frac"><span><var>s</var></span><span><span class="bar"><var>x</var></span></span></span> · 100<span class="eq__tag">(5)</span></p>
+      <p class="eq">LOD = <span class="frac"><span>3,3 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span>&ensp; LOQ = <span class="frac"><span>10 · <var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span><span class="eq__tag">(6)</span></p>
+      <p class="eq"><var>t</var> = <span class="frac"><span>|<span class="bar"><var>x</var></span> − <var>μ</var>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span><span class="eq__tag">(7)</span></p>
+      <ul class="points">
+        <li>Residuales sin patrón: homocedasticidad.</li>
+        <li>Residuales en forma de embudo: heterocedasticidad; considerar regresión ponderada.</li>
+        <li>Prueba <var>t</var> de Student: |<var>t</var>| &gt; <var>t</var><sub>crít</sub> indica diferencia significativa frente a <var>μ</var>.</li>
+      </ul>
+    </div>
+    <div class="grid-2 grid-2--tight">
+      <figure class="fig">
+        <div class="chart" data-chart>
+          <script type="application/json">
+            {
+              "type": "xy",
+              "title": "Curva de calibración ilustrativa con datos de ejemplo",
+              "example": true,
+              "x": { "label": "Concentración (u. a.)" },
+              "y": { "label": "Respuesta (u. a.)" },
+              "series": [ { "name": "Patrones (ejemplo)", "points": [[1,0.105],[2,0.198],[3,0.304],[4,0.395],[5,0.508]], "fit": true } ]
+            }
+          </script>
+        </div>
+        <figcaption>Figura 0.1. Curva ilustrativa. <strong>Datos de ejemplo</strong>, no experimentales.</figcaption>
+      </figure>
+      <figure class="fig">
+        <div class="chart" data-chart>
+          <script type="application/json">
+            {
+              "type": "residuals",
+              "title": "Residuales de la curva ilustrativa con datos de ejemplo",
+              "example": true,
+              "x": { "label": "Concentración (u. a.)" },
+              "y": { "label": "Residual (u. a.)" },
+              "series": [ { "name": "Residuales (ejemplo)", "points": [[1,0.105],[2,0.198],[3,0.304],[4,0.395],[5,0.508]] } ]
+            }
+          </script>
+        </div>
+        <figcaption>Figura 0.2. Residuales de la figura 0.1. <strong>Datos de ejemplo.</strong></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 1 · PRÁCTICA 1 — REFRACTOMETRÍA
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Presentación de la práctica">
+  <p class="section__num">01</p>
+  <p class="section__kicker">Práctica 1</p>
+  <h2 class="section__title">Refractometría de mezclas etanol–agua</h2>
+  <p class="lead">Refractómetro de Abbe · 5 niveles por duplicado · 2 muestras problema</p>
+  <ul class="chips"><li><var>n</var></li><li>% p/p</li><li>°Brix</li><li>°Baumé</li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar la concentración de etanol en dos muestras problema mediante curvas de calibración refractométricas.</p>
+  </div>
+  <ul class="points">
+    <li>Construir las curvas de <var>n</var>, °Brix y °Baumé frente a % p/p de etanol.</li>
+    <li>Evaluar la linealidad con ANOVA de la regresión y residuales.</li>
+    <li>Calcular LOD y LOQ de cada curva.</li>
+    <li>Interpolar las muestras problema con su intervalo de confianza.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq"><var>n</var> = <span class="frac"><span><var>c</var></span><span><var>v</var></span></span><span class="eq__tag">(1.1)</span></p>
+      <p class="eq"><var>n</var><sub>1</sub> sen <var>θ</var><sub>1</sub> = <var>n</var><sub>2</sub> sen <var>θ</var><sub>2</sub><span class="eq__tag">(1.2)</span></p>
+      <p class="eq">sen <var>θ</var><sub>c</sub> = <span class="frac"><span><var>n</var><sub>muestra</sub></span><span><var>n</var><sub>prisma</sub></span></span><span class="eq__tag">(1.3)</span></p>
+    </div>
+    <ul class="points">
+      <li>El refractómetro de Abbe mide el ángulo crítico entre un prisma de índice alto y la muestra.</li>
+      <li><var>n</var> depende de la temperatura y de <var>λ</var>: se informa como <var>n</var><sub>D</sub><sup><var>T</var></sup> (línea D del sodio, 589&#8239;nm).</li>
+      <li>°Brix y °Baumé son escalas empíricas; en etanol–agua se usan como respuestas de calibración.</li>
+      <li>La relación <var>n</var>–composición del sistema etanol–agua puede no ser lineal en todo el intervalo.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <ol class="steps">
+      <li>Verificar el cero del refractómetro con agua destilada a [___]&#8239;°C.</li>
+      <li>Preparar 5 patrones de etanol por pesada, de [___] a [___]&#8239;% p/p.</li>
+      <li>Leer <var>n</var>, °Brix y °Baumé de cada patrón por duplicado; limpiar los prismas entre lecturas.</li>
+      <li>Leer las muestras problema M1 y M2 en las mismas condiciones.</li>
+      <li>Registrar la temperatura del prisma en cada lectura.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 1.0. Equipos y reactivos</caption>
+        <tbody>
+          <tr><th scope="row">Refractómetro</th><td>Abbe, [___]</td></tr>
+          <tr><th scope="row">Termostatización</th><td>[___]</td></tr>
+          <tr><th scope="row">Balanza</th><td>[___]</td></tr>
+          <tr><th scope="row">Etanol</th><td>Pureza [___]&#8239;%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="table-wrap table-wrap--tall">
+    <table class="data">
+      <caption>Tabla 1.1. Lecturas refractométricas por duplicado (<var>T</var> = [___]&#8239;°C)</caption>
+      <thead>
+        <tr><th scope="col">Muestra</th><th scope="col" class="num"><var>w</var> etanol (% p/p)</th><th scope="col" class="num"><var>n</var><sub>1</sub></th><th scope="col" class="num"><var>n</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>n</var></span></th><th scope="col" class="num">°Brix<sub>1</sub></th><th scope="col" class="num">°Brix<sub>2</sub></th><th scope="col" class="num">°Bé<sub>1</sub></th><th scope="col" class="num">°Bé<sub>2</sub></th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">P1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">P2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">P3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">P4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">P5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">M1</th><td class="num">incógnita</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><th scope="row">M2</th><td class="num">incógnita</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-3 grid-3--figs">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: n frente a porcentaje en peso">Gráfico: <var>n</var> frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.1</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Brix frente a porcentaje en peso">Gráfico: °Brix frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.2</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Baumé frente a porcentaje en peso">Gráfico: °Baumé frente a <var>w</var> (% p/p)</div><figcaption>Figura 1.3</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente">Gráfico: [___]</div><figcaption>Figura 1.4</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente">Gráfico: [___]</div><figcaption>Figura 1.5</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="grid-2">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 1.2. Parámetros de regresión (IC 95&#8239;%)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">°Brix</th><th scope="col" class="num">°Baumé</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>m</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">LOD (% p/p)</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">LOQ (% p/p)</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data">
+          <caption>Tabla 1.3. ANOVA de la regresión (curva de <var>n</var>)</caption>
+          <thead><tr><th scope="col">Fuente</th><th scope="col" class="num">gl</th><th scope="col" class="num">SC</th><th scope="col" class="num">MC</th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+            <tr><th scope="row">Residual</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Total</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <p class="box__label">Residuales</p>
+        <p>Comportamiento: [___] (homocedástico / heterocedástico). Repetir el ANOVA para °Brix y °Baumé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="grid-2">
+    <div class="box key">
+      <p class="box__label">Resultado clave · M1</p>
+      <p class="key__value"><var>w</var> = [___] ± [___]&#8239;% p/p</p>
+      <p class="key__meta">Curva de <var>n</var>, IC 95&#8239;%</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">Resultado clave · M2</p>
+      <p class="key__value"><var>w</var> = [___] ± [___]&#8239;% p/p</p>
+      <p class="key__meta">Curva de <var>n</var>, IC 95&#8239;%</p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 1.4. Concentración de las muestras problema según cada escala (% p/p ± IC 95&#8239;%)</caption>
+      <thead><tr><th scope="col">Muestra</th><th scope="col" class="num">Por <var>n</var></th><th scope="col" class="num">Por °Brix</th><th scope="col" class="num">Por °Baumé</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">M1</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">M2</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Linealidad en el intervalo estudiado: [___]</li>
+    <li>Comparación entre <var>n</var>, °Brix y °Baumé como respuesta: [___]</li>
+    <li>Efecto de la temperatura sobre las lecturas: [___]</li>
+    <li>Ubicación de M1 y M2 dentro del intervalo de calibración: [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 1</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 2 · PRÁCTICA 2 — POLARIMETRÍA
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Presentación de la práctica">
+  <p class="section__num">02</p>
+  <p class="section__kicker">Práctica 2</p>
+  <h2 class="section__title">Polarimetría de sacarosa y ácido ascórbico</h2>
+  <p class="lead">20 lecturas de <var>α</var> por analito · rotación específica · prueba <var>t</var> frente al valor tabulado</p>
+  <ul class="chips"><li><var>α</var></li><li>[<var>α</var>]</li><li>%RSD</li><li><var>t</var> de Student</li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar la rotación específica de la sacarosa y del ácido ascórbico y evaluar su precisión y exactitud.</p>
+  </div>
+  <ul class="points">
+    <li>Registrar 20 lecturas de <var>α</var> por analito.</li>
+    <li>Calcular promedio, desviación estándar y %RSD.</li>
+    <li>Calcular [<var>α</var>] y su intervalo de confianza.</li>
+    <li>Comparar con el valor tabulado mediante la prueba <var>t</var> de Student.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq">[<var>α</var>]<sub><var>λ</var></sub><sup><var>T</var></sup> = <span class="frac"><span><var>α</var></span><span><var>l</var> · <var>c</var></span></span><span class="eq__tag">(2.1)</span></p>
+      <p class="eq-legend"><var>α</var>: rotación observada (°) · <var>l</var>: longitud del tubo (dm) · <var>c</var>: concentración (g/mL)</p>
+      <p class="eq"><var>t</var> = <span class="frac"><span>|<span class="bar">[<var>α</var>]</span> − [<var>α</var>]<sub>tab</sub>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span><span class="eq__tag">(2.2)</span></p>
+    </div>
+    <ul class="points">
+      <li>Las sustancias quirales rotan el plano de la luz polarizada.</li>
+      <li>Dextrógira: rotación positiva (+); levógira: negativa (−).</li>
+      <li><var>α</var> depende de <var>λ</var>, temperatura, disolvente, concentración y longitud de paso.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <ol class="steps">
+      <li>Ajustar el cero con el disolvente ([___]) en el tubo.</li>
+      <li>Preparar sacarosa (<var>c</var> = [___]&#8239;g/mL) y ácido ascórbico (<var>c</var> = [___]&#8239;g/mL).</li>
+      <li>Llenar el tubo sin burbujas.</li>
+      <li>Tomar 20 lecturas de <var>α</var> por analito.</li>
+      <li>Registrar temperatura y longitud de onda.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 2.0. Condiciones</caption>
+        <tbody>
+          <tr><th scope="row">Polarímetro</th><td>[___]</td></tr>
+          <tr><th scope="row"><var>l</var></th><td>[___]&#8239;dm</td></tr>
+          <tr><th scope="row"><var>λ</var></th><td>[___]&#8239;nm</td></tr>
+          <tr><th scope="row"><var>T</var></th><td>[___]&#8239;°C</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="table-wrap table-wrap--tall table-wrap--narrow">
+    <table class="data">
+      <caption>Tabla 2.1. Lecturas de rotación óptica observada</caption>
+      <thead><tr><th scope="col" class="num">Lectura</th><th scope="col" class="num"><var>α</var> sacarosa (°)</th><th scope="col" class="num"><var>α</var> ácido ascórbico (°)</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">9</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">11</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">12</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">13</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">14</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">15</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">16</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">17</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">18</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">19</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        <tr><td class="num">20</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-3">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: alfa de sacarosa frente al número de lectura">Gráfico: <var>α</var> (°) frente a n.º de lectura · sacarosa</div><figcaption>Figura 2.1</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: alfa de ácido ascórbico frente al número de lectura">Gráfico: <var>α</var> (°) frente a n.º de lectura · ácido ascórbico</div><figcaption>Figura 2.2</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: rotación específica experimental frente a tabulada">Gráfico: [<var>α</var>] experimental (IC 95&#8239;%) frente a tabulado</div><figcaption>Figura 2.3</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 2.2. Estadística descriptiva y prueba <var>t</var> (<var>α</var> = 0,05; bilateral)</caption>
+      <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Sacarosa</th><th scope="col" class="num">Ácido ascórbico</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><var>n</var></th><td class="num">20</td><td class="num">20</td></tr>
+        <tr><th scope="row"><span class="bar"><var>α</var></span> (°)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row"><var>s</var> (°)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">%RSD</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">[<var>α</var>] experimental ± IC 95&#8239;%</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">[<var>α</var>] tabulado (ref.)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row"><var>t</var><sub>calc</sub></th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row"><var>t</var><sub>crít</sub> (gl = 19)</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">Decisión</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="grid-2">
+    <div class="box key">
+      <p class="box__label">Resultado clave · sacarosa</p>
+      <p class="key__value">[<var>α</var>] = [___] ± [___]&#8239;°·mL·g<sup>−1</sup>·dm<sup>−1</sup></p>
+      <p class="key__meta">Tabulado: [___] · error relativo: [___]&#8239;% · %RSD: [___]</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">Resultado clave · ácido ascórbico</p>
+      <p class="key__value">[<var>α</var>] = [___] ± [___]&#8239;°·mL·g<sup>−1</sup>·dm<sup>−1</sup></p>
+      <p class="key__meta">Tabulado: [___] · error relativo: [___]&#8239;% · %RSD: [___]</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Precisión (%RSD) frente al criterio de aceptación [___]: [___]</li>
+    <li>Diferencia significativa frente al valor tabulado: [___]</li>
+    <li>Signo de la rotación y su relación con la estructura: [___]</li>
+    <li>Fuentes probables de desviación (temperatura, burbujas, cero, concentración): [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 2</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 3 · PRÁCTICA 3 — UV DEL IBUPROFENO
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Presentación de la práctica">
+  <p class="section__num">03</p>
+  <p class="section__kicker">Práctica 3</p>
+  <h2 class="section__title">Cuantificación UV del ibuprofeno</h2>
+  <p class="lead">Solubilidad y disolvente · barrido espectral · curva de calibración · extracción desde tabletas · verificación</p>
+  <ul class="chips"><li>Solubilidad</li><li><var>λ</var><sub>máx</sub></li><li><var>A</var></li><li>% recuperación</li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Cuantificar el ibuprofeno en tabletas por espectrofotometría UV.</p>
+  </div>
+  <ul class="points">
+    <li>Seleccionar el disolvente a partir de la solubilidad.</li>
+    <li>Determinar <var>λ</var><sub>máx</sub> por barrido espectral.</li>
+    <li>Construir y validar la curva de calibración.</li>
+    <li>Verificar el método con soluciones baja, media y alta.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq"><var>A</var> = <var>ε</var> · <var>b</var> · <var>c</var><span class="eq__tag">(3.1)</span></p>
+      <p class="eq"><var>A</var> = −log <var>T</var> = log <span class="frac"><span><var>I</var><sub>0</sub></span><span><var>I</var></span></span><span class="eq__tag">(3.2)</span></p>
+      <p class="eq-legend"><var>ε</var>: absortividad molar (L·mol<sup>−1</sup>·cm<sup>−1</sup>) · <var>b</var>: paso óptico (cm) · <var>c</var>: concentración (mol/L)</p>
+    </div>
+    <ul class="points">
+      <li>La ley de Beer–Lambert es válida en soluciones diluidas y con radiación monocromática.</li>
+      <li>Medir en <var>λ</var><sub>máx</sub> maximiza la sensibilidad y reduce el error por desajuste de <var>λ</var>.</li>
+      <li>La solubilidad condiciona el disolvente de extracción y de medida.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <ol class="steps">
+      <li>Ensayar la solubilidad en [___] disolventes.</li>
+      <li>Barrer de [___] a [___]&#8239;nm una solución de [___]&#8239;μg/mL.</li>
+      <li>Preparar [___] patrones de [___] a [___]&#8239;μg/mL.</li>
+      <li>Pesar [___] tabletas, pulverizar y extraer el equivalente a [___]&#8239;mg; filtrar y diluir.</li>
+      <li>Preparar las soluciones de verificación baja, media y alta.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 3.0. Equipos</caption>
+        <tbody>
+          <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
+          <tr><th scope="row">Celdas</th><td>Cuarzo, <var>b</var> = [___]&#8239;cm</td></tr>
+          <tr><th scope="row">Disolvente</th><td>[___]</td></tr>
+          <tr><th scope="row">Tabletas</th><td>Declarado: [___]&#8239;mg</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="grid-2">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 3.1. Ensayo de solubilidad</caption>
+        <thead><tr><th scope="col">Disolvente</th><th scope="col">Observación</th></tr></thead>
+        <tbody>
+          <tr><td>[___]</td><td>[___]</td></tr>
+          <tr><td>[___]</td><td>[___]</td></tr>
+          <tr><td>[___]</td><td>[___]</td></tr>
+          <tr><td>[___]</td><td>[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 3.2. Curva de calibración (<var>λ</var> = [___]&#8239;nm)</caption>
+        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>A</var></span></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-3">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: espectro de absorción">Gráfico: espectro, <var>A</var> frente a <var>λ</var> (nm)</div><figcaption>Figura 3.1. Barrido espectral</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva de calibración">Gráfico: <var>A</var> frente a <var>c</var> (μg/mL)</div><figcaption>Figura 3.2. Curva de calibración</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: residuales">Gráfico: residuales frente a <var>c</var> (μg/mL)</div><figcaption>Figura 3.3. Residuales</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="grid-2">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 3.3. Parámetros de regresión (IC 95&#8239;%)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Valor</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>m</var> ± IC (mL/μg)</th><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">[___]</td></tr>
+          <tr><th scope="row">LOD (μg/mL)</th><td class="num">[___]</td></tr>
+          <tr><th scope="row">LOQ (μg/mL)</th><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data">
+          <caption>Tabla 3.4. ANOVA de la regresión</caption>
+          <thead><tr><th scope="col">Fuente</th><th scope="col" class="num">gl</th><th scope="col" class="num">SC</th><th scope="col" class="num">MC</th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+            <tr><th scope="row">Residual</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Total</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box note">
+        <p class="box__label">Residuales</p>
+        <p>Comportamiento: [___] (homocedástico / heterocedástico).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="grid-2">
+    <div class="box key">
+      <p class="box__label">Resultado clave · <var>λ</var><sub>máx</sub></p>
+      <p class="key__value"><var>λ</var><sub>máx</sub> = [___]&#8239;nm</p>
+      <p class="key__meta">Disolvente: [___]</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">Resultado clave · tabletas</p>
+      <p class="key__value">[___] ± [___]&#8239;mg/tableta</p>
+      <p class="key__meta">Declarado: [___]&#8239;mg · contenido: [___]&#8239;% de lo declarado</p>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 3.5. Verificación con soluciones baja, media y alta</caption>
+      <thead><tr><th scope="col">Nivel</th><th scope="col" class="num"><var>c</var> nominal (μg/mL)</th><th scope="col" class="num"><var>c</var> hallada (μg/mL)</th><th scope="col" class="num">Recuperación (%)</th><th scope="col" class="num">%RSD</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Baja</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">Media</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">Alta</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Elección del disolvente según la solubilidad observada: [___]</li>
+    <li><var>λ</var><sub>máx</sub> experimental frente a la literatura: [___]</li>
+    <li>Contenido en tabletas frente a lo declarado y al criterio [___]: [___]</li>
+    <li>Recuperaciones en los tres niveles: [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 3</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 4 · PRÁCTICA 4 — VERDE DE BROMOCRESOL
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Presentación de la práctica">
+  <p class="section__num">04</p>
+  <p class="section__kicker">Práctica 4</p>
+  <h2 class="section__title">Espectrofotometría visible con verde de bromocresol</h2>
+  <p class="lead">Curva de calibración · absorbancia frente a pH en 10 valores · p<var>K</var><sub>a</sub> por método gráfico y por pendientes</p>
+  <ul class="chips"><li><var>A</var></li><li>pH</li><li>p<var>K</var><sub>a</sub></li><li>Henderson–Hasselbalch</li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar el p<var>K</var><sub>a</sub> del verde de bromocresol por espectrofotometría visible.</p>
+  </div>
+  <ul class="points">
+    <li>Construir la curva de calibración a <var>λ</var> = [___]&#8239;nm.</li>
+    <li>Medir la absorbancia en 10 valores de pH.</li>
+    <li>Calcular p<var>K</var><sub>a</sub> por el método gráfico y por el de pendientes.</li>
+    <li>Comparar ambos métodos con el valor de referencia.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq">HIn ⇌ H<sup>+</sup> + In<sup>−</sup><span class="eq__tag">(4.1)</span></p>
+      <p class="eq">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span>[In<sup>−</sup>]</span><span>[HIn]</span></span><span class="eq__tag">(4.2)</span></p>
+      <p class="eq">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span><var>A</var> − <var>A</var><sub>HIn</sub></span><span><var>A</var><sub>In<sup>−</sup></sub> − <var>A</var></span></span><span class="eq__tag">(4.3)</span></p>
+    </div>
+    <ul class="points">
+      <li>La forma ácida (HIn) es amarilla y la básica (In<sup>−</sup>) es azul.</li>
+      <li>Método gráfico: p<var>K</var><sub>a</sub> es el pH donde <var>A</var> = (<var>A</var><sub>HIn</sub> + <var>A</var><sub>In<sup>−</sup></sub>)/2.</li>
+      <li>Método de pendientes: el logaritmo de (4.3) frente a pH da pendiente teórica 1 y corta el eje pH en p<var>K</var><sub>a</sub>.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <ol class="steps">
+      <li>Preparar la solución madre del indicador ([___]&#8239;mg/L).</li>
+      <li>Preparar [___] patrones para la curva de calibración en medio [___].</li>
+      <li>Preparar 10 soluciones amortiguadoras entre pH [___] y [___].</li>
+      <li>Medir el pH con el pH-metro calibrado (patrones [___]).</li>
+      <li>Medir <var>A</var> a <var>λ</var> = [___]&#8239;nm; obtener <var>A</var><sub>HIn</sub> y <var>A</var><sub>In<sup>−</sup></sub> en medio ácido y básico.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 4.0. Equipos</caption>
+        <tbody>
+          <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
+          <tr><th scope="row">pH-metro</th><td>[___]</td></tr>
+          <tr><th scope="row">Celdas</th><td><var>b</var> = [___]&#8239;cm</td></tr>
+          <tr><th scope="row">Sistema buffer</th><td>[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="grid-2 grid-2--wide-right">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 4.1. Curva de calibración</caption>
+        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (mg/L)</th><th scope="col" class="num"><var>A</var></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap table-wrap--tall">
+      <table class="data">
+        <caption>Tabla 4.2. Absorbancia frente a pH (<var>λ</var> = [___]&#8239;nm)</caption>
+        <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num">log[(<var>A</var> − <var>A</var><sub>HIn</sub>)/(<var>A</var><sub>In<sup>−</sup></sub> − <var>A</var>)]</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">9</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-3">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva de calibración">Gráfico: <var>A</var> frente a <var>c</var> (mg/L)</div><figcaption>Figura 4.1. Curva de calibración</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: absorbancia frente a pH">Gráfico: <var>A</var> frente a pH (método gráfico)</div><figcaption>Figura 4.2. Curva sigmoidea</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: logaritmo del cociente frente a pH">Gráfico: log[(<var>A</var> − <var>A</var><sub>HIn</sub>)/(<var>A</var><sub>In<sup>−</sup></sub> − <var>A</var>)] frente a pH</div><figcaption>Figura 4.3. Método de pendientes</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="grid-2">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 4.3. Parámetros de regresión (IC 95&#8239;%)</caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Calibración</th><th scope="col" class="num">Pendientes</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>m</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">LOD / LOQ (mg/L)</th><td class="num">[___] / [___]</td><td class="num">—</td></tr>
+          <tr><th scope="row"><var>F</var> (ANOVA) / <var>p</var></th><td class="num">[___] / [___]</td><td class="num">[___] / [___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <div class="box note">
+        <p class="box__label">Prueba sobre la pendiente</p>
+        <p><var>t</var> = |<var>m</var> − 1| / <var>s</var><sub><var>m</var></sub> = [___]; <var>t</var><sub>crít</sub> = [___]. Decisión: [___].</p>
+      </div>
+      <div class="box note">
+        <p class="box__label">Residuales</p>
+        <p>Calibración: [___]. Pendientes: [___].</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="grid-3">
+    <div class="box key">
+      <p class="box__label">p<var>K</var><sub>a</sub> · método gráfico</p>
+      <p class="key__value">[___]</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">p<var>K</var><sub>a</sub> · método de pendientes</p>
+      <p class="key__value">[___] ± [___]</p>
+      <p class="key__meta">Pendiente: [___]</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">p<var>K</var><sub>a</sub> · referencia</p>
+      <p class="key__value">[___]</p>
+      <p class="key__meta">Fuente: [___]</p>
+    </div>
+  </div>
+  <div class="box note">
+    <p class="box__label">Comparación</p>
+    <p>Diferencia entre métodos: [___]. Error relativo frente a la referencia: [___]&#8239;%.</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Concordancia entre el método gráfico y el de pendientes: [___]</li>
+    <li>Pendiente experimental frente al valor teórico 1: [___]</li>
+    <li>Efecto de la fuerza iónica y la temperatura: [___]</li>
+    <li>Calidad de <var>A</var><sub>HIn</sub> y <var>A</var><sub>In<sup>−</sup></sub> como extremos: [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 4</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 5 · PRÁCTICA 5 — pKa DEL ÁCIDO GÁLICO
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Presentación de la práctica">
+  <p class="section__num">05</p>
+  <p class="section__kicker">Práctica 5</p>
+  <h2 class="section__title">p<var>K</var><sub>a</sub> del ácido gálico</h2>
+  <p class="lead">Preparación del buffer · tabla de pH · dos transiciones (p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub>) · diagrama de distribución de especies</p>
+  <ul class="chips"><li>pH</li><li>p<var>K</var><sub>a1</sub></li><li>p<var>K</var><sub>a2</sub></li><li><var>α</var><sub>i</sub></li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Determinar p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub> del ácido gálico (ácido 3,4,5-trihidroxibenzoico).</p>
+  </div>
+  <ul class="points">
+    <li>Preparar las soluciones amortiguadoras del intervalo de trabajo.</li>
+    <li>Registrar la respuesta en función del pH.</li>
+    <li>Identificar las dos transiciones y calcular cada p<var>K</var><sub>a</sub>.</li>
+    <li>Construir el diagrama de distribución de especies.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq">H<sub>2</sub>A ⇌ HA<sup>−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a1</sub>)<span class="eq__tag">(5.1)</span></p>
+      <p class="eq">HA<sup>−</sup> ⇌ A<sup>2−</sup> + H<sup>+</sup> &ensp;(<var>K</var><sub>a2</sub>)<span class="eq__tag">(5.2)</span></p>
+      <p class="eq"><var>α</var><sub>0</sub> = <span class="frac"><span>[H<sup>+</sup>]<sup>2</sup></span><span><var>D</var></span></span> &ensp; <var>α</var><sub>1</sub> = <span class="frac"><span><var>K</var><sub>a1</sub>[H<sup>+</sup>]</span><span><var>D</var></span></span> &ensp; <var>α</var><sub>2</sub> = <span class="frac"><span><var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></span><span><var>D</var></span></span><span class="eq__tag">(5.3)</span></p>
+      <p class="eq-legend"><var>D</var> = [H<sup>+</sup>]<sup>2</sup> + <var>K</var><sub>a1</sub>[H<sup>+</sup>] + <var>K</var><sub>a1</sub><var>K</var><sub>a2</sub></p>
+    </div>
+    <ul class="points">
+      <li>En pH = p<var>K</var><sub>a1</sub>: [H<sub>2</sub>A] = [HA<sup>−</sup>].</li>
+      <li>En pH = p<var>K</var><sub>a2</sub>: [HA<sup>−</sup>] = [A<sup>2−</sup>].</li>
+      <li>Se usa un modelo diprótico simplificado; su validez en todo el intervalo de pH: [___].</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2 grid-2--wide-right">
+    <ol class="steps">
+      <li>Preparar la solución de ácido gálico ([___]).</li>
+      <li>Preparar los buffers según la tabla 5.1.</li>
+      <li>Medir el pH real de cada solución.</li>
+      <li>Registrar la respuesta: [___].</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 5.1. Preparación de las soluciones amortiguadoras</caption>
+        <thead><tr><th scope="col">Buffer</th><th scope="col">Sistema</th><th scope="col" class="num">pH objetivo</th><th scope="col" class="num">pH medido</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">B1</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">B2</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">B3</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">B4</th><td>[___]</td><td class="num">[___]</td><td class="num mono">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="table-wrap table-wrap--tall table-wrap--narrow">
+    <table class="data">
+      <caption>Tabla 5.2. Respuesta frente a pH (añadir o quitar filas según los datos)</caption>
+      <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH</th><th scope="col" class="num">Respuesta [___]</th><th scope="col">Transición</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">9</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+        <tr><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td>[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-2">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: respuesta frente a pH con dos transiciones">Gráfico: respuesta frente a pH (dos transiciones)</div><figcaption>Figura 5.1. Transiciones p<var>K</var><sub>a1</sub> y p<var>K</var><sub>a2</sub></figcaption></figure>
+    <figure class="fig">
+      <!-- Para usar los valores experimentales: cambie "pKa" y quite "example". -->
+      <div class="chart" data-chart>
+        <script type="application/json">
+          {
+            "type": "species",
+            "title": "Diagrama de distribución de especies con pKa ilustrativos, datos de ejemplo",
+            "example": true,
+            "pKa": [4, 9],
+            "names": ["H<sub>2</sub>A", "HA<sup>−</sup>", "A<sup>2−</sup>"],
+            "x": { "label": "pH", "min": 0, "max": 14 },
+            "y": { "label": "Fracción molar, α", "min": 0, "max": 1 }
+          }
+        </script>
+      </div>
+      <figcaption>Figura 5.2. Distribución de especies. <strong>Datos de ejemplo</strong> (p<var>K</var><sub>a</sub> ilustrativos 4 y 9, no experimentales).</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 5.3. Estimación de las constantes de acidez</caption>
+      <thead><tr><th scope="col">Transición</th><th scope="col">Método</th><th scope="col" class="num">p<var>K</var><sub>a</sub></th><th scope="col" class="num">Incertidumbre (IC 95&#8239;%)</th><th scope="col" class="num"><var>R</var><sup>2</sup></th><th scope="col" class="num"><var>n</var></th></tr></thead>
+      <tbody>
+        <tr><th scope="row">p<var>K</var><sub>a1</sub></th><td>[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        <tr><th scope="row">p<var>K</var><sub>a2</sub></th><td>[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box note">
+    <p class="box__label">Residuales y ANOVA</p>
+    <p>Regresión de cada transición: <var>F</var> = [___], <var>p</var> = [___]. Residuales: [___].</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="grid-3">
+    <div class="box key">
+      <p class="box__label">p<var>K</var><sub>a1</sub></p>
+      <p class="key__value">[___] ± [___]</p>
+      <p class="key__meta">Referencia: [___]</p>
+    </div>
+    <div class="box key">
+      <p class="box__label">p<var>K</var><sub>a2</sub></p>
+      <p class="key__value">[___] ± [___]</p>
+      <p class="key__meta">Referencia: [___]</p>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 5.4. Especie predominante</caption>
+        <thead><tr><th scope="col">Intervalo de pH</th><th scope="col">Especie</th></tr></thead>
+        <tbody>
+          <tr><td>pH &lt; p<var>K</var><sub>a1</sub></td><td>H<sub>2</sub>A</td></tr>
+          <tr><td>p<var>K</var><sub>a1</sub> &lt; pH &lt; p<var>K</var><sub>a2</sub></td><td>HA<sup>−</sup></td></tr>
+          <tr><td>pH &gt; p<var>K</var><sub>a2</sub></td><td>A<sup>2−</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Asignación de cada transición a un grupo funcional: [___]</li>
+    <li>Comparación con los valores de referencia: [___]</li>
+    <li>Estabilidad del ácido gálico en medio básico durante la medida: [___]</li>
+    <li>Cobertura de puntos alrededor de cada p<var>K</var><sub>a</sub>: [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 5 · pKa del ácido gálico" data-accent="p5" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 5</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 6 · PRÁCTICA 6 — ADITIVIDAD: ACETAMINOFÉN + CAFEÍNA
+     ================================================================= -->
+
+<section class="slide slide--section" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Presentación de la práctica">
+  <p class="section__num">06</p>
+  <p class="section__kicker">Práctica 6</p>
+  <h2 class="section__title">Aditividad de absorbancias: acetaminofén + cafeína</h2>
+  <p class="lead">Solvente NaOH · <var>λ</var><sub>1</sub> = 256&#8239;nm y <var>λ</var><sub>2</sub> = 273&#8239;nm · cuatro curvas · sistema 2 × 2 con determinante <var>D</var></p>
+  <ul class="chips"><li>ACE</li><li>CAF</li><li><var>D</var></li><li>% recuperación</li></ul>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Objetivo">
+  <h2>Objetivo</h2>
+  <div class="box objective">
+    <p class="box__label">Objetivo</p>
+    <p>Cuantificar simultáneamente acetaminofén (ACE) y cafeína (CAF) en mezclas aplicando la aditividad de absorbancias.</p>
+  </div>
+  <ul class="points">
+    <li>Construir dos curvas propias y dos cruzadas.</li>
+    <li>Plantear y resolver el sistema de dos ecuaciones por determinantes.</li>
+    <li>Calcular el porcentaje de recuperación en mezclas conocidas.</li>
+  </ul>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Fundamento">
+  <h2>Fundamento</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <p class="eq"><var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub><span class="eq__tag">(6.1)</span></p>
+      <p class="eq"><var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub><span class="eq__tag">(6.2)</span></p>
+      <p class="eq"><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub><span class="eq__tag">(6.3)</span></p>
+      <p class="eq"><var>c</var><sub>ACE</sub> = <span class="frac"><span><var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub></span><span><var>D</var></span></span>&ensp; <var>c</var><sub>CAF</sub> = <span class="frac"><span><var>m</var><sub>ACE,1</sub><var>A</var><sub>2</sub> − <var>m</var><sub>ACE,2</sub><var>A</var><sub>1</sub></span><span><var>D</var></span></span><span class="eq__tag">(6.4)</span></p>
+    </div>
+    <ul class="points">
+      <li>La absorbancia total a cada <var>λ</var> es la suma de las contribuciones de cada analito.</li>
+      <li><var>m</var> = <var>ε</var>·<var>b</var>: pendiente de cada curva; subíndice 1 = 256&#8239;nm, 2 = 273&#8239;nm.</li>
+      <li>Supone interceptos ≈ 0 y ausencia de interacción entre analitos.</li>
+      <li><var>D</var> cercano a 0 indica un sistema mal condicionado.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Método">
+  <h2>Método</h2>
+  <div class="grid-2">
+    <ol class="steps">
+      <li>Preparar el solvente NaOH [___]&#8239;mol/L.</li>
+      <li>Preparar soluciones madre de ACE ([___]&#8239;μg/mL) y CAF ([___]&#8239;μg/mL).</li>
+      <li>Preparar [___] patrones de cada analito.</li>
+      <li>Leer cada patrón a 256 y 273&#8239;nm.</li>
+      <li>Preparar [___] mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
+    </ol>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 6.0. Diseño de las cuatro curvas</caption>
+        <thead><tr><th scope="col">Curva</th><th scope="col">Analito</th><th scope="col" class="num"><var>λ</var> (nm)</th><th scope="col">Tipo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">C1</th><td>Acetaminofén</td><td class="num">256</td><td>Propia</td></tr>
+          <tr><th scope="row">C2</th><td>Cafeína</td><td class="num">273</td><td>Propia</td></tr>
+          <tr><th scope="row">C3</th><td>Acetaminofén</td><td class="num">273</td><td>Cruzada</td></tr>
+          <tr><th scope="row">C4</th><td>Cafeína</td><td class="num">256</td><td>Cruzada</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Estado de los datos de la práctica 6.
+     Para marcar un elemento cambie data-status en su <span class="status">:
+       data-status="done"     → Completo
+       data-status="partial"  → Parcial
+       data-status="pending"  → Pendiente
+     El resumen superior se recalcula solo. -->
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Estado de los datos">
+  <h2>Estado de los datos</h2>
+  <div class="status-summary" data-status-summary></div>
+  <div class="table-wrap table-wrap--tall">
+    <table class="data data--status">
+      <caption>Tabla 6.1. Avance de los datos de la práctica 6</caption>
+      <thead><tr><th scope="col">Elemento</th><th scope="col">Detalle</th><th scope="col">Estado</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Curva C1 · ACE 256&#8239;nm</th><td>Propia: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Curva C2 · CAF 273&#8239;nm</th><td>Propia: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Curva C3 · ACE 273&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Curva C4 · CAF 256&#8239;nm</th><td>Cruzada: patrones y <var>A</var></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Pendientes e interceptos</th><td>4 regresiones con IC</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Determinante <var>D</var></th><td>Ecuación (6.3)</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Absorbancias de mezclas</th><td><var>A</var><sub>1</sub> y <var>A</var><sub>2</sub></td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">Concentraciones calculadas</th><td>Ecuación (6.4)</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">% recuperación</th><td>ACE y CAF por mezcla</td><td><span class="status" data-status="pending"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Datos y tablas">
+  <h2>Datos y tablas</h2>
+  <div class="grid-2">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 6.2. Patrones de acetaminofén</caption>
+        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 6.3. Patrones de cafeína</caption>
+        <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>256</sub></th><th scope="col" class="num"><var>A</var><sub>273</sub></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Gráficos">
+  <h2>Gráficos</h2>
+  <div class="grid-2 grid-2--figs">
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C1">Gráfico: C1 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 6.1. Propia</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C2">Gráfico: C2 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 6.2. Propia</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C3">Gráfico: C3 · <var>A</var><sub>273</sub> frente a <var>c</var><sub>ACE</sub> (μg/mL)</div><figcaption>Figura 6.3. Cruzada</figcaption></figure>
+    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva C4">Gráfico: C4 · <var>A</var><sub>256</sub> frente a <var>c</var><sub>CAF</sub> (μg/mL)</div><figcaption>Figura 6.4. Cruzada</figcaption></figure>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Tratamiento estadístico">
+  <h2>Tratamiento estadístico</h2>
+  <div class="grid-2 grid-2--wide-left">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 6.4. Parámetros de las cuatro curvas (IC 95&#8239;%)</caption>
+        <thead><tr><th scope="col">Curva</th><th scope="col" class="num"><var>m</var> ± IC (mL/μg)</th><th scope="col" class="num"><var>b</var> ± IC</th><th scope="col" class="num"><var>R</var><sup>2</sup></th><th scope="col" class="num"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><th scope="col" class="num"><var>F</var></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">C1 · <var>m</var><sub>ACE,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C2 · <var>m</var><sub>CAF,2</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C3 · <var>m</var><sub>ACE,2</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C4 · <var>m</var><sub>CAF,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stack">
+      <p class="box__label">Determinante del sistema</p>
+      <div class="matrix-eq">
+        <var>D</var> =
+        <span class="matrix" role="img" aria-label="Determinante de la matriz de pendientes">
+          <span><var>m</var><sub>ACE,1</sub></span><span><var>m</var><sub>CAF,1</sub></span>
+          <span><var>m</var><sub>ACE,2</sub></span><span><var>m</var><sub>CAF,2</sub></span>
+        </span>
+        = [___]
+      </div>
+      <div class="box note">
+        <p class="box__label">Residuales</p>
+        <p>C1: [___] · C2: [___] · C3: [___] · C4: [___]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Resultados">
+  <h2>Resultados</h2>
+  <div class="table-wrap">
+    <table class="data data--status">
+      <caption>Tabla 6.5. Recuperación en mezclas de composición conocida</caption>
+      <thead><tr><th scope="col">Mezcla</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num">ACE añadido (μg/mL)</th><th scope="col" class="num">ACE hallado (μg/mL)</th><th scope="col" class="num">R<sub>ACE</sub> (%)</th><th scope="col" class="num">CAF añadida (μg/mL)</th><th scope="col" class="num">CAF hallada (μg/mL)</th><th scope="col" class="num">R<sub>CAF</sub> (%)</th><th scope="col">Estado</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">M1</th><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">M2</th><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td><span class="status" data-status="pending"></span></td></tr>
+        <tr><th scope="row">M3</th><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td><span class="status" data-status="pending"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box key">
+    <p class="box__label">Resultado clave</p>
+    <p class="key__value">R<sub>ACE</sub> = [___]&#8239;% · R<sub>CAF</sub> = [___]&#8239;%</p>
+    <p class="key__meta">Promedio de las mezclas ± <var>s</var> · <var>D</var> = [___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Discusión">
+  <h2>Discusión</h2>
+  <ul class="points">
+    <li>Magnitud de <var>D</var> y condicionamiento del sistema: [___]</li>
+    <li>Recuperaciones frente al criterio de aceptación [___]: [___]</li>
+    <li>Solapamiento espectral y aporte de las curvas cruzadas: [___]</li>
+    <li>Cumplimiento de la aditividad (interceptos, interacción): [___]</li>
+  </ul>
+  <div class="box warning">
+    <p class="box__label">Observación</p>
+    <p>[___]</p>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Conclusión">
+  <h2>Conclusión</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusión · Práctica 6</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================================================================
+     SECCIÓN 7 · CIERRE
+     ================================================================= -->
+
+<section class="slide" data-group="Cierre" data-title="Comparación entre prácticas">
+  <h2>Comparación entre prácticas</h2>
+  <div class="table-wrap table-wrap--tall">
+    <table class="data">
+      <caption>Tabla 7.1. Resumen comparativo</caption>
+      <thead><tr><th scope="col">Práctica</th><th scope="col">Técnica</th><th scope="col">Magnitud medida</th><th scope="col">Modelo</th><th scope="col">Resultado clave</th><th scope="col">Observación principal</th></tr></thead>
+      <tbody>
+        <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix, °Baumé</td><td>Lineal, mínimos cuadrados</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>[___]</td><td>Respuesta frente a pH</td><td>Equilibrio diprótico</td><td>[___]</td><td>[___]</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p6"></span>6</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td>[___]</td><td>[___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Cierre" data-title="Conclusiones generales">
+  <h2>Conclusiones generales</h2>
+  <div class="box conclusion">
+    <p class="box__label">Conclusiones</p>
+    <ul class="points">
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+      <li>[___]</li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide" data-group="Cierre" data-title="Fuentes de error y mejoras">
+  <h2>Fuentes de error y mejoras comunes</h2>
+  <p class="lead">Fuentes posibles; confirmar cuáles se observaron: [___]</p>
+  <div class="table-wrap">
+    <table class="data">
+      <caption>Tabla 7.2. Fuentes de error y mejoras propuestas</caption>
+      <thead><tr><th scope="col">Fuente de error</th><th scope="col">Prácticas</th><th scope="col">Mejora propuesta</th></tr></thead>
+      <tbody>
+        <tr><td>Temperatura no controlada</td><td>1, 2</td><td>Termostatizar y registrar <var>T</var> en cada lectura</td></tr>
+        <tr><td>Preparación de patrones</td><td>1, 3–6</td><td>Material volumétrico clase A; preparación por pesada</td></tr>
+        <tr><td>Calibración del pH-metro</td><td>4, 5</td><td>Calibrar con dos o tres patrones antes de medir</td></tr>
+        <tr><td>Celdas y blanco</td><td>3, 4, 6</td><td>Celdas limpias y emparejadas; blanco con el mismo disolvente</td></tr>
+        <tr><td>Burbujas en el tubo</td><td>2</td><td>Llenado lento y revisión visual</td></tr>
+        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 6</td><td>Diluir hasta <var>A</var> dentro de [___]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide" data-group="Cierre" data-title="Referencias">
+  <h2>Referencias</h2>
+  <ol class="refs">
+    <li>[___]. ([___]). <i>[___]</i> ([___] ed.). [___].</li>
+    <li>[___]. ([___]). <i>[___]</i> ([___] ed.). [___].</li>
+    <li>[___]. ([___]). [___]. <i>[___]</i>, <i>[___]</i>([___]), [___]–[___]. https://doi.org/[___]</li>
+    <li>[___]. ([___]). <i>[___]</i>. [___].</li>
+    <li>Universidad Nacional de Colombia. ([___]). <i>[___]</i> [Guía de laboratorio]. [___].</li>
+  </ol>
+  <p class="eq-legend">Formato APA 7.ª edición; sangría francesa.</p>
+</section>
+
+<section class="slide slide--cover" data-group="Cierre" data-title="Agradecimientos e integrantes">
+  <div class="cover">
+    <p class="cover__inst">Cierre</p>
+    <h2 class="cover__title">Agradecimientos</h2>
+    <p class="cover__subtitle">Al docente [___] y al personal del laboratorio [___].</p>
+    <ul class="cover__bars" aria-hidden="true">
+      <li data-accent="p1"></li><li data-accent="p2"></li><li data-accent="p3"></li>
+      <li data-accent="p4"></li><li data-accent="p5"></li><li data-accent="p6"></li>
+    </ul>
+    <div class="cover__grid">
+      <div>
+        <p class="cover__label">Integrantes · Subgrupo J5</p>
+        <ul class="cover__team">
+          <li>César Díaz Suárez</li>
+          <li>Paula Melo</li>
+          <li>Karen [___]</li>
+          <li>Diana Arguello</li>
+        </ul>
+      </div>
+      <dl class="cover__meta">
+        <div><dt>Asignatura</dt><dd>Análisis Instrumental Farmacéutico · Módulo II</dd></div>
+        <div><dt>Semestre</dt><dd>2026-2S</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+</main>
+
+<!-- Controles: índice, anterior/siguiente, número de página, vista general, tema -->
+<nav class="toolbar" id="toolbar" aria-label="Controles de la presentación">
+  <button type="button" class="btn" id="btnToc" aria-expanded="false" aria-controls="toc" aria-keyshortcuts="I" title="Índice (tecla I)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span class="btn__text">Índice</span>
+  </button>
+  <p class="toolbar__title" id="currentTitle"></p>
+  <div class="pager">
+    <button type="button" class="btn btn--icon" id="btnPrev" aria-label="Diapositiva anterior" aria-keyshortcuts="ArrowLeft" title="Anterior (←)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <p class="counter" id="counter" aria-label="Página">1 / 1</p>
+    <button type="button" class="btn btn--icon" id="btnNext" aria-label="Diapositiva siguiente" aria-keyshortcuts="ArrowRight" title="Siguiente (→)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <button type="button" class="btn" id="btnGrid" aria-pressed="false" aria-keyshortcuts="G" title="Vista general (tecla G)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg><span class="btn__text">Vista general</span>
+  </button>
+  <button type="button" class="btn" id="btnTheme" aria-pressed="false" title="Tema oscuro">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span class="btn__text">Tema oscuro</span>
+  </button>
+</nav>
+
+<!-- Índice lateral: se genera en app.js -->
+<aside class="toc" id="toc" aria-labelledby="tocHeading" hidden>
+  <div class="toc__head">
+    <h2 id="tocHeading">Índice</h2>
+    <button type="button" class="btn btn--icon" id="btnTocClose" aria-label="Cerrar índice" title="Cerrar (Esc)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="toc__filters" id="tocFilters" role="group" aria-label="Filtrar por práctica"></div>
+  <nav class="toc__nav" aria-label="Diapositivas">
+    <ol class="toc__list" id="tocList"></ol>
+  </nav>
+  <p class="toc__hint">Teclas: ← → Inicio Fin · I índice · G vista general · Esc cerrar</p>
+</aside>
+<div class="backdrop" id="backdrop" hidden></div>
+
+<!-- Región viva para lectores de pantalla -->
+<div class="sr-only" id="live" aria-live="polite" aria-atomic="true"></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
