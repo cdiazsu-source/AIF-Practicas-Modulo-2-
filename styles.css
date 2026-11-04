@@ -288,6 +288,22 @@ a { color: inherit; }
   font-variant-numeric: tabular-nums;
 }
 .band__of { font-weight: 400; color: rgba(255, 255, 255, .7); font-size: .8em; }
+/* Botón «Índice» de la franja */
+.band__index {
+  flex: none;
+  display: inline-flex; align-items: center; gap: .45em;
+  margin-left: auto;
+  padding: .3em .85em;
+  font-weight: 600; color: #fff; text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .55); border-radius: 999px;
+  transition: background-color .15s, border-color .15s;
+}
+.band__index svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.band__index:hover { background: rgba(255, 255, 255, .16); border-color: #fff; }
+.band__index:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.band__index + .slide__num { margin-left: 0; }
+.reveal.overview .band__index,
+html.reveal-print .band__index { display: none; }
 
 .slide h2 {
   font-size: 2em; font-weight: 600; line-height: 1.15;
@@ -958,6 +974,8 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
   body.is-compact:not(.is-overview) .band__module::before,
   body.is-compact:not(.is-overview) .band__practice::before { display: none; }
   body.is-compact:not(.is-overview) .band__short { display: inline; }
+  body.is-compact:not(.is-overview) .band__index span { display: none; }
+  body.is-compact:not(.is-overview) .band__index { padding: .3em .5em; }
   body.is-compact:not(.is-overview) .slide__num { font-size: 15px; }
   body.is-compact:not(.is-overview) .band__seal { width: 24px; height: 24px; }
   body.is-compact:not(.is-overview) .slide__band { padding-left: 10px; border-top-width: 3px; }

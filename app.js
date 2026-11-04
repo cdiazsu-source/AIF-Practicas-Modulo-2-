@@ -88,6 +88,9 @@
 
   /* ---------- 1. Preparar diapositivas ---------- */
 
+  // Diapositiva de índice (destino del botón de la franja)
+  var INDEX_AT = slides.findIndex(function (s) { return s.dataset.title === 'Índice'; });
+
   slides.forEach(function (s, i) {
     // Sin id: así reveal.js usa enlaces numéricos (#/7) y no #/id
 
@@ -117,18 +120,21 @@
       inner.insertBefore(k, inner.firstChild);
     }
 
-    // Franja base: asignatura · módulo · práctica · número de página
+    // Franja base: asignatura · módulo · práctica · botón de índice · número de página
     var band = doc.createElement('footer');
     band.className = 'slide__band';
-    band.setAttribute('aria-hidden', 'true');
+    var toIndex = (INDEX_AT >= 0 && i !== INDEX_AT)
+      ? '<a class="band__index" href="#/' + (INDEX_AT + 1) + '" data-goto="' + (INDEX_AT + 1) + '" title="Ir al índice">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Índice</span></a>'
+      : '';
     band.innerHTML =
-      '<span class="band__seal"><img src="' + esc(SEAL) + '" alt=""></span>' +
-      '<span class="band__fac">' + esc(FACULTY) + '</span>' +
-      '<span class="band__course"><span class="band__long">' + esc(COURSE) + '</span>' +
+      '<span class="band__seal" aria-hidden="true"><img src="' + esc(SEAL) + '" alt=""></span>' +
+      '<span class="band__fac" aria-hidden="true">' + esc(FACULTY) + '</span>' +
+      '<span class="band__course" aria-hidden="true"><span class="band__long">' + esc(COURSE) + '</span>' +
         '<span class="band__short">' + esc(COURSE_SHORT) + '</span></span>' +
-      '<span class="band__module">' + esc(MODULE) + '</span>' +
-      '<span class="band__practice">' + esc(s.dataset.group || '') + '</span>' +
-      '<span class="slide__num">' + (i + 1) + '<span class="band__of"> / ' + N + '</span></span>';
+      '<span class="band__module" aria-hidden="true">' + esc(MODULE) + '</span>' +
+      '<span class="band__practice" aria-hidden="true">' + esc(s.dataset.group || '') + '</span>' + toIndex +
+      '<span class="slide__num" aria-hidden="true">' + (i + 1) + '<span class="band__of"> / ' + N + '</span></span>';
     s.appendChild(band);
 
     s.setAttribute('role', 'group');
