@@ -907,11 +907,11 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 .toc-card__title a { text-decoration: none; }
 .toc-card__title a:hover { text-decoration: underline; }
 .toc-card__range { font-size: .85em; color: var(--muted); font-variant-numeric: tabular-nums; }
-.toc-card__pages { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .3em; }
+.toc-card__pages { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .22em; }
 .toc-card__pages a {
   display: inline-grid; place-items: center;
-  min-width: 2em; height: 1.8em; padding: 0 .3em;
-  font-size: .85em; font-variant-numeric: tabular-nums; text-decoration: none;
+  min-width: 1.9em; height: 1.6em; padding: 0 .25em;
+  font-size: .82em; font-variant-numeric: tabular-nums; text-decoration: none;
   border: 1px solid var(--line); border-radius: 3px;
 }
 .toc-card__pages a:hover { border-color: var(--accent); background: var(--surface-2); }
@@ -1046,3 +1046,6 @@ html.reveal-print .table-wrap--tall table.data td { padding-top: .1em; padding-b
 
 /* Ajuste puntual: dos tablas apiladas en «Datos atípicos» */
 .slide[data-title="Datos atípicos"] .stack { gap: .45em; }
+
+/* Marca de procedencia: tabla copiada de las guías de laboratorio */
+.guide-ref { font-style: normal; font-weight: 600; color: var(--subtitle); }

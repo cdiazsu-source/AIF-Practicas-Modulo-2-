@@ -254,10 +254,10 @@
     <p>Determinar el contenido de glicerina de las muestras problema M1 y M2 mediante curvas de calibración refractométricas.</p>
   </div>
   <ul class="points">
+    <li>Identificar los componentes y el principio óptico del refractómetro de Abbe.</li>
+    <li>Medir <var>n</var> del agua destilada y compararlo con el valor tabulado.</li>
     <li>Construir las curvas de <var>n</var> y °Brix frente a % p/p de glicerina con los datos de la clase.</li>
-    <li>Evaluar la linealidad con ANOVA, falta de ajuste y residuales.</li>
-    <li>Calcular LOD y LOQ de cada curva.</li>
-    <li>Interpolar M1 y M2 con su intervalo de confianza.</li>
+    <li>Evaluar linealidad (ANOVA, residuos), %RSD por nivel, LOD y LOQ, e interpolar M1 y M2.</li>
   </ul>
 </section>
 
@@ -343,6 +343,52 @@
       <p class="eq-legend">—: lectura no registrada en la hoja de datos. Fuente: hoja «RefractometriaGlicerina», AIF Módulo II, jueves.</p>
     </div>
   </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tablas de la guía · refractometría">
+  <h2>Tablas de la guía · refractometría</h2>
+  <div class="grid-2 grid-2--tight">
+    <div class="stack">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G1. Curvas de calibración <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Analito</th><th scope="col">Niveles (% p/p)</th><th scope="col">Muestras problema</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Glicerina<br><small>C<sub>3</sub>H<sub>8</sub>O<sub>3</sub> · 92,09&#8239;g/mol</small></th><td>Grupo 5: 0 (agua), 20, 40, 60 y 80<br><small>Clase: 0 a 80, cada 10</small></td><td>M1 y M2 (grupos 1–5)<br><small>M3 y M4 (grupos 6–10)</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla 1.0b. Índice de refracción del agua destilada frente al valor tabulado</caption>
+        <thead><tr><th scope="col">Origen</th><th scope="col" class="num"><var>n</var></th><th scope="col" class="num">Error relativo</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Tabulado (20&#8239;°C, línea D)</th><td class="num">1,3330</td><td class="num">—</td></tr>
+          <tr><th scope="row">Grupo 5 (<var>k</var> = 2)</th><td class="num mono">1,3328</td><td class="num">−0,015&#8239;%</td></tr>
+          <tr><th scope="row">Clase (<var>k</var> = 20)</th><td class="num mono">1,3336 ± 0,0011</td><td class="num">0,043&#8239;%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G2. Lecturas del grupo 5 (J5), promedio del duplicado <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Nivel</th><th scope="col" class="num">% p/p</th><th scope="col" class="num">Índice de refracción</th><th scope="col" class="num">Grados Brix</th><th scope="col" class="num">Grados Baumé</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">0 (agua)</td><td class="num mono">1,3328</td><td class="num mono">0,00</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">20</td><td class="num mono">1,3691</td><td class="num mono">23,10</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">40</td><td class="num mono">1,3918</td><td class="num mono">35,60</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">60</td><td class="num mono">1,4194</td><td class="num mono">49,90</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">80</td><td class="num mono">1,4447</td><td class="num mono">61,95</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">MP1</th><td class="num">incógnita</td><td class="num mono">1,3929</td><td class="num mono">36,10</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">MP2</th><td class="num">incógnita</td><td class="num mono">1,4020</td><td class="num mono">41,25</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+      <p class="eq-legend">Grados Baumé: no registrados en la hoja de datos.</p>
+    </div>
+  </div>
+  <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.1 · Curva de n">
@@ -447,6 +493,30 @@
         <p>Falta de ajuste significativa en <var>n</var> y en °Brix (<var>p</var> &lt; 0,001 y &lt; 0,001). Levene entre niveles: <var>n</var>, <var>p</var> = 0,029 (heterocedástico); °Brix, <var>p</var> = 0,219.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Precisión por nivel (%RSD)">
+  <h2>Precisión por nivel (%RSD)</h2>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla 1.5b. %RSD de cada nivel de concentración (datos de la clase)</caption>
+        <thead><tr><th scope="col" class="num"><var>w</var> (% p/p)</th><th scope="col" class="num"><var>k</var></th><th scope="col" class="num">%RSD de <var>n</var></th><th scope="col" class="num">%RSD de °Brix</th></tr></thead>
+        <tbody>
+          <tr><td class="num">0</td><td class="num">20</td><td class="num">0,081</td><td class="num">no aplica</td></tr>
+          <tr><td class="num">10</td><td class="num">10</td><td class="num">0,021</td><td class="num">0,42</td></tr>
+          <tr><td class="num">20</td><td class="num">10</td><td class="num">0,047</td><td class="num">1,44</td></tr>
+          <tr><td class="num">30</td><td class="num">10</td><td class="num">0,023</td><td class="num">0,61</td></tr>
+          <tr><td class="num">40</td><td class="num">10</td><td class="num">0,017</td><td class="num">0,77</td></tr>
+          <tr><td class="num">50</td><td class="num">10</td><td class="num">0,007</td><td class="num">0,24</td></tr>
+          <tr><td class="num">60</td><td class="num">10</td><td class="num">0,027</td><td class="num">0,36</td></tr>
+          <tr><td class="num">70</td><td class="num">10</td><td class="num">0,006</td><td class="num">0,38</td></tr>
+          <tr><td class="num">80</td><td class="num">10</td><td class="num">0,070</td><td class="num">0,15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Todos los niveles presentan un %RSD de <var>n</var> inferior a 0,1&#8239;% (entre 0,006 y 0,081&#8239;%): la lectura refractométrica es muy repetible en todo el intervalo.</p><p>Los valores más altos corresponden al agua (0,081&#8239;%) y al nivel de 80&#8239;% (0,070&#8239;%), donde algunos grupos registraron lecturas atípicas.</p><p>En °Brix la dispersión relativa es mayor (0,15–1,44&#8239;%) por la resolución de la escala; en el agua no se calcula porque el promedio es cercano a cero.</p></div>
   </div>
 </section>
 
@@ -673,6 +743,36 @@
 </section>
 <!-- P1-EXTRA:fin -->
 
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.9 · °Brix frente a n">
+  <h2>Grados Brix frente al índice de refracción</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Grados Brix frente al índice de refracción", "aspect": 0.6, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Lecturas (10 grupos)", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 23.25], [1.369, 23.2], [1.3916, 35.05], [1.3918, 35.57], [1.4195, 49.57], [1.4193, 49.53], [1.4463, 61.98], [1.446, 61.7], [1.333, 0.0], [1.334, 0.0], [1.3686, 22.9], [1.3685, 22.9], [1.3918, 35.8], [1.3919, 35.9], [1.4195, 49.8], [1.42, 50.0], [1.4459, 61.9], [1.446, 61.9], [1.3325, 0.0], [1.333, 0.0], [1.3675, 22.25], [1.368, 22.5], [1.392, 35.6], [1.3925, 36.0], [1.42, 50.0], [1.4192, 49.7], [1.446, 61.8], [1.4459, 61.8], [1.333, 0.0], [1.3332, 0.0], [1.3691, 23.1], [1.3695, 23.2], [1.392, 35.3], [1.3918, 35.6], [1.4192, 49.7], [1.42, 50.0], [1.446, 61.8], [1.4459, 61.8], [1.3328, 0.0], [1.3328, 0.0], [1.369, 23.1], [1.3691, 23.1], [1.3918, 35.6], [1.3919, 35.6], [1.4198, 49.9], [1.419, 49.9], [1.4429, 61.9], [1.4465, 62.0], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 13.51], [1.3535, 13.51], [1.3807, 29.75], [1.3808, 29.75], [1.4069, 43.52], [1.4069, 43.6], [1.4322, 55.55], [1.4321, 55.5], [1.3329, 0.0], [1.3351, 1.5], [1.3534, 13.5], [1.3531, 13.5], [1.3815, 29.75], [1.3808, 29.75], [1.4069, 43.61], [1.4069, 43.7], [1.4319, 55.1], [1.432, 55.1], [1.3335, 0.0], [1.3335, 0.0], [1.3539, 13.6], [1.353, 13.4], [1.381, 29.3], [1.3805, 29.5], [1.407, 43.8], [1.4067, 43.5], [1.4321, 55.6], [1.432, 55.2], [1.335, 1.5], [1.335, 1.5], [1.3532, 13.5], [1.353, 13.5], [1.3806, 29.75], [1.3803, 29.75], [1.407, 43.7], [1.407, 43.75], [1.432, 55.5], [1.432, 55.55], [1.3345, 1.1], [1.3365, 2.5], [1.3532, 13.5], [1.3535, 13.6], [1.3806, 29.9], [1.3808, 29.9], [1.4069, 43.6], [1.407, 43.5], [1.432, 55.6], [1.4321, 55.6]], "fit": true}]}</script>
+      </div>
+      <figcaption>Figura 1.9. °Brix frente a <var>n</var> para todas las lecturas de la clase (gráfico solicitado por la guía).</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Relaciona directamente las dos escalas del refractómetro y permite establecer si °Brix aporta información independiente del índice de refracción.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La relación es casi perfecta: con una recta, <var>R</var><sup>2</sup> = 0,9955; con un polinomio de segundo grado, <var>R</var><sup>2</sup> = 0,99983 y <var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,28&#8239;°Brix, del orden de la resolución de la escala.</p><p>La curvatura sistemática indica que el instrumento no mide °Brix de forma independiente: lo calcula a partir de <var>n</var> mediante la tabla de conversión de la sacarosa.</p><p>En consecuencia, °Brix es una transformación no lineal de <var>n</var>; su menor linealidad frente a la glicerina proviene de esa conversión y no de una medición distinta.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Figura 1.10 · Grados Baumé">
+  <h2>Grados Baumé frente al índice de refracción y a la concentración</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: grados Baumé">Gráfico: °Baumé frente a <var>n</var> y frente a <var>w</var> (% p/p) · requiere las lecturas de °Baumé</div>
+      <figcaption>Figura 1.10. Pendiente.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>La guía solicita las curvas de °Baumé frente a <var>n</var> y frente a la concentración para comparar una tercera escala empírica con las anteriores.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: la hoja de datos no contiene lecturas de °Baumé. [___]</p></div>
+    </div>
+  </div>
+</section>
+
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Resultados">
   <h2>Resultados</h2>
@@ -747,9 +847,9 @@
     <p>Medir la rotación óptica de soluciones de lactosa y de mentol, evaluar su precisión y calcular su rotación específica.</p>
   </div>
   <ul class="points">
-    <li>Registrar 10 lecturas de <var>α</var> en cada una de dos soluciones por analito (20 por analito).</li>
-    <li>Calcular promedio, desviación estándar, %RSD e IC 95&#8239;%.</li>
-    <li>Comparar las dos soluciones de cada analito (prueba <var>t</var> de Welch).</li>
+    <li>Identificar los componentes del polarímetro.</li>
+    <li>Registrar 20 lecturas de <var>α</var> por analito (una por estudiante, en dos series de 10).</li>
+    <li>Calcular promedio, %RSD, CV e IC 95&#8239;%, y comparar las dos series (Welch).</li>
     <li>Calcular [<var>α</var>] y compararla con el valor tabulado (prueba <var>t</var>).</li>
   </ul>
 </section>
@@ -758,8 +858,8 @@
   <h2>Fundamento</h2>
   <div class="grid-2">
     <div class="stack">
-      <details class="eqd"><summary><span class="eqd__name">Rotación específica (ley de Biot)</span><span class="eqd__f">[<var>α</var>]<sub><var>λ</var></sub><sup><var>T</var></sup> = <span class="frac"><span><var>α</var></span><span><var>l</var> · <var>c</var></span></span></span><span class="eq__tag">(2.1)</span></summary><div class="eqd__body"><p>Normaliza la rotación observada por la longitud del tubo y la concentración, y así obtiene una propiedad característica de la sustancia quiral a <var>λ</var> y <var>T</var> dadas. Permite identificar compuestos, verificar su pureza óptica o despejar <var>c</var> para cuantificar.</p></div></details>
-      <p class="eq-legend"><var>α</var>: rotación observada (°) · <var>l</var>: longitud del tubo (dm) · <var>c</var>: concentración (g/mL)</p>
+      <details class="eqd"><summary><span class="eqd__name">Rotación específica (ley de Biot)</span><span class="eqd__f">[<var>α</var>]<sub>D</sub><sup>20&#8239;°C</sup> = <span class="frac"><span><var>α</var> · 100</span><span><var>l</var> · <var>C</var></span></span></span><span class="eq__tag">(2.1)</span></summary><div class="eqd__body"><p>Normaliza la rotación observada por la longitud del tubo y la concentración, y así obtiene una propiedad característica de la sustancia quiral a <var>λ</var> y <var>T</var> dadas. El factor 100 aparece porque <var>C</var> se expresa en g/100&#8239;mL (forma usada en la guía). Permite identificar compuestos, verificar su pureza óptica o despejar <var>C</var> para cuantificar.</p></div></details>
+      <p class="eq-legend"><var>α</var>: ángulo de rotación medido a 20&#8239;°C con luz de sodio (589,3&#8239;nm) · <var>l</var>: longitud del tubo (dm) · <var>C</var>: concentración (g/100&#8239;mL)</p>
       <details class="eqd"><summary><span class="eqd__name">Prueba t frente al valor tabulado</span><span class="eqd__f"><var>t</var> = <span class="frac"><span>|<span class="bar">[<var>α</var>]</span> − [<var>α</var>]<sub>tab</sub>| · √<span class="ovl"><var>n</var></span></span><span><var>s</var></span></span></span><span class="eq__tag">(2.2)</span></summary><div class="eqd__body"><p>Contrasta la rotación específica experimental con la de referencia. Si |<var>t</var>| &gt; <var>t</var><sub>crít</sub> (<var>n</var> − 1 gl), la discrepancia no se explica por el error aleatorio y sugiere un error sistemático (concentración, temperatura, cero del equipo o pureza).</p></div></details>
     </div>
     <ul class="points">
@@ -776,10 +876,10 @@
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
       <li>Ajustar el cero con el disolvente ([___]) en el tubo.</li>
-      <li>Preparar dos soluciones de lactosa (<var>c</var> = [___]&#8239;g/mL) y dos de mentol (<var>c</var> = [___]&#8239;g/mL).</li>
+      <li>Preparar las soluciones de lactosa y de mentol (<var>C</var> = [___]&#8239;g/100&#8239;mL).</li>
       <li>Llenar el tubo sin burbujas.</li>
-      <li>Tomar 10 lecturas de <var>α</var> por solución; en el mentol, <var>α</var> = lectura − 180°.</li>
-      <li>Registrar la temperatura de cada lectura.</li>
+      <li>Medir <var>α</var>: una lectura por estudiante, 20 por analito (series 1 y 2 de 10); en el mentol, <var>α</var> = lectura − 180°.</li>
+      <li>Registrar la temperatura de cada lectura (nominal 20&#8239;°C).</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -787,8 +887,9 @@
         <tbody>
           <tr><th scope="row">Polarímetro</th><td>[___]</td></tr>
           <tr><th scope="row"><var>l</var></th><td>[___]&#8239;dm</td></tr>
-          <tr><th scope="row"><var>λ</var></th><td>[___]&#8239;nm</td></tr>
-          <tr><th scope="row"><var>T</var></th><td>19–26&#8239;°C</td></tr>
+          <tr><th scope="row"><var>λ</var></th><td>589,3&#8239;nm (línea D del sodio)</td></tr>
+          <tr><th scope="row"><var>T</var></th><td>20&#8239;°C nominal; 19–26&#8239;°C medida</td></tr>
+          <tr><th scope="row">Analitos (PM)</th><td>Lactosa: 342,30 (anhidra) o 360,31 (monohidrato) g/mol [___] · Mentol: 156,27&#8239;g/mol</td></tr>
         </tbody>
       </table>
     </div>
@@ -823,6 +924,28 @@
     </table>
   </div>
   <p class="eq-legend">Mentol: <var>α</var> = lectura − 180°. Fuente: «Hoja 1», AIF Módulo II, jueves.</p>
+</section>
+
+<section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Tablas de la guía · polarimetría">
+  <h2>Tablas de la guía · polarimetría</h2>
+  <div class="grid-2">
+    <div class="table-wrap table-wrap--narrow">
+      <table class="data">
+        <caption>Tabla G3. Resultados por analito (20 lecturas) <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Analito</th><th scope="col" class="num">1: Lactosa</th><th scope="col" class="num">2: Mentol</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Promedio (°)</th><td class="num">+10,45</td><td class="num">−4,66</td></tr>
+          <tr><th scope="row">%RSD</th><td class="num">4,4</td><td class="num">6,1</td></tr>
+          <tr><th scope="row">CV</th><td class="num">0,044</td><td class="num">0,061</td></tr>
+          <tr><th scope="row">Prueba <var>t</var> de Student</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Ángulo de rotación específica ([<var>α</var>])</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box note box--interp"><p class="box__label">Lectura de la tabla</p><p>La guía indica 20 determinaciones por analito, una por estudiante; la hoja de datos las registra en dos series de 10 (lactosa-1/-2 y mentol 1/2), que no difieren entre sí (Welch: <var>p</var> = 0,57 y 0,60).</p><p>CV = <var>s</var>/<span class="bar"><var>x</var></span> (fracción) y %RSD = CV · 100. La prueba <var>t</var> y [<var>α</var>] requieren <var>C</var> (g/100&#8239;mL) y <var>l</var> (dm).</p></div>
+  </div>
+  <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+
 </section>
 
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Figura 2.1 · Lecturas de la lactosa">
@@ -909,7 +1032,7 @@
   </div>
   <div class="box note">
     <p class="box__label">Para completar</p>
-    <p>[<var>α</var>] = <span class="bar"><var>α</var></span> / (<var>l</var> · <var>c</var>) requiere la concentración de cada solución, la longitud del tubo y <var>λ</var>.</p>
+    <p>[<var>α</var>] = 100 · <span class="bar"><var>α</var></span> / (<var>l</var> · <var>C</var>) requiere la concentración (g/100&#8239;mL) y la longitud del tubo (dm).</p>
   </div>
 </section>
 
@@ -959,8 +1082,8 @@
     <p>Cuantificar el ibuprofeno en tabletas por espectrofotometría UV.</p>
   </div>
   <ul class="points">
-    <li>Seleccionar el disolvente a partir de la solubilidad.</li>
-    <li>Determinar <var>λ</var><sub>máx</sub> por barrido espectral.</li>
+    <li>Manejar el espectrofotómetro UV-Vis y seleccionar el disolvente por solubilidad.</li>
+    <li>Determinar <var>λ</var><sub>máx</sub> del activo en el medio de trabajo (barrido 200–400&#8239;nm).</li>
     <li>Construir y validar la curva de calibración.</li>
     <li>Verificar el método con soluciones baja, media y alta.</li>
   </ul>
@@ -986,18 +1109,18 @@
   <h2>Método</h2>
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
-      <li>Ensayar la solubilidad en [___] disolventes.</li>
-      <li>Barrer de [___] a [___]&#8239;nm una solución de [___]&#8239;μg/mL.</li>
-      <li>Preparar [___] patrones de [___] a [___]&#8239;μg/mL.</li>
-      <li>Pesar [___] tabletas, pulverizar y extraer el equivalente a [___]&#8239;mg; filtrar y diluir.</li>
-      <li>Preparar las soluciones de verificación baja, media y alta.</li>
+      <li>Ensayar la solubilidad en agua destilada, HCl 0,1&#8239;N y NaOH 0,1&#8239;N; elegir el medio de mejor solubilidad.</li>
+      <li>Barrer de 200 a 400&#8239;nm la solución de trabajo (10&#8239;μg/mL) contra el blanco; <var>A</var><sub>máx</sub> entre 0,17 y 0,85.</li>
+      <li>Preparar la curva a <var>λ</var><sub>máx</sub>: 5 niveles por duplicado (<var>C</var><sub>1</sub><var>V</var><sub>1</sub> = <var>C</var><sub>2</sub><var>V</var><sub>2</sub>).</li>
+      <li>Pesar hasta 10 tabletas, pulverizar y extraer el equivalente a [___]&#8239;mg; filtrar y diluir.</li>
+      <li>Medir al menos 3 soluciones problema (baja, media, alta) por duplicado: % recuperación, error relativo y %RSD.</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
         <caption>Tabla 3.0. Equipos</caption>
         <tbody>
           <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
-          <tr><th scope="row">Celdas</th><td>Cuarzo, <var>b</var> = [___]&#8239;cm</td></tr>
+          <tr><th scope="row">Celdas</th><td>Cuarzo, <var>b</var> = 1&#8239;cm</td></tr>
           <tr><th scope="row">Disolvente</th><td>[___]</td></tr>
           <tr><th scope="row">Tabletas</th><td>Declarado: [___]&#8239;mg</td></tr>
         </tbody>
@@ -1015,13 +1138,13 @@
   <div class="grid-2">
     <div class="table-wrap">
       <table class="data">
-        <caption>Tabla 3.1. Ensayo de solubilidad</caption>
-        <thead><tr><th scope="col">Disolvente</th><th scope="col">Observación</th></tr></thead>
+        <caption>Tabla G4. Prueba de solubilidad <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Medio</th><th scope="col">Solubilidad</th><th scope="col">Observaciones</th></tr></thead>
         <tbody>
-          <tr><td>[___]</td><td>[___]</td></tr>
-          <tr><td>[___]</td><td>[___]</td></tr>
-          <tr><td>[___]</td><td>[___]</td></tr>
-          <tr><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">Agua destilada</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">HCl 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">NaOH 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">Solvente(s) seleccionado(s)</th><td colspan="2">[___]</td></tr>
         </tbody>
       </table>
     </div>
@@ -1039,6 +1162,53 @@
       </table>
     </div>
   </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tablas de la guía · UV">
+  <h2>Tablas de la guía · UV</h2>
+  <div class="grid-2 grid-2--tight">
+    <div class="stack">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G5. <var>λ</var><sub>máx</sub> teórico y práctico <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Teórico</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Práctico</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G6. Construcción de la curva de calibración <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G7. Masa de las tabletas (g) <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">N.º</th><th scope="col" class="num">Masa</th><th scope="col">N.º</th><th scope="col" class="num">Masa</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num mono">[___]</td><th scope="row">6</th><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num mono">[___]</td><th scope="row">7</th><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num mono">[___]</td><th scope="row">8</th><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num mono">[___]</td><th scope="row">9</th><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num mono">[___]</td><th scope="row">10</th><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">Peso promedio de la tableta</th><td colspan="3" class="num">[___]</td></tr>
+          <tr><th scope="row">Información reportada en el producto</th><td colspan="3">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Gráficos">
@@ -1163,7 +1333,7 @@
     <li>Construir la curva de calibración a <var>λ</var> = [___]&#8239;nm.</li>
     <li>Medir la absorbancia en 10 valores de pH.</li>
     <li>Calcular p<var>K</var><sub>a</sub> por el método gráfico y por el de pendientes.</li>
-    <li>Comparar ambos métodos con el valor de referencia.</li>
+    <li>Determinar el punto isosbéstico y comparar con el valor de referencia.</li>
   </ul>
 </section>
 
@@ -1187,11 +1357,11 @@
   <h2>Método</h2>
   <div class="grid-2 grid-2--wide-left">
     <ol class="steps">
-      <li>Preparar la solución madre del indicador ([___]&#8239;mg/L).</li>
-      <li>Preparar [___] patrones para la curva de calibración en medio [___].</li>
-      <li>Preparar 10 soluciones amortiguadoras entre pH [___] y [___].</li>
-      <li>Medir el pH con el pH-metro calibrado (patrones [___]).</li>
-      <li>Medir <var>A</var> a <var>λ</var> = [___]&#8239;nm; obtener <var>A</var><sub>HIn</sub> y <var>A</var><sub>In<sup>−</sup></sub> en medio ácido y básico.</li>
+      <li>Ensayar la solubilidad (EtOH, agua, HCl 0,1&#8239;N y NaOH 0,1&#8239;N) y barrer de 400 a 700&#8239;nm las soluciones A2 (ácida) y B2 (básica).</li>
+      <li>Curva de calibración: 5 niveles por duplicado (<var>C</var><sub>1</sub><var>V</var><sub>1</sub> = <var>C</var><sub>2</sub><var>V</var><sub>2</sub>); <var>A</var> entre 0,17 y 0,85.</li>
+      <li>Solución madre: 5&#8239;mg del colorante en 5&#8239;mL de EtOH 96&#8239;%, aforados a 25&#8239;mL con agua; diluir a 40&#8239;μg/mL (50&#8239;mL).</li>
+      <li>Tomar 1&#8239;mL en 10 tubos y añadir 10&#8239;mL de buffer de pH 1, 2, 3, 4, 5, 6, 7, 8, 10 y 13 (por duplicado).</li>
+      <li>Medir el pH real y la absorbancia de cada solución a las <var>λ</var> de HA y de A<sup>−</sup>; obtener p<var>K</var><sub>a</sub> y punto isosbéstico.</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -1199,15 +1369,15 @@
         <tbody>
           <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
           <tr><th scope="row">pH-metro</th><td>[___]</td></tr>
-          <tr><th scope="row">Celdas</th><td><var>b</var> = [___]&#8239;cm</td></tr>
-          <tr><th scope="row">Sistema buffer</th><td>[___]</td></tr>
+          <tr><th scope="row">Celdas</th><td><var>b</var> = 1&#8239;cm</td></tr>
+          <tr><th scope="row">Buffers</th><td>pH 1–13 (10 niveles); composición [___]</td></tr>
         </tbody>
       </table>
     </div>
   </div>
   <div class="lab-kit-wrap">
     <p class="lab-kit__title">Equipos e implementos</p>
-    <ul class="lab-kit" data-kit="espectro cubeta phmetro | aforado pipeta vaso"></ul>
+    <ul class="lab-kit" data-kit="espectro cubeta phmetro tubos | aforado pipeta vaso"></ul>
   </div>
 </section>
 
@@ -1246,6 +1416,76 @@
       </table>
     </div>
   </div>
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tablas de la guía · visible (1/2)">
+  <h2>Tablas de la guía · visible (1/2)</h2>
+  <div class="grid-2 grid-2--tight">
+    <div class="stack">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G8. Prueba de solubilidad <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Medio</th><th scope="col">Solubilidad</th><th scope="col">Observaciones</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">EtOH</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">Agua destilada</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">HCl 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">NaOH 0,1&#8239;N</th><td>[___]</td><td>[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G9. <var>λ</var><sub>máx</sub> de las formas ácida y básica <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Solución A2</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Solución B2</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G10. Construcción de la curva de calibración <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+
+</section>
+
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tablas de la guía · visible (2/2)">
+  <h2>Tablas de la guía · visible (2/2)</h2>
+    <div class="table-wrap table-wrap--full">
+      <table class="data">
+        <caption>Tabla G11. Absorbancia de las formas HA y A<sup>−</sup> y pH real <span class="guide-ref">(guía)</span></caption>
+        <thead>
+          <tr><th scope="col" rowspan="2">Solución</th><th scope="col" rowspan="2" class="num">pH buffer</th><th scope="colgroup" colspan="3">Réplica 1</th><th scope="colgroup" colspan="3">Réplica 2</th></tr>
+          <tr><th scope="col" class="num">Abs [HA]</th><th scope="col" class="num">Abs [A<sup>−</sup>]</th><th scope="col" class="num">pH real</th><th scope="col" class="num">Abs [HA]</th><th scope="col" class="num">Abs [A<sup>−</sup>]</th><th scope="col" class="num">pH real</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">1</th><td class="num">1</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">2</th><td class="num">2</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">3</th><td class="num">3</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">4</th><td class="num">4</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">5</th><td class="num">5</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">6</th><td class="num">6</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">7</th><td class="num">7</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">8</th><td class="num">8</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">9</th><td class="num">10</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+          <tr><th scope="row">10</th><td class="num">13</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  <p class="eq-legend">Cada pareja prepara las soluciones por duplicado (2 por pH). Con estos datos se determinan el p<var>K</var><sub>a</sub> (método gráfico y de pendientes) y el punto isosbéstico. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Gráficos">
@@ -1546,9 +1786,11 @@
     <p>Cuantificar simultáneamente acetaminofén (ACE) y cafeína (CAF) en mezclas aplicando la aditividad de absorbancias.</p>
   </div>
   <ul class="points">
-    <li>Construir dos curvas propias y dos cruzadas.</li>
-    <li>Plantear y resolver el sistema de dos ecuaciones por determinantes.</li>
-    <li>Calcular el porcentaje de recuperación en mezclas conocidas.</li>
+    <li>Identificar p<var>K</var><sub>a</sub>, solubilidad y estructura de ACE y CAF, y construir sus diagramas de distribución de especies.</li>
+    <li>Seleccionar el solvente según el pH y la especie dominante de cada analito.</li>
+    <li>Obtener los espectros individuales y elegir las dos <var>λ</var> de trabajo.</li>
+    <li>Determinar la absortividad de cada analito a ambas <var>λ</var> (curvas de 5 niveles con duplicado independiente).</li>
+    <li>Resolver el sistema por determinantes y calcular el % de recuperación.</li>
   </ul>
 </section>
 
@@ -1576,7 +1818,7 @@
     <ol class="steps">
       <li>Preparar el solvente NaOH [___]&#8239;mol/L.</li>
       <li>Preparar soluciones madre de ACE ([___]&#8239;μg/mL) y CAF ([___]&#8239;μg/mL).</li>
-      <li>Preparar [___] patrones de cada analito.</li>
+      <li>Preparar 5 patrones de cada analito por duplicado independiente.</li>
       <li>Leer cada patrón a 256 y 273&#8239;nm.</li>
       <li>Preparar [___] mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
     </ol>
@@ -1657,6 +1899,49 @@
       </table>
     </div>
   </div>
+</section>
+
+<section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Tablas de la guía · aditividad">
+  <h2>Tablas de la guía · aditividad</h2>
+  <div class="grid-2 grid-2--tight">
+    <div class="stack">
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G12. <var>λ</var><sub>máx</sub> de cada analito <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Acetaminofén</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Cafeína</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G13. Curva de calibración · acetaminofén <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="table-wrap">
+      <table class="data">
+        <caption>Tabla G14. Curva de calibración · cafeína <span class="guide-ref">(guía)</span></caption>
+        <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="eq-legend">Esta práctica corresponde a la «Práctica 5» de las guías. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 </section>
 
 <section class="slide" data-group="Práctica 6 · Acetaminofén + cafeína" data-accent="p6" data-title="Gráficos">
