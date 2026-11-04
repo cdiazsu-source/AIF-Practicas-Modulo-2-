@@ -1197,13 +1197,14 @@
         <caption>Tabla 3.2. Curva de calibración (<var>λ</var> = [___]&#8239;nm)</caption>
         <thead><tr><th scope="col">Patrón</th><th scope="col" class="num"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><span class="bar"><var>A</var></span></th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">2</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">3</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">4</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">5</th><td class="num">[___]</td><td class="num mono">[___]</td><td class="num mono">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">1</th><td class="num">5,04</td><td class="num mono">0,169</td><td class="num mono">0,184</td><td class="num">0,176</td></tr>
+          <tr><th scope="row">2</th><td class="num">7,56</td><td class="num mono">0,305</td><td class="num mono">0,209</td><td class="num">0,257</td></tr>
+          <tr><th scope="row">3</th><td class="num">10,08</td><td class="num mono">0,361</td><td class="num mono">0,391</td><td class="num">0,376</td></tr>
+          <tr><th scope="row">4</th><td class="num">12,60</td><td class="num mono">0,536</td><td class="num mono">0,423</td><td class="num">0,480</td></tr>
+          <tr><th scope="row">5</th><td class="num">15,12</td><td class="num mono">0,567</td><td class="num mono">0,585</td><td class="num">0,576</td></tr>
         </tbody>
       </table>
+      <p class="eq-legend">Lecturas reconstruidas a partir de la salida de regresión de Excel (valor predicho + residual).</p>
     </div>
   </div>
 </section>
@@ -1228,9 +1229,9 @@
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
           <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>[___]</td></tr>
-          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
+          <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>5,04–15,12 (<var>A</var> = 0,169–0,585)</td></tr>
           <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>[___]</td></tr>
-          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
+          <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 5,04 · C2 7,56 · C3 10,08 · C4 12,60 · C5 15,12</td></tr>
         </tbody>
       </table>
     </div>
@@ -1255,29 +1256,67 @@
 
 </section>
 
-<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Gráficos">
-  <h2>Gráficos</h2>
-  <div class="grid-3">
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: espectro de absorción">Gráfico: espectro, <var>A</var> frente a <var>λ</var> (nm)</div><figcaption>Figura 3.1. Barrido espectral</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: curva de calibración">Gráfico: <var>A</var> frente a <var>c</var> (μg/mL)</div><figcaption>Figura 3.2. Curva de calibración</figcaption></figure>
-    <figure class="fig"><div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: residuales">Gráfico: residuales frente a <var>c</var> (μg/mL)</div><figcaption>Figura 3.3. Residuales</figcaption></figure>
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.1 · Barrido espectral">
+  <h2>Barrido espectral del ibuprofeno</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart-ph" role="img" aria-label="Marcador de gráfico pendiente: barrido espectral">Gráfico: espectro, <var>A</var> frente a <var>λ</var> (nm) · requiere las lecturas del barrido de 200 a 400&#8239;nm</div>
+      <figcaption>Figura 3.1. Pendiente.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Permite elegir la longitud de onda analítica (<var>λ</var><sub>máx</sub>), donde la sensibilidad es máxima y la absorbancia es menos sensible a pequeños errores de longitud de onda.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Pendiente: la hoja de datos no contiene el barrido. [___]</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.2 · Curva de calibración">
+  <h2>Curva de calibración del ibuprofeno</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "xy", "title": "Curva de calibración del ibuprofeno", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 16}, "y": {"label": "A", "min": 0, "max": 0.7}, "series": [{"name": "Lecturas (duplicados)", "points": [[5.04, 0.169], [5.04, 0.184], [7.56, 0.305], [7.56, 0.209], [10.08, 0.361], [10.08, 0.391], [12.6, 0.536], [12.6, 0.423], [15.12, 0.567], [15.12, 0.585]], "fit": true, "color": 1}, {"name": "Media por nivel", "points": [[5.04, 0.1765], [7.56, 0.257], [10.08, 0.376], [12.6, 0.4795], [15.12, 0.576]], "color": 2}]}</script>
+      </div>
+      <figcaption>Figura 3.2. Absorbancia frente a concentración: 5 niveles por duplicado (<var>N</var> = 10) con la recta de mínimos cuadrados.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Verifica el cumplimiento de la ley de Lambert-Beer en el intervalo de trabajo y proporciona la función de calibración para cuantificar las tabletas.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La respuesta crece linealmente con la concentración: <var>A</var> = 0,0405·<var>c</var> − 0,036 (<var>R</var><sup>2</sup> = 0,944). El intercepto no difiere de cero (<var>p</var> = 0,37), como predice la ley de Lambert-Beer.</p><p>El <var>R</var><sup>2</sup> moderado no se debe a curvatura: las medias por nivel se alinean bien (<var>R</var><sup>2</sup> = 0,9973). La dispersión proviene de los duplicados de 7,56 y 12,60&#8239;μg/mL, que difieren en 0,096 y 0,113&#8239;UA.</p><p>Todas las absorbancias caen en 0,17–0,85&#8239;UA salvo la primera (0,169), que queda en el límite inferior.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.3 · Residuales">
+  <h2>Residuales de la curva de calibración</h2>
+  <div class="fig-slide">
+    <figure class="fig">
+      <div class="chart" data-chart>
+        <script type="application/json">{"type": "residuals", "title": "Residuales de la curva de calibración", "aspect": 0.6, "x": {"label": "c (μg/mL)", "min": 0, "max": 16}, "y": {"label": "Residual de A"}, "series": [{"name": "Residuales", "points": [[5.04, 0.169], [5.04, 0.184], [7.56, 0.305], [7.56, 0.209], [10.08, 0.361], [10.08, 0.391], [12.6, 0.536], [12.6, 0.423], [15.12, 0.567], [15.12, 0.585]]}]}</script>
+      </div>
+      <figcaption>Figura 3.3. Residuales de la recta frente a la concentración.</figcaption>
+    </figure>
+    <div class="stack">
+      <div class="box note box--why"><p class="box__label">¿Por qué este gráfico?</p><p>Comprueba los supuestos de la regresión: un patrón curvo indicaría falta de linealidad y un embudo, varianza no constante (heterocedasticidad).</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales se reparten al azar alrededor de cero, sin tendencia curva: concuerda con la falta de ajuste no significativa (<var>p</var> = 0,97).</p><p>Los residuales mayores (±0,06) aparecen en pares opuestos en 7,56 y 12,60&#8239;μg/mL: es la diferencia entre duplicados, no un desvío del modelo. No hay valores influyentes (<var>D</var> de Cook máxima = 0,26).</p><p>La dispersión no crece con la concentración (sin forma de embudo); la prueba de Cochran no es significativa (<var>C</var> = 0,54 &lt; 0,84), aunque con dos réplicas por nivel su potencia es baja. Se asume un modelo homocedástico.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tratamiento estadístico">
   <h2>Tratamiento estadístico</h2>
+  <details class="eqd"><summary><span class="eqd__name">Prueba de falta de ajuste</span><span class="eqd__f"><var>F</var> = <span class="frac"><span><var>SC</var><sub>fa</sub> / (<var>k</var> − 2)</span><span><var>SC</var><sub>ep</sub> / (<var>N</var> − <var>k</var>)</span></span></span></summary><div class="eqd__body"><p>Divide la suma de cuadrados residual en error puro (diferencia entre réplicas de un mismo nivel) y falta de ajuste (distancia de las medias de cada nivel a la recta).</p><p>Si <var>F</var> no es significativo, la recta describe bien la tendencia y la dispersión que queda se debe a la precisión de las réplicas. Requiere réplicas en cada nivel, como el duplicado de esta curva.</p></div></details>
   <div class="grid-2">
-    <div class="table-wrap">
+    <div class="table-wrap table-wrap--full">
       <table class="data">
         <caption>Tabla 3.3. Parámetros de regresión (IC 95&#8239;%)</caption>
         <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">Valor</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>m</var> ± IC (mL/μg)</th><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>R</var><sup>2</sup></th><td class="num">[___]</td></tr>
-          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">[___]</td></tr>
-          <tr><th scope="row">LOD (μg/mL)</th><td class="num">[___]</td></tr>
-          <tr><th scope="row">LOQ (μg/mL)</th><td class="num">[___]</td></tr>
+          <tr><th scope="row"><var>m</var> ± IC (mL/μg)</th><td class="num">0,0405 ± 0,0080</td></tr>
+          <tr><th scope="row"><var>b</var> ± IC</th><td class="num">−0,036 ± 0,086</td></tr>
+          <tr><th scope="row"><var>R</var><sup>2</sup> · <var>R</var><sup>2</sup> de las medias</th><td class="num">0,9444 · 0,9973</td></tr>
+          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub></th><td class="num">0,0392</td></tr>
+          <tr><th scope="row">LOD (μg/mL)</th><td class="num">3,2</td></tr>
+          <tr><th scope="row">LOQ (μg/mL)</th><td class="num">9,7</td></tr>
         </tbody>
       </table>
     </div>
@@ -1287,17 +1326,44 @@
           <caption>Tabla 3.4. ANOVA de la regresión</caption>
           <thead><tr><th scope="col">Fuente</th><th scope="col" class="num">gl</th><th scope="col" class="num">SC</th><th scope="col" class="num">MC</th><th scope="col" class="num"><var>F</var></th><th scope="col" class="num"><var>p</var></th></tr></thead>
           <tbody>
-            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-            <tr><th scope="row">Residual</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td></tr>
-            <tr><th scope="row">Total</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Regresión</th><td class="num">1</td><td class="num">0,2087</td><td class="num">0,2087</td><td class="num">135,9</td><td class="num">&lt; 0,001</td></tr>
+            <tr><th scope="row">Residual</th><td class="num">8</td><td class="num">0,0123</td><td class="num">1,54 × 10<sup>−3</sup></td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">· Falta de ajuste</th><td class="num">3</td><td class="num">5,65 × 10<sup>−4</sup></td><td class="num">1,88 × 10<sup>−4</sup></td><td class="num">0,08</td><td class="num">0,97</td></tr>
+            <tr><th scope="row">· Error puro</th><td class="num">5</td><td class="num">0,0117</td><td class="num">2,34 × 10<sup>−3</sup></td><td class="num">—</td><td class="num">—</td></tr>
+            <tr><th scope="row">Total</th><td class="num">9</td><td class="num">0,2210</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="box note">
-        <p class="box__label">Residuales</p>
-        <p>Comportamiento: [___] (homocedástico / heterocedástico).</p>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Regresión significativa (<var>p</var> &lt; 0,001) y falta de ajuste no significativa (<var>p</var> = 0,97): el modelo lineal es adecuado. El 95&#8239;% de la suma de cuadrados residual es error puro, así que el <var>R</var><sup>2</sup> de 0,944 refleja la imprecisión de los duplicados, que también eleva el LOQ (9,7&#8239;μg/mL).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Precisión por nivel y supuestos">
+  <h2>Precisión por nivel y supuestos de la regresión</h2>
+  <div class="grid-2">
+    <div class="stack">
+      <div class="table-wrap">
+        <table class="data">
+          <caption>Tabla 3.5. Precisión de los duplicados (en rojo, %RSD &gt; 2&#8239;%)</caption>
+          <thead><tr><th scope="col"><var>c</var> (μg/mL)</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num"><var>s</var></th><th scope="col" class="num">%RSD</th></tr></thead>
+          <tbody><tr><th scope="row">5,04</th><td class="num mono">0,169</td><td class="num mono">0,184</td><td class="num">0,0106</td><td class="num sig">6,0</td></tr><tr><th scope="row">7,56</th><td class="num mono">0,305</td><td class="num mono">0,209</td><td class="num">0,0679</td><td class="num sig">26,4</td></tr><tr><th scope="row">10,08</th><td class="num mono">0,361</td><td class="num mono">0,391</td><td class="num">0,0212</td><td class="num sig">5,6</td></tr><tr><th scope="row">12,60</th><td class="num mono">0,536</td><td class="num mono">0,423</td><td class="num">0,0799</td><td class="num sig">16,7</td></tr><tr><th scope="row">15,12</th><td class="num mono">0,567</td><td class="num mono">0,585</td><td class="num">0,0127</td><td class="num sig">2,2</td></tr></tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table class="data">
+          <caption>Tabla 3.6. Pruebas sobre los residuales</caption>
+          <thead><tr><th scope="col">Prueba</th><th scope="col" class="num">Resultado</th><th scope="col">Decisión</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Shapiro–Wilk <var>W</var> (<var>p</var>)</th><td class="num">0,961 (0,80)</td><td>Normales</td></tr>
+            <tr><th scope="row">Durbin–Watson</th><td class="num">2,43</td><td>Sin autocorrelación</td></tr>
+            <tr><th scope="row">Cochran <var>C</var> (crítico)</th><td class="num">0,54 (0,84)</td><td>Homocedástico</td></tr>
+            <tr><th scope="row"><var>D</var> de Cook máxima</th><td class="num">0,26</td><td>Sin puntos influyentes</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los residuales cumplen los supuestos de la regresión: son normales, independientes y sin puntos influyentes.</p><p>La precisión, en cambio, es insuficiente: solo el nivel más alto se acerca al 2&#8239;% de RSD que suele exigirse a los patrones de una curva espectrofotométrica, y los niveles de 7,56 y 12,60&#8239;μg/mL superan el 15&#8239;%.</p><p>Como cada duplicado lo prepara una pareja distinta, la diferencia refleja errores de pipeteo o de aforo entre preparaciones, no del espectrofotómetro. Conviene repetir esos dos niveles antes de cuantificar las tabletas.</p></div>
   </div>
 </section>
 
@@ -1317,7 +1383,7 @@
   </div>
   <div class="table-wrap">
     <table class="data">
-      <caption>Tabla 3.5. Verificación con soluciones baja, media y alta</caption>
+      <caption>Tabla 3.7. Verificación con soluciones baja, media y alta</caption>
       <thead><tr><th scope="col">Nivel</th><th scope="col" class="num"><var>c</var> nominal (μg/mL)</th><th scope="col" class="num"><var>c</var> hallada (μg/mL)</th><th scope="col" class="num">Recuperación (%)</th><th scope="col" class="num">%RSD</th></tr></thead>
       <tbody>
         <tr><th scope="row">Baja</th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
@@ -1335,10 +1401,12 @@
     <li><var>λ</var><sub>máx</sub> experimental frente a la literatura: [___]</li>
     <li>Contenido en tabletas frente a lo declarado y al criterio [___]: [___]</li>
     <li>Recuperaciones en los tres niveles: [___]</li>
+    <li>Linealidad: la recta es adecuada (falta de ajuste <var>p</var> = 0,97; intercepto nulo), pero <var>R</var><sup>2</sup> = 0,944 queda lejos del ≥&#8239;0,995 habitual porque la precisión de los duplicados es baja (%RSD hasta 26&#8239;%).</li>
+    <li>Sensibilidad: LOQ = 9,7&#8239;μg/mL; una muestra leída por duplicado en el centro de la curva tendría una incertidumbre de ±1,7&#8239;μg/mL (IC 95&#8239;%). Las soluciones problema deben ubicarse entre 10 y 15&#8239;μg/mL.</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>[___]</p>
+    <p>Las lecturas de la curva se reconstruyeron de la salida de regresión de Excel. Las réplicas <var>A</var> = 0,209 (7,56&#8239;μg/mL) y 0,536 (12,60&#8239;μg/mL) concentran la dispersión y conviene verificarlas. Faltan la <var>λ</var> de trabajo y el disolvente.</p>
   </div>
 </section>
 
@@ -1347,9 +1415,9 @@
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 3</p>
     <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
+      <li>La curva de calibración del ibuprofeno es lineal entre 5,04 y 15,12&#8239;μg/mL: <var>A</var> = (0,0405 ± 0,0080)·<var>c</var> − 0,036, sin falta de ajuste significativa.</li>
+      <li>La precisión de los duplicados limita el desempeño (<var>R</var><sup>2</sup> = 0,944; LOQ = 9,7&#8239;μg/mL): deben repetirse los niveles de 7,56 y 12,60&#8239;μg/mL.</li>
+      <li>Contenido de ibuprofeno en las tabletas: [___]</li>
     </ul>
   </div>
 </section>
