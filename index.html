@@ -225,14 +225,10 @@
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="refractometro"></span></div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Abrimos la primera práctica: refractometría de mezclas de glicerina y agua. Usamos un refractómetro de Abbe y trabajamos con nueve niveles de concentración, de 0 a 80 % en peso, que se reparten entre los diez grupos de la clase. Nuestro grupo, el 5, midió los niveles pares (20, 40, 60 y 80 %) y las dos muestras problema, M1 y M2.</p>
-    <p>Las tres respuestas que leímos son el índice de refracción, n, y los grados Brix; el porcentaje en peso de glicerina es la variable que queremos cuantificar.</p>
-    <h3>Objetivo</h3>
-    <p>El objetivo general es aplicar la refractometría, una técnica óptica no espectroscópica, a la cuantificación de glicerina y valorar si sirve para el control de calidad de materias primas y preparados.</p>
-    <p>Los objetivos específicos son cuatro: entender el principio del ángulo crítico y verificar el equipo con agua; construir curvas de calibración de n y de °Brix; evaluar la curva con herramientas estadísticas (ANOVA, residuales, homocedasticidad, %RSD, LOD y LOQ) y cuantificar M1 y M2; y, por último, discutir ventajas, limitaciones y aplicaciones.</p>
-    <h3>Por qué es importante</h3>
-    <p>La glicerina es uno de los excipientes más usados en farmacia: humectante, solvente y edulcorante. Poder medir su concentración en segundos, con una gota y sin reactivos, es muy útil en control de calidad.</p>
+    <p>Buenos días. Vamos a empezar con la primera práctica del módulo, que es la refractometría de mezclas de glicerina y agua. La idea de esta práctica es sencilla de enunciar: queremos saber cuánta glicerina tiene una muestra midiendo únicamente cómo se desvía la luz cuando atraviesa una gota de ella. Para eso usamos un refractómetro de Abbe, que fue el único equipo de la práctica.</p>
+    <p>El trabajo se organizó entre toda la clase. Se prepararon nueve niveles de concentración, desde agua pura, que es el cero, hasta 80 % en peso de glicerina, y esos niveles se repartieron entre los diez grupos. A nuestro grupo, el grupo 5, le correspondieron los niveles pares, es decir, 20, 40, 60 y 80 %, y además las dos muestras problema de nuestro bloque, que llamamos M1 y M2. En cada patrón leímos dos respuestas: el índice de refracción, que representamos con la letra n, y los grados Brix, que es la otra escala que trae el equipo. La variable que queremos cuantificar es el porcentaje en peso de glicerina.</p>
+    <p>El objetivo general fue aplicar la refractometría, que es una técnica óptica pero no espectroscópica, a la cuantificación de glicerina, y valorar si de verdad sirve para el control de calidad de materias primas y de preparados farmacéuticos. Para llegar ahí nos planteamos cuatro objetivos específicos. Primero, entender el principio del ángulo crítico, que es en lo que se basa el equipo, y verificarlo con el índice del agua. Segundo, construir curvas de calibración tanto con el índice de refracción como con los grados Brix. Tercero, evaluar esas curvas con herramientas estadísticas, como el análisis de varianza, los residuales, la homocedasticidad, el porcentaje de desviación estándar relativa y los límites de detección y de cuantificación, y con ellas cuantificar M1 y M2. Y cuarto, discutir las ventajas, las limitaciones y las aplicaciones de la técnica.</p>
+    <p>¿Por qué nos interesa esto? Porque la glicerina es uno de los excipientes más usados en farmacia: la encontramos como humectante, como solvente y como edulcorante en jarabes, cremas y soluciones. Poder saber su concentración en cuestión de segundos, con una sola gota y sin gastar reactivos, es una herramienta muy valiosa para un laboratorio de control de calidad. Con eso en mente, pasemos a ver el fundamento.</p>
   </aside>
 </section>
 
@@ -247,13 +243,10 @@
     <div class="box objective"><p class="box__label">Aplicaciones en la industria farmacéutica</p><ul class="points points--compact"><li>Identificación y pureza de materias primas: el <var>n</var><sub>D</sub> figura en las monografías de glicerina, propilenglicol, sorbitol y aceites (USP, Ph. Eur.).</li><li>Control de jarabes y soluciones concentradas por °Brix (jarabe simple, soluciones de sacarosa).</li><li>Control en proceso rápido y no destructivo en la fabricación de líquidos orales y semisólidos.</li><li>Detector de índice de refracción en HPLC para azúcares, polioles y excipientes sin cromóforo.</li></ul></div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Aquí presentamos la idea central: la luz cambia de velocidad y de dirección al pasar de un medio a otro, y cuánto lo hace depende de la composición del medio. En una mezcla de glicerina y agua el índice de refracción crece de forma continua con la cantidad de glicerina, así que lo podemos usar como señal analítica.</p>
-    <p>A la izquierda están los materiales: patrones de glicerina de 10 a 80 % que nos entregó el laboratorio, agua destilada para verificar el cero (su valor tabulado es 1,3330 a 20 °C), las muestras problema y el refractómetro de Abbe, que tiene una escala de n y otra de °Brix.</p>
-    <h3>Qué esperábamos</h3>
-    <p>Que n y °Brix aumentaran con la glicerina; que la relación fuera casi lineal, con una ligera curvatura porque la mezcla no es ideal; que el agua diera un valor cercano al tabulado; y que M1 y M2 cayeran dentro del intervalo calibrado.</p>
-    <h3>Por qué es importante</h3>
-    <p>A la derecha están las aplicaciones farmacéuticas. El índice de refracción figura en las monografías de USP y Farmacopea Europea para identificar y verificar la pureza de glicerina, propilenglicol, sorbitol y aceites. Los °Brix se usan para controlar jarabes. Además es un control en proceso rápido y no destructivo, y el mismo principio se usa en el detector de índice de refracción de HPLC para sustancias sin cromóforo, como azúcares y polioles.</p>
+    <p>Antes de entrar en los números, vale la pena entender la idea central de la técnica. Cuando la luz pasa de un medio a otro, por ejemplo del aire al agua, cambia de velocidad y, por eso, también cambia de dirección. Cuánto se desvía depende de la composición del medio. En una mezcla de glicerina y agua, el índice de refracción crece de forma continua a medida que aumenta la glicerina, y eso es justamente lo que nos permite usarlo como señal analítica: si medimos el índice, podemos deducir la concentración.</p>
+    <p>En la columna de la izquierda están los materiales que usamos. Los patrones de glicerina, de 10 a 80 % en peso, nos los entregó el laboratorio ya preparados. El agua destilada cumplió dos funciones: fue nuestro blanco y nos sirvió para verificar el cero del equipo, porque su índice tabulado es 1,3330 a 20 grados. Además tuvimos las muestras problema y el refractómetro de Abbe, que tiene dos escalas, una para el índice de refracción y otra para los grados Brix.</p>
+    <p>¿Qué esperábamos encontrar? Que tanto el índice como los grados Brix aumentaran con el porcentaje de glicerina; que la relación fuera casi lineal, aunque con una ligera curvatura, porque la glicerina y el agua no forman una mezcla ideal; que el agua diera un valor muy cercano al tabulado; y que M1 y M2 cayeran dentro del intervalo calibrado, para poder informarlas con su intervalo de confianza.</p>
+    <p>A la derecha están las aplicaciones en la industria farmacéutica, que son varias. El índice de refracción aparece en las monografías de la USP y de la Farmacopea Europea como prueba de identidad y de pureza para glicerina, propilenglicol, sorbitol y muchos aceites. Los grados Brix se usan a diario para controlar jarabes y soluciones de sacarosa. Es, además, un control en proceso muy rápido y que no destruye la muestra. Y el mismo principio físico se usa en el detector de índice de refracción de la cromatografía líquida, que es el que se emplea para sustancias que no absorben en el ultravioleta, como los azúcares y los polioles.</p>
   </aside>
 </section>
 
@@ -274,16 +267,11 @@
     </ul>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Esta diapositiva resume la física de la técnica en tres ecuaciones; cada una se puede desplegar para ver su explicación.</p>
-    <p>La ecuación 1.1 define el índice de refracción como el cociente entre la velocidad de la luz en el vacío y en el medio: indica cuántas veces más lenta viaja la luz dentro de la sustancia. Más glicerina significa un medio ópticamente más denso y un n mayor.</p>
-    <p>La 1.2 es la ley de Snell: relaciona los ángulos de incidencia y de refracción con los índices de los dos medios. Es la razón por la que un lápiz parece quebrado dentro de un vaso de agua.</p>
-    <p>La 1.3 es el ángulo crítico: a partir de cierto ángulo la luz ya no pasa a la muestra y se refleja por completo. El seno de ese ángulo es el cociente entre el índice de la muestra y el del prisma. El refractómetro de Abbe localiza ese límite, que vemos como la frontera entre una zona clara y una oscura, y de su posición calcula el índice de la muestra.</p>
-    <h3>Puntos clave</h3>
-    <p>Primero, el prisma debe tener un índice mayor que la muestra; si no, no existe ángulo crítico.</p>
-    <p>Segundo, n depende de la temperatura y de la longitud de onda; por eso se informa como n sub D a una temperatura dada, donde D es la línea del sodio, 589 nm.</p>
-    <p>Tercero, la escala °Brix está calibrada para soluciones de sacarosa. Con glicerina el valor es aparente: lo usamos como respuesta de calibración, no como porcentaje real.</p>
-    <p>Cuarto, la relación entre n y la composición de la mezcla puede no ser lineal; eso lo evaluamos más adelante con la prueba de falta de ajuste.</p>
+    <p>En esta diapositiva resumimos la física de la técnica en tres ecuaciones, y cada una se puede desplegar si alguien quiere ver el detalle.</p>
+    <p>La primera, la ecuación 1.1, define el índice de refracción como el cociente entre la velocidad de la luz en el vacío y su velocidad dentro del medio. Dicho de forma sencilla, nos dice cuántas veces más lenta viaja la luz dentro de la sustancia. Cuanta más glicerina hay en la mezcla, el medio es ópticamente más denso, la luz va más despacio y el índice es mayor.</p>
+    <p>La segunda, la 1.2, es la ley de Snell. Relaciona el ángulo con el que llega la luz y el ángulo con el que sale refractada con los índices de los dos medios. Es la misma razón por la que un lápiz parece quebrado cuando lo metemos en un vaso con agua.</p>
+    <p>La tercera, la 1.3, es la del ángulo crítico, y es la más importante para entender el equipo. Cuando la luz pasa de un medio de índice alto a uno de índice bajo, hay un ángulo a partir del cual ya no logra pasar y se refleja por completo. El seno de ese ángulo es el cociente entre el índice de la muestra y el índice del prisma. El refractómetro de Abbe localiza precisamente ese límite, que nosotros vemos por el ocular como la frontera entre una zona clara y una zona oscura, y a partir de su posición calcula el índice de la muestra.</p>
+    <p>De aquí salen cuatro puntos clave que conviene tener presentes. Primero, el prisma tiene que tener un índice mayor que el de la muestra; si no, simplemente no existe ángulo crítico. Segundo, el índice de refracción depende de la temperatura y de la longitud de onda, y por eso siempre se informa como n sub D a una temperatura dada, donde la D se refiere a la línea del sodio, de 589 nanómetros. Tercero, la escala de grados Brix está calibrada para soluciones de sacarosa, así que con glicerina lo que leemos es un valor aparente: lo usamos como respuesta de calibración, pero no como un porcentaje real. Y cuarto, la relación entre el índice y la composición de la mezcla no tiene por qué ser lineal; eso lo vamos a comprobar más adelante con la prueba de falta de ajuste.</p>
   </aside>
 </section>
 
@@ -318,13 +306,10 @@
   </div>
   <p class="eq-legend">Estructuras 2D: PubChem (CID 753). Datos: PubChem y Merck Index.</p>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Presentamos el analito: la glicerina, o propano-1,2,3-triol, de fórmula C3H8O3 y masa molar 92,09 g/mol. En la tabla están sus propiedades: índice de refracción de la glicerina pura de 1,4746 frente a 1,3330 del agua, densidad de 1,261 g/mL, una viscosidad alta, de aproximadamente 1,4 pascales por segundo, y miscibilidad total con agua y etanol.</p>
-    <h3>Por qué es importante</h3>
-    <p>Estas propiedades explican lo que observamos en la práctica. Las lecturas solo pueden moverse entre 1,333, el agua, y 1,475, la glicerina pura; ese es el rango útil de la técnica.</p>
-    <p>Los tres grupos OH forman puentes de hidrógeno con el agua y el volumen de la mezcla se contrae. Por eso la mezcla no es ideal, y eso explica la curvatura que encontramos en la curva de n frente a porcentaje.</p>
-    <p>Es muy higroscópica: un patrón concentrado destapado absorbe agua del ambiente y su concentración real baja.</p>
-    <p>Y es muy viscosa, así que hay que homogeneizar bien y extender la gota sobre el prisma antes de leer.</p>
+    <p>Ahora conozcamos al analito. La glicerina, cuyo nombre sistemático es propano-1,2,3-triol, tiene la fórmula C3H8O3 y una masa molar de 92,09 gramos por mol. En la tabla resumimos las propiedades que nos importan para esta práctica. La glicerina pura tiene un índice de refracción de 1,4746, mientras que el agua tiene 1,3330. Su densidad es de 1,261 gramos por mililitro, es muy viscosa, del orden de 1,4 pascales por segundo, y es completamente miscible con agua y con etanol.</p>
+    <p>Estas propiedades no son un dato decorativo: explican buena parte de lo que vimos en el laboratorio. Por un lado, como el agua tiene 1,333 y la glicerina pura 1,475, todas nuestras lecturas tienen que caer entre esos dos valores; ese es el rango útil de la técnica para esta mezcla.</p>
+    <p>Por otro lado, la glicerina tiene tres grupos hidroxilo que forman puentes de hidrógeno con el agua. Cuando se mezclan, el volumen total se contrae, es decir, la mezcla no se comporta de forma ideal. Esa es la razón química de la curvatura que vamos a encontrar cuando grafiquemos el índice frente al porcentaje.</p>
+    <p>Hay dos propiedades más con consecuencias prácticas. La glicerina es muy higroscópica, así que un patrón concentrado que se deja destapado absorbe agua del ambiente y su concentración real baja sin que nos demos cuenta. Y es muy viscosa, por lo que hay que homogeneizar bien la muestra y extender la gota sobre todo el prisma antes de leer; si no, la frontera entre luz y sombra se ve difusa y la lectura pierde precisión.</p>
   </aside>
 </section>
 
@@ -355,13 +340,11 @@
     <ul class="lab-kit" data-kit="refractometro | gotero frasco vaso"></ul>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Este es el procedimiento en cinco pasos. Primero verificamos el cero del refractómetro con agua destilada. Luego recibimos los patrones ya preparados por el laboratorio: los grupos 1 a 5 midieron 20, 40, 60 y 80 %, y los grupos 6 a 10, 10, 30, 50 y 70 %. Cada patrón se leyó por duplicado en n y en °Brix, limpiando los prismas entre lecturas. Después leímos las muestras problema: a nuestro bloque le correspondieron M1 y M2. Todo se midió a temperatura ambiente, sin termostatizar: 20 °C para el agua y 19 °C para patrones y muestras.</p>
-    <p>En la tabla de la derecha resumimos las condiciones: un solo refractómetro de Abbe, temperatura de 19 a 20 °C y glicerina de grado USP con pureza mínima de 99,5 %.</p>
-    <h3>Por qué es importante</h3>
-    <p>Repartir los niveles entre los grupos permite construir una curva de nueve niveles con la clase completa y, a la vez, comparar a los grupos entre sí. Leer por duplicado nos da el error puro, que es indispensable para la prueba de falta de ajuste.</p>
-    <h3>Limitaciones</h3>
-    <p>No termostatizamos los prismas y no preparamos los patrones nosotros, así que no controlamos ni su concentración ni su pureza; tomamos los valores nominales. Más adelante, en la discusión, estimamos que ambos efectos son menores que la incertidumbre del método.</p>
+    <p>Este fue el procedimiento, que se resume en cinco pasos. Lo primero fue verificar el cero del refractómetro con agua destilada. Si el agua da el valor correcto, sabemos que la escala del equipo está bien antes de empezar a leer patrones.</p>
+    <p>Después recibimos los patrones, que el laboratorio nos entregó ya preparados. Los grupos del 1 al 5 midieron los niveles de 20, 40, 60 y 80 %, y los grupos del 6 al 10 midieron 10, 30, 50 y 70 %. Cada patrón se leyó por duplicado, tanto en índice de refracción como en grados Brix, y entre una lectura y otra limpiamos los prismas para no arrastrar restos de la muestra anterior. Luego leímos las muestras problema: a nuestro bloque le correspondieron M1 y M2, y al otro bloque M3 y M4. Todo se midió a temperatura ambiente, sin termostatizar el equipo: según la hoja de datos, el agua se leyó a 20 grados y los patrones y las muestras a 19.</p>
+    <p>En la tabla de la derecha resumimos las condiciones: un único refractómetro de Abbe, temperatura ambiente entre 19 y 20 grados, patrones de 10 a 80 % y glicerina de grado USP comercial, con una pureza mínima de 99,5 %.</p>
+    <p>Hay dos decisiones del diseño que vale la pena resaltar. Repartir los niveles entre los grupos permitió construir una curva de nueve niveles con la clase completa y, al mismo tiempo, comparar a los grupos entre sí. Y leer cada patrón por duplicado nos dio lo que se llama el error puro, que es indispensable para hacer la prueba de falta de ajuste que veremos después.</p>
+    <p>También hay que reconocer las limitaciones. No termostatizamos los prismas y no preparamos los patrones nosotros, así que no controlamos ni su concentración exacta ni su pureza, y trabajamos con los valores nominales. En la discusión vamos a mostrar que ambos efectos son más pequeños que la incertidumbre propia del método.</p>
   </aside>
 </section>
 
@@ -403,16 +386,11 @@
     </div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Aquí están los datos crudos. La Tabla 1.1, a la izquierda, reúne las lecturas de toda la clase por nivel: cuántos grupos midieron cada nivel, el número de lecturas, k, el promedio y la desviación estándar de n y de °Brix. El agua se leyó 20 veces y cada patrón 10 veces, en total 100 lecturas.</p>
-    <p>La Tabla 1.2, a la derecha, son las lecturas de nuestro grupo, el 5, por duplicado: el agua, los patrones de 20, 40, 60 y 80 %, y las muestras M1 y M2.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>El índice sube de forma ordenada de 1,3337 en el agua a 1,4457 en el 80 %. Las desviaciones de n son muy pequeñas, del orden de diezmilésimas, lo que indica lecturas muy repetibles.</p>
-    <p>En nuestro grupo, M1 dio n de 1,3929 y M2 de 1,4020, valores que caen entre los patrones de 40 y 60 %.</p>
-    <h3>Interpretación</h3>
-    <p>Los °Brix del agua tienen una desviación grande, 0,98, porque algunos grupos leyeron entre 1 y 3 °Brix cuando debía ser cero. Lo comentamos como lectura atípica en la discusión.</p>
-    <h3>Limitaciones</h3>
-    <p>En la hoja de datos falta una de las dos lecturas de M1 de nuestro grupo, marcada con un guion. Por eso M1 se calcula con una sola lectura, y eso amplía su intervalo de confianza.</p>
+    <p>Aquí están los datos crudos de la práctica. A la izquierda, la Tabla 1.1 reúne las lecturas de toda la clase organizadas por nivel. Para cada nivel aparece qué grupos lo midieron, cuántas lecturas hay, que es la columna k, y el promedio y la desviación estándar tanto del índice de refracción como de los grados Brix. El agua se leyó veinte veces y cada patrón diez veces, así que en total la curva se construye con cien lecturas.</p>
+    <p>A la derecha, la Tabla 1.2 muestra solo las lecturas de nuestro grupo, el grupo 5, por duplicado: el agua, los patrones de 20, 40, 60 y 80 %, y las muestras M1 y M2.</p>
+    <p>Si miramos la tabla de la clase, el índice de refracción sube de forma muy ordenada, desde 1,3337 en el agua hasta 1,4457 en el patrón de 80 %. Las desviaciones estándar del índice son muy pequeñas, del orden de diezmilésimas, lo que nos dice que las lecturas son muy repetibles. En nuestro grupo, M1 dio un índice de 1,3929 y M2 de 1,4020; los dos valores quedan entre los patrones de 40 y 60 %, así que ya podemos anticipar que las muestras tienen algo más de 40 % de glicerina.</p>
+    <p>Hay un detalle que llama la atención: los grados Brix del agua tienen una desviación grande, de 0,98. Eso pasa porque algunos grupos leyeron entre 1 y 3 grados Brix en el agua, cuando lo correcto sería cero. Lo tratamos como una lectura atípica en la discusión.</p>
+    <p>Y una limitación propia de nuestro grupo: en la hoja de datos falta una de las dos lecturas de M1, que está marcada con un guion. Por eso M1 se calcula con una sola lectura, y eso hace que su intervalo de confianza sea más ancho que el de M2.</p>
   </aside>
 </section>
 
@@ -462,16 +440,10 @@
   <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Estas son las tablas en el formato que pide la guía. La G1 resume el diseño: glicerina, los niveles que midió nuestro grupo y los de la clase, y qué muestras le tocaron a cada bloque.</p>
-    <p>La 1.0b compara el índice del agua con el tabulado: nuestro grupo leyó 1,3328, un error relativo de −0,015 %, y la clase en promedio 1,3337, un error de 0,053 %.</p>
-    <p>La G2 son nuestras lecturas promediadas, con las tres escalas que pide la guía: índice de refracción, °Brix y grados Baumé.</p>
-    <h3>Por qué es importante</h3>
-    <p>La verificación con agua es nuestro control del equipo: si el agua da el valor correcto, sabemos que la escala está bien ajustada antes de leer los patrones. Un error de una centésima de porcentaje confirma que el refractómetro estaba bien calibrado.</p>
-    <h3>Interpretación</h3>
-    <p>Los grados Baumé no se leyeron en el equipo: los calculamos a partir de los °Brix con la fórmula que se puede desplegar abajo. Primero se pasa de °Brix a densidad relativa de una solución de sacarosa y luego de densidad a Baumé.</p>
-    <h3>Limitaciones</h3>
-    <p>Como el Baumé es una simple conversión del °Brix, no aporta información nueva: hereda su precisión y su curvatura. Además es un «Baumé equivalente en sacarosa», no la densidad real de la mezcla de glicerina y agua.</p>
+    <p>Estas son las mismas lecturas, pero organizadas en el formato que pide la guía de laboratorio. La Tabla G1 resume el diseño del experimento: el analito, que es la glicerina, los niveles que midió nuestro grupo, los niveles que midió la clase completa y qué muestras problema le correspondieron a cada bloque de grupos.</p>
+    <p>La Tabla 1.0b es nuestra verificación del equipo. Compara el índice del agua con su valor tabulado, que es 1,3330. Nuestro grupo leyó 1,3328, lo que equivale a un error relativo de apenas menos 0,015 %. El promedio de toda la clase fue 1,3337, con un error de 0,053 %. Esta verificación es importante porque es nuestro control de calidad del instrumento: si el agua da el valor correcto, sabemos que la escala estaba bien ajustada antes de leer los patrones. Un error de centésimas de porcentaje confirma que el refractómetro estaba bien calibrado.</p>
+    <p>La Tabla G2 tiene nuestras lecturas promediadas en las tres escalas que pide la guía: índice de refracción, grados Brix y grados Baumé. Aquí hay que hacer una aclaración: los grados Baumé no los leímos en el equipo. Los calculamos a partir de los grados Brix con la fórmula que se puede desplegar abajo. El cálculo tiene dos pasos: primero se pasa de grados Brix a la densidad relativa que tendría una solución de sacarosa, y luego de esa densidad a grados Baumé.</p>
+    <p>Por eso mismo, el Baumé no aporta información nueva: es una simple conversión del Brix, así que hereda su precisión y también su curvatura. Además, hay que entenderlo como un Baumé equivalente en sacarosa, no como la densidad real de nuestra mezcla de glicerina y agua.</p>
   </aside>
 </section>
 
@@ -490,15 +462,11 @@
     </div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Esta es la curva de calibración principal: el índice de refracción en el eje vertical frente al porcentaje en peso de glicerina en el horizontal, con las 100 lecturas de la clase. Se superponen la recta de mínimos cuadrados y, en línea discontinua, el modelo cuadrático. Los dos puntos marcados son M1 y M2, interpolados con las lecturas de nuestro grupo.</p>
-    <h3>Por qué es importante</h3>
-    <p>Es la base de la cuantificación: con esta curva convertimos un índice de refracción en un porcentaje de glicerina. Además, al superponer el modelo cuadrático, nos deja ver si una recta describe bien los datos.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>El índice aumenta de forma monótona con la glicerina, con una pendiente de 1,377 por diez a la menos tres por cada punto porcentual y un R cuadrado de 0,9956. Las réplicas están prácticamente superpuestas.</p>
-    <h3>Interpretación</h3>
-    <p>Aunque el R cuadrado es alto, la recta no basta. Los residuales forman un arco: son negativos en los extremos, 0 y 80 %, y positivos entre 10 y 30 %, hasta +0,0042. La prueba de falta de ajuste es significativa, con p menor que 0,001. El modelo cuadrático sigue esa curvatura y sube el R cuadrado a 0,9977.</p>
-    <p>M1 y M2 quedan en la zona central de la curva, que es justamente donde la interpolación tiene menor incertidumbre.</p>
+    <p>Esta es la curva de calibración principal de la práctica. En el eje vertical está el índice de refracción y en el horizontal el porcentaje en peso de glicerina, con las cien lecturas de la clase. Sobre los puntos hemos dibujado dos modelos: la recta de mínimos cuadrados, en línea continua, y un modelo cuadrático, en línea discontinua. Los dos puntos destacados son M1 y M2, que interpolamos con las lecturas de nuestro grupo.</p>
+    <p>Este gráfico es la base de toda la cuantificación, porque es el que nos permite convertir un índice de refracción en un porcentaje de glicerina. Y al superponer el modelo cuadrático, nos deja ver a simple vista si una recta describe bien los datos o no.</p>
+    <p>¿Qué obtuvimos? El índice aumenta de forma monótona con la glicerina. La pendiente de la recta es de 1,377 por diez a la menos tres por cada punto porcentual, lo que quiere decir que cada 1 % adicional de glicerina sube el índice en unas catorce diezmilésimas. El coeficiente de determinación, R cuadrado, es de 0,9956, y las réplicas de cada nivel están prácticamente una encima de otra.</p>
+    <p>Sin embargo, y este es el mensaje importante, aunque el R cuadrado es muy alto, la recta no basta. Si miramos los residuales, es decir, la diferencia entre cada punto y la recta, vemos que forman un arco: son negativos en los extremos, en 0 y en 80 %, y positivos entre 10 y 30 %, donde llegan hasta más cuatro milésimas. Además, la prueba de falta de ajuste es significativa, con un valor p menor que 0,001. El modelo cuadrático, en cambio, sigue esa curvatura y sube el R cuadrado a 0,9977.</p>
+    <p>Por último, observen dónde quedan M1 y M2: en la zona central de la curva. Esa es una buena noticia, porque es precisamente la zona donde la interpolación tiene la menor incertidumbre.</p>
   </aside>
 </section>
 
@@ -517,16 +485,11 @@
     </div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>La misma curva, pero usando como respuesta los grados Brix en lugar del índice de refracción, otra vez con la recta y el modelo cuadrático.</p>
-    <h3>Por qué es importante</h3>
-    <p>Los °Brix son la escala de mayor uso industrial, por ejemplo en jarabes. Queríamos saber si sirven como respuesta de calibración para la glicerina y compararlos con el índice de refracción.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>Los °Brix también crecen con la glicerina, con una pendiente de 0,757 °Brix por punto porcentual, pero son menos lineales: R cuadrado de 0,9840. La curvatura es más marcada, con residuales de −3,7 °Brix en 0 %, +3,7 en 20 % y −2,8 en 80 %, muy por encima de la dispersión entre réplicas.</p>
-    <h3>Interpretación</h3>
-    <p>Con el modelo cuadrático el R cuadrado sube a 0,9961 y algo importante: los °Brix y el índice de refracción dan el mismo contenido para las muestras, aproximadamente 39 % para M1 y 46 % para M2. Con la recta, las dos escalas difieren casi dos puntos. Es decir, la discrepancia entre escalas era un efecto del modelo, no del instrumento.</p>
-    <h3>Limitaciones</h3>
-    <p>La escala °Brix está definida para sacarosa. Con glicerina da un valor aparente que solo sirve como respuesta empírica, nunca como porcentaje directo.</p>
+    <p>Esta diapositiva muestra la misma curva de calibración, pero ahora usando como respuesta los grados Brix en lugar del índice de refracción. Igual que antes, aparecen la recta y el modelo cuadrático.</p>
+    <p>¿Por qué hicimos esta segunda curva? Porque los grados Brix son la escala de mayor uso en la industria, por ejemplo para controlar jarabes, y queríamos saber si también sirven como respuesta de calibración para la glicerina y cómo se comparan con el índice de refracción.</p>
+    <p>Los grados Brix también crecen con la glicerina, con una pendiente de 0,757 grados Brix por cada punto porcentual. Pero son claramente menos lineales: el R cuadrado baja a 0,9840. La curvatura es mucho más marcada que con el índice; los residuales llegan a menos 3,7 grados Brix en el 0 %, más 3,7 en el 20 % y menos 2,8 en el 80 %, y esos valores están muy por encima de la dispersión que hay entre réplicas.</p>
+    <p>Aquí aparece un resultado interesante. Si usamos el modelo cuadrático, el R cuadrado sube a 0,9961 y, además, los grados Brix y el índice de refracción dan prácticamente el mismo contenido para las muestras: alrededor de 39 % para M1 y 46 % para M2. En cambio, si usamos la recta, las dos escalas difieren en casi dos puntos porcentuales. Es decir, la discrepancia entre las escalas no venía del instrumento, sino de haber usado un modelo que no correspondía a la forma de los datos.</p>
+    <p>Eso sí, hay que recordar que la escala Brix está definida para sacarosa. Con glicerina da un valor aparente que solo sirve como respuesta empírica de calibración, y nunca debe leerse directamente como un porcentaje de glicerina.</p>
   </aside>
 </section>
 
@@ -572,18 +535,11 @@
     </div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Aquí evaluamos formalmente la calidad de la calibración. Arriba está la prueba de falta de ajuste, que se puede desplegar. La Tabla 1.3 da los parámetros de la recta para n y para °Brix con sus intervalos de confianza al 95 %, y los límites de detección y cuantificación. La Tabla 1.4 es el ANOVA de la regresión de n, con la suma de cuadrados residual separada en falta de ajuste y error puro.</p>
-    <h3>Por qué es importante</h3>
-    <p>Un R cuadrado alto no demuestra que la relación sea lineal. La prueba de falta de ajuste compara qué tanto se alejan los promedios de cada nivel de la recta con qué tanto se alejan las réplicas entre sí. Si lo primero es mucho mayor, el problema no es la precisión del analista sino la forma de los datos. Solo se puede hacer porque tenemos réplicas en cada nivel.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>Para n, la pendiente es 1,376 por diez a la menos tres, más o menos 0,018; el intercepto, 1,3371; el R cuadrado, 0,9957; y el error típico de la estimación, 0,0025. El límite de detección es 6,0 % y el de cuantificación 18,2 %. Para °Brix los límites son peores: 11,4 y 34,6 %.</p>
-    <p>En el ANOVA, la regresión es muy significativa, con F de 22 500. Pero la falta de ajuste también lo es: F de 179 con p menor que 0,001.</p>
-    <h3>Interpretación</h3>
-    <p>Hay una relación clara entre n y la concentración, pero no es una recta: hay curvatura real.</p>
-    <p>La prueba de Levene indica que la varianza cambia entre niveles, con p de 0,005 para n y 0,016 para °Brix; es decir, los datos son heterocedásticos.</p>
-    <h3>Limitaciones</h3>
-    <p>Como la falta de ajuste es significativa y los datos son heterocedásticos, los intervalos de confianza calculados con la recta son aproximados. Por eso, en la siguiente diapositiva, probamos un modelo cuadrático.</p>
+    <p>En esta diapositiva evaluamos formalmente la calidad de la calibración. Arriba está la prueba de falta de ajuste, que se puede desplegar. La Tabla 1.3 da los parámetros de la recta, para el índice y para los grados Brix, con sus intervalos de confianza al 95 %, junto con los límites de detección y de cuantificación. Y la Tabla 1.4 es el análisis de varianza de la regresión del índice, en el que la variación residual se separa en dos partes: la falta de ajuste y el error puro.</p>
+    <p>Quiero detenerme en por qué hicimos esto. Un R cuadrado alto no demuestra que la relación sea lineal. La prueba de falta de ajuste compara dos cosas: cuánto se alejan de la recta los promedios de cada nivel, y cuánto se alejan entre sí las réplicas de un mismo nivel. Si lo primero es mucho mayor que lo segundo, el problema no está en la precisión del analista, sino en la forma de los datos. Y esta prueba solo es posible porque tenemos réplicas en cada nivel.</p>
+    <p>Veamos los números. Para el índice de refracción, la pendiente es 1,376 por diez a la menos tres, con un intervalo de más o menos 0,018; el intercepto es 1,3371; el R cuadrado, 0,9957; y el error típico de la estimación, 0,0025. Con esos valores, el límite de detección es de 6,0 % y el de cuantificación de 18,2 %. Para los grados Brix los límites son bastante peores: 11,4 y 34,6 %.</p>
+    <p>En el análisis de varianza, la regresión es muy significativa, con una F de unos 22 500, lo que confirma que existe una relación clara entre el índice y la concentración. Pero la falta de ajuste también es significativa, con una F de 179 y un valor p menor que 0,001. La conclusión es que la relación existe, pero no es una recta: hay una curvatura real.</p>
+    <p>Además, la prueba de Levene muestra que la varianza cambia de un nivel a otro, con valores p de 0,005 para el índice y 0,016 para los grados Brix. Es decir, los datos son heterocedásticos. Como hay falta de ajuste y heterocedasticidad, los intervalos de confianza que se calculan con la recta deben tomarse como aproximados. Por eso, en la siguiente diapositiva, probamos un modelo cuadrático.</p>
   </aside>
 </section>
 
@@ -613,15 +569,11 @@
     <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El término <var>c</var> es significativo en ambas escalas (<var>F</var> parcial, <var>p</var> &lt; 0,001) y el AIC baja: la curvatura es real.</p><p>Con este modelo <var>n</var> y °Brix coinciden (M1: 39,0 y 38,6&#8239;%; M2: 45,8 y 45,8&#8239;%); con la recta difieren casi 2 puntos.</p><p>La falta de ajuste persiste (<var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,0018 &gt; <var>s</var><sub>R</sub>): queda variación sistemática entre niveles, posiblemente por diferencias entre los dos juegos de patrones suministrados (pares: grupos 1–5; impares: 6–10).</p></div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Comparamos la recta con un modelo cuadrático, que agrega un término en w al cuadrado para permitir que la pendiente cambie a lo largo del intervalo. La ecuación desplegable explica la prueba F parcial, que mide si ese término mejora de verdad el ajuste, y el criterio de Akaike, AIC, que penaliza el parámetro adicional. La Tabla 1.7 compara ambos modelos en las dos escalas y da M1 y M2 con cada uno.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>El término cuadrático es negativo y significativo en las dos escalas: F parcial de 84,3 en n y de 292,1 en °Brix, ambos con p menor que 0,001. El AIC baja de −1196 a −1257 en n y de 194 a 57 en °Brix, así que el modelo cuadrático es mejor aunque tenga un parámetro más.</p>
-    <p>Con este modelo, M1 contiene 39,0 más o menos 2,7 % por n y 38,6 por °Brix; M2, 45,8 % en ambas escalas.</p>
-    <h3>Interpretación</h3>
-    <p>La curvatura es real y es cóncava: la pendiente disminuye a medida que aumenta la glicerina, coherente con la contracción de volumen de la mezcla no ideal. Con el modelo cuadrático las dos escalas dan el mismo resultado, lo que refuerza su validez.</p>
-    <h3>Limitaciones</h3>
-    <p>La falta de ajuste persiste: el error típico, 0,0018, sigue siendo mayor que la reproducibilidad entre grupos. Queda una variación sistemática entre niveles que probablemente se debe a que hubo dos juegos de patrones distintos: los niveles pares, que midieron los grupos 1 a 5, y los impares, que midieron los grupos 6 a 10.</p>
+    <p>Aquí comparamos la recta con un modelo cuadrático. El modelo cuadrático simplemente agrega un término con el porcentaje al cuadrado, lo que permite que la pendiente cambie a lo largo del intervalo. En la ecuación desplegable se explican dos herramientas para decidir si vale la pena: la prueba F parcial, que mide si ese término adicional mejora de verdad el ajuste, y el criterio de información de Akaike, o AIC, que premia el buen ajuste pero penaliza agregar parámetros. La Tabla 1.7 compara los dos modelos en ambas escalas y da el resultado de M1 y M2 con cada uno.</p>
+    <p>El término cuadrático resultó negativo y significativo en las dos escalas: la F parcial es de 84,3 para el índice y de 292,1 para los grados Brix, ambas con un valor p menor que 0,001. El AIC baja de menos 1196 a menos 1257 en el índice, y de 194 a 57 en los grados Brix. Esto significa que el modelo cuadrático es mejor aunque tenga un parámetro más.</p>
+    <p>Con este modelo, M1 tiene 39,0 % de glicerina, con un intervalo de más o menos 2,7, según el índice, y 38,6 % según los grados Brix. M2 tiene 45,8 % en ambas escalas.</p>
+    <p>¿Cómo lo interpretamos? La curvatura es real y es cóncava: la pendiente va disminuyendo a medida que aumenta la glicerina. Eso es coherente con lo que dijimos de la química: la mezcla no es ideal y su volumen se contrae. Y lo más convincente es que, con el modelo cuadrático, las dos escalas dan el mismo resultado, lo que refuerza que el modelo es el adecuado.</p>
+    <p>Ahora bien, la falta de ajuste no desaparece del todo. El error típico del modelo cuadrático, 0,0018, sigue siendo mayor que la reproducibilidad entre grupos. Queda una variación sistemática entre niveles que, muy probablemente, se debe a que hubo dos juegos de patrones distintos: los niveles pares, que midieron los grupos 1 a 5, y los impares, que midieron los grupos 6 a 10.</p>
   </aside>
 </section>
 
@@ -645,20 +597,13 @@
     </table>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Esta tabla resume nueve análisis adicionales que hicimos para respaldar el resultado. La leemos de arriba abajo con su implicación.</p>
-    <h3>Qué se obtuvo e interpretación</h3>
-    <p>Precisión por nivel: el %RSD de n va de 0,006 a 0,086 %, y el de °Brix de 0,15 a 1,44 %. La lectura es muy repetible en todo el intervalo.</p>
-    <p>Repetibilidad y reproducibilidad: la desviación dentro de grupos es 5,37 por diez a la menos cuatro y entre grupos 6,35 por diez a la menos cuatro, casi iguales; pero el error de la recta es unas cuatro veces mayor. Conclusión: la falta de ajuste viene del modelo, no de la lectura ni del operador.</p>
-    <p>Residuales: forman un arco, el estadístico de Durbin-Watson es muy bajo, 0,13, lo que indica residuales correlacionados, y Shapiro-Wilk rechaza la normalidad. Esto confirma la curvatura.</p>
-    <p>Datos atípicos: la prueba de Grubbs señala tres lecturas de n, incluida la de 80 % de nuestro grupo. Al retirarlas, M1 y M2 cambian menos de 0,05 %, así que los resultados son robustos y conservamos todas las lecturas.</p>
-    <p>Regresión ponderada: los pesos difieren 184 veces entre niveles, lo que confirma la heterocedasticidad; da M1 de 39,8 y M2 de 46,7 %, coherentes con los demás modelos.</p>
-    <p>Puntaje z por grupo: todos los grupos tienen un valor absoluto de z menor o igual a 1; el nuestro, 0,47 en M1 y −0,16 en M2. El desempeño es satisfactorio y los grupos son intercambiables.</p>
-    <p>Sensibilidad analítica: ambas escalas distinguen entre 0,4 y 0,5 % de glicerina; la ventaja de n en el LOQ se debe solo a su mejor linealidad.</p>
-    <p>Factor de respuesta: corregido por el blanco, cumple el 95 a 105 % entre 40 y 80 % para n; M1 y M2 caen en esa zona.</p>
-    <p>Y los grados Baumé no aportan información independiente porque se calculan desde los °Brix.</p>
-    <h3>Limitaciones</h3>
-    <p>Los intervalos de la regresión ponderada subestiman la incertidumbre, porque los pesos se estimaron con pocas réplicas por nivel. Por eso informamos el modelo ordinario y el cuadrático.</p>
+    <p>Esta tabla resume nueve análisis adicionales que hicimos para respaldar el resultado. Los voy a recorrer de arriba abajo, diciendo en cada caso qué encontramos y qué implica.</p>
+    <p>Empezamos por la precisión por nivel. El porcentaje de desviación estándar relativa del índice va de 0,006 a 0,086 %, y el de los grados Brix de 0,15 a 1,44 %. Es decir, la lectura es muy repetible en todo el intervalo.</p>
+    <p>Luego, repetibilidad y reproducibilidad. La desviación dentro de los grupos es de 5,37 por diez a la menos cuatro y la desviación entre grupos es de 6,35 por diez a la menos cuatro: son casi iguales. Pero el error de la recta es unas cuatro veces mayor que ambas. De aquí sacamos una conclusión muy clara: la falta de ajuste viene del modelo, no de la lectura ni del operador.</p>
+    <p>Los residuales forman un arco; el estadístico de Durbin-Watson es muy bajo, 0,13 para el índice, lo que indica que los residuales están correlacionados, y la prueba de Shapiro-Wilk rechaza la normalidad. Todo eso confirma la curvatura.</p>
+    <p>Con la prueba de Grubbs buscamos datos atípicos y aparecen tres lecturas del índice, entre ellas la del patrón de 80 % de nuestro grupo. Pero al retirarlas, M1 y M2 cambian menos de 0,05 %, así que los resultados son robustos y decidimos conservar todas las lecturas.</p>
+    <p>Hicimos también una regresión ponderada. Los pesos llegan a diferir 184 veces entre niveles, lo que confirma la heterocedasticidad, y los resultados, 39,8 % para M1 y 46,7 % para M2, son coherentes con los de los otros modelos. Sin embargo, sus intervalos subestiman la incertidumbre, porque los pesos se estimaron con pocas réplicas por nivel; por eso informamos el modelo ordinario y el cuadrático.</p>
+    <p>Calculamos el puntaje z de cada grupo: todos tienen un valor absoluto menor o igual a 1, y el nuestro fue 0,47 en M1 y menos 0,16 en M2. El desempeño es satisfactorio y los grupos son intercambiables. En cuanto a la sensibilidad analítica, ambas escalas distinguen diferencias de 0,4 a 0,5 % de glicerina, así que la ventaja del índice en el límite de cuantificación se debe solo a su mejor linealidad. El factor de respuesta, corregido por el blanco, cumple el criterio de 95 a 105 % entre 40 y 80 % para el índice, y M1 y M2 caen justamente en esa zona. Y, como ya dijimos, los grados Baumé no aportan información independiente porque se calculan a partir de los grados Brix.</p>
   </aside>
 </section>
 
@@ -706,16 +651,11 @@
   </div>
   <details class="eqd"><summary><span class="eqd__name">Incertidumbre de la concentración interpolada</span><span class="eqd__f"><var>s</var><sub><var>x</var>0</sub> = <span class="frac"><span><var>s</var><sub><var>y</var>/<var>x</var></sub></span><span><var>m</var></span></span> √<span class="ovl"><span class="frac"><span>1</span><span><var>k</var></span></span> + <span class="frac"><span>1</span><span><var>N</var></span></span> + <span class="frac"><span>(<span class="bar"><var>y</var></span><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup></span><span><var>m</var><sup>2</sup>Σ(<var>x</var><sub>i</sub> − <span class="bar"><var>x</var></span>)<sup>2</sup></span></span></span> &ensp; IC = <var>x</var><sub>0</sub> ± <var>t</var>·<var>s</var><sub><var>x</var>0</sub></span></summary><div class="eqd__body"><p>Propaga la incertidumbre de la recta a la concentración calculada. El término 1/<var>k</var> disminuye al aumentar las lecturas de la muestra (por eso M1, con una sola lectura, tiene un IC mayor que M2); 1/<var>N</var> refleja el número de puntos de calibración.</p><p>El último término crece cuando la muestra se aleja del centro de la curva: la interpolación es más precisa en la zona media del intervalo.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=ERROR.TIPICO.XY(B2:B11;A2:A11)/m*RAIZ(1/k+1/N+(y0-PROMEDIO(B2:B11))^2/(m^2*DESVIA2(A2:A11)))</code> · IC: <code>=x0±INV.T.2C(0,05;N-2)*s_x0</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Es el «más o menos» del resultado de la muestra. Crece si la recta es ruidosa, si se lee pocas veces y si la muestra cae lejos del centro de la curva.</p></div></details>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Este es el resultado de la práctica. Arriba, los dos resultados clave calculados con la curva de n y las lecturas de nuestro grupo. Abajo, la Tabla 1.5 compara cuatro formas de calcularlos: por n o por °Brix, y solo con nuestras lecturas o con las de los grupos 1 a 5. La ecuación desplegable explica cómo se calcula el intervalo de confianza de una concentración interpolada.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>M1 contiene 40,5 más o menos 3,6 % en peso de glicerina, a partir de una sola lectura, n de 1,3929.</p>
-    <p>M2 contiene 47,2 más o menos 2,6 %, a partir de dos lecturas, con n promedio de 1,4020. Ambos intervalos son al 95 % de confianza.</p>
-    <h3>Interpretación</h3>
-    <p>Las cuatro formas de cálculo son coherentes. Con los °Brix los valores salen entre 1,8 y 1,9 puntos más altos y con el doble de incertidumbre, por la peor linealidad de esa escala. Con las lecturas de los cinco grupos el intervalo se reduce mucho, a más o menos 1,3 y 1,2 %, porque se promedian más lecturas.</p>
-    <p>La fórmula explica por qué M1 tiene un intervalo más ancho que M2: el término 1 sobre k pesa más cuando hay una sola lectura. También explica que la incertidumbre crece cuando la muestra se aleja del centro de la curva; las nuestras están cerca del centro.</p>
-    <h3>Limitaciones</h3>
-    <p>Estos son los valores con la recta. Como la curva es cuadrática, el valor más exacto es el del modelo cuadrático: 39,0 % para M1 y 45,8 % para M2. Además, M1 tiene una sola lectura por el dato faltante en la hoja.</p>
+    <p>Llegamos al resultado de la práctica. Arriba están los dos resultados clave, calculados con la curva del índice de refracción y las lecturas de nuestro grupo. Abajo, la Tabla 1.5 compara cuatro formas de calcularlos: usando el índice o los grados Brix, y usando solo nuestras lecturas o las de los cinco grupos del bloque. La ecuación desplegable explica cómo se calcula el intervalo de confianza de una concentración que se obtiene por interpolación.</p>
+    <p>La muestra M1 contiene 40,5 % en peso de glicerina, con un intervalo de más o menos 3,6, calculado a partir de una sola lectura, con un índice de 1,3929. La muestra M2 contiene 47,2 %, con un intervalo de más o menos 2,6, calculado a partir de dos lecturas con un índice promedio de 1,4020. Ambos intervalos son al 95 % de confianza.</p>
+    <p>Las cuatro formas de cálculo son coherentes entre sí. Con los grados Brix los valores salen entre 1,8 y 1,9 puntos más altos y con aproximadamente el doble de incertidumbre, lo que se explica por la peor linealidad de esa escala. Y cuando usamos las lecturas de los cinco grupos, el intervalo se reduce mucho, a más o menos 1,3 y 1,2 %, simplemente porque se promedian más lecturas.</p>
+    <p>La fórmula del intervalo también explica dos cosas que vemos en la tabla. Primero, por qué M1 tiene un intervalo más ancho que M2: hay un término que es uno sobre el número de lecturas, y pesa más cuando solo hay una. Segundo, que la incertidumbre crece a medida que la muestra se aleja del centro de la curva; las nuestras, por fortuna, están cerca del centro.</p>
+    <p>Hay que hacer dos advertencias. Estos son los valores calculados con la recta; como ya vimos que la curva es cuadrática, el valor más exacto es el del modelo cuadrático, que da 39,0 % para M1 y 45,8 % para M2. Y M1 se apoya en una sola lectura, por el dato que falta en la hoja.</p>
   </aside>
 </section>
 
@@ -735,18 +675,15 @@
     <p>Agua con 1,1–3,2&#8239;°Brix en los grupos 7 a 10 (hoja corregida: el grupo 8 leyó 1,4 y 3,2&#8239;°Brix); patrón de 80&#8239;% del grupo 5 con <var>n</var> = 1,4429 y 1,4465 frente a 1,4459–1,4463 del resto; falta una lectura de M1 del grupo 5.</p>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Discutimos los resultados en siete puntos y una advertencia sobre lecturas atípicas.</p>
-    <h3>Interpretación</h3>
-    <p>Linealidad: los R cuadrado son altos, pero la falta de ajuste es significativa. El modelo cuadrático mejora el ajuste, aunque la falta de ajuste persiste.</p>
-    <p>Límites: n tiene menor límite de cuantificación, 18,2 frente a 34,6 % de los °Brix, pero no porque el instrumento sea más sensible; ambas escalas distinguen 0,4 a 0,5 %. La diferencia es la linealidad.</p>
-    <p>Muestras: M1 y M2 caen dentro del intervalo calibrado, y con las lecturas de los cinco grupos se obtienen 40,2 y 47,4 %, prácticamente iguales a los nuestros.</p>
-    <p>Factor de respuesta: solo es constante entre 40 y 80 %; ese es el intervalo útil para interpolar con la recta, y ahí caen las muestras.</p>
-    <p>Temperatura: no termostatizamos. Un grado de diferencia cambia n entre 1 y 3 diezmilésimas, del orden de la reproducibilidad. La diferencia de un grado entre el agua y los patrones introduce un sesgo menor que la incertidumbre del método.</p>
-    <p>Pureza: si la glicerina tiene 99,5 %, las concentraciones nominales se sobrestiman como máximo un 0,5 % relativo; M1 pasaría de 40,5 a 40,3 %, muy por debajo del intervalo de más o menos 3,6.</p>
-    <p>Operador: los puntajes z de los cinco grupos, todos menores o iguales a 1, indican que el efecto del operador es pequeño.</p>
-    <h3>Limitaciones</h3>
-    <p>El recuadro amarillo resume las lecturas atípicas: agua con 1,1 a 3,2 °Brix en los grupos 7 a 10, cuando debería ser cero; nuestro patrón de 80 %, con lecturas de 1,4429 y 1,4465, algo apartadas del resto; y la lectura faltante de M1. Ninguna cambia las conclusiones, como mostró la prueba de Grubbs.</p>
+    <p>Pasemos a la discusión, que organizamos en siete puntos y una advertencia sobre lecturas atípicas.</p>
+    <p>El primero es la linealidad. Los R cuadrado son altos, 0,9957 para el índice y 0,9845 para los grados Brix, pero la falta de ajuste es significativa. El modelo cuadrático mejora el ajuste, sube el R cuadrado y baja el error típico, aunque la falta de ajuste no desaparece por completo.</p>
+    <p>El segundo son los límites. El índice tiene un límite de cuantificación de 18,2 %, frente a 34,6 % de los grados Brix. Pero esto no significa que el instrumento sea más sensible con una escala que con la otra: ambas distinguen diferencias de 0,4 a 0,5 %. Lo que marca la diferencia es la linealidad.</p>
+    <p>El tercero, las muestras. M1 y M2 caen dentro del intervalo calibrado, y con las lecturas de los cinco grupos se obtienen 40,2 y 47,4 %, prácticamente iguales a los nuestros.</p>
+    <p>El cuarto, el factor de respuesta. Solo es constante entre 40 y 80 %; ese es el intervalo útil para interpolar con la recta, y por suerte ahí caen nuestras muestras.</p>
+    <p>El quinto, la temperatura. No termostatizamos el equipo. Un grado de diferencia cambia el índice entre una y tres diezmilésimas, que es del orden de la reproducibilidad. Como el agua se leyó a 20 grados y los patrones a 19, ese grado de diferencia introduce un sesgo menor que la incertidumbre del método.</p>
+    <p>El sexto, la pureza de la glicerina. Si es un estándar comercial de 99,5 %, las concentraciones nominales se sobrestiman como máximo en un 0,5 % relativo. M1 pasaría de 40,5 a 40,3 %, una diferencia muy pequeña frente a un intervalo de más o menos 3,6. Por eso conservamos los valores nominales.</p>
+    <p>El séptimo, el operador. Los puntajes z de los cinco grupos son todos menores o iguales a 1, lo que indica que el efecto de quién hace la lectura es pequeño frente a la incertidumbre de la curva.</p>
+    <p>Finalmente, el recuadro amarillo resume las lecturas atípicas: el agua con 1,1 a 3,2 grados Brix en los grupos 7 a 10, cuando debería dar cero; nuestro patrón de 80 %, con lecturas de 1,4429 y 1,4465, algo apartadas de las del resto de grupos; y la lectura faltante de M1. Como mostró la prueba de Grubbs, ninguna de ellas cambia las conclusiones.</p>
   </aside>
 </section>
 
@@ -761,13 +698,11 @@
     </ul>
   </div>
   <aside class="notes guion">
-    <h3>Qué se obtuvo</h3>
-    <p>Concluimos tres cosas.</p>
-    <p>Primero, la muestra M1 contiene 40,5 más o menos 3,6 % en peso de glicerina y M2, 47,2 más o menos 2,6 %, según la curva de índice de refracción con nuestras lecturas.</p>
-    <p>Segundo, la relación es cuadrática, no lineal. Con el modelo cuadrático, M1 tiene 39,0 % y M2 45,8 %, y las escalas de índice de refracción y °Brix coinciden.</p>
-    <p>Tercero, la medición es repetible y reproducible entre grupos y robusta frente a los datos atípicos. La incertidumbre la domina el modelo de calibración, no la lectura.</p>
-    <h3>Por qué es importante</h3>
-    <p>La refractometría resulta una técnica válida, rápida y no destructiva para cuantificar glicerina en mezclas acuosas, siempre que se use un modelo que respete la curvatura y se controle la temperatura.</p>
+    <p>Para cerrar esta práctica, concluimos tres cosas.</p>
+    <p>La primera es el resultado analítico: la muestra M1 contiene 40,5 % en peso de glicerina, con un intervalo de más o menos 3,6, y la muestra M2 contiene 47,2 %, con un intervalo de más o menos 2,6, según la curva del índice de refracción con las lecturas de nuestro grupo.</p>
+    <p>La segunda es sobre el modelo: la relación entre el índice y la concentración es cuadrática, no lineal. Con el modelo cuadrático, M1 tiene 39,0 % y M2 45,8 %, y lo más importante es que con este modelo las escalas de índice de refracción y de grados Brix coinciden.</p>
+    <p>La tercera es sobre la calidad de la medición: es repetible, es reproducible entre grupos y es robusta frente a los datos atípicos. La incertidumbre la domina el modelo de calibración, no la lectura.</p>
+    <p>En resumen, la refractometría resulta una técnica válida, rápida y no destructiva para cuantificar glicerina en mezclas acuosas, siempre que se use un modelo que respete la curvatura de los datos y que se controle la temperatura. Con esto terminamos la primera práctica.</p>
   </aside>
 </section>
 
@@ -781,13 +716,11 @@
     <details class="eqd eqd--qa" name="qa-p1-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">¿Cómo calcularon LOD y LOQ y por qué son peores con °Brix?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Cálculo:</strong> LOD = 3,3·<var>s</var><sub><var>y</var>/<var>x</var></sub>/<var>m</var> y LOQ = 10·<var>s</var><sub><var>y</var>/<var>x</var></sub>/<var>m</var>: <var>n</var>, 6,0 y 18,2 % p/p; °Brix, 11,4 y 34,6 % p/p.</li><li><strong>Causa:</strong> <var>s</var><sub><var>y</var>/<var>x</var></sub> incluye la falta de ajuste; °Brix es menos lineal (<var>R</var><sup>2</sup> = 0,9845) y su <var>s</var><sub><var>y</var>/<var>x</var></sub> es mayor. La sensibilidad de Mandel (1/<var>γ</var> ≈ 0,4–0,5 % p/p) es igual en ambas escalas: la diferencia viene del modelo, no del instrumento.</li><li><strong>Implicación:</strong> con la recta no conviene cuantificar por debajo de 18 % p/p; el factor de respuesta (95–105 %) delimita el intervalo útil en 40–80 % p/p, donde caen M1 y M2.</li></ul></div></details>
   </div>
   <aside class="notes guion">
-    <h3>Cómo usar esta diapositiva</h3>
-    <p>Son las preguntas de estadística que esperamos en la defensa. Cada una se despliega con la respuesta modelo; si nos preguntan, abrimos la correspondiente. Aquí está la idea esencial de cada respuesta.</p>
-    <h3>Respuestas en breve</h3>
-    <p>Pregunta 1, por qué decimos que no es lineal si R cuadrado es 0,9957: porque R cuadrado no prueba linealidad. La prueba de falta de ajuste da F de 179 con p menor que 0,001, los residuales forman un arco y el término cuadrático es significativo.</p>
-    <p>Pregunta 2, qué significan F, pendiente e intercepto: F indica que existe relación, no que sea lineal. La pendiente es la sensibilidad: cada 1 % de glicerina sube n en unas 14 diezmilésimas. El intercepto, 1,3371, no coincide con el agua, 1,3330, por la curvatura.</p>
-    <p>Pregunta 3, homocedasticidad: los mínimos cuadrados suponen la misma varianza en todos los niveles; Levene lo rechazó. Hicimos una regresión ponderada, que dio resultados coherentes.</p>
-    <p>Pregunta 4, LOD y LOQ: se calculan como 3,3 y 10 veces el error típico dividido por la pendiente. Son peores con °Brix porque su error típico incluye una falta de ajuste mayor, no porque el instrumento sea menos sensible.</p>
+    <p>Esta diapositiva no se expone: la tenemos preparada para la defensa. Son las preguntas de estadística que esperamos, y cada una se despliega con su respuesta modelo. Si nos preguntan algo de esto, abrimos la que corresponda. Les dejo aquí la idea central de cada respuesta para tenerla a mano.</p>
+    <p>Si nos preguntan por qué decimos que la relación no es lineal si el R cuadrado es 0,9957, la respuesta es que el R cuadrado no prueba la linealidad. La prueba de falta de ajuste da una F de 179 con un valor p menor que 0,001, los residuales forman un arco y el término cuadrático es significativo.</p>
+    <p>Si nos preguntan qué significan la F, la pendiente y el intercepto: la F indica que existe una relación, pero no que sea lineal. La pendiente es la sensibilidad: cada 1 % de glicerina sube el índice en unas catorce diezmilésimas. Y el intercepto, 1,3371, no coincide con el agua, que es 1,3330, precisamente por la curvatura.</p>
+    <p>Si nos preguntan por la homocedasticidad: los mínimos cuadrados suponen que la varianza es igual en todos los niveles, y la prueba de Levene lo rechazó. Por eso hicimos una regresión ponderada, que dio resultados coherentes con los demás modelos.</p>
+    <p>Y si nos preguntan por los límites de detección y de cuantificación: se calculan como 3,3 y 10 veces el error típico dividido por la pendiente. Son peores con los grados Brix porque su error típico incluye una falta de ajuste mayor, no porque el instrumento sea menos sensible con esa escala.</p>
   </aside>
 </section>
 
@@ -800,12 +733,10 @@
     <details class="eqd eqd--qa" name="qa-p1-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Qué cuidados exigen la temperatura y la escala °Brix al cuantificar glicerina?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Temperatura:</strong> d<var>n</var>/d<var>T</var> ≈ −1 × 10<sup>−4</sup> (agua) a −2,7 × 10<sup>−4</sup> °C<sup>−1</sup> (glicerina); 1 °C cambia <var>n</var> tanto como la reproducibilidad (<var>s</var><sub>R</sub> = 6,35 × 10<sup>−4</sup>). Se midió a 19–20 °C sin termostatizar: el sesgo es menor que la incertidumbre, pero lo correcto es termostatizar a 20,0 ± 0,1 °C.</li><li><strong>°Brix:</strong> la escala está calibrada para sacarosa; con glicerina da un valor aparente. Se usa como respuesta empírica de calibración, nunca como % p/p directo.</li><li><strong>°Baumé:</strong> se calcula a partir de °Brix, de modo que no aporta información independiente.</li></ul></div></details>
   </div>
   <aside class="notes guion">
-    <h3>Cómo usar esta diapositiva</h3>
-    <p>Son las preguntas sobre el procedimiento y la teoría. Igual que la anterior, cada una se despliega con su respuesta modelo.</p>
-    <h3>Respuestas en breve</h3>
-    <p>Pregunta 1, cómo se toma una lectura: limpiar los prismas, verificar con agua, poner dos o tres gotas sin burbujas, llevar la línea de sombra a la cruz de la retícula, eliminar la franja de color con el compensador de Amici, leer n y °Brix y anotar la temperatura. Cada paso evita una fuente de error concreta.</p>
-    <p>Pregunta 2, por qué se mide el ángulo crítico: por la ley de Snell, al pasar a un medio de menor índice existe un ángulo de reflexión total cuyo seno es el cociente de los índices. Conocido el índice del prisma, el límite entre luz y sombra da el de la muestra. Por eso el prisma debe tener un índice mayor que cualquier muestra.</p>
-    <p>Pregunta 3, temperatura y °Brix: un grado cambia n tanto como la reproducibilidad, así que lo correcto es termostatizar a 20 °C. Los °Brix están calibrados para sacarosa y con glicerina son aparentes; el Baumé se calcula desde los °Brix y no aporta información nueva.</p>
+    <p>Esta también es una diapositiva de apoyo para la defensa, con las preguntas sobre el procedimiento y la teoría. Igual que la anterior, cada pregunta se despliega con su respuesta modelo, y aquí está la idea esencial de cada una.</p>
+    <p>Si nos piden explicar cómo se toma una lectura, la secuencia es: limpiar los prismas, verificar con agua, poner dos o tres gotas sin burbujas, llevar la línea de sombra hasta la cruz de la retícula, eliminar la franja de color con el compensador de Amici, leer el índice y los grados Brix, y anotar la temperatura. Conviene decir que cada paso evita una fuente de error concreta.</p>
+    <p>Si nos preguntan por qué se mide el ángulo crítico: por la ley de Snell, cuando la luz pasa a un medio de menor índice existe un ángulo de reflexión total cuyo seno es el cociente entre los dos índices. Como el índice del prisma se conoce, la posición del límite entre luz y sombra nos da el índice de la muestra. Por eso el prisma siempre debe tener un índice mayor que el de cualquier muestra.</p>
+    <p>Y si nos preguntan por la temperatura y por los grados Brix: un grado de diferencia cambia el índice tanto como la reproducibilidad, así que lo correcto sería termostatizar a 20 grados. Los grados Brix están calibrados para sacarosa, de modo que con glicerina son aparentes, y el Baumé se calcula a partir de los Brix, así que no aporta información nueva.</p>
   </aside>
 </section>
 
@@ -833,13 +764,10 @@
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="polarimetro"></span></div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Pasamos a la segunda práctica: polarimetría de lactosa y mentol. Preparamos dos soluciones de cada analito y en cada una se tomaron diez lecturas del ángulo de rotación, una por estudiante: veinte lecturas por analito. Con ellas calculamos el promedio, el %RSD y el intervalo de confianza, la rotación específica y una prueba t frente al valor de referencia.</p>
-    <h3>Objetivo</h3>
-    <p>El objetivo general es aplicar la polarimetría a la caracterización de sustancias ópticamente activas de uso farmacéutico mediante su rotación específica, que las farmacopeas usan como criterio de identidad y pureza.</p>
-    <p>Los objetivos específicos son: entender la actividad óptica y las partes del polarímetro; medir el ángulo y evaluar su precisión; calcular la rotación específica y compararla con la de referencia con la prueba t de Student; y analizar los factores que afectan la medición.</p>
-    <h3>Por qué es importante</h3>
-    <p>Muchos fármacos y excipientes son quirales, y dos enantiómeros pueden tener efectos muy distintos. La polarimetría es la forma más directa y económica de verificar la identidad y la pureza óptica de una sustancia.</p>
+    <p>Pasamos ahora a la segunda práctica, que es la polarimetría de lactosa y mentol. En esta práctica dejamos de medir cuánto se desvía la luz y pasamos a medir cuánto gira. Trabajamos con dos sustancias: preparamos dos soluciones de cada una y, en cada solución, se tomaron diez lecturas del ángulo de rotación, una por cada estudiante. En total tenemos veinte lecturas por analito.</p>
+    <p>Con esas lecturas calculamos el promedio, el porcentaje de desviación estándar relativa y el intervalo de confianza del ángulo; a partir del ángulo calculamos la rotación específica de cada sustancia; y finalmente la comparamos con el valor de referencia mediante una prueba t de Student.</p>
+    <p>El objetivo general fue aplicar la polarimetría a la caracterización de sustancias ópticamente activas de uso farmacéutico a través de su rotación específica, que es precisamente el parámetro que las farmacopeas usan como criterio de identidad y de pureza. Los objetivos específicos fueron cuatro: entender qué es la actividad óptica y cuáles son las partes del polarímetro, es decir, la fuente de sodio, el polarizador, el tubo y el analizador; medir el ángulo de rotación y evaluar su precisión; calcular la rotación específica y contrastarla con la de referencia usando la prueba t; y analizar los factores que afectan la medición, como la temperatura, la concentración, el disolvente y la longitud de onda.</p>
+    <p>¿Por qué es importante esta técnica en farmacia? Porque muchísimos fármacos y excipientes son quirales, y dos enantiómeros de una misma molécula pueden tener efectos muy distintos en el organismo. La polarimetría es la forma más directa y económica de verificar la identidad y la pureza óptica de una sustancia.</p>
   </aside>
 </section>
 
@@ -854,13 +782,10 @@
     <div class="box objective"><p class="box__label">Aplicaciones en la industria farmacéutica</p><ul class="points points--compact"><li>Ensayo de identificación y pureza por rotación específica en las monografías de farmacopea (lactosa, sacarosa, mentol, levotiroxina, entre otros).</li><li>Control de pureza enantiomérica: un enantiómero puede ser activo y el otro inactivo o tóxico (caso talidomida).</li><li>Cuantificación de azúcares en jarabes y soluciones (sacarimetría).</li><li>Seguimiento de procesos con cambio de configuración, como la mutarrotación de la lactosa o la inversión de la sacarosa.</li></ul></div>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>La idea central: las sustancias quirales hacen girar el plano de la luz polarizada. El ángulo de giro depende de la concentración, de la longitud del tubo, de la temperatura y de la longitud de onda. Si normalizamos el ángulo por la concentración y la longitud, obtenemos la rotación específica, una constante característica de cada compuesto.</p>
-    <p>Los materiales: lactosa, un disacárido que gira la luz a la derecha, es decir, dextrógiro; mentol, un alcohol terpénico que la gira a la izquierda, levógiro. Los disolventes fueron agua para la lactosa y etanol para el mentol, deducidos de su solubilidad y de la concentración usada. El polarímetro tiene lámpara de sodio, de 589,3 nm, y un tubo estándar de 2 decímetros.</p>
-    <h3>Qué esperábamos</h3>
-    <p>Un ángulo positivo para la lactosa y negativo para el mentol, lecturas repetibles entre estudiantes y entre soluciones, y rotaciones específicas comparables con las de farmacopea.</p>
-    <h3>Por qué es importante</h3>
-    <p>Las aplicaciones: la rotación específica es un ensayo de identidad y pureza en las monografías de lactosa, sacarosa, mentol o levotiroxina; sirve para controlar la pureza enantiomérica, recordemos el caso de la talidomida; para cuantificar azúcares en jarabes; y para seguir procesos como la mutarrotación de la lactosa o la inversión de la sacarosa.</p>
+    <p>La idea central de esta práctica es que las sustancias quirales, es decir, las que no son superponibles con su imagen especular, hacen girar el plano de la luz polarizada. El ángulo que gira depende de varias cosas: de la concentración de la sustancia, de la longitud del tubo que atraviesa la luz, de la temperatura y de la longitud de onda. Si normalizamos ese ángulo por la concentración y por la longitud del tubo, obtenemos la rotación específica, que es una constante característica de cada compuesto y que, por tanto, sirve para identificarlo y para controlar su pureza.</p>
+    <p>En cuanto a los materiales, trabajamos con dos sustancias. La lactosa, que es un disacárido dextrógiro, es decir, gira la luz hacia la derecha y le asignamos un signo positivo. Y el mentol, que es un alcohol terpénico levógiro, que gira la luz hacia la izquierda y lleva signo negativo. Como disolventes usamos agua para la lactosa y etanol para el mentol; estos los dedujimos a partir de la solubilidad de cada sustancia y de la concentración que se usó. El polarímetro tiene una lámpara de sodio, que emite a 589,3 nanómetros, y un tubo estándar de 2 decímetros.</p>
+    <p>Lo que esperábamos era un ángulo positivo para la lactosa y negativo para el mentol, lecturas repetibles tanto entre estudiantes como entre las dos soluciones de cada analito, y rotaciones específicas comparables con las que reporta la farmacopea.</p>
+    <p>En la industria farmacéutica, la rotación específica tiene varias aplicaciones. Es un ensayo de identidad y de pureza en las monografías de muchas sustancias, como la lactosa, la sacarosa, el mentol o la levotiroxina. Sirve para controlar la pureza enantiomérica, y aquí siempre conviene recordar el caso de la talidomida, en el que un enantiómero tenía el efecto buscado y el otro resultó teratogénico. Se usa para cuantificar azúcares en jarabes, lo que se conoce como sacarimetría. Y permite seguir procesos en los que cambia la configuración de una molécula, como la mutarrotación de la lactosa o la inversión de la sacarosa.</p>
   </aside>
 </section>
 
@@ -881,13 +806,11 @@
     </ul>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Dos ecuaciones. La 2.1 es la ley de Biot: la rotación específica es el ángulo medido por cien, dividido por la longitud del tubo en decímetros y la concentración en gramos por 100 mL. Así eliminamos el efecto de cuánta sustancia hay y del largo del tubo, y obtenemos una «huella» del compuesto que se compara con la farmacopea. El factor 100 aparece porque la concentración va en gramos por 100 mL.</p>
-    <p>La 2.2 es la prueba t frente al valor tabulado: compara nuestra rotación específica con la de referencia. Si la t calculada supera la crítica, la diferencia no se explica por el error aleatorio y sugiere un error sistemático, por ejemplo en la concentración, la temperatura, el cero del equipo o la pureza.</p>
-    <h3>Puntos clave</h3>
-    <p>Las sustancias dextrógiras tienen rotación positiva, como la lactosa; las levógiras, negativa, como el mentol natural.</p>
-    <p>La lactosa presenta mutarrotación: en solución sus dos formas, alfa y beta, se interconvierten hasta un equilibrio, y la rotación cambia con el tiempo hasta estabilizarse.</p>
-    <p>Y el ángulo depende de la longitud de onda, la temperatura, el disolvente, la concentración y la longitud de paso; por eso todas deben fijarse.</p>
+    <p>El fundamento de la práctica se apoya en dos ecuaciones. La primera, la 2.1, es la ley de Biot. Nos dice que la rotación específica es igual al ángulo medido multiplicado por cien, dividido entre la longitud del tubo en decímetros y la concentración en gramos por cada 100 mililitros. Lo que hace esta ecuación es eliminar el efecto de cuánta sustancia hay y de qué tan largo es el tubo, y así obtenemos una especie de huella del compuesto que podemos comparar directamente con la farmacopea. El factor cien aparece simplemente porque la concentración se expresa en gramos por 100 mililitros.</p>
+    <p>La segunda ecuación, la 2.2, es la prueba t frente al valor tabulado. Con ella comparamos nuestra rotación específica con la de referencia. Si la t calculada es mayor que la t crítica, la diferencia ya no se puede explicar por el error aleatorio de la medición, y eso sugiere que hay un error sistemático, por ejemplo en la concentración, en la temperatura, en el cero del equipo o en la pureza de la sustancia.</p>
+    <p>Hay algunos puntos clave que conviene tener claros. Las sustancias dextrógiras tienen rotación positiva, como la lactosa, y las levógiras tienen rotación negativa, como el mentol natural.</p>
+    <p>La lactosa, además, presenta un fenómeno llamado mutarrotación. En solución, sus dos formas, el anómero alfa y el anómero beta, se interconvierten hasta alcanzar un equilibrio, y mientras eso ocurre la rotación va cambiando con el tiempo hasta que se estabiliza.</p>
+    <p>Y por último, el ángulo depende de la longitud de onda, de la temperatura, del disolvente, de la concentración y de la longitud de paso. Por eso, para que la medición sea comparable, todas esas condiciones deben estar fijadas.</p>
   </aside>
 </section>
 
@@ -921,13 +844,11 @@
   </div>
   <p class="eq-legend">Estructuras 2D: PubChem (CID 6134 y 16666). Datos: PubChem, Merck Index y USP.</p>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Presentamos los dos analitos. La lactosa, C12H22O11, masa molar 342,30 en su forma anhidra, que fue la que usamos, con diez centros quirales. Y el (−)-mentol, C10H20O, masa molar 156,27, con tres centros quirales.</p>
-    <p>Las rotaciones específicas de referencia: lactosa, +52,5° en agua en el equilibrio; el anómero alfa puro da +89,4° y el beta +35°. Mentol, aproximadamente −50° en etanol.</p>
-    <h3>Por qué es importante</h3>
-    <p>Las solubilidades justifican los disolventes: la lactosa se disuelve en agua, unos 0,2 g/mL, y casi nada en etanol; el mentol, al revés, apenas 0,5 g por litro en agua y muy soluble en etanol. Y la rotación específica solo es comparable con la tabla si se mide en el mismo disolvente.</p>
-    <p>La mutarrotación obliga a esperar el equilibrio, o a catalizarlo con unas gotas de amoníaco, antes de leer la lactosa.</p>
-    <p>Además, como las dos sustancias tienen rotaciones de magnitud parecida y signo opuesto, sirven para comprobar el sentido de giro del equipo.</p>
+    <p>Ahora presentamos los dos analitos. A la izquierda está la lactosa, cuya fórmula es C12H22O11, con una masa molar de 342,30 gramos por mol en su forma anhidra, que fue la que usamos, y con diez centros quirales. A la derecha está el menos-mentol, de fórmula C10H20O, con una masa molar de 156,27 gramos por mol y tres centros quirales.</p>
+    <p>Sus rotaciones específicas de referencia son las siguientes. La lactosa tiene más 52,5 grados en agua cuando está en equilibrio; si estuviera como anómero alfa puro tendría más 89,4 grados, y como anómero beta puro, más 35 grados. El mentol tiene aproximadamente menos 50 grados en etanol.</p>
+    <p>Las solubilidades nos ayudan a justificar los disolventes. La lactosa se disuelve bien en agua, unos 0,2 gramos por mililitro, y casi nada en etanol. El mentol es justo al revés: en agua apenas se disuelven unos 0,5 gramos por litro, y en etanol es muy soluble. Esto es importante porque la rotación específica solo se puede comparar con la de la tabla si se mide en el mismo disolvente.</p>
+    <p>La mutarrotación de la lactosa tiene una consecuencia práctica: obliga a esperar a que se alcance el equilibrio, o a acelerarlo con unas gotas de amoníaco, antes de leer. Si leemos antes de tiempo, obtenemos un valor que no corresponde al de la tabla.</p>
+    <p>Y hay un detalle útil: como las dos sustancias tienen rotaciones de magnitud parecida pero de signo opuesto, nos sirven también para comprobar que el equipo está indicando correctamente el sentido de giro.</p>
   </aside>
 </section>
 
@@ -958,13 +879,12 @@
     <ul class="lab-kit" data-kit="polarimetro termometro | balanza aforado vaso pasteur"></ul>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>El procedimiento en cinco pasos. Primero ajustamos el cero del polarímetro con el disolvente de cada analito en el tubo. Luego preparamos lactosa anhidra al 10 % en agua y mentol al 5 % en etanol, en gramos por 100 mL. Llenamos el tubo sin burbujas. Cada estudiante tomó una lectura: veinte por analito, en dos series de diez. En el mentol, el ángulo es la lectura menos 180°, porque la escala va de 0 a 360° y un giro a la izquierda aparece cerca de 180°. Y registramos la temperatura en cada lectura.</p>
-    <p>La tabla resume las condiciones: tubo de 2 decímetros, línea D del sodio, temperatura nominal de 20 °C aunque la medida fue de 19 a 26 °C, y las masas molares de los analitos.</p>
-    <h3>Por qué es importante</h3>
-    <p>El cero con el disolvente descuenta su contribución y la del tubo. Que cada estudiante lea una vez incorpora la variación entre operadores, así que la precisión que obtenemos es realista y no solo la de una persona.</p>
-    <h3>Limitaciones</h3>
-    <p>La temperatura varió hasta 6 °C por encima de la nominal porque no se termostatizó. Las concentraciones y la longitud del tubo no quedaron registradas en la hoja: la longitud corresponde al tubo estándar de prácticas y las concentraciones se dedujeron de los valores de rotación específica que calculó el grupo.</p>
+    <p>El procedimiento se resume en cinco pasos. Primero ajustamos el cero del polarímetro con el disolvente de cada analito dentro del tubo, es decir, agua para la lactosa y etanol para el mentol. Así descontamos la contribución del disolvente y del propio tubo.</p>
+    <p>Luego preparamos las soluciones: lactosa anhidra al 10 % en agua y mentol al 5 % en etanol, ambas expresadas en gramos por 100 mililitros. Llenamos el tubo con cuidado para que no quedaran burbujas, porque una burbuja desvía el haz y altera la lectura.</p>
+    <p>A continuación medimos el ángulo. Cada estudiante tomó una lectura, de modo que reunimos veinte lecturas por analito, organizadas en dos series de diez. En el caso del mentol hay un detalle: el ángulo real es la lectura menos 180 grados, porque la escala del equipo va de 0 a 360 y un giro hacia la izquierda aparece cerca de 180. Por último, registramos la temperatura en cada lectura.</p>
+    <p>En la tabla de la derecha están las condiciones: el tubo de 2 decímetros, la línea D del sodio a 589,3 nanómetros, una temperatura nominal de 20 grados, aunque la que realmente medimos estuvo entre 19 y 26 grados, y las masas molares de los dos analitos.</p>
+    <p>Hay una decisión del diseño que conviene destacar: que cada estudiante tomara una lectura incorpora la variación entre operadores. Eso hace que la precisión que obtenemos sea realista, la de un laboratorio con varias personas, y no solo la de un único analista.</p>
+    <p>También hay limitaciones. La temperatura llegó a estar hasta 6 grados por encima de la nominal, porque el equipo no estaba termostatizado. Y ni las concentraciones ni la longitud del tubo quedaron registradas en la hoja de datos: la longitud corresponde al tubo estándar de prácticas, y las concentraciones las dedujimos a partir de los valores de rotación específica que calculó el grupo.</p>
   </aside>
 </section>
 
@@ -993,12 +913,10 @@
   </div>
   <p class="eq-legend">Mentol: <var>α</var> = lectura − 180°. Fuente: «Hoja 1», AIF Módulo II, jueves.</p>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>La Tabla 2.1 tiene todas las lecturas crudas: diez por cada solución, lactosa 1 y 2 y mentol 1 y 2, con la temperatura de cada una. En el mentol se ven dos columnas: la lectura en la escala, alrededor de 175°, y el ángulo real, que es la lectura menos 180, alrededor de −4,7°.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>La lactosa dio ángulos positivos, entre 9,6° y 11,2°. El mentol, negativos, entre −4,1° y −5,0°. La temperatura varió entre 19 y 26 °C.</p>
-    <h3>Interpretación</h3>
-    <p>Los signos son los esperados: la lactosa es dextrógira y el mentol levógiro, lo que confirma el sentido de giro del equipo. La dispersión es notable para una medición de este tipo: en la lactosa hay lecturas que se alejan hasta 0,85° del promedio. La analizamos más adelante.</p>
+    <p>La Tabla 2.1 tiene todas las lecturas crudas de la práctica: diez lecturas por cada solución, es decir, lactosa 1, lactosa 2, mentol 1 y mentol 2, cada una con la temperatura a la que se tomó. En las columnas del mentol aparecen dos valores: la lectura tal como se ve en la escala, que está alrededor de 175 grados, y el ángulo real, que es esa lectura menos 180 y queda alrededor de menos 4,7 grados.</p>
+    <p>¿Qué se observa? La lactosa dio ángulos positivos, entre 9,6 y 11,2 grados. El mentol dio ángulos negativos, entre menos 4,1 y menos 5,0 grados. Y la temperatura varió entre 19 y 26 grados a lo largo de la práctica.</p>
+    <p>Lo primero que confirman estos datos es que los signos son los esperados: la lactosa es dextrógira y el mentol es levógiro. Eso nos da confianza en que el equipo está indicando bien el sentido de giro.</p>
+    <p>Lo segundo que se observa es que la dispersión es bastante notable para una medición de este tipo: en la lactosa hay lecturas que se alejan hasta 0,85 grados del promedio. Esa dispersión la vamos a analizar con más detalle en la discusión.</p>
   </aside>
 </section>
 
@@ -1023,14 +941,11 @@
   <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>La Tabla G3 es el formato que pide la guía, con las veinte lecturas de cada analito: promedio, %RSD, coeficiente de variación, prueba t y rotación específica.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>Lactosa: promedio de +10,45°, %RSD de 4,4, t de 0,49 frente a +52,5° y rotación específica de +52,25°.</p>
-    <p>Mentol: promedio de −4,66°, %RSD de 6,1, t de 5,44 frente a −50° y rotación específica de −46,55°.</p>
-    <h3>Interpretación</h3>
-    <p>El recuadro aclara cómo leer la tabla. La guía pide veinte determinaciones, una por estudiante, y la hoja las registra en dos series de diez que no difieren entre sí, según la prueba de Welch, con p de 0,57 y 0,60; por eso las combinamos.</p>
-    <p>El coeficiente de variación es la desviación entre el promedio, como fracción, y el %RSD es ese valor por cien. La t crítica para 19 grados de libertad es 2,093: la lactosa queda por debajo y el mentol por encima.</p>
+    <p>La Tabla G3 presenta los resultados en el formato que pide la guía, usando las veinte lecturas de cada analito. Para cada uno aparecen el promedio, el porcentaje de desviación estándar relativa, el coeficiente de variación, el estadístico de la prueba t y la rotación específica.</p>
+    <p>Para la lactosa, el promedio fue de más 10,45 grados, con un porcentaje de desviación estándar relativa de 4,4, una t de 0,49 frente a la referencia de más 52,5 grados y una rotación específica de más 52,25 grados.</p>
+    <p>Para el mentol, el promedio fue de menos 4,66 grados, con un porcentaje de desviación estándar relativa de 6,1, una t de 5,44 frente a la referencia de menos 50 grados y una rotación específica de menos 46,55 grados.</p>
+    <p>El recuadro de la derecha aclara cómo leer la tabla. La guía pide veinte determinaciones, una por estudiante, y en la hoja de datos esas lecturas quedaron registradas en dos series de diez. Antes de combinarlas comprobamos con la prueba de Welch que las dos series no difieren entre sí, con valores p de 0,57 y 0,60; por eso las tratamos como una sola población.</p>
+    <p>También conviene recordar que el coeficiente de variación es la desviación estándar dividida entre el promedio, expresada como fracción, y que el porcentaje de desviación estándar relativa es ese mismo valor multiplicado por cien. La t crítica, para 19 grados de libertad, es 2,093: la lactosa queda por debajo de ese valor y el mentol por encima.</p>
   </aside>
 </section>
 
@@ -1058,15 +973,11 @@
     </table>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>La ecuación desplegable explica dos herramientas: el intervalo de confianza de la media, que es el rango donde probablemente está el valor verdadero, y la prueba t de Welch, que compara dos series sin suponer que tienen la misma dispersión.</p>
-    <p>La Tabla 2.2 tiene la estadística de cada solución y de cada analito combinado, la comparación entre soluciones y la comparación con el valor de referencia.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>Lactosa: promedio de +10,45° con desviación de 0,46° e intervalo de más o menos 0,22°. Mentol: −4,66° con desviación de 0,28° e intervalo de más o menos 0,13°.</p>
-    <p>Las soluciones 1 y 2 no difieren: en lactosa t es −0,57 con p de 0,57; en mentol t es 0,54 con p de 0,60.</p>
-    <p>La rotación específica de la lactosa es +52,25 más o menos 1,08°, con un intervalo de 51,2 a 53,3 que incluye el valor de referencia de +52,5°. La del mentol es −46,55 más o menos 1,33°, de −47,9 a −45,2, que no incluye −50°.</p>
-    <h3>Interpretación</h3>
-    <p>La preparación de las soluciones es reproducible, así que podemos tratar las veinte lecturas como una sola población. La lactosa coincide con la referencia: t de 0,49, menor que 2,093. El mentol difiere de −50°, con t de 5,44, pero queda dentro del intervalo que acepta la USP, de −45 a −51°.</p>
+    <p>En esta diapositiva está el tratamiento estadístico. La ecuación desplegable explica dos herramientas. La primera es el intervalo de confianza de la media, que es el rango en el que probablemente se encuentra el valor verdadero. La segunda es la prueba t de Welch, que compara dos series de datos sin suponer que tienen la misma dispersión.</p>
+    <p>La Tabla 2.2 recoge la estadística de cada solución por separado y de cada analito combinado, la comparación entre las dos soluciones y la comparación con el valor de referencia.</p>
+    <p>Para la lactosa, el promedio combinado es de más 10,45 grados, con una desviación estándar de 0,46 grados y un intervalo de confianza de más o menos 0,22 grados. Para el mentol, el promedio es de menos 4,66 grados, con una desviación de 0,28 y un intervalo de más o menos 0,13 grados.</p>
+    <p>Al comparar las soluciones entre sí, no encontramos diferencia: en la lactosa la t es menos 0,57, con un valor p de 0,57, y en el mentol la t es 0,54, con un valor p de 0,60. Esto nos dice que la preparación de las soluciones fue reproducible, y que podemos tratar las veinte lecturas de cada analito como una sola población.</p>
+    <p>En cuanto a la rotación específica, la de la lactosa es de más 52,25 grados, con un intervalo de más o menos 1,08, es decir, entre 51,2 y 53,3 grados. Ese intervalo incluye el valor de referencia, más 52,5 grados, y la prueba t lo confirma: 0,49, muy por debajo de 2,093. La del mentol es de menos 46,55 grados, con un intervalo de más o menos 1,33, es decir, entre menos 47,9 y menos 45,2, que no incluye el valor de menos 50. Aquí la t es de 5,44, así que sí hay diferencia con la referencia. Sin embargo, el valor queda dentro del intervalo que acepta la USP, que va de menos 45 a menos 51 grados.</p>
   </aside>
 </section>
 
@@ -1089,16 +1000,11 @@
     <p>[<var>α</var>] = 100 · <span class="bar"><var>α</var></span> / (<var>l</var> · <var>C</var>); con <var>l</var> = 2&#8239;dm, los valores de la hoja del grupo corresponden a <var>C</var> = 10&#8239;g/100&#8239;mL (lactosa, en agua) y 5&#8239;g/100&#8239;mL (mentol, en etanol; en agua solo se disuelve ≈&#8239;0,05&#8239;g/100&#8239;mL). El IC de [<var>α</var>] escala el de <span class="bar"><var>α</var></span> por 100/(<var>l</var>·<var>C</var>).</p>
   </div>
   <aside class="notes guion">
-    <h3>Qué muestra</h3>
-    <p>Los dos resultados clave y, abajo, cómo se calculó la rotación específica.</p>
-    <h3>Qué se obtuvo</h3>
-    <p>Lactosa: ángulo promedio de +10,45 más o menos 0,22°, con veinte lecturas y %RSD de 4,4. Su rotación específica es +52,25 más o menos 1,08°, frente a +52,5° tabulado.</p>
-    <p>Mentol: −4,66 más o menos 0,13°, %RSD de 6,1, y rotación específica de −46,55 más o menos 1,33°, frente a unos −50°.</p>
-    <h3>Interpretación</h3>
-    <p>La rotación específica es cien por el ángulo promedio dividido por la longitud por la concentración. Con un tubo de 2 decímetros, los valores del grupo corresponden a 10 g por 100 mL de lactosa en agua y 5 g por 100 mL de mentol en etanol. Esto confirma el disolvente del mentol: en agua solo se disuelven unos 0,05 g por 100 mL, cien veces menos de lo que usamos.</p>
-    <p>El intervalo de la rotación específica se obtiene multiplicando el del ángulo por el mismo factor, cien entre longitud por concentración.</p>
-    <h3>Limitaciones</h3>
-    <p>Ese intervalo solo incluye la incertidumbre de la lectura. La de la pesada, el aforo y la longitud del tubo también afecta a la rotación específica y debería sumarse.</p>
+    <p>Estos son los dos resultados clave de la práctica y, en la parte de abajo, cómo calculamos la rotación específica.</p>
+    <p>Para la lactosa obtuvimos un ángulo promedio de más 10,45 grados, con un intervalo de más o menos 0,22, a partir de veinte lecturas y con un porcentaje de desviación estándar relativa de 4,4. Su rotación específica es de más 52,25 grados, con un intervalo de más o menos 1,08, frente a un valor tabulado de más 52,5 grados.</p>
+    <p>Para el mentol obtuvimos menos 4,66 grados, con un intervalo de más o menos 0,13 y un porcentaje de desviación estándar relativa de 6,1. Su rotación específica es de menos 46,55 grados, con un intervalo de más o menos 1,33, frente a un valor de referencia de aproximadamente menos 50 grados.</p>
+    <p>El cálculo es el de la ley de Biot: la rotación específica es cien por el ángulo promedio, dividido entre la longitud del tubo por la concentración. Con un tubo de 2 decímetros, los valores que calculó el grupo corresponden a una concentración de 10 gramos por 100 mililitros de lactosa en agua y de 5 gramos por 100 mililitros de mentol en etanol. Esto, de paso, confirma el disolvente del mentol: en agua solo se disuelven unos 0,05 gramos por 100 mililitros, cien veces menos de lo que usamos.</p>
+    <p>El intervalo de la rotación específica se obtiene multiplicando el intervalo del ángulo por ese mismo factor, cien entre longitud por concentración. Hay que tener presente una limitación: ese intervalo solo incluye la incertidumbre de la lectura. La incertidumbre de la pesada, del aforo y de la longitud del tubo también afecta a la rotación específica, y en un trabajo más riguroso debería sumarse.</p>
   </aside>
 </section>
 
@@ -1124,17 +1030,14 @@
     </ul>
   </div>
   <aside class="notes guion">
-    <h3>Interpretación</h3>
-    <p>Discutimos cinco puntos.</p>
-    <p>Precisión: el %RSD fue de 4,4 en lactosa y 6,1 en mentol; el criterio habitual es de 2 % o menos, así que ninguno cumple.</p>
-    <p>Reproducibilidad de la preparación: las dos soluciones de cada analito dan el mismo ángulo.</p>
-    <p>Temperatura: aunque varió entre 19 y 26 °C, no se relaciona con el ángulo; las correlaciones son de 0,12 y −0,28, sin significancia. En este intervalo su efecto es menor que la dispersión de lectura.</p>
-    <p>Lactosa: su rotación específica no difiere del valor de equilibrio. Como la lactosa anhidra es rica en el anómero beta, que empieza en +35°, esto indica que la mutarrotación ya había terminado cuando leímos.</p>
-    <p>Mentol: su rotación específica es un 7 % menor que −50°, pero cumple la USP. Las causas posibles son un error en la concentración, por ejemplo por evaporación del etanol, o la pureza del reactivo.</p>
-    <h3>Limitaciones</h3>
-    <p>El recuadro de observación explica la baja precisión: la escala se lee en pasos de 0,1° y hay lecturas hasta 0,85° alejadas del promedio en lactosa y 0,56° en mentol. La causa más probable es que cada lectura la tomó un estudiante distinto, que iguala a ojo la intensidad de los dos semicampos. No es la temperatura, como ya vimos.</p>
-    <h3>Conclusión</h3>
-    <p>La lactosa gira la luz a la derecha, +10,45°, y el mentol a la izquierda, −4,66°. La precisión fue de 4,4 y 6,1 % de RSD, sin diferencia entre soluciones replicadas. La rotación específica de la lactosa, +52,25°, concuerda con la de farmacopea; la del mentol, −46,55°, es menor que −50° pero está dentro del intervalo USP. La técnica identifica correctamente ambas sustancias, aunque su precisión mejoraría con un solo operador o un polarímetro digital y temperatura controlada.</p>
+    <p>En esta diapositiva discutimos los resultados y cerramos la práctica. Vamos con cinco puntos.</p>
+    <p>El primero es la precisión. El porcentaje de desviación estándar relativa fue de 4,4 en la lactosa y de 6,1 en el mentol. El criterio habitual es de 2 % o menos, así que ninguno de los dos cumple.</p>
+    <p>El segundo es la reproducibilidad de la preparación. Las dos soluciones de cada analito dan el mismo ángulo, según la prueba de Welch, así que la forma en que preparamos las soluciones no es el problema.</p>
+    <p>El tercero es la temperatura. Aunque varió entre 19 y 26 grados, no encontramos relación entre la temperatura y el ángulo: las correlaciones fueron de 0,12 y de menos 0,28, y ninguna es significativa. En este intervalo, el efecto de la temperatura es menor que la dispersión de las lecturas.</p>
+    <p>El cuarto es la lactosa. Su rotación específica no difiere del valor de equilibrio, más 52,5 grados. Como la lactosa anhidra es rica en el anómero beta, que empieza en más 35 grados, esto nos indica que la mutarrotación ya había terminado cuando hicimos las lecturas.</p>
+    <p>El quinto es el mentol. Su rotación específica es aproximadamente un 7 % menor que menos 50 grados, aunque cumple el intervalo de la USP. Las causas posibles son un error en la concentración, por ejemplo por evaporación del etanol durante la preparación, o la pureza del reactivo.</p>
+    <p>El recuadro de observación explica por qué la precisión fue baja. La escala se lee en pasos de 0,1 grados y hay lecturas que se alejan hasta 0,85 grados del promedio en la lactosa y 0,56 en el mentol. La causa más probable es que cada lectura la tomó un estudiante distinto, y cada uno iguala a ojo la intensidad de los dos semicampos del polarímetro. No es la temperatura, como ya vimos.</p>
+    <p>Como conclusión: la lactosa gira la luz hacia la derecha, más 10,45 grados, y el mentol hacia la izquierda, menos 4,66 grados. La precisión fue de 4,4 y 6,1 % de desviación estándar relativa, sin diferencia entre las soluciones replicadas. La rotación específica de la lactosa, más 52,25 grados, concuerda con la de farmacopea; la del mentol, menos 46,55 grados, es menor que menos 50 pero está dentro del intervalo de la USP. La técnica identifica correctamente ambas sustancias, y su precisión mejoraría con un solo operador, o con un polarímetro digital y temperatura controlada.</p>
   </aside>
 </section>
 
@@ -1148,13 +1051,11 @@
     <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">¿Influyó la temperatura en las lecturas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Análisis:</strong> correlación de Pearson entre <var>α</var> y la temperatura registrada (19–26 °C).</li><li><strong>Resultado:</strong> <var>r</var> = 0,12 (<var>p</var> = 0,62) en lactosa y <var>r</var> = −0,28 (<var>p</var> = 0,23) en mentol: sin relación significativa.</li><li><strong>Interpretación:</strong> [<var>α</var>] sí depende de <var>T</var>, pero en este intervalo su efecto es menor que la dispersión de lectura; por eso no aparece. La monografía exige 20 ó 25 °C y lo correcto es termostatizar.</li></ul></div></details>
   </div>
   <aside class="notes guion">
-    <h3>Cómo usar esta diapositiva</h3>
-    <p>Son las preguntas de estadística de la defensa, cada una con su respuesta modelo desplegable. Esta es la idea esencial de cada respuesta.</p>
-    <h3>Respuestas en breve</h3>
-    <p>Pregunta 1, por qué veinte lecturas: una por estudiante en dos soluciones, para incluir la variación entre operadores y preparaciones. El intervalo delimita el valor verdadero; el %RSD del mentol es mayor que el de la lactosa aunque su desviación es menor, porque su ángulo es más pequeño. Ninguno cumple el 2 %.</p>
-    <p>Pregunta 2, para qué la prueba de Welch: para comprobar que las dos soluciones dan lo mismo antes de combinarlas. Usamos Welch porque no supone varianzas iguales. Los p de 0,57 y 0,60 indican que no hay diferencia.</p>
-    <p>Pregunta 3, cómo demostramos la concordancia con la monografía: con la rotación específica y una prueba t de una muestra con 19 grados de libertad. La lactosa concuerda; el mentol difiere de −50° pero está en el intervalo USP.</p>
-    <p>Pregunta 4, si influyó la temperatura: la correlación no fue significativa. La temperatura sí afecta a la rotación, pero en este intervalo su efecto queda oculto por la dispersión de lectura; lo correcto es termostatizar.</p>
+    <p>Esta diapositiva es de apoyo para la defensa: son las preguntas de estadística que esperamos, cada una con su respuesta modelo desplegable. Aquí está la idea central de cada respuesta.</p>
+    <p>Si nos preguntan por qué se tomaron veinte lecturas: fue una por estudiante en dos soluciones, para incluir tanto la variación entre operadores como la variación entre preparaciones. El intervalo de confianza delimita dónde está el valor verdadero. Y si nos preguntan por qué el porcentaje de desviación estándar relativa del mentol es mayor que el de la lactosa aunque su desviación estándar es menor, la razón es que su ángulo es más pequeño, y el porcentaje se calcula dividiendo entre el promedio. Ninguno de los dos cumple el criterio de 2 %.</p>
+    <p>Si nos preguntan para qué sirve la prueba de Welch: para comprobar que las dos soluciones dan el mismo resultado antes de combinarlas. Usamos Welch porque no supone que las varianzas sean iguales, y los valores p de 0,57 y 0,60 indican que no hay diferencia.</p>
+    <p>Si nos preguntan cómo demostramos la concordancia con la monografía: con la rotación específica y una prueba t de una muestra, con 19 grados de libertad. La lactosa concuerda con la referencia; el mentol difiere de menos 50 grados, pero está dentro del intervalo que acepta la USP.</p>
+    <p>Y si nos preguntan si influyó la temperatura: la correlación no fue significativa. La temperatura sí afecta a la rotación, pero en este intervalo su efecto quedó oculto por la dispersión de las lecturas. Lo correcto sería termostatizar.</p>
   </aside>
 </section>
 
@@ -1167,12 +1068,10 @@
     <details class="eqd eqd--qa" name="qa-p2-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Qué variables afectan <var>α</var> y por qué [<var>α</var>] es un criterio de identidad y pureza?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Variables:</strong> <var>α</var> = [<var>α</var>]·<var>l</var>·<var>C</var>; además dependen de <var>λ</var> (dispersión rotatoria; por eso se fija la línea D, 589 nm), la temperatura, el disolvente y la concentración.</li><li><strong>Identidad:</strong> en condiciones normalizadas, [<var>α</var>] es una constante física característica de cada sustancia.</li><li><strong>Pureza:</strong> una impureza ópticamente inactiva diluye la rotación y la presencia del enantiómero opuesto la reduce; por eso las monografías fijan un intervalo de [<var>α</var>].</li></ul></div></details>
   </div>
   <aside class="notes guion">
-    <h3>Cómo usar esta diapositiva</h3>
-    <p>Son las preguntas de procedimiento y teoría, también con sus respuestas desplegables.</p>
-    <h3>Respuestas en breve</h3>
-    <p>Pregunta 1, el paso a paso: cero con el disolvente, solución pesada y aforada porque el ángulo es proporcional a la concentración, llenado sin burbujas porque desvían el haz, igualar los semicampos y leer con el nonio, restar 180° en el mentol, y anotar la temperatura.</p>
-    <p>Pregunta 2, por qué una es dextrógira y la otra levógira: ambas son quirales, pero el signo de la rotación es experimental y no se deduce de la configuración R o S. La lactosa debe leerse en el equilibrio por la mutarrotación; el mentol natural es levógiro, y una mezcla racémica no giraría la luz.</p>
-    <p>Pregunta 3, variables y criterio de identidad: el ángulo depende de la rotación específica, la longitud y la concentración, y además de la longitud de onda, la temperatura y el disolvente. En condiciones normalizadas la rotación específica es una constante, por eso identifica la sustancia; una impureza inactiva o el enantiómero opuesto la reducen, por eso también controla la pureza.</p>
+    <p>Por último, las preguntas de procedimiento y de teoría, también con sus respuestas desplegables. Esta es la idea esencial de cada una.</p>
+    <p>Si nos piden el paso a paso de una medición: hacer el cero con el disolvente; preparar la solución pesando y aforando con cuidado, porque el ángulo es proporcional a la concentración; llenar el tubo sin burbujas, porque desvían el haz; igualar la intensidad de los dos semicampos y leer con el nonio; restar 180 grados en el caso del mentol; y anotar la temperatura.</p>
+    <p>Si nos preguntan por qué una sustancia es dextrógira y la otra levógira: ambas son quirales, pero el signo de la rotación es un dato experimental y no se puede deducir de la configuración R o S de la molécula. La lactosa debe leerse en el equilibrio por la mutarrotación. El mentol natural es levógiro, y una mezcla racémica, con cantidades iguales de los dos enantiómeros, no giraría la luz.</p>
+    <p>Y si nos preguntan por las variables y por qué la rotación específica sirve como criterio de identidad: el ángulo depende de la rotación específica, de la longitud y de la concentración, y además de la longitud de onda, la temperatura y el disolvente. En condiciones normalizadas, la rotación específica es una constante, y por eso identifica a la sustancia. Si hay una impureza inactiva o una parte del enantiómero opuesto, la rotación específica disminuye, y por eso también sirve para controlar la pureza. Con esto terminamos la segunda práctica.</p>
   </aside>
 </section>
 
@@ -1903,7 +1802,7 @@
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>La hoja contiene una segunda serie con p<var>K</var><sub>a</sub> aparente de 8,5–9,7, que no corresponde al verde de bromocresol; se excluyó (Tabla 4.4). Sin réplica, la incertidumbre del p<var>K</var><sub>a</sub> solo puede estimarse con el error estándar del ajuste.</p>
+    <p>La hoja contiene una segunda serie con p<var>K</var><sub>a</sub> aparente de 8,6–9,7, que no corresponde al verde de bromocresol; se excluyó del resultado. Sin réplica, la incertidumbre del p<var>K</var><sub>a</sub> solo puede estimarse con el error estándar del ajuste.</p>
   </div>
 </section>
 

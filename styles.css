@@ -348,15 +348,17 @@ body.is-compact:not(.is-overview) .band__script { padding: .3em .5em; }
 .script-dlg__title { margin: 0; font-size: 1.3rem; line-height: 1.25; color: var(--title); }
 .script-dlg__body {
   overflow-y: auto;
-  padding: .5rem 1.25rem 1.5rem;
-  font-size: 1.05rem; line-height: 1.65;
+  padding: 1rem 1.5rem 1.75rem;
+  font-size: 1.15rem; line-height: 1.75;
 }
 .script-dlg__body h3 {
   margin: 1.1rem 0 .3rem;
   font-size: .82rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
   color: var(--accent);
 }
-.script-dlg__body p { margin: 0 0 .65rem; max-width: 65ch; }
+/* Guión en prosa: párrafos para leer en voz alta */
+.script-dlg__body p { margin: 0 0 1em; max-width: 68ch; text-wrap: pretty; }
+.script-dlg__body p:last-child { margin-bottom: 0; }
 
 .slide h2 {
   font-size: 2em; font-weight: 600; line-height: 1.15;
