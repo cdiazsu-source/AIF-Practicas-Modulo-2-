@@ -1183,7 +1183,7 @@
   <p class="section__num">04</p>
   <p class="section__kicker">Práctica 4</p>
   <h2 class="section__title">Espectrofotometría visible con verde de bromocresol</h2>
-  <p class="lead"><var>A</var> frente a pH · p<var>K</var><sub>a</sub> por método gráfico y por pendientes · punto isosbéstico</p>
+  <p class="lead"><var>A</var> frente a pH · p<var>K</var><sub>a</sub> por el método matemático (Henderson–Hasselbalch) · punto isosbéstico</p>
   <ul class="chips"><li><var>A</var></li><li>pH</li><li>p<var>K</var><sub>a</sub></li><li>Henderson–Hasselbalch</li></ul>
   <div class="section__obj">
   <div class="box objective">
@@ -1193,7 +1193,7 @@
   <ul class="points points--compact">
     <li>Determinar la <var>λ</var><sub>máx</sub> de las formas ácida (HIn) y básica (In<sup>−</sup>) mediante barrido espectral (400–700&#8239;nm).</li>
     <li>Registrar la absorbancia en función del pH (soluciones amortiguadoras de pH 1 a 13) e identificar el punto isosbéstico.</li>
-    <li>Calcular el p<var>K</var><sub>a</sub> por el método gráfico y por el de las pendientes (Henderson–Hasselbalch) y contrastarlo con el valor de referencia.</li>
+    <li>Calcular el p<var>K</var><sub>a</sub> por el método matemático de Henderson–Hasselbalch y contrastarlo con el valor de referencia (el método gráfico no fue aplicable con los datos obtenidos).</li>
   </ul>
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
@@ -1217,12 +1217,12 @@
     <div class="stack">
       <details class="eqd"><summary><span class="eqd__name">Equilibrio ácido-base del indicador</span><span class="eqd__f">HIn ⇌ H<sup>+</sup> + In<sup>−</sup></span><span class="eq__tag">(4.1)</span></summary><div class="eqd__body"><p>El indicador existe en una forma ácida (HIn) y otra básica (In<sup>−</sup>) de distinto color; el pH fija su proporción. Esa diferencia espectral permite seguir el equilibrio midiendo la absorbancia.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>Fracción básica: <code>=10^(pH-pKa)/(1+10^(pH-pKa))</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>El indicador tiene dos «caras»: una amarilla (ácida) y una azul (básica). El pH decide cuál predomina.</p></div></details>
       <details class="eqd"><summary><span class="eqd__name">Ecuación de Henderson-Hasselbalch</span><span class="eqd__f">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span>[In<sup>−</sup>]</span><span>[HIn]</span></span></span><span class="eq__tag">(4.2)</span></summary><div class="eqd__body"><p>Relaciona el pH con el p<var>K</var><sub>a</sub> y el cociente entre las formas básica y ácida. Cuando ambas concentraciones son iguales, pH = p<var>K</var><sub>a</sub>: el p<var>K</var><sub>a</sub> corresponde al punto medio de la transición de color.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=pKa+LOG10(In/HIn)</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Cuando hay tanto de la forma ácida como de la básica, el pH es igual al p<var>K</var><sub>a</sub>. Cada unidad de pH por encima o por debajo multiplica por diez la proporción de una forma sobre la otra.</p></div></details>
-      <details class="eqd"><summary><span class="eqd__name">Henderson-Hasselbalch en función de la absorbancia</span><span class="eqd__f">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span><var>A</var> − <var>A</var><sub>HIn</sub></span><span><var>A</var><sub>In<sup>−</sup></sub> − <var>A</var></span></span></span><span class="eq__tag">(4.3)</span></summary><div class="eqd__body"><p>Sustituye el cociente de concentraciones por absorbancias medidas a una <var>λ</var>, usando las de la forma totalmente ácida y totalmente básica. Al graficar pH frente al logaritmo se obtiene una recta de pendiente 1 cuyo intercepto es el p<var>K</var><sub>a</sub>.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>p<var>K</var><sub>a</sub> por punto: <code>=pH-LOG10((A-A_HIn)/(A_In-A))</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Como no se ven las moléculas, se usan los colores: la absorbancia de la mezcla está entre la de la forma ácida pura y la básica pura, y esa posición dice en qué proporción están.</p></div></details>
+      <details class="eqd"><summary><span class="eqd__name">Henderson-Hasselbalch en función de la absorbancia</span><span class="eqd__f">pH = p<var>K</var><sub>a</sub> + log <span class="frac"><span><var>A</var> − <var>A</var><sub>HIn</sub></span><span><var>A</var><sub>In<sup>−</sup></sub> − <var>A</var></span></span></span><span class="eq__tag">(4.3)</span></summary><div class="eqd__body"><p>Sustituye el cociente de concentraciones por absorbancias medidas a una <var>λ</var>, usando las de la forma totalmente ácida y totalmente básica. Despejando, cada solución de la zona de viraje da su propio p<var>K</var><sub>a</sub> (método matemático, ecuación 4.4).</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>p<var>K</var><sub>a</sub> por punto: <code>=pH-LOG10((A-A_HIn)/(A_In-A))</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Como no se ven las moléculas, se usan los colores: la absorbancia de la mezcla está entre la de la forma ácida pura y la básica pura, y esa posición dice en qué proporción están.</p></div></details>
     </div>
     <ul class="points">
       <li>La forma ácida (HIn) es amarilla y la básica (In<sup>−</sup>) es azul.</li>
-      <li>Método gráfico: p<var>K</var><sub>a</sub> es el pH donde <var>A</var> = (<var>A</var><sub>HIn</sub> + <var>A</var><sub>In<sup>−</sup></sub>)/2.</li>
-      <li>Método de pendientes: el logaritmo de (4.3) frente a pH da pendiente teórica 1 y corta el eje pH en p<var>K</var><sub>a</sub>.</li>
+      <li>Método matemático: con las absorbancias de la forma ácida pura y de la básica pura, cada solución de la zona de viraje da un p<var>K</var><sub>a</sub> por (4.3); se informa el promedio.</li>
+      <li>El método gráfico (pH donde <var>A</var> = (<var>A</var><sub>HIn</sub> + <var>A</var><sub>In<sup>−</sup></sub>)/2) exige una curva sigmoidal bien definida.</li>
     </ul>
   </div>
 </section>
@@ -1271,7 +1271,7 @@
       <table class="data">
         <caption>Tabla 4.0. Equipos</caption>
         <tbody>
-          <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
+          <tr><th scope="row">Espectrofotómetro</th><td>Optizen POP (UV-Vis)</td></tr>
           <tr><th scope="row">pH-metro</th><td>[___]</td></tr>
           <tr><th scope="row">Celdas</th><td><var>b</var> = 1&#8239;cm</td></tr>
           <tr><th scope="row">Buffers</th><td>pH 1–13 (10 niveles); composición [___]</td></tr>
@@ -1288,25 +1288,25 @@
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Datos y tablas">
   <h2>Datos y tablas</h2>
   <div class="grid-2 grid-2--wide-right">
-    <div class="box note"><p class="box__label">Sin curva de calibración</p><p>En esta práctica no se construyó curva de calibración. No hace falta para el p<var>K</var><sub>a</sub>: todas las soluciones llevan la misma cantidad de indicador (1&#8239;mL de la misma solución en 10&#8239;mL de buffer), así que la absorbancia solo cambia con la proporción entre la forma ácida y la básica, y el p<var>K</var><sub>a</sub> sale de la relación <var>A</var>–pH sin conocer <var>ε</var> ni la concentración.</p></div>
+    <div class="box note"><p class="box__label">Sin curva de calibración</p><p>En esta práctica no se construyó curva de calibración. No hace falta para el p<var>K</var><sub>a</sub>: todas las soluciones llevan la misma cantidad de indicador (1&#8239;mL de la misma solución en 10&#8239;mL de buffer), así que la absorbancia solo cambia con la proporción entre la forma ácida y la básica, y el p<var>K</var><sub>a</sub> sale de la relación <var>A</var>–pH sin conocer <var>ε</var> ni la concentración. Por la misma razón no hay tratamiento estadístico de regresión.</p></div>
     <div class="table-wrap table-wrap--tall">
       <table class="data">
-        <caption>Tabla 4.2. Absorbancia frente a pH (serie única, sin réplica). <var>f</var> = fracción de In<sup>−</sup> estimada a 445&#8239;nm</caption>
-        <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH real</th><th scope="col" class="num"><var>A</var><sub>445</sub></th><th scope="col" class="num"><var>A</var><sub>615</sub></th><th scope="col" class="num"><var>f</var></th><th scope="col" class="num">log[<var>f</var>/(1 − <var>f</var>)]</th></tr></thead>
+        <caption>Tabla 4.2. Absorbancia frente a pH (serie única, sin réplica) y p<var>K</var><sub>a</sub> por solución a 445&#8239;nm</caption>
+        <thead><tr><th scope="col" class="num">N.º</th><th scope="col" class="num">pH real</th><th scope="col" class="num"><var>A</var><sub>445</sub></th><th scope="col" class="num"><var>A</var><sub>615</sub></th><th scope="col" class="num">[A<sup>−</sup>]/[HA]</th><th scope="col" class="num">p<var>K</var><sub>a</sub></th></tr></thead>
         <tbody>
-          <tr><td class="num">1</td><td class="num mono">0,80</td><td class="num mono">0,244</td><td class="num mono">0,004</td><td class="num">0,09</td><td class="num">−0,99</td></tr>
-          <tr><td class="num">2</td><td class="num mono">1,84</td><td class="num mono">0,265</td><td class="num mono sig">0,674*</td><td class="num">0,00</td><td class="num">—</td></tr>
-          <tr><td class="num">3</td><td class="num mono">3,07</td><td class="num mono">0,283</td><td class="num mono">0,274</td><td class="num">−0,08</td><td class="num">—</td></tr>
-          <tr><td class="num">4</td><td class="num mono">3,72</td><td class="num mono">0,263</td><td class="num mono">0,408</td><td class="num">0,01</td><td class="num">—</td></tr>
-          <tr><td class="num">5</td><td class="num mono">5,25</td><td class="num mono">0,159</td><td class="num mono">0,510</td><td class="num">0,48</td><td class="num">−0,03</td></tr>
-          <tr><td class="num">6</td><td class="num mono">6,24</td><td class="num mono">0,090</td><td class="num mono">0,592</td><td class="num">0,79</td><td class="num">0,59</td></tr>
-          <tr><td class="num">7</td><td class="num mono">7,00</td><td class="num mono">0,048</td><td class="num mono">0,572</td><td class="num">0,98</td><td class="num">—</td></tr>
-          <tr><td class="num">8</td><td class="num mono">8,03</td><td class="num mono">0,043</td><td class="num mono">0,663</td><td class="num">1,01</td><td class="num">—</td></tr>
-          <tr><td class="num">9</td><td class="num mono">10,23</td><td class="num mono">0,036</td><td class="num mono">0,619</td><td class="num">1,04</td><td class="num">—</td></tr>
-          <tr><td class="num">10</td><td class="num mono">13,38</td><td class="num mono">0,043</td><td class="num mono">0,571</td><td class="num">1,01</td><td class="num">—</td></tr>
+          <tr><td class="num">1</td><td class="num mono">0,80</td><td class="num mono">0,244</td><td class="num mono">0,004</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">2</td><td class="num mono">1,84</td><td class="num mono">0,265</td><td class="num mono sig">0,674*</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">3</td><td class="num mono">3,07</td><td class="num mono">0,283</td><td class="num mono">0,274</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">4</td><td class="num mono">3,72</td><td class="num mono">0,263</td><td class="num mono">0,408</td><td class="num">0,022</td><td class="num"><strong>5,38</strong></td></tr>
+          <tr><td class="num">5</td><td class="num mono">5,25</td><td class="num mono">0,159</td><td class="num mono">0,510</td><td class="num">0,886</td><td class="num"><strong>5,30</strong></td></tr>
+          <tr><td class="num">6</td><td class="num mono">6,24</td><td class="num mono">0,090</td><td class="num mono">0,592</td><td class="num">3,296</td><td class="num"><strong>5,72</strong></td></tr>
+          <tr><td class="num">7</td><td class="num mono">7,00</td><td class="num mono">0,048</td><td class="num mono">0,572</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">8</td><td class="num mono">8,03</td><td class="num mono">0,043</td><td class="num mono">0,663</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">9</td><td class="num mono">10,23</td><td class="num mono">0,036</td><td class="num mono">0,619</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td class="num">10</td><td class="num mono">13,38</td><td class="num mono">0,043</td><td class="num mono">0,571</td><td class="num">—</td><td class="num">—</td></tr>
         </tbody>
       </table>
-      <p class="eq-legend">* Lectura atípica: la forma ácida absorbe 0,010 a 615&#8239;nm. <var>f</var> = (<var>A</var><sub>HIn</sub> − <var>A</var>)/(<var>A</var><sub>HIn</sub> − <var>A</var><sub>In<sup>−</sup></sub>), con los extremos del ajuste sigmoidal (0,265 y 0,045).</p>
+      <p class="eq-legend">* Lectura atípica: la forma ácida absorbe 0,010 a 615&#8239;nm. [A<sup>−</sup>]/[HA] = (<var>A</var><sub>HA</sub> − <var>A</var>)/(<var>A</var> − <var>A</var><sub>A<sup>−</sup></sub>), con <var>A</var><sub>HA</sub> = 0,268 (barrido en HCl) y <var>A</var><sub>A<sup>−</sup></sub> = 0,036 (tubo 9). Solo los tubos 4–6 están en la zona de viraje (pH 3,7–6,2).</p>
     </div>
   </div>
 </section>
@@ -1321,7 +1321,7 @@
         <thead><tr><th scope="col">Medio</th><th scope="col">Solubilidad</th><th scope="col">Observaciones</th></tr></thead>
         <tbody>
           <tr><th scope="row">EtOH 96&#8239;%</th><td>Buena</td><td>—</td></tr>
-          <tr><th scope="row">Agua destilada</th><td>[___]</td><td>[___]</td></tr>
+          <tr><th scope="row">Agua destilada</th><td>No se ensayó</td><td>—</td></tr>
           <tr><th scope="row">HCl 0,1&#8239;N <small>(usado: 0,55&#8239;N)</small></th><td>Baja</td><td>Se usa (forma ácida)</td></tr>
           <tr><th scope="row">NaOH 0,1&#8239;N <small>(usado: 0,1843&#8239;N)</small></th><td>Alta</td><td>Se usa (forma básica)</td></tr>
         </tbody>
@@ -1375,7 +1375,7 @@
         </tbody>
       </table>
     </div>
-  <p class="eq-legend">* Lectura atípica (ver Tabla 4.2). Se preparó una sola solución por pH: la práctica se hizo sin réplica. Con estos datos se determinan el p<var>K</var><sub>a</sub> (método gráfico y de pendientes) y el punto isosbéstico. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+  <p class="eq-legend">* Lectura atípica (ver Tabla 4.2). Se preparó una sola solución por pH: la práctica se hizo sin réplica. Con estos datos se determinan el p<var>K</var><sub>a</sub> (método matemático) y el punto isosbéstico. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.1 · Espectros y punto isosbéstico">
@@ -1394,54 +1394,38 @@
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.2 · Absorbancia frente a pH">
-  <h2>Absorbancia frente a pH: método gráfico</h2>
+  <h2>Absorbancia frente a pH</h2>
   <div class="fig-slide">
-    <figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Es el gráfico de la hoja del grupo (Réplica 1): muestra cómo cambia la absorbancia de la forma ácida (HA, 445&#8239;nm) y de la básica (A<sup>−</sup>, 615&#8239;nm) con el pH. Donde una cae y la otra sube está el viraje; el p<var>K</var><sub>a</sub> es el pH en el centro de esa transición, donde las dos formas están en igual concentración.</p></div></details>
+    <figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Es el gráfico de la hoja del grupo (Réplica 1) con los datos crudos: muestra cómo cambia la absorbancia de la forma ácida (HA, 445&#8239;nm) y de la básica (A<sup>−</sup>, 615&#8239;nm) con el pH. Sirve para ubicar la zona de viraje y detectar lecturas atípicas antes de calcular el p<var>K</var><sub>a</sub>.</p></div></details>
       <div class="chart" data-chart>
         <script type="application/json">{"type": "xy", "title": "Absorbancia vs pH", "showTitle": true, "aspect": 0.6, "x": {"label": "pH real", "categories": ["0,8", "1,84", "3,07", "3,72", "5,25", "6,24", "7", "8,03", "10,23", "13,38"]}, "y": {"label": "Absorbancia", "min": 0, "max": 0.8, "step": 0.1}, "series": [{"name": "Abs [HA]", "points": [[0, 0.244], [1, 0.265], [2, 0.283], [3, 0.263], [4, 0.159], [5, 0.09], [6, 0.048], [7, 0.043], [8, 0.036], [9, 0.043]], "line": true, "markers": false, "color": 6, "labels": true, "labelBelow": [2]}, {"name": "Abs [A<sup>−</sup>]", "points": [[0, 0.004], [1, 0.674], [2, 0.274], [3, 0.408], [4, 0.51], [5, 0.592], [6, 0.572], [7, 0.663], [8, 0.619], [9, 0.571]], "line": true, "markers": false, "color": 7, "labels": true}]}</script>
       </div>
       <figcaption>Figura 4.2. Absorbancia de las formas HA (445&#8239;nm) y A<sup>−</sup> (615&#8239;nm) frente al pH real (serie única; gráfico de la hoja del grupo). El eje x es por categorías: los pH no están a escala.</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La forma ácida (HA) baja de forma limpia de ≈&#8239;0,265 a ≈&#8239;0,045 entre pH 3,72 y 7. La interpolación a la absorbancia media da p<var>K</var><sub>a</sub> = 5,24 y el ajuste sigmoidal (Tabla 4.3), 5,35 ± 0,28.</p><p>A 615&#8239;nm los datos no son coherentes con los de 445&#8239;nm: a pH 3,07 la forma básica ya alcanza el 45&#8239;% de su máximo, mientras que a 445&#8239;nm la solución sigue completamente ácida. Su ajuste (p<var>K</var><sub>a</sub> = 3,24) no se usa para el resultado; las posibles causas se discuten al final de la práctica.</p><p>La transición está poco muestreada: entre pH 3,72 y 6,24 solo hay una solución (pH 5,25), lo que limita la exactitud del punto de inflexión.</p></div>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La curva no tiene una forma de S definida: a 615&#8239;nm el tubo 2 (pH 1,84) salta a 0,674 y en el tubo 3 (pH 3,07) las dos líneas se cruzan antes de tiempo. No se puede ubicar el punto de inflexión, así que el método gráfico no es aplicable; el p<var>K</var><sub>a</sub> se calcula por el método matemático.</p><p>A 445&#8239;nm la forma ácida sí baja de forma ordenada entre pH 3,72 y 7 (0,263 → 0,048): de esa zona salen los puntos del cálculo.</p><p>La transición está poco muestreada: entre pH 3,72 y 6,24 solo hay una solución (pH 5,25).</p></div>
     </div>
   </div>
 </section>
 
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.3 · Método de pendientes">
-  <h2>Método de pendientes (linealización)</h2>
-  <div class="fig-slide">
-    <figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Linealiza la ecuación de Henderson–Hasselbalch (4.3): si el modelo se cumple, los puntos forman una recta de pendiente 1 que corta el eje en pH = p<var>K</var><sub>a</sub>, y cada punto aporta una estimación independiente.</p></div></details>
-      <div class="chart" data-chart>
-        <script type="application/json">{"type": "xy", "title": "Linealización de Henderson–Hasselbalch", "aspect": 0.6, "x": {"label": "pH", "min": 2, "max": 8}, "y": {"label": "log[f/(1 − f)]", "min": -2.5, "max": 2.5}, "series": [{"name": "445 nm", "points": [[5.25, -0.035], [6.24, 0.586]], "color": 2, "zero": true}, {"name": "Pendiente 1, p<var>K</var><sub>a</sub> = 5,35", "points": [[2.855, -2.5], [7.855, 2.5]], "line": true, "markers": false, "color": 2, "dash": 2}, {"name": "615 nm", "points": [[3.07, -0.074], [3.72, 0.347], [5.25, 0.814], [7.0, 1.586]], "color": 1}, {"name": "Pendiente 1, p<var>K</var><sub>a</sub> = 3,24", "points": [[2, -1.238], [5.738, 2.5]], "line": true, "markers": false, "color": 1, "dash": 2}]}</script>
-      </div>
-      <figcaption>Figura 4.3. log[<var>f</var>/(1 − <var>f</var>)] frente a pH para los puntos con 2–98&#8239;% de forma básica entre pH 2 y 8; las rectas tienen la pendiente teórica 1.</figcaption>
-    </figure>
-    <div class="stack">
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p>A 445&#8239;nm solo dos soluciones caen en la zona útil (10–90&#8239;% de conversión): pH 5,25 y 6,24, con p<var>K</var><sub>a</sub> individuales de 5,28 y 5,65. Con dos puntos no se puede estimar ni contrastar la pendiente.</p><p>Los puntos de 615&#8239;nm se ubican unas 2,1 unidades a la izquierda y no siguen la pendiente 1, lo que confirma la incoherencia de esa serie.</p><p>Para aplicar el método se requieren al menos 4–5 buffers entre pH 3,5 y 6 (p<var>K</var><sub>a</sub> ± 1).</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tratamiento estadístico">
-  <h2>Tratamiento estadístico</h2>
-  <details class="eqd"><summary><span class="eqd__name">Modelo sigmoidal (Henderson–Hasselbalch no lineal)</span><span class="eqd__f"><var>A</var> = <span class="frac"><span><var>A</var><sub>HIn</sub> + <var>A</var><sub>In<sup>−</sup></sub>·10<sup>pH − p<var>K</var><sub>a</sub></sup></span><span>1 + 10<sup>pH − p<var>K</var><sub>a</sub></sup></span></span></span><span class="eq__tag">(4.4)</span></summary><div class="eqd__body"><p>Describe la absorbancia de la mezcla de ambas formas a cualquier pH. Se ajusta por mínimos cuadrados no lineales y estima a la vez los dos extremos y el p<var>K</var><sub>a</sub>, con su error estándar.</p><p>A diferencia del método gráfico, usa todas las soluciones y no depende de elegir a mano las absorbancias límite; es el estimador más robusto cuando hay pocos puntos en la zona de transición.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span>Modelo: <code>=(A_HIn+A_In*10^(pH-pKa))/(1+10^(pH-pKa))</code> · ajuste con Solver: minimizar <code>=SUMAXMENOSY2(A_medida;A_modelo)</code> cambiando p<var>K</var><sub>a</sub>, <var>A</var><sub>HIn</sub> y <var>A</var><sub>In</sub></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Se dibuja la «S» que mejor pasa por todos los puntos de absorbancia frente a pH; el centro de la S es el p<var>K</var><sub>a</sub>.</p></div></details>
+<section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Método matemático">
+  <h2>Método matemático: Henderson–Hasselbalch</h2>
+  <details class="eqd"><summary><span class="eqd__name">p<var>K</var><sub>a</sub> por solución a 445&#8239;nm</span><span class="eqd__f">p<var>K</var><sub>a</sub> = pH − log <span class="frac"><span><var>A</var><sub>HA</sub> − <var>A</var></span><span><var>A</var> − <var>A</var><sub>A<sup>−</sup></sub></span></span></span><span class="eq__tag">(4.4)</span></summary><div class="eqd__body"><p>Es la ecuación (4.3) despejada. A 445&#8239;nm absorbe la forma ácida: <var>A</var><sub>HA</sub> es la absorbancia con todo el indicador como HA (barrido en HCl, 0,268) y <var>A</var><sub>A<sup>−</sup></sub> la de todo como A<sup>−</sup> (tubo 9, pH 10,23: 0,036). La posición de <var>A</var> entre ambas da el cociente [A<sup>−</sup>]/[HA].</p><p>Cada solución de la zona de viraje aporta un p<var>K</var><sub>a</sub>; fuera de ella el cociente es casi 0 o casi infinito y el resultado no es fiable.</p><p class="eqd__xl"><span class="eqd__tagline">Excel</span><code>=pH-LOG10((A_HA-A)/(A-A_A))</code> · promedio: <code>=PROMEDIO(...)</code> · <var>s</var>: <code>=DESVEST.M(...)</code></p><p class="eqd__plain"><span class="eqd__tagline">En palabras simples</span>Se mira qué tan lejos está cada absorbancia del «todo amarillo» y del «todo azul»; esa proporción, junto con el pH del tubo, dice cuánto vale el p<var>K</var><sub>a</sub>.</p></div></details>
   <div class="grid-2">
     <div class="table-wrap table-wrap--full">
       <table class="data">
-        <caption>Tabla 4.3. Estimación del p<var>K</var><sub>a</sub> (IC 95&#8239;%)</caption>
-        <thead><tr><th scope="col">Parámetro</th><th scope="col" class="num">445&#8239;nm (HIn)</th><th scope="col" class="num">615&#8239;nm (In<sup>−</sup>)<br><small>sin pH 1,84</small></th></tr></thead>
+        <caption>Tabla 4.3. Cálculo del p<var>K</var><sub>a</sub> por solución (445&#8239;nm)</caption>
+        <thead><tr><th scope="col" class="num">Tubo</th><th scope="col" class="num">pH</th><th scope="col" class="num"><var>A</var></th><th scope="col" class="num"><var>A</var><sub>HA</sub> − <var>A</var></th><th scope="col" class="num"><var>A</var> − <var>A</var><sub>A<sup>−</sup></sub></th><th scope="col" class="num">Cociente</th><th scope="col" class="num">log</th><th scope="col" class="num">p<var>K</var><sub>a</sub></th></tr></thead>
         <tbody>
-          <tr><th scope="row">p<var>K</var><sub>a</sub> · método gráfico</th><td class="num">5,24</td><td class="num">3,36</td></tr>
-          <tr><th scope="row">p<var>K</var><sub>a</sub> · ajuste sigmoidal ± IC</th><td class="num"><strong>5,35 ± 0,28</strong></td><td class="num">3,24 ± 0,37</td></tr>
-          <tr><th scope="row"><var>A</var><sub>HIn</sub> · <var>A</var><sub>In<sup>−</sup></sub> ajustadas</th><td class="num">0,265 · 0,045</td><td class="num">0,011 · 0,587</td></tr>
-          <tr><th scope="row"><var>s</var><sub><var>y</var>/<var>x</var></sub> (UA) · <var>N</var></th><td class="num">0,014 · 10</td><td class="num">0,050 · 9</td></tr>
-          <tr><th scope="row">p<var>K</var><sub>a</sub> · pendientes (por punto)</th><td class="num">5,28 · 5,65</td><td class="num">3,14 · 3,37 · 4,44</td></tr>
+          <tr><td class="num">4</td><td class="num mono">3,72</td><td class="num mono">0,263</td><td class="num">0,005</td><td class="num">0,227</td><td class="num">0,0220</td><td class="num">−1,657</td><td class="num"><strong>5,38</strong></td></tr>
+          <tr><td class="num">5</td><td class="num mono">5,25</td><td class="num mono">0,159</td><td class="num">0,109</td><td class="num">0,123</td><td class="num">0,8862</td><td class="num">−0,052</td><td class="num"><strong>5,30</strong></td></tr>
+          <tr><td class="num">6</td><td class="num mono">6,24</td><td class="num mono">0,090</td><td class="num">0,178</td><td class="num">0,054</td><td class="num">3,2963</td><td class="num">0,518</td><td class="num"><strong>5,72</strong></td></tr>
+          <tr><th scope="row" colspan="7">Promedio ± <var>s</var> (<var>n</var> = 3)</th><td class="num"><strong>5,47 ± 0,22</strong></td></tr>
         </tbody>
       </table>
-      <p class="eq-legend">La segunda tabla «Réplica 1» de la hoja (p<var>K</var><sub>a</sub> aparente 8,6–9,7, incompatible con el indicador) se excluye del resultado.</p>
+      <p class="eq-legend">Sin curva de calibración ni réplica no hay tratamiento estadístico de regresión: se informa el promedio y la desviación estándar de los tres valores.</p>
     </div>
-    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>A 445&#8239;nm el método gráfico (5,24) y el ajuste sigmoidal (5,35) concuerdan dentro de su incertidumbre; el residual típico (0,014&#8239;UA) es del orden del ruido instrumental.</p><p>Los valores por punto del método de pendientes (5,28 y 5,65) se dispersan 0,4 unidades; con solo dos puntos útiles no puede contrastarse la pendiente teórica 1.</p><p>La serie de 615&#8239;nm da un p<var>K</var><sub>a</sub> unas 2 unidades menor, con valores por punto que aumentan con el pH (no constantes): indica un error sistemático en esas lecturas, no un segundo equilibrio. Se informa el valor de 445&#8239;nm.</p></div>
+    <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los tres tubos de la zona de viraje dan p<var>K</var><sub>a</sub> entre 5,30 y 5,72; el promedio es 5,47 ± 0,22.</p><p>El tubo 4 es el menos fiable: <var>A</var><sub>HA</sub> − <var>A</var> = 0,005&#8239;UA, del orden del ruido del equipo. Si se tomara <var>A</var><sub>HA</sub> = 0,265 (tubo 2), su p<var>K</var><sub>a</sub> pasaría de 5,38 a 5,77. Sin el tubo 4, el promedio es 5,51.</p><p>La serie de 615&#8239;nm no se usa: sus lecturas a pH ácido son incoherentes con las de 445&#8239;nm.</p></div>
   </div>
 </section>
 
@@ -1449,14 +1433,14 @@
   <h2>Resultados</h2>
   <div class="grid-3">
     <div class="box key">
-      <p class="box__label">p<var>K</var><sub>a</sub> · ajuste sigmoidal</p>
-      <p class="key__value">5,35 ± 0,28</p>
-      <p class="key__meta">445&#8239;nm · <var>N</var> = 10 · IC 95&#8239;%</p>
+      <p class="box__label">p<var>K</var><sub>a</sub> · método matemático</p>
+      <p class="key__value">5,47 ± 0,22</p>
+      <p class="key__meta">445&#8239;nm · tubos 4–6 · promedio ± <var>s</var></p>
     </div>
     <div class="box key">
-      <p class="box__label">p<var>K</var><sub>a</sub> · método gráfico</p>
-      <p class="key__value">5,24</p>
-      <p class="key__meta">Pendientes (por punto): 5,28 y 5,65</p>
+      <p class="box__label">p<var>K</var><sub>a</sub> · por solución</p>
+      <p class="key__value">5,38 · 5,30 · 5,72</p>
+      <p class="key__meta">Tubos 4, 5 y 6 · sin el tubo 4: 5,51</p>
     </div>
     <div class="box key">
       <p class="box__label">p<var>K</var><sub>a</sub> · referencia</p>
@@ -1477,21 +1461,21 @@
   </div>
   <div class="box note">
     <p class="box__label">Comparación</p>
-    <p>Diferencia entre métodos: 0,11. Error relativo frente a la referencia: +13,9&#8239;% (ajuste) y +11,5&#8239;% (gráfico); la referencia queda fuera del IC del ajuste.</p>
+    <p>Diferencia frente a la referencia: +0,77 (error relativo +16,3&#8239;%); los tres valores por solución quedan por encima de 4,7. El método gráfico no se aplicó: la curva <var>A</var>–pH no muestra una sigmoide definida.</p>
   </div>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
-    <li>Concordancia entre métodos: el gráfico (5,24) y el ajuste sigmoidal (5,35 ± 0,28) coinciden; el de pendientes solo dispone de dos puntos en la zona útil y no permite contrastar la pendiente teórica 1.</li>
-    <li>Sesgo frente a la referencia (+0,65): la fuerza iónica de los buffers no se controló, la solución contiene etanol (que eleva el p<var>K</var><sub>a</sub> aparente de los ácidos) y el pH-metro pudo no estar calibrado en la zona ácida. Además, la transición está poco muestreada (pH 3,72 → 5,25 → 6,24).</li>
-    <li>Las lecturas a 615&#8239;nm son incoherentes con las de 445&#8239;nm (0,674 a pH 1,84; 45&#8239;% de la forma básica a pH 3,07). La causa más probable es contaminación de la pipeta, el tubo o la celda con solución azul; el otro grupo obtuvo la misma anomalía, lo que apunta a material compartido.</li>
-    <li>Calidad de los extremos: a pH 13,38 la absorbancia a 615&#8239;nm baja de 0,663 a 0,571, lo que es compatible con la decoloración de los colorantes de trifenilmetano en medio muy alcalino. Conviene tomar <var>A</var><sub>In<sup>−</sup></sub> entre pH 8 y 10.</li>
+    <li>Método: la curva <var>A</var>–pH no muestra una sigmoide definida (salto a 0,674 en pH 1,84 y cruce prematuro en pH 3,07), así que no se puede ubicar el punto de inflexión; el p<var>K</var><sub>a</sub> se calculó por el método matemático con los tubos 4–6 a 445&#8239;nm.</li>
+    <li>Sensibilidad del cálculo: en el tubo 4, <var>A</var><sub>HA</sub> − <var>A</var> = 0,005&#8239;UA, del orden del ruido; con <var>A</var><sub>HA</sub> = 0,265 su p<var>K</var><sub>a</sub> pasaría de 5,38 a 5,77. Sin el tubo 4 el promedio es 5,51, así que la conclusión no cambia.</li>
+    <li>Sesgo frente a la referencia (+0,77, 16,3&#8239;%): la fuerza iónica de los buffers no se controló, la solución contiene etanol (que eleva el p<var>K</var><sub>a</sub> aparente de los ácidos) y el pH-metro pudo no estar calibrado en la zona ácida. Además, la transición está poco muestreada (pH 3,72 → 5,25 → 6,24).</li>
+    <li>Lecturas a 615&#8239;nm incoherentes (0,674 a pH 1,84; cruce con 445&#8239;nm a pH 3,07): la causa más probable es contaminación cruzada de la celda con forma azul por lavado insuficiente entre lecturas, o un error de trasvase. El otro grupo obtuvo la misma anomalía, lo que apunta a material compartido.</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>La hoja contiene una segunda serie con p<var>K</var><sub>a</sub> aparente de 8,6–9,7, que no corresponde al verde de bromocresol; se excluyó del resultado. Sin réplica, la incertidumbre del p<var>K</var><sub>a</sub> solo puede estimarse con el error estándar del ajuste.</p>
+    <p>No se construyó curva de calibración (el docente no la pidió) ni se hizo réplica (la tabla «Réplica 2» de la hoja está vacía). Por eso no hay tratamiento estadístico de regresión y la incertidumbre del p<var>K</var><sub>a</sub> se estima solo con la dispersión de los tres valores (<var>s</var> = 0,22).</p>
   </div>
 </section>
 
@@ -1500,9 +1484,10 @@
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 4</p>
     <ul class="points">
-      <li>El p<var>K</var><sub>a</sub> del verde de bromocresol es 5,35 ± 0,28 (ajuste sigmoidal a 445&#8239;nm; método gráfico 5,24), 0,65 unidades por encima del valor de referencia (4,7).</li>
+      <li>Por el método matemático de Henderson–Hasselbalch a 445&#8239;nm, el p<var>K</var><sub>a</sub> del verde de bromocresol es 5,47 ± 0,22 (tubos 4–6), 0,77 unidades por encima del valor de referencia (4,7).</li>
       <li>Las formas ácida y básica absorben a 445 y 615&#8239;nm, en concordancia con los valores teóricos, y el punto isosbéstico a 510&#8239;nm confirma un equilibrio entre dos especies.</li>
-      <li>Para un resultado más exacto se requieren más buffers entre pH 3,5 y 6, fuerza iónica constante y repetir las lecturas a 615&#8239;nm.</li>
+      <li>El método gráfico no fue aplicable: la curva <var>A</var>–pH no tiene una sigmoide definida por las lecturas atípicas a 615&#8239;nm y los pocos puntos en el viraje.</li>
+      <li>Para un resultado más exacto se requieren más buffers entre pH 3,5 y 6, fuerza iónica constante, lavar la celda entre lecturas y hacer réplica.</li>
     </ul>
   </div>
 </section>
@@ -1882,7 +1867,7 @@
         <tr><th scope="row"><span class="dot" data-accent="p1"></span>1</th><td>Refractometría</td><td><var>n</var>, °Brix, °Bé</td><td>Lineal en 40–80&#8239;% p/p; falta de ajuste significativa</td><td>M1 40,5 ± 3,6 · M2 47,2 ± 2,6&#8239;% p/p (recta de <var>n</var>)</td><td>Falta de ajuste por curvatura; lectura muy repetible</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p2"></span>2</th><td>Polarimetría</td><td><var>α</var></td><td>[<var>α</var>] = <var>α</var>/(<var>l</var>·<var>c</var>)</td><td>[<var>α</var>]: lactosa +52,25 ± 1,08° · mentol −46,55 ± 1,33°</td><td>%RSD 4,4 y 6,1; lactosa = tabulado (<var>t</var> = 0,49); mentol 7&#8239;% bajo −50°, dentro de USP</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p3"></span>3</th><td>Espectrofotometría UV</td><td><var>A</var></td><td>Beer–Lambert</td><td><var>λ</var><sub>máx</sub> 221&#8239;nm · 56,2 ± 19,6&#8239;% p/p en el polvo</td><td>Lineal (<var>p</var><sub>fa</sub> = 0,97) pero duplicados imprecisos; muestra bajo el LOQ</td></tr>
-        <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>p<var>K</var><sub>a</sub> = 5,35 ± 0,28 (445&#8239;nm); isosbéstico 510&#8239;nm</td><td>+0,65 sobre la referencia (4,7); serie de 615&#8239;nm incoherente</td></tr>
+        <tr><th scope="row"><span class="dot" data-accent="p4"></span>4</th><td>Espectrofotometría visible</td><td><var>A</var> frente a pH</td><td>Henderson–Hasselbalch</td><td>p<var>K</var><sub>a</sub> = 5,47 ± 0,22 (método matemático, 445&#8239;nm); isosbéstico 510&#8239;nm</td><td>+0,77 sobre la referencia (4,7); sin método gráfico: serie de 615&#8239;nm incoherente</td></tr>
         <tr><th scope="row"><span class="dot" data-accent="p5"></span>5</th><td>UV multicomponente</td><td><var>A</var> a 256 y 273&#8239;nm</td><td>Aditividad + determinantes</td><td><var>m</var><sub>ACE,256</sub> = 0,0597 · <var>m</var><sub>CAF,273</sub> = 0,0516&#8239;mL/μg</td><td>Cafeína lineal solo hasta 10,24&#8239;μg/mL; faltan curvas cruzadas y mezclas</td></tr>
       </tbody>
     </table>
@@ -1897,7 +1882,7 @@
       <li>La refractometría cuantifica la glicerina con lecturas repetibles y reproducibles entre grupos (M1 = 40,5 ± 3,6&#8239;% y M2 = 47,2 ± 2,6&#8239;% p/p); la respuesta se curva y la incertidumbre la domina el modelo, no la lectura.</li>
       <li>La polarimetría confirma la actividad óptica: [<var>α</var>] de la lactosa anhidra (+52,25°) coincide con el valor de equilibrio y el del mentol (−46,55°) cumple el intervalo USP, aunque difiere de −50°; la precisión (%RSD 4,4 y 6,1) no cumple el criterio de ≤&#8239;2&#8239;%.</li>
       <li>La espectrofotometría UV es lineal para el ibuprofeno (5–15&#8239;μg/mL a 221&#8239;nm) y el acetaminofén (256&#8239;nm), y para la cafeína a 273&#8239;nm solo hasta 10,24&#8239;μg/mL; la precisión de los duplicados limita el LOQ y la exactitud del contenido.</li>
-      <li>El p<var>K</var><sub>a</sub> del verde de bromocresol (5,35 ± 0,28) supera en 0,65 unidades el de referencia (4,7); el punto isosbéstico a 510&#8239;nm confirma un equilibrio entre dos especies.</li>
+      <li>El p<var>K</var><sub>a</sub> del verde de bromocresol (5,47 ± 0,22, método matemático) supera en 0,77 unidades el de referencia (4,7); el punto isosbéstico a 510&#8239;nm confirma un equilibrio entre dos especies.</li>
     </ul>
   </div>
 </section>
@@ -2153,13 +2138,13 @@
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p4" data-title="P4 · Preguntas · estadística">
-  <h2>Preguntas de defensa: estadística y gráficos</h2>
+  <h2>Preguntas de defensa: cálculo del p<var>K</var><sub>a</sub> y gráficos</h2>
   <p class="qa__hint">Despliegue cada pregunta para ver la respuesta modelo.</p>
   <div class="qa">
-    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué prefieren el ajuste sigmoidal al método gráfico para informar el p<var>K</var>a?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Método gráfico:</strong> toma el pH a la mitad entre las absorbancias límite elegidas a mano; da 5,24 sin incertidumbre asociada.</li><li><strong>Ajuste sigmoidal</strong> (Henderson–Hasselbalch no lineal): usa los 10 puntos, estima a la vez <var>A</var><sub>HIn</sub>, <var>A</var><sub>In⁻</sub> y el p<var>K</var>a, y entrega su error estándar: 5,35 ± 0,28.</li><li><strong>Calidad del ajuste:</strong> <var>s</var><sub><var>y</var>/<var>x</var></sub> = 0,014 UA, del orden del ruido instrumental. Ambos métodos concuerdan (diferencia 0,11, dentro del IC).</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Con qué criterio descartaron la serie de 615 nm?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Inconsistencia física:</strong> <var>A</var><sub>615</sub> = 0,674 a pH 1,84, cuando la forma ácida casi no absorbe a 615 nm; y 45 % de forma básica a pH 3,07.</li><li><strong>Inconsistencia estadística:</strong> el p<var>K</var>a por punto aumenta con el pH (3,14 → 4,44); si hubiera un solo equilibrio sería constante.</li><li><strong>Conclusión:</strong> error sistemático ajeno al equilibrio (probable contaminación de pipeta, tubo o celda con solución azul; el otro grupo vio lo mismo), no un segundo equilibrio. Se informa 445 nm; la exclusión se justifica, no se hace por conveniencia.</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿En qué consiste el método de pendientes y por qué no permitió validar el modelo?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Linealización:</strong> log[(<var>A</var> − <var>A</var><sub>HIn</sub>)/(<var>A</var><sub>In⁻</sub> − <var>A</var>)] frente a pH; la pendiente teórica es 1 y la intersección con el eje da el p<var>K</var>a.</li><li><strong>Problema:</strong> solo dos puntos caen en la zona útil (≈ 10–90 % de ionización); dieron 5,28 y 5,65.</li><li><strong>Consecuencia:</strong> con dos puntos no hay grados de libertad para contrastar la pendiente 1. Se requieren más buffers entre pH 3,5 y 6.</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">El p<var>K</var>a obtenido (5,35) difiere del de referencia (4,7). ¿Cómo lo explican?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Magnitud:</strong> +0,65 unidades (error relativo +13,9 %); la referencia queda fuera del IC: es un sesgo, no azar.</li><li><strong>Fuerza iónica:</strong> no se controló; se mide un p<var>K</var>a aparente (dependiente de los coeficientes de actividad) y no el termodinámico.</li><li><strong>Etanol y pH-metro:</strong> el etanol de la solución eleva el p<var>K</var>a aparente de los ácidos, y el electrodo pudo no estar calibrado en la zona ácida.</li><li><strong>Muestreo:</strong> la transición está poco representada (pH 3,72 → 5,25 → 6,24).</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué no aplicaron el método gráfico?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Requisito:</strong> el método gráfico toma el pH del punto de inflexión de una sigmoide bien definida, donde <var>A</var> = (<var>A</var><sub>HA</sub> + <var>A</var><sub>A⁻</sub>)/2.</li><li><strong>Datos:</strong> a 615 nm el tubo 2 salta a 0,674 y en el tubo 3 las dos líneas se cruzan antes de tiempo; además solo hay una solución entre pH 3,72 y 6,24.</li><li><strong>Consecuencia:</strong> no se puede ubicar la inflexión con confianza; se usa el método matemático, que calcula un p<var>K</var>a por solución.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Con qué criterio descartaron la serie de 615 nm?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Inconsistencia física:</strong> <var>A</var><sub>615</sub> = 0,674 a pH 1,84, cuando la forma ácida casi no absorbe a 615 nm.</li><li><strong>Cruce prematuro:</strong> a pH 3,07 las dos absorbancias son casi iguales (0,283 y 0,274), lo que señalaría un p<var>K</var>a ≈ 3,1, lejos de la referencia y de 445 nm.</li><li><strong>Causa probable:</strong> contaminación cruzada de la celda con forma azul o error de trasvase (el otro grupo vio lo mismo). La exclusión se justifica, no se hace por conveniencia.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Cómo calcularon el p<var>K</var>a y qué tan confiable es cada valor?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Ecuación:</strong> p<var>K</var>a = pH − log[(<var>A</var><sub>HA</sub> − <var>A</var>)/(<var>A</var> − <var>A</var><sub>A⁻</sub>)] a 445 nm, con <var>A</var><sub>HA</sub> = 0,268 (barrido en HCl) y <var>A</var><sub>A⁻</sub> = 0,036 (pH 10,23).</li><li><strong>Valores:</strong> tubos 4, 5 y 6 → 5,38, 5,30, 5,72; promedio 5,47 ± 0,22.</li><li><strong>Confiabilidad:</strong> el tubo 4 depende de una diferencia de 0,005 UA (ruido); sin él el promedio es 5,51. Sin curva ni réplica no hay regresión: la incertidumbre es la <var>s</var> de los tres valores.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">El p<var>K</var>a obtenido (5,47) difiere del de referencia (4,7). ¿Cómo lo explican?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Magnitud:</strong> +0,77 unidades (error relativo +16,3 %); los tres valores por solución están por encima de 4,7: es un sesgo, no azar.</li><li><strong>Fuerza iónica:</strong> no se controló; se mide un p<var>K</var>a aparente (dependiente de los coeficientes de actividad) y no el termodinámico.</li><li><strong>Etanol y pH-metro:</strong> el etanol de la solución eleva el p<var>K</var>a aparente de los ácidos, y el electrodo pudo no estar calibrado en la zona ácida.</li><li><strong>Muestreo:</strong> la transición está poco representada (pH 3,72 → 5,25 → 6,24).</li></ul></div></details>
   </div>
 </section>
 
