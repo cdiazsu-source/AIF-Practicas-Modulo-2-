@@ -881,6 +881,12 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 }
 .why-pop__body p { margin: 0; }
 @media print { .why-pop { display: none; } }
+/* "¿De dónde salen estos números?": botón junto al título, sin ocupar espacio */
+h2:has(> .origin-pop) { position: relative; padding-right: 9em; }
+.origin-pop { top: 50%; right: 0; transform: translateY(-50%); font-size: .3em; font-weight: 400; letter-spacing: 0; text-transform: none; font-family: var(--font-sans); }
+.origin-pop > .why-pop__body { width: min(60ch, 88vw); font-size: 1.35em; line-height: 1.45; color: var(--text); }
+.origin-pop ul { margin: 0; padding-left: 1.1em; display: grid; gap: .35em; }
+.origin-pop code { font-size: .92em; }
 
 /* Marcador de gráfico pendiente */
 .chart-ph {
