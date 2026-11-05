@@ -114,6 +114,10 @@
       </dl>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Buenos días, profesor; buenos días a todos. Somos el subgrupo J5 de Análisis Instrumental Farmacéutico: César Díaz, Paula Melo, Karen Pachón y Diana Argüello. Hoy vamos a presentar el informe de las prácticas de laboratorio del Módulo II, que hicimos durante el semestre 2026-2S con el profesor Nicolás Mateo González.</p>
+    <p>La presentación reúne cinco prácticas. Las dos primeras usan técnicas no espectroscópicas, la refractometría y la polarimetría, y las tres siguientes usan la espectrofotometría ultravioleta y visible. En cada una vamos a contar qué hicimos, qué datos obtuvimos, cómo los tratamos y qué podemos concluir de ellos, incluyendo lo que salió bien y lo que no.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Apertura" data-title="Índice">
@@ -121,6 +125,10 @@
   <p class="lead">Cada práctica sigue la misma secuencia: Introducción → Objetivo → Fundamento → Método → Datos → Gráficos → Tratamiento estadístico → Resultados → Discusión → Conclusión.</p>
   <!-- Se llena desde app.js a partir de data-title y data-group -->
   <div class="toc-slide" data-toc-slide></div>
+  <aside class="notes guion">
+    <p>Este es el índice. Para que sea fácil seguirnos, todas las prácticas tienen la misma estructura: primero una introducción y el objetivo, luego el fundamento teórico, el método, los datos con sus tablas, los gráficos, el tratamiento estadístico, los resultados, la discusión y, por último, la conclusión.</p>
+    <p>Al final hay un cierre común, en el que comparamos las cinco prácticas y resumimos las fuentes de error, y un anexo con preguntas de defensa por práctica, con sus respuestas, por si el profesor quiere profundizar en algún punto.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Apertura" data-title="Objetivo general y alcance">
@@ -142,6 +150,10 @@
       </tbody>
     </table>
   </div>
+  <aside class="notes guion">
+    <p>El objetivo general del módulo fue aplicar métodos instrumentales, unos no espectroscópicos y otros espectroscópicos, a la identificación, la caracterización y la cuantificación de analitos de interés farmacéutico, y evaluar con estadística qué tan bien funcionan, usando criterios de validación.</p>
+    <p>La tabla resume el alcance. En la práctica 1 medimos el índice de refracción y los grados Brix de mezclas de glicerina y agua. En la práctica 2 medimos la rotación óptica de la lactosa y del mentol. En la 3 cuantificamos ibuprofeno por absorbancia en el ultravioleta. En la 4 estudiamos cómo cambia la absorbancia del verde de bromocresol con el pH para obtener su pKa. Y en la 5 determinamos acetaminofén y cafeína en mezcla, leyendo a dos longitudes de onda.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Apertura" data-title="Tratamiento común: regresión y ANOVA">
@@ -172,6 +184,11 @@
       <p class="eq-legend">Fórmulas de Excel en español (separador «;», decimales con coma): <var>x</var> en A2:A11, <var>y</var> en B2:B11 y réplicas en C2:C21. En inglés: PENDIENTE = SLOPE, INTERSECCION.EJE = INTERCEPT, ERROR.TIPICO.XY = STEYX, ESTIMACION.LINEAL = LINEST, DESVEST.M = STDEV.S, INV.T.2C = T.INV.2T.</p>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Antes de entrar en las prácticas, presentamos las herramientas estadísticas que usamos en casi todas, para no repetirlas cada vez. La base es el modelo lineal de calibración, y igual a m por x más b. La pendiente m es la sensibilidad, es decir, cuánto sube la señal por cada unidad de concentración, y el intercepto b es lo que marcaría el equipo sin analito. Para cuantificar una muestra simplemente se despeja x.</p>
+    <p>La pendiente y el intercepto se calculan por mínimos cuadrados: es la recta que deja la menor distancia al cuadrado entre lo medido y lo que predice. La desviación estándar de los residuales, s y sobre x, nos dice cuánto se aleja en promedio un punto de la recta, y con ella se calculan los intervalos de confianza de la pendiente y del intercepto. Si el intervalo del intercepto incluye el cero, decimos que la recta pasa por el origen.</p>
+    <p>Por último, el ANOVA de la regresión compara la variación que explica la recta con la que queda sin explicar. Si F supera el valor crítico, la regresión es significativa. Queremos insistir en algo: un R cuadrado alto, por sí solo, no demuestra que la relación sea lineal; para eso miramos también los residuales y la falta de ajuste. En la diapositiva están las fórmulas de Excel que usamos para cada cálculo.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Apertura" data-title="Tratamiento común: precisión, límites y residuales">
@@ -188,12 +205,21 @@
       </ul>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>La segunda parte del tratamiento común tiene que ver con la precisión y con los límites del método. La desviación estándar relativa, o porcentaje de RSD, expresa cuánto varían las lecturas repetidas como porcentaje del promedio; nos permite comparar la precisión de mediciones de distinta magnitud.</p>
+    <p>Los límites de detección y de cuantificación los calculamos como recomienda la guía ICH Q2: 3,3 y 10 veces el cociente entre s y sobre x y la pendiente. El LOD es la cantidad más pequeña que el método alcanza a distinguir del ruido, y el LOQ es la más pequeña que puede medir con un número confiable.</p>
+    <p>La prueba t de Student la usamos para comparar un promedio experimental con un valor de referencia: si t supera el valor crítico, la diferencia no se explica por azar y hay un sesgo. Y en los residuales buscamos dos cosas: que no tengan forma, porque un arco indica curvatura, y que no se abran en embudo, porque eso indicaría que la varianza cambia con la concentración.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Apertura" data-title="Equipos e implementos">
   <h2>Equipos e implementos de laboratorio</h2>
   <p class="lead">Instrumentos y material de las cinco prácticas. Contorno punteado: implemento habitual que la guía no menciona, por confirmar.</p>
   <div class="lab-catalog" data-lab-catalog></div>
+  <aside class="notes guion">
+    <p>Aquí mostramos los equipos e implementos que usamos en las cinco prácticas: el refractómetro de Abbe, el polarímetro, el espectrofotómetro ultravioleta-visible con sus celdas, el pH-metro y el material volumétrico, como balones aforados, pipetas y vasos.</p>
+    <p>Los que aparecen con contorno punteado son implementos que normalmente se usan pero que la guía no menciona de forma explícita, así que los dejamos señalados como pendientes de confirmar. Cada práctica tiene además su propio recuadro de equipos en la diapositiva de método.</p>
+  </aside>
 </section>
 
 <section class="slide slide--section" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Presentación de la práctica">
@@ -485,6 +511,11 @@
   <h2>Curvas de calibración en °Brix y °Baumé</h2>
   <div class="grid-3"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>La guía pide relacionar las dos escalas del refractómetro. Muestra que °Brix y <var>n</var> varían juntos, así que cualquiera de las dos sirve como respuesta de calibración.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "°Brix frente a n", "aspect": 0.75, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Brix", "min": 0, "max": 70}, "series": [{"name": "Lecturas (clase)", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 23.25], [1.369, 23.2], [1.3916, 35.05], [1.3918, 35.57], [1.4195, 49.57], [1.4193, 49.53], [1.4463, 61.98], [1.446, 61.7], [1.333, 0.0], [1.334, 0.0], [1.3686, 22.9], [1.3685, 22.9], [1.3918, 35.8], [1.3919, 35.9], [1.4195, 49.8], [1.42, 50.0], [1.4459, 61.9], [1.446, 61.9], [1.3325, 0.0], [1.333, 0.0], [1.3675, 22.25], [1.368, 22.5], [1.392, 35.6], [1.3925, 36.0], [1.42, 50.0], [1.4192, 49.7], [1.446, 61.8], [1.4459, 61.8], [1.333, 0.0], [1.3332, 0.0], [1.3691, 23.1], [1.3695, 23.2], [1.392, 35.3], [1.3918, 35.6], [1.4192, 49.7], [1.42, 50.0], [1.446, 61.8], [1.4459, 61.8], [1.3328, 0.0], [1.3328, 0.0], [1.369, 23.1], [1.3691, 23.1], [1.3918, 35.6], [1.3919, 35.6], [1.4198, 49.9], [1.419, 49.9], [1.4429, 61.9], [1.4465, 62.0], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 13.51], [1.3535, 13.51], [1.3807, 29.75], [1.3808, 29.75], [1.4069, 43.52], [1.4069, 43.6], [1.4322, 55.55], [1.4321, 55.5], [1.3329, 0.0], [1.3351, 1.5], [1.3534, 13.5], [1.3531, 13.5], [1.3815, 29.75], [1.3808, 29.75], [1.4069, 43.61], [1.4069, 43.7], [1.4319, 55.1], [1.432, 55.1], [1.335, 1.4], [1.3345, 3.2], [1.3539, 13.6], [1.353, 13.4], [1.381, 29.3], [1.3805, 29.5], [1.407, 43.8], [1.4067, 43.5], [1.4321, 55.6], [1.432, 55.2], [1.335, 1.5], [1.335, 1.5], [1.3532, 13.5], [1.353, 13.5], [1.3806, 29.75], [1.3803, 29.75], [1.407, 43.7], [1.407, 43.75], [1.432, 55.5], [1.432, 55.55], [1.3345, 1.1], [1.3365, 2.5], [1.3532, 13.5], [1.3535, 13.6], [1.3806, 29.9], [1.3808, 29.9], [1.4069, 43.6], [1.407, 43.5], [1.432, 55.6], [1.4321, 55.6]], "fit": true, "color": 5}]}</script></div><figcaption>Figura 1.3. °Brix frente a <var>n</var> (<var>N</var> = 100).</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Es una de las curvas que pide la guía: relaciona la escala Baumé con el índice de refracción y permite pasar de una lectura a la otra.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "°Baumé frente a n", "aspect": 0.75, "x": {"label": "n", "min": 1.33, "max": 1.45}, "y": {"label": "°Bé", "min": 0, "max": 40}, "series": [{"name": "Calculado desde °Brix", "points": [[1.3329, 0.0], [1.3327, 0.0], [1.3695, 12.92], [1.369, 12.89], [1.3916, 19.47], [1.3918, 19.76], [1.4195, 27.54], [1.4193, 27.52], [1.4463, 34.43], [1.446, 34.28], [1.333, 0.0], [1.334, 0.0], [1.3686, 12.72], [1.3685, 12.72], [1.3918, 19.89], [1.3919, 19.94], [1.4195, 27.67], [1.42, 27.78], [1.4459, 34.39], [1.446, 34.39], [1.3325, 0.0], [1.333, 0.0], [1.3675, 12.36], [1.368, 12.5], [1.392, 19.78], [1.3925, 20.0], [1.42, 27.78], [1.4192, 27.61], [1.446, 34.33], [1.4459, 34.33], [1.333, 0.0], [1.3332, 0.0], [1.3691, 12.83], [1.3695, 12.89], [1.392, 19.61], [1.3918, 19.78], [1.4192, 27.61], [1.42, 27.78], [1.446, 34.33], [1.4459, 34.33], [1.3328, 0.0], [1.3328, 0.0], [1.369, 12.83], [1.3691, 12.83], [1.3918, 19.78], [1.3919, 19.78], [1.4198, 27.72], [1.419, 27.72], [1.4429, 34.39], [1.4465, 34.44], [1.3328, 0.0], [1.3328, 0.0], [1.3535, 7.51], [1.3535, 7.51], [1.3807, 16.53], [1.3808, 16.53], [1.4069, 24.18], [1.4069, 24.22], [1.4322, 30.86], [1.4321, 30.83], [1.3329, 0.0], [1.3351, 0.83], [1.3534, 7.5], [1.3531, 7.5], [1.3815, 16.53], [1.3808, 16.53], [1.4069, 24.23], [1.4069, 24.28], [1.4319, 30.61], [1.432, 30.61], [1.335, 0.78], [1.3345, 1.78], [1.3539, 7.56], [1.353, 7.44], [1.381, 16.28], [1.3805, 16.39], [1.407, 24.33], [1.4067, 24.17], [1.4321, 30.89], [1.432, 30.67], [1.335, 0.83], [1.335, 0.83], [1.3532, 7.5], [1.353, 7.5], [1.3806, 16.53], [1.3803, 16.53], [1.407, 24.28], [1.407, 24.31], [1.432, 30.83], [1.432, 30.86], [1.3345, 0.61], [1.3365, 1.39], [1.3532, 7.5], [1.3535, 7.56], [1.3806, 16.61], [1.3808, 16.61], [1.4069, 24.22], [1.407, 24.17], [1.432, 30.89], [1.4321, 30.89]], "fit": true, "color": 5}]}</script></div><figcaption>Figura 1.4. °Bé frente a <var>n</var>.</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Curva de calibración en °Baumé que pide la guía: permite cuantificar la glicerina en esa escala, de uso frecuente en la industria de jarabes.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "°Baumé frente al porcentaje de glicerina", "aspect": 0.75, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "°Bé", "min": 0, "max": 40}, "series": [{"name": "Calculado desde °Brix", "points": [[0, 0.0], [0, 0.0], [20, 12.92], [20, 12.89], [40, 19.47], [40, 19.76], [60, 27.54], [60, 27.52], [80, 34.43], [80, 34.28], [0, 0.0], [0, 0.0], [20, 12.72], [20, 12.72], [40, 19.89], [40, 19.94], [60, 27.67], [60, 27.78], [80, 34.39], [80, 34.39], [0, 0.0], [0, 0.0], [20, 12.36], [20, 12.5], [40, 19.78], [40, 20.0], [60, 27.78], [60, 27.61], [80, 34.33], [80, 34.33], [0, 0.0], [0, 0.0], [20, 12.83], [20, 12.89], [40, 19.61], [40, 19.78], [60, 27.61], [60, 27.78], [80, 34.33], [80, 34.33], [0, 0.0], [0, 0.0], [20, 12.83], [20, 12.83], [40, 19.78], [40, 19.78], [60, 27.72], [60, 27.72], [80, 34.39], [80, 34.44], [0, 0.0], [0, 0.0], [10, 7.51], [10, 7.51], [30, 16.53], [30, 16.53], [50, 24.18], [50, 24.22], [70, 30.86], [70, 30.83], [0, 0.0], [0, 0.83], [10, 7.5], [10, 7.5], [30, 16.53], [30, 16.53], [50, 24.23], [50, 24.28], [70, 30.61], [70, 30.61], [0, 0.78], [0, 1.78], [10, 7.56], [10, 7.44], [30, 16.28], [30, 16.39], [50, 24.33], [50, 24.17], [70, 30.89], [70, 30.67], [0, 0.83], [0, 0.83], [10, 7.5], [10, 7.5], [30, 16.53], [30, 16.53], [50, 24.28], [50, 24.31], [70, 30.83], [70, 30.86], [0, 0.61], [0, 1.39], [10, 7.5], [10, 7.56], [30, 16.61], [30, 16.61], [50, 24.22], [50, 24.17], [70, 30.89], [70, 30.89]], "fit": true, "color": 5}]}</script></div><figcaption>Figura 1.5. °Bé frente a % p/p.</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>Las tres son rectas con <var>R</var><sup>2</sup> ≥ 0,98, pero no son independientes: °Bé es °Brix dividido entre 1,8 (por eso °Bé frente a % p/p tiene el mismo <var>R</var><sup>2</sup> que °Brix), y °Brix y <var>n</var> son dos escalas del mismo refractómetro. Por eso °Brix frente a <var>n</var> sale casi perfecta (0,996): no valida el método, solo muestra que las dos escalas concuerdan. Las lecturas de °Brix del agua (0 a 3,2) son las más dispersas.</p></div>
+  <aside class="notes guion">
+    <p>La guía también pide las curvas en las otras escalas, así que aquí están las tres. La primera muestra los grados Brix frente al índice de refracción, la segunda los grados Baumé frente al índice y la tercera los grados Baumé frente al porcentaje en peso de glicerina.</p>
+    <p>Las tres salen como rectas con R cuadrado de 0,98 o más, pero hay que leerlas con cuidado, porque no son independientes. Los grados Baumé los calculamos dividiendo los grados Brix entre 1,8, así que la curva de Baumé frente a concentración tiene exactamente el mismo R cuadrado que la de Brix; solo cambia la escala. Y los grados Brix y el índice de refracción son dos escalas del mismo refractómetro, por eso la curva de Brix frente a n sale casi perfecta, con 0,996. Eso no valida el método: solo dice que las dos escalas del equipo concuerdan entre sí.</p>
+    <p>Un detalle que vale la pena señalar es que las lecturas de grados Brix del agua fueron las más dispersas, entre 0 y 3,2, lo que afecta el extremo bajo de las curvas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Tratamiento estadístico">
@@ -539,6 +570,11 @@
   <h2>Residuales de las curvas de calibración</h2>
   <div class="grid-2"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Verifica la linealidad y la homocedasticidad, como pide la guía: si la recta es adecuada, los residuales se reparten al azar alrededor de cero, sin arcos ni embudos, y con la misma dispersión en todos los niveles.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Residuales de n frente a % p/p", "aspect": 0.5, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "residual de n", "min": -0.0060875, "max": 0.0060875}, "series": [{"name": "Residuales (N = 100)", "points": [[0, -0.00421], [0, -0.00441], [20, 0.00487], [20, 0.00437], [40, -0.00055], [40, -0.00035], [60, -0.00017], [60, -0.00037], [80, -0.00089], [80, -0.00119], [0, -0.00411], [0, -0.00311], [20, 0.00397], [20, 0.00387], [40, -0.00035], [40, -0.00025], [60, -0.00017], [60, 0.00033], [80, -0.00129], [80, -0.00119], [0, -0.00461], [0, -0.00411], [20, 0.00287], [20, 0.00337], [40, -0.00015], [40, 0.00035], [60, 0.00033], [60, -0.00047], [80, -0.00119], [80, -0.00129], [0, -0.00411], [0, -0.00391], [20, 0.00447], [20, 0.00487], [40, -0.00015], [40, -0.00035], [60, -0.00047], [60, 0.00033], [80, -0.00119], [80, -0.00129], [0, -0.00431], [0, -0.00431], [20, 0.00437], [20, 0.00447], [40, -0.00035], [40, -0.00025], [60, 0.00013], [60, -0.00067], [80, -0.00429], [80, -0.00069], [0, -0.00431], [0, -0.00431], [10, 0.00263], [10, 0.00263], [30, 0.00231], [30, 0.00241], [50, 0.00099], [50, 0.00099], [70, -0.00123], [70, -0.00133], [0, -0.00421], [0, -0.00201], [10, 0.00253], [10, 0.00223], [30, 0.00311], [30, 0.00241], [50, 0.00099], [50, 0.00099], [70, -0.00153], [70, -0.00143], [0, -0.00211], [0, -0.00261], [10, 0.00303], [10, 0.00213], [30, 0.00261], [30, 0.00211], [50, 0.00109], [50, 0.00079], [70, -0.00133], [70, -0.00143], [0, -0.00211], [0, -0.00211], [10, 0.00233], [10, 0.00213], [30, 0.00221], [30, 0.00191], [50, 0.00109], [50, 0.00109], [70, -0.00143], [70, -0.00143], [0, -0.00261], [0, -0.00061], [10, 0.00233], [10, 0.00263], [30, 0.00221], [30, 0.00241], [50, 0.00099], [50, 0.00109], [70, -0.00143], [70, -0.00133]], "color": 5, "zero": true}]}</script></div><figcaption>Figura 1.6. Residuales de la recta de <var>n</var>.</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Verifica la linealidad y la homocedasticidad, como pide la guía: si la recta es adecuada, los residuales se reparten al azar alrededor de cero, sin arcos ni embudos, y con la misma dispersión en todos los niveles.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Residuales de °Brix frente a % p/p", "aspect": 0.5, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "residual de °Brix", "min": -5.2749999999999995, "max": 5.2749999999999995}, "series": [{"name": "Residuales (N = 100)", "points": [[0, -4.22], [0, -4.22], [20, 3.943], [20, 3.893], [40, 0.656], [40, 1.176], [60, 0.088], [60, 0.048], [80, -2.589], [80, -2.869], [0, -4.22], [0, -4.22], [20, 3.593], [20, 3.593], [40, 1.406], [40, 1.506], [60, 0.318], [60, 0.518], [80, -2.669], [80, -2.669], [0, -4.22], [0, -4.22], [20, 2.943], [20, 3.193], [40, 1.206], [40, 1.606], [60, 0.518], [60, 0.218], [80, -2.769], [80, -2.769], [0, -4.22], [0, -4.22], [20, 3.793], [20, 3.893], [40, 0.906], [40, 1.206], [60, 0.218], [60, 0.518], [80, -2.769], [80, -2.769], [0, -4.22], [0, -4.22], [20, 3.793], [20, 3.793], [40, 1.206], [40, 1.206], [60, 0.418], [60, 0.418], [80, -2.669], [80, -2.569], [0, -4.22], [0, -4.22], [10, 1.747], [10, 1.747], [30, 2.899], [30, 2.899], [50, 1.582], [50, 1.662], [70, -1.476], [70, -1.526], [0, -4.22], [0, -2.72], [10, 1.737], [10, 1.737], [30, 2.899], [30, 2.899], [50, 1.672], [50, 1.762], [70, -1.926], [70, -1.926], [0, -2.82], [0, -1.02], [10, 1.837], [10, 1.637], [30, 2.449], [30, 2.649], [50, 1.862], [50, 1.562], [70, -1.426], [70, -1.826], [0, -2.72], [0, -2.72], [10, 1.737], [10, 1.737], [30, 2.899], [30, 2.899], [50, 1.762], [50, 1.812], [70, -1.526], [70, -1.476], [0, -3.12], [0, -1.72], [10, 1.737], [10, 1.837], [30, 3.049], [30, 3.049], [50, 1.662], [50, 1.562], [70, -1.426], [70, -1.426]], "color": 5, "zero": true}]}</script></div><figcaption>Figura 1.7. Residuales de la recta de °Brix.</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>En las dos curvas los residuales forman un arco: negativos en 0 y 80&#8239;%, positivos entre 10 y 50&#8239;% (media de +0,0042 en <var>n</var> a 20&#8239;%). Eso es curvatura, no ruido: la recta no describe bien los extremos. La dispersión es mayor en el agua (0&#8239;%) que en los demás niveles, así que el modelo no es del todo homocedástico.</p></div>
+  <aside class="notes guion">
+    <p>Estos son los residuales de las dos curvas de calibración, la del índice de refracción a la izquierda y la de grados Brix a la derecha. Recordemos que un residual es la diferencia entre lo que medimos y lo que predice la recta.</p>
+    <p>En las dos figuras los residuales forman un arco: son negativos en los extremos, en 0 y en 80 %, y positivos entre 10 y 50 %. En el índice de refracción, por ejemplo, el residual medio a 20 % es de más 0,0042. Eso no es ruido aleatorio, es curvatura: la recta no describe bien los extremos del intervalo. Es la evidencia visual de la falta de ajuste significativa que vimos en el ANOVA.</p>
+    <p>También se ve que la dispersión es mayor en el agua, en 0 %, que en los demás niveles, así que el modelo no es del todo homocedástico. Por todo esto, en los resultados usamos la recta solo para interpolar en la zona central, entre 40 y 80 %, donde caen nuestras muestras.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 1 · Refractometría" data-accent="p1" data-title="Resultados">
@@ -871,6 +907,10 @@
   </ul>
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
+  <aside class="notes guion">
+    <p>Pasamos a la práctica 3, que es la cuantificación de ibuprofeno por espectrofotometría ultravioleta. Es la primera práctica espectroscópica del módulo y también la más cercana a lo que se hace en un laboratorio de control de calidad: medir cuánto principio activo tiene una forma farmacéutica.</p>
+    <p>El objetivo general fue desarrollar y verificar un método para cuantificar ibuprofeno en tabletas basado en la ley de Beer-Lambert. Para eso nos planteamos cuatro objetivos específicos: elegir el medio de trabajo según la solubilidad del ibuprofeno en agua, ácido y base; encontrar su longitud de onda de máxima absorción con un barrido espectral; construir una curva de calibración de cinco niveles por duplicado y evaluar su linealidad, sus incertidumbres y sus límites; y, por último, cuantificar el activo en el polvo de las tabletas y verificar la exactitud y la precisión del método.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Introducción">
@@ -883,6 +923,11 @@
     </div>
     <div class="box objective"><p class="box__label">Aplicaciones en la industria farmacéutica</p><ul class="points points--compact"><li>Valoración del principio activo y uniformidad de contenido en tabletas y cápsulas.</li><li>Pruebas de disolución: la cantidad liberada se lee por UV (USP &lt;711&gt;).</li><li>Detector UV en HPLC, el más usado en control de calidad.</li><li>Identificación de materias primas por su espectro de absorción.</li></ul></div>
   </div>
+  <aside class="notes guion">
+    <p>La espectrofotometría ultravioleta mide cuánta luz ultravioleta absorbe una sustancia. En el ibuprofeno, lo que absorbe es el anillo aromático, cerca de 220 nanómetros. Según la ley de Lambert-Beer, esa absorbancia es proporcional a la concentración, así que con una curva de calibración podemos saber cuánto ibuprofeno hay en una tableta comercial.</p>
+    <p>Trabajamos con ibuprofeno patrón, 12,6 miligramos en 25 mililitros, y con polvo de tabletas comerciales ya pulverizado. Para la prueba de solubilidad usamos etanol, ácido clorhídrico y hidróxido de sodio, y medimos en un espectrofotómetro con celdas de cuarzo de un centímetro.</p>
+    <p>Lo que esperábamos era que el ibuprofeno fuera más soluble en medio básico, porque es un ácido carboxílico y forma una sal; una longitud de onda máxima cerca de 220 nanómetros; una respuesta lineal con absorbancias entre 0,17 y 0,85; y un contenido cercano al declarado. A la derecha están algunas aplicaciones industriales: la valoración del activo, las pruebas de disolución y el detector ultravioleta del HPLC, que es el más usado en control de calidad.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Fundamento">
@@ -899,6 +944,11 @@
       <li>La solubilidad condiciona el disolvente de extracción y de medida.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>El fundamento de esta práctica es la ley de Lambert-Beer: la absorbancia es igual a la absortividad molar por el paso óptico por la concentración. Dicho de forma sencilla, cuanta más sustancia hay en el camino de la luz, más luz absorbe, y en proporción directa: el doble de concentración da el doble de absorbancia. La absortividad molar, épsilon, es propia de cada sustancia a cada longitud de onda.</p>
+    <p>La segunda ecuación relaciona la absorbancia con la transmitancia: la absorbancia es menos el logaritmo de la fracción de luz que pasa. Esa escala logarítmica es la que hace que la absorbancia sea lineal con la concentración.</p>
+    <p>Hay tres ideas que vamos a usar en toda la práctica. La ley se cumple en soluciones diluidas y con luz monocromática. Medir en la longitud de onda máxima da la mayor sensibilidad y hace que un pequeño error en la longitud de onda casi no cambie la lectura. Y la solubilidad decide el disolvente en el que extraemos y medimos.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Analitos · estructura y datos">
@@ -930,6 +980,10 @@
     </div>
   </div>
   <p class="eq-legend">Estructuras 2D: PubChem (CID 3672). Datos: PubChem y Merck Index.</p>
+  <aside class="notes guion">
+    <p>Este es el ibuprofeno, el ácido 2-[4-(2-metilpropil)fenil]propanoico. Tiene una masa molar de 206,28 gramos por mol y un pKa entre 4,4 y 4,9, porque es un ácido carboxílico. Es muy poco soluble en agua, unos 0,02 gramos por litro, pero se disuelve bien en etanol y en hidróxido de sodio diluido.</p>
+    <p>Su cromóforo es el anillo bencénico, que da una banda intensa cerca de 220 nanómetros y otras más débiles hacia 264 y 272. De aquí sacamos tres consecuencias para el método. Primero, como es un ácido débil, se disuelve cuando se ioniza, es decir, a pH mayor que su pKa: por eso esperamos poca solubilidad en ácido y mucha en base. Segundo, la banda de 220 es la más sensible, pero está cerca del corte del disolvente y de la absorción de los excipientes, así que hay que filtrar y usar un buen blanco. Y tercero, el ibuprofeno es un racemato, pero sus dos enantiómeros tienen el mismo espectro, así que el método ultravioleta mide el total, sin distinguirlos.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Método">
@@ -959,6 +1013,10 @@
     <p class="lab-kit__title">Equipos e implementos</p>
     <ul class="lab-kit" data-kit="espectro cubeta balanza mortero embudo aforado tableta | pipeta vaso"></ul>
   </div>
+  <aside class="notes guion">
+    <p>El método tuvo cuatro etapas. Primero, la prueba de solubilidad en etanol, ácido clorhídrico 0,55 normal e hidróxido de sodio 0,1843 normal, para elegir el disolvente. Segundo, preparamos la solución madre del patrón, 12,6 miligramos en 25 mililitros, y una dilución intermedia, y con ellas hicimos el barrido espectral para encontrar la longitud de onda máxima.</p>
+    <p>Tercero, construimos la curva de calibración: tomamos entre 0,5 y 1,5 mililitros de la solución intermedia y los llevamos a 10 mililitros, lo que dio cinco niveles entre 5 y 15 microgramos por mililitro, cada uno leído por duplicado. Y cuarto, disolvimos 12,4 miligramos del polvo de tabletas en 25 mililitros, lo filtramos, lo diluimos igual que el patrón y lo leímos a la misma longitud de onda.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Datos y tablas">
@@ -991,6 +1049,10 @@
       <p class="eq-legend">Alícuotas de la solución 1 (100,8&#8239;μg/mL) llevadas a 10&#8239;mL. Lecturas coincidentes con la hoja de la práctica y con la salida de regresión de Excel.</p>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Aquí están los datos. La primera tabla es la prueba de solubilidad que pide la guía: el ibuprofeno fue bastante soluble en etanol, poco soluble en ácido clorhídrico y muy soluble en hidróxido de sodio. Por eso elegimos el hidróxido de sodio 0,1843 normal como disolvente, que es además el mismo que usamos después en la práctica 5.</p>
+    <p>La segunda tabla es la curva de calibración a 221 nanómetros. Para cada patrón están el volumen tomado, la concentración, las dos absorbancias, su promedio y el porcentaje de RSD entre los duplicados, que hemos marcado en rojo porque es un cálculo nuestro. Ahí ya se ve el problema principal de esta práctica: los niveles de 7,56 y de 12,60 microgramos por mililitro tienen duplicados muy distintos, con RSD de 26 y de 17 %, mientras que los otros niveles están entre 2 y 6 %.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tablas de la guía · UV">
@@ -1023,7 +1085,11 @@
     <div class="box note"><p class="box__label">Tabla G7 · Masa de las tabletas: no aplica</p><p>No se pesaron tabletas: el laboratorio entregó una muestra de polvo ya pulverizado. Sin el peso promedio no se puede pasar de % p/p a mg por tableta ni compararlo con lo declarado en la etiqueta (criterio USP 90,0–110,0&#8239;%).</p><p>Por eso el resultado se informa como contenido de ibuprofeno en el polvo (% p/p).</p></div>
   </div>
   <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
-
+  <aside class="notes guion">
+    <p>Estas son las tablas en el formato que pide la guía. La longitud de onda máxima teórica del ibuprofeno en medio acuoso está entre 221 y 222 nanómetros, y nosotros la encontramos en 221, con una absorbancia de 0,448 para la solución de 10,08 microgramos por mililitro.</p>
+    <p>La tabla de construcción de la curva resume la longitud de onda elegida, el rango de concentraciones, de 5,04 a 15,12, con absorbancias entre 0,169 y 0,585, la concentración de la solución madre, que es de 504 microgramos por mililitro, y las cinco concentraciones de la curva.</p>
+    <p>La tabla de masa de tabletas no aplica en nuestro caso, y queremos explicar por qué: el laboratorio nos entregó una muestra de polvo ya pulverizado y no pesamos tabletas. Sin el peso promedio no se puede pasar del porcentaje en peso del polvo a miligramos por tableta, así que el resultado lo informamos como contenido de ibuprofeno en el polvo.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.1 · Barrido espectral">
@@ -1039,6 +1105,11 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Solo la dilución de 10,08&#8239;μg/mL queda en el intervalo fotométrico: la madre y la solución 1 superan 2,9&#8239;UA y sus picos están deformados por la saturación del detector.</p><p>En 10,08&#8239;μg/mL la banda de 221&#8239;nm (0,448&#8239;UA) se elige como analítica. El pico de 214&#8239;nm es algo más alto, pero está más cerca del corte del disolvente y es más sensible a la absorción de fondo.</p><p>Absortividad a 221&#8239;nm: <var>A</var><sup>1&#8239;%</sup><sub>1&#8239;cm</sub> ≈ 444 y <var>ε</var> ≈ 9,2 × 10<sup>3</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup>; la pendiente de la curva da 8,4 × 10<sup>3</sup>, un 10&#8239;% menos.</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Esta figura muestra el barrido espectral. Hay que aclarar que no es un espectro continuo: son los picos que detectó el equipo en tres diluciones del patrón, cuatro picos por solución.</p>
+    <p>Solo la dilución de 10,08 microgramos por mililitro quedó dentro del intervalo fotométrico. La solución madre y la primera dilución superaron 2,9 unidades de absorbancia, así que sus picos están deformados por la saturación del detector y no los usamos.</p>
+    <p>En la dilución útil elegimos la banda de 221 nanómetros, con 0,448 de absorbancia, como longitud de onda analítica. El pico de 214 es un poco más alto, pero está más cerca del corte del disolvente y es más sensible a la absorción de fondo. Con esa lectura calculamos una absortividad molar de unos 9200 litros por mol por centímetro; la pendiente de la curva da 8400, un 10 % menos.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.2 · Curva de calibración">
@@ -1054,6 +1125,11 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La respuesta crece linealmente con la concentración: <var>A</var> = 0,0405·<var>c</var> − 0,036 (<var>R</var><sup>2</sup> = 0,944). El intercepto no difiere de cero (<var>p</var> = 0,37), como predice la ley de Lambert-Beer.</p><p>El <var>R</var><sup>2</sup> moderado no se debe a curvatura: las medias por nivel se alinean bien (<var>R</var><sup>2</sup> = 0,9973). La dispersión proviene de los duplicados de 7,56 y 12,60&#8239;μg/mL, que difieren en 0,096 y 0,113&#8239;UA.</p><p>Todas las absorbancias caen en 0,17–0,85&#8239;UA salvo la primera (0,169), que queda en el límite inferior.</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Esta es la curva de calibración: absorbancia frente a concentración, con los cinco niveles por duplicado, es decir, diez puntos, y la recta de mínimos cuadrados.</p>
+    <p>La absorbancia crece linealmente con la concentración. La ecuación es A igual a 0,0405 por c menos 0,036, con un R cuadrado de 0,944. El intercepto no difiere de cero, con un valor p de 0,37, que es justo lo que predice Lambert-Beer.</p>
+    <p>Ese R cuadrado de 0,944 es bajo para una curva ultravioleta, pero queremos mostrar que no se debe a curvatura. Si tomamos los promedios de cada nivel, se alinean muy bien, con un R cuadrado de 0,997. La dispersión viene de los duplicados de 7,56 y 12,60 microgramos por mililitro, que difieren en casi una décima de absorbancia. Todas las absorbancias quedan entre 0,17 y 0,85, salvo la primera, de 0,169, que está justo en el límite.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Tratamiento estadístico">
@@ -1091,11 +1167,20 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Regresión significativa (<var>p</var> &lt; 0,001) y falta de ajuste no significativa (<var>p</var> = 0,97): el modelo lineal es adecuado. El 95&#8239;% de la suma de cuadrados residual es error puro, así que el <var>R</var><sup>2</sup> de 0,944 refleja la imprecisión de los duplicados, que también eleva el LOQ (9,7&#8239;μg/mL).</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Para comprobar si la recta es adecuada usamos la prueba de falta de ajuste, que solo se puede hacer porque tenemos réplicas en cada nivel. La idea es separar lo que queda sin explicar en dos partes: el error puro, que es la diferencia entre réplicas de un mismo nivel, y la falta de ajuste, que es cuánto se alejan los promedios de la recta. Si lo segundo no es mayor que lo primero, la recta describe bien los datos.</p>
+    <p>La tabla de parámetros da una pendiente de 0,0405 más o menos 0,0080 y un intercepto de menos 0,036 más o menos 0,086, que incluye el cero. El s y sobre x es 0,039, y con él obtenemos un límite de detección de 3,2 y un límite de cuantificación de 9,7 microgramos por mililitro.</p>
+    <p>En el ANOVA, la regresión es muy significativa, con F de 135,9 y p menor que 0,001, y la falta de ajuste no lo es, con p de 0,97. Es decir, el modelo lineal es adecuado. Lo interesante es que el 95 % de la suma de cuadrados residual es error puro: el R cuadrado bajo refleja la imprecisión de los duplicados, no un mal modelo, y esa misma imprecisión es la que sube el límite de cuantificación hasta 9,7.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Figura 3.3 · Residuales">
   <h2>Residuales de la curva del ibuprofeno</h2>
   <div class="fig-slide"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Verifica la linealidad y la homocedasticidad, como pide la guía: si la recta es adecuada, los residuales se reparten al azar alrededor de cero, sin arcos ni embudos, y con la misma dispersión en todos los niveles.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Residuales de la curva del ibuprofeno", "aspect": 0.5, "x": {"label": "c (μg/mL)", "min": 4, "max": 16}, "y": {"label": "residual de A", "min": -0.07725, "max": 0.07725}, "series": [{"name": "Residuales (N = 10)", "points": [[5.04, 0.0003], [5.04, 0.0153], [7.56, 0.0342], [7.56, -0.0618], [10.08, -0.012], [10.08, 0.018], [12.6, 0.0609], [12.6, -0.0522], [15.12, -0.0103], [15.12, 0.0077]], "color": 5, "zero": true}]}</script></div><figcaption>Figura 3.3. Residuales de la recta <var>A</var> = 0,0405·<var>c</var> − 0,036.</figcaption></figure><div class="stack"><div class="box note box--interp"><p class="box__label">Lectura</p><p>Sin tendencia: los residuales cambian de signo a lo largo del intervalo, así que no hay curvatura. Los mayores (±0,06&#8239;UA) están en 7,56 y 12,60&#8239;μg/mL, donde los duplicados difieren entre sí. Con dos réplicas por nivel no se puede afirmar heterocedasticidad; la dispersión depende del duplicado, no de la concentración.</p></div></div></div>
+  <aside class="notes guion">
+    <p>Estos son los residuales de la recta. Lo primero que buscamos es si hay una tendencia, y no la hay: los residuales cambian de signo a lo largo de todo el intervalo, sin formar un arco, así que no hay curvatura.</p>
+    <p>Los residuales más grandes, de unas seis centésimas de absorbancia hacia arriba y hacia abajo, están justamente en 7,56 y 12,60 microgramos por mililitro, donde los duplicados no coinciden. Con solo dos réplicas por nivel no podemos afirmar que haya heterocedasticidad: la dispersión depende de qué tan bien salió cada duplicado, no de la concentración.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Análisis de la muestra">
@@ -1120,6 +1205,11 @@
     </div>
     <div class="box note box--interp"><p class="box__label">Interpretación</p><p>El polvo contiene 56,2&#8239;% p/p de ibuprofeno, lo que reproduce el valor de la hoja. Es un orden de magnitud razonable para tabletas cuyo excipiente es cerca de la mitad de la masa.</p><p>La incertidumbre (±19,6&#8239;% absoluto, ±35&#8239;% relativo) es demasiado grande para juzgar la conformidad. La muestra se leyó a 5,58&#8239;μg/mL, bajo el LOQ y lejos del centro de la curva, donde el término (<span class="bar"><var>y</var></span><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup> pesa más.</p><p>Con 2,0–2,5&#8239;mL de la solución de muestra a 10&#8239;mL la lectura caería en 11–14&#8239;μg/mL. El resultado queda en % p/p: no se pesaron tabletas, así que no hay peso promedio para pasarlo a mg/tableta.</p></div>
   </div>
+  <aside class="notes guion">
+    <p>Ahora la muestra. Para cuantificar se lee la curva al revés: con la absorbancia promedio de la muestra se despeja la concentración en la cubeta, y luego se deshacen las diluciones para saber cuánto ibuprofeno había en el polvo que pesamos. La incertidumbre de esa concentración se calcula con la fórmula que aparece aquí, y crece cuando la lectura de la muestra se aleja del centro de la curva.</p>
+    <p>La muestra dio absorbancias de 0,198 y 0,183, con promedio 0,1905. Eso corresponde a 5,58 microgramos por mililitro en la cubeta, a 6,97 miligramos de ibuprofeno en los 25 mililitros y a un contenido de 56,2 % en peso en el polvo. Esos valores reproducen los de la hoja de la práctica.</p>
+    <p>El problema es la incertidumbre: más o menos 19,6 puntos, es decir, un 35 % relativo, que es demasiado para decidir si el producto cumple. La razón es que la muestra se leyó a 5,58, por debajo del límite de cuantificación y en el extremo bajo de la curva. Si hubiéramos tomado entre 2 y 2,5 mililitros de la solución de muestra, la lectura habría caído entre 11 y 14 microgramos por mililitro, cerca del centro, con mucha menos incertidumbre.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Resultados">
@@ -1148,6 +1238,10 @@
     </table>
     <p class="eq-legend"><var>c</var> hallada = (<span class="bar"><var>A</var></span> − <var>b</var>)/<var>m</var> con la media del duplicado; %RSD de las dos absorbancias. Son los mismos patrones de la curva, no soluciones independientes: miden el ajuste y la precisión, no la exactitud frente a una muestra real.</p>
   </div>
+  <aside class="notes guion">
+    <p>En resumen, los resultados de la práctica 3 son dos. La longitud de onda máxima del ibuprofeno en hidróxido de sodio es de 221 nanómetros, con una absortividad molar de unos 9200 litros por mol por centímetro. Y el polvo de tabletas contiene 56,2 más o menos 19,6 % en peso de ibuprofeno, es decir, 6,97 miligramos en los 12,4 miligramos de polvo. No lo podemos expresar por tableta porque no pesamos tabletas.</p>
+    <p>La tabla de abajo es una verificación con los patrones bajo, medio y alto, recalculados con la curva. Se recuperan al 103,8, 100,7 y 99,8 %. Pero hay que ser honestos con lo que esto significa: son los mismos patrones con los que construimos la curva, no soluciones independientes, así que miden qué tan bien ajusta la recta y la precisión, no la exactitud frente a una muestra real.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Discusión">
@@ -1164,6 +1258,12 @@
     <p class="box__label">Observación</p>
     <p>Las lecturas de la curva se reconstruyeron de la salida de regresión de Excel. Las réplicas <var>A</var> = 0,209 (7,56&#8239;μg/mL) y 0,536 (12,60&#8239;μg/mL) concentran la dispersión y conviene verificarlas. Los valores teóricos 440–445 y 615–618&#8239;nm de la hoja son de la plantilla del verde de bromocresol y no se usan aquí.</p>
   </div>
+  <aside class="notes guion">
+    <p>En la discusión organizamos seis puntos. Sobre la solubilidad: fue baja en ácido y alta en base, como corresponde a un ácido carboxílico que se disuelve al ionizarse, y por eso elegimos hidróxido de sodio. Sobre la longitud de onda: 221 nanómetros coincide con la literatura, aunque la absortividad del barrido y la de la pendiente difieren un 10 %.</p>
+    <p>Sobre el contenido: 56,2 % en el polvo, pero con la muestra leída bajo el límite de cuantificación y sin poder compararlo con lo declarado ni con el criterio de la USP, de 90 a 110 %, porque no hubo pesaje de tabletas. Sobre las recuperaciones de los patrones: el medio y el alto cumplen el criterio de 98 a 102 %, y el bajo lo supera porque está en el límite del intervalo.</p>
+    <p>Sobre la linealidad: la recta es adecuada, sin falta de ajuste y con intercepto nulo, pero el R cuadrado de 0,944 queda lejos del 0,995 habitual por la baja precisión de los duplicados. Y sobre la sensibilidad: con un límite de cuantificación de 9,7, las soluciones problema deberían leerse entre 10 y 15 microgramos por mililitro.</p>
+    <p>Como observación, las lecturas de la curva las reconstruimos a partir de la salida de regresión de Excel, y las réplicas de 0,209 y 0,536 son las que concentran la dispersión, así que convendría verificarlas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Conclusión">
@@ -1177,6 +1277,11 @@
       <li>Los patrones medio y alto se recuperan al 100,7 y 99,8&#8239;% (%RSD ≤ 5,6&#8239;%); el bajo, al 103,8&#8239;%.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>Concluimos cuatro cosas de la práctica 3. Primera: la curva de calibración del ibuprofeno es lineal entre 5,04 y 15,12 microgramos por mililitro, con una pendiente de 0,0405 y sin falta de ajuste significativa.</p>
+    <p>Segunda: lo que limita el desempeño del método es la precisión de los duplicados, que deja el R cuadrado en 0,944 y el límite de cuantificación en 9,7; habría que repetir los niveles de 7,56 y 12,60.</p>
+    <p>Tercera: el polvo de tabletas contiene 56,2 más o menos 19,6 % en peso de ibuprofeno, pero como la lectura quedó bajo el límite de cuantificación, la muestra debería repetirse con una alícuota mayor. Y cuarta: los patrones medio y alto se recuperan al 100,7 y 99,8 %, y el bajo al 103,8 %.</p>
+  </aside>
 </section>
 
 <section class="slide slide--section" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Presentación de la práctica">
@@ -1197,6 +1302,10 @@
   </ul>
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="phmetro"></span></div>
+  <aside class="notes guion">
+    <p>La práctica 4 es de espectrofotometría visible, y el analito es el verde de bromocresol, un indicador ácido-base. A diferencia de la práctica anterior, aquí no queremos cuantificar, sino estudiar un equilibrio: cómo cambia la especie que absorbe la luz cuando cambia el pH, que es exactamente lo que le pasa a un fármaco ionizable.</p>
+    <p>El objetivo general fue aplicar la espectrofotometría visible al equilibrio ácido-base del verde de bromocresol, para obtener su pKa y su punto isosbéstico. Los objetivos específicos fueron tres: encontrar las longitudes de onda máximas de la forma ácida y de la básica con un barrido, registrar la absorbancia a distintos pH e identificar el punto isosbéstico, y calcular el pKa por el método matemático de Henderson-Hasselbalch para compararlo con el valor de referencia. Desde ya adelantamos que el método gráfico no fue aplicable con nuestros datos, y más adelante explicamos por qué.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Introducción">
@@ -1209,6 +1318,11 @@
     </div>
     <div class="box objective"><p class="box__label">Aplicaciones en la industria farmacéutica</p><ul class="points points--compact"><li>Determinación del p<var>K</var><sub>a</sub> de fármacos en preformulación: define su ionización, solubilidad y absorción según el pH del tracto gastrointestinal.</li><li>Indicadores para valoraciones ácido-base de farmacopea.</li><li>Cuantificación de fármacos básicos (aminas) por formación de pares iónicos con verde de bromocresol.</li><li>Elección del pH y del sistema amortiguador de formulaciones líquidas.</li></ul></div>
   </div>
+  <aside class="notes guion">
+    <p>El verde de bromocresol es un indicador: su forma ácida es amarilla y absorbe a 445 nanómetros, y su forma básica es azul y absorbe a 615. Si medimos la absorbancia a distintos pH, podemos seguir qué proporción hay de cada forma y, con la ecuación de Henderson-Hasselbalch, calcular su pKa.</p>
+    <p>Usamos 12,4 miligramos del colorante en 25 mililitros, ácido clorhídrico para obtener la forma ácida, hidróxido de sodio para la básica, diez soluciones amortiguadoras entre pH 1 y 13, el espectrofotómetro con celdas de un centímetro y un pH-metro.</p>
+    <p>Esperábamos dos máximos, cerca de 445 y de 615 nanómetros, un punto isosbéstico donde la absorbancia no cambia con el pH, y una curva de absorbancia frente a pH en forma de S, centrada cerca del pKa de referencia, que es 4,7. En la industria esto se usa para determinar el pKa de fármacos en preformulación, para las valoraciones de farmacopea y para elegir el pH de formulaciones líquidas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Fundamento">
@@ -1225,6 +1339,11 @@
       <li>El método gráfico (pH donde <var>A</var> = (<var>A</var><sub>HIn</sub> + <var>A</var><sub>In<sup>−</sup></sub>)/2) exige una curva sigmoidal bien definida.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>El fundamento tiene tres ecuaciones. La primera es el equilibrio del indicador: la forma ácida, HIn, pierde un protón y pasa a la forma básica, In menos. El pH decide cuál de las dos predomina.</p>
+    <p>La segunda es la ecuación de Henderson-Hasselbalch: el pH es igual al pKa más el logaritmo del cociente entre la forma básica y la ácida. Cuando hay tanto de una como de la otra, el logaritmo vale cero y el pH es igual al pKa. Por eso el pKa es el punto medio de la transición de color.</p>
+    <p>La tercera es la misma ecuación pero escrita con absorbancias, que es lo que realmente medimos. Como no vemos las moléculas, usamos los colores: la absorbancia de la mezcla está entre la de la forma ácida pura y la de la básica pura, y esa posición dice en qué proporción están. Despejando, cada solución de la zona de viraje nos da su propio pKa, que es el método matemático que usamos. El método gráfico, en cambio, necesita una curva en S bien definida para ubicar su punto medio.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Analitos · estructura y datos">
@@ -1256,6 +1375,10 @@
     </div>
   </div>
   <p class="eq-legend">Estructuras 2D: PubChem (CID 6451; formas iónicas dibujadas a partir de su estructura). Notación simplificada: HIn y In<sup>−</sup> omiten la carga del sulfonato.</p>
+  <aside class="notes guion">
+    <p>Aquí están las dos formas del verde de bromocresol: la forma ácida, amarilla, que predomina por debajo de pH 3,8, y la forma básica, azul, por encima de 5,4. Su masa molar es de 698 gramos por mol, su pKa de referencia es cercano a 4,7 y sus máximos están cerca de 444 y de 617 nanómetros. Es poco soluble en agua y soluble en etanol y en hidróxido de sodio diluido.</p>
+    <p>Hay tres detalles químicos importantes. El equilibrio que medimos es la pérdida del protón del fenol, que extiende la conjugación de la molécula y por eso desplaza la absorción hacia el rojo, del amarillo al azul. En el intervalo de trabajo solo hay dos especies coloreadas, y por eso esperamos un punto isosbéstico. Y el pKa aparente depende de la fuerza iónica, porque la carga pasa de menos uno a menos dos; por eso las soluciones amortiguadoras deberían tener fuerza iónica parecida.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Método">
@@ -1283,6 +1406,10 @@
     <p class="lab-kit__title">Equipos e implementos</p>
     <ul class="lab-kit" data-kit="espectro cubeta phmetro tubos | aforado pipeta vaso"></ul>
   </div>
+  <aside class="notes guion">
+    <p>El procedimiento tuvo cuatro pasos. Primero ensayamos la solubilidad y barrimos de 400 a 700 nanómetros la solución ácida y la básica. Segundo, preparamos la solución madre con 12,4 miligramos del colorante en 25 mililitros, y de ahí dos diluciones, hasta 9,92 microgramos por mililitro. La guía indicaba 5 miligramos y 40 microgramos por mililitro; nosotros trabajamos con lo que se preparó en el laboratorio.</p>
+    <p>Tercero, pusimos un mililitro de la solución en diez tubos y añadimos a cada uno 10 mililitros de buffer, de pH 1 a 13. Fue una sola solución por pH, es decir, sin réplica. Y cuarto, medimos el pH real de cada tubo y su absorbancia a 445 y a 615 nanómetros. El espectrofotómetro fue un Optizen POP, y las celdas de un centímetro.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Datos y tablas">
@@ -1309,6 +1436,10 @@
       <p class="eq-legend">* Lectura atípica: la forma ácida absorbe 0,010 a 615&#8239;nm. [A<sup>−</sup>]/[HA] = (<var>A</var><sub>HA</sub> − <var>A</var>)/(<var>A</var> − <var>A</var><sub>A<sup>−</sup></sub>), con <var>A</var><sub>HA</sub> = 0,268 (barrido en HCl) y <var>A</var><sub>A<sup>−</sup></sub> = 0,036 (tubo 9). Solo los tubos 4–6 están en la zona de viraje (pH 3,7–6,2).</p>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>En esta práctica no construimos curva de calibración, y queremos aclarar que no hace falta para el pKa. Todas las soluciones llevan la misma cantidad de indicador, así que la absorbancia solo cambia porque cambia la proporción entre la forma ácida y la básica. El pKa sale de la relación entre absorbancia y pH, sin necesidad de conocer la absortividad ni la concentración. Por la misma razón, no hay tratamiento estadístico de regresión.</p>
+    <p>La tabla muestra los diez tubos, con su pH real y sus absorbancias a 445 y 615 nanómetros. En las dos últimas columnas está el cociente entre la forma básica y la ácida, y el pKa, calculados solo para los tubos 4, 5 y 6, que son los que están en la zona de viraje, entre pH 3,7 y 6,2. Para el cálculo usamos 0,268 como absorbancia de la forma ácida pura, que viene del barrido en ácido, y 0,036 como la de la forma básica pura, que es el tubo 9. Marcamos con asterisco la lectura de 0,674 a pH 1,84, que es atípica, porque a ese pH la forma básica prácticamente no existe.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tablas de la guía · visible (1/2)">
@@ -1350,7 +1481,10 @@
     </div>
   </div>
   <p class="eq-legend">Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
-
+  <aside class="notes guion">
+    <p>Estas son las tablas de la guía. En la prueba de solubilidad, el colorante fue bien soluble en etanol, poco soluble en ácido clorhídrico y muy soluble en hidróxido de sodio; el ácido y la base los usamos para obtener cada una de las dos formas. La fila del agua destilada no se ensayó.</p>
+    <p>En la tabla de longitudes de onda, la forma ácida tiene su máximo a 445 nanómetros, con 0,268 de absorbancia, y la básica a 615, con 0,616; los dos valores están dentro de los intervalos teóricos. La tercera tabla resume las longitudes de onda de trabajo y las concentraciones de las soluciones, y deja claro que en esta práctica no hubo curva de calibración.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Tablas de la guía · visible (2/2)">
@@ -1376,6 +1510,10 @@
       </table>
     </div>
   <p class="eq-legend">* Lectura atípica (ver Tabla 4.2). Se preparó una sola solución por pH: la práctica se hizo sin réplica. Con estos datos se determinan el p<var>K</var><sub>a</sub> (método matemático) y el punto isosbéstico. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+  <aside class="notes guion">
+    <p>Esta es la tabla principal de la práctica en el formato de la guía: para cada una de las diez soluciones, el pH del buffer, la absorbancia de la forma ácida a 445, la de la forma básica a 615 y el pH real que medimos.</p>
+    <p>Fíjense en que el pH real no siempre coincide con el nominal: el buffer de pH 1 dio 0,80, y el de 13 dio 13,38. Por eso medimos el pH de cada tubo, porque es la variable con la que calculamos. De nuevo, la lectura de 0,674 en el tubo 2 está marcada como atípica, y recordamos que se preparó una sola solución por pH.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.1 · Espectros y punto isosbéstico">
@@ -1391,6 +1529,11 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los máximos aparecen a 445&#8239;nm (HIn, <var>A</var> = 0,268) y 615&#8239;nm (In<sup>−</sup>, <var>A</var> = 0,616), dentro de los intervalos teóricos (440–445 y 615–618&#8239;nm).</p><p>Las curvas se cruzan a 510&#8239;nm (<var>A</var> = 0,104): a esa longitud de onda la absorbancia no depende del pH, lo que es coherente con un equilibrio HIn ⇌ In<sup>−</sup> sin especies intermedias.</p><p>Con <var>c</var> = 9,92&#8239;μg/mL (1,42 × 10<sup>−5</sup>&#8239;mol/L; <var>M</var> = 698,0&#8239;g/mol), las absortividades molares son 1,89 × 10<sup>4</sup> (445&#8239;nm) y 4,33 × 10<sup>4</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup> (615&#8239;nm): la forma básica absorbe unas 2,3 veces más, por lo que 615&#8239;nm es la longitud más sensible.</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Esta figura es el barrido de 400 a 700 nanómetros de las dos formas del indicador, la ácida en ácido clorhídrico y la básica en hidróxido de sodio, a 9,92 microgramos por mililitro.</p>
+    <p>Los máximos aparecen a 445 nanómetros para la forma ácida, con 0,268, y a 615 para la básica, con 0,616, los dos dentro de los valores teóricos. Las dos curvas se cruzan a 510 nanómetros, con una absorbancia de 0,104: ese es el punto isosbéstico. A esa longitud de onda la absorbancia no depende del pH, y eso confirma que en la solución solo hay dos especies en equilibrio, sin intermedios.</p>
+    <p>Con la concentración conocida calculamos las absortividades molares: 18 900 para la forma ácida y 43 300 para la básica. Es decir, la forma azul absorbe unas 2,3 veces más que la amarilla, así que 615 es la longitud de onda más sensible.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Figura 4.2 · Absorbancia frente a pH">
@@ -1406,6 +1549,11 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>La curva no tiene una forma de S definida: a 615&#8239;nm el tubo 2 (pH 1,84) salta a 0,674 y en el tubo 3 (pH 3,07) las dos líneas se cruzan antes de tiempo. No se puede ubicar el punto de inflexión, así que el método gráfico no es aplicable; el p<var>K</var><sub>a</sub> se calcula por el método matemático.</p><p>A 445&#8239;nm la forma ácida sí baja de forma ordenada entre pH 3,72 y 7 (0,263 → 0,048): de esa zona salen los puntos del cálculo.</p><p>La transición está poco muestreada: entre pH 3,72 y 6,24 solo hay una solución (pH 5,25).</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Este es el gráfico de nuestra hoja de datos: la absorbancia de la forma ácida y la de la forma básica frente al pH real. Lo presentamos tal como lo construimos, con los datos crudos, y hay que tener en cuenta que el eje del pH es por categorías, así que los valores no están a escala.</p>
+    <p>Lo que esperábamos eran dos curvas en S opuestas: la ácida bajando y la básica subiendo, cruzándose en el pKa. Pero la curva no tiene una forma de S definida. A 615 nanómetros, el tubo 2, a pH 1,84, salta a 0,674, y en el tubo 3, a pH 3,07, las dos líneas se cruzan antes de tiempo. Con eso no se puede ubicar el punto de inflexión, así que el método gráfico no es aplicable y calculamos el pKa por el método matemático.</p>
+    <p>Lo que sí se ve bien es que a 445 nanómetros la forma ácida baja de forma ordenada entre pH 3,72 y 7, de 0,263 a 0,048, y de esa zona salen los puntos del cálculo. También se ve que la transición está poco muestreada: entre pH 3,72 y 6,24 solo hay una solución.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Método matemático">
@@ -1427,6 +1575,11 @@
     </div>
     <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Los tres tubos de la zona de viraje dan p<var>K</var><sub>a</sub> entre 5,30 y 5,72; el promedio es 5,47 ± 0,22.</p><p>El tubo 4 es el menos fiable: <var>A</var><sub>HA</sub> − <var>A</var> = 0,005&#8239;UA, del orden del ruido del equipo. Si se tomara <var>A</var><sub>HA</sub> = 0,265 (tubo 2), su p<var>K</var><sub>a</sub> pasaría de 5,38 a 5,77. Sin el tubo 4, el promedio es 5,51.</p><p>La serie de 615&#8239;nm no se usa: sus lecturas a pH ácido son incoherentes con las de 445&#8239;nm.</p></div>
   </div>
+  <aside class="notes guion">
+    <p>Este es el método matemático. La ecuación es la de Henderson-Hasselbalch despejada: el pKa es igual al pH menos el logaritmo de la absorbancia de la forma ácida pura menos la absorbancia medida, dividido entre la absorbancia medida menos la de la forma básica pura. Lo que hace es mirar qué tan lejos está cada lectura del «todo amarillo» y del «todo azul».</p>
+    <p>La tabla muestra el cálculo paso a paso para los tres tubos de la zona de viraje. El tubo 4, a pH 3,72, da 5,38; el tubo 5, a pH 5,25, da 5,30; y el tubo 6, a pH 6,24, da 5,72. El promedio es 5,47, con una desviación estándar de 0,22.</p>
+    <p>Hay que advertir que el tubo 4 es el menos confiable, porque su absorbancia está apenas 0,005 por debajo de la de la forma ácida pura, que es del orden del ruido del equipo. Si tomáramos 0,265 en lugar de 0,268, su pKa pasaría a 5,77. Sin el tubo 4 el promedio es 5,51, así que la conclusión no cambia. La serie de 615 nanómetros no la usamos, porque sus lecturas en medio ácido no son coherentes con las de 445.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Resultados">
@@ -1463,6 +1616,10 @@
     <p class="box__label">Comparación</p>
     <p>Diferencia frente a la referencia: +0,77 (error relativo +16,3&#8239;%); los tres valores por solución quedan por encima de 4,7. El método gráfico no se aplicó: la curva <var>A</var>–pH no muestra una sigmoide definida.</p>
   </div>
+  <aside class="notes guion">
+    <p>El resultado de la práctica 4 es un pKa de 5,47 más o menos 0,22 para el verde de bromocresol, calculado por el método matemático a 445 nanómetros con los tubos 4, 5 y 6. Los valores individuales fueron 5,38, 5,30 y 5,72. El valor de referencia, según el Merck Index, es 4,7.</p>
+    <p>La tabla resume los parámetros espectrales: los máximos a 445 y 615 nanómetros, las absortividades molares de cada forma y el punto isosbéstico a 510 nanómetros. En la comparación, nuestro valor está 0,77 unidades por encima de la referencia, un error relativo del 16,3 %, y los tres valores individuales quedan por encima de 4,7. Lo repetimos: el método gráfico no se aplicó, porque la curva de absorbancia frente a pH no muestra una S definida.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Discusión">
@@ -1477,6 +1634,12 @@
     <p class="box__label">Observación</p>
     <p>No se construyó curva de calibración (el docente no la pidió) ni se hizo réplica (la tabla «Réplica 2» de la hoja está vacía). Por eso no hay tratamiento estadístico de regresión y la incertidumbre del p<var>K</var><sub>a</sub> se estima solo con la dispersión de los tres valores (<var>s</var> = 0,22).</p>
   </div>
+  <aside class="notes guion">
+    <p>Discutimos cuatro puntos. El primero es el método. La curva no muestra una S definida, por el salto a 0,674 a pH 1,84 y el cruce prematuro a pH 3,07, así que no pudimos ubicar el punto de inflexión y calculamos el pKa con el método matemático.</p>
+    <p>El segundo es la sensibilidad del cálculo. En el tubo 4 la diferencia con la forma ácida pura es de solo 0,005, del orden del ruido, y un pequeño cambio en ese extremo mueve su pKa casi medio punto. Aun así, sin ese tubo el promedio es 5,51, y la conclusión se mantiene.</p>
+    <p>El tercero es el sesgo de más 0,77 frente a la referencia. Creemos que se debe a que no controlamos la fuerza iónica de los buffers, a que la solución tiene etanol, que sube el pKa aparente de los ácidos, y a que el pH-metro pudo no estar bien calibrado en la zona ácida. Además, la transición está poco muestreada.</p>
+    <p>Y el cuarto son las lecturas a 615 nanómetros. Lo más probable es una contaminación cruzada de la celda con la forma azul, por no lavarla bien entre lecturas, o un error al trasvasar. El otro grupo tuvo la misma anomalía, lo que apunta a material compartido. Como observación final, no hubo curva de calibración, porque el profesor no la pidió, ni réplica, porque la tabla de la réplica 2 quedó vacía; por eso la única incertidumbre que podemos dar es la dispersión de los tres valores.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 4 · Verde de bromocresol" data-accent="p4" data-title="Conclusión">
@@ -1490,6 +1653,11 @@
       <li>Para un resultado más exacto se requieren más buffers entre pH 3,5 y 6, fuerza iónica constante, lavar la celda entre lecturas y hacer réplica.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>Concluimos cuatro cosas de la práctica 4. Primera: por el método matemático de Henderson-Hasselbalch a 445 nanómetros, el pKa del verde de bromocresol es 5,47 más o menos 0,22, es decir, 0,77 unidades por encima del valor de referencia.</p>
+    <p>Segunda: la forma ácida y la básica absorben a 445 y 615 nanómetros, como dice la teoría, y el punto isosbéstico a 510 confirma que hay un equilibrio entre solo dos especies.</p>
+    <p>Tercera: el método gráfico no fue aplicable, porque la curva de absorbancia frente a pH no tiene una S definida, por las lecturas atípicas a 615 y los pocos puntos en el viraje. Y cuarta: para un resultado más exacto haría falta usar más buffers entre pH 3,5 y 6, mantener constante la fuerza iónica, lavar bien la celda entre lecturas y hacer réplica.</p>
+  </aside>
 </section>
 
 <section class="slide slide--section" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Presentación de la práctica">
@@ -1511,6 +1679,11 @@
   </ul>
   </div>
   <div class="section__art" aria-hidden="true"><span class="lab-ico lab-ico--hero" data-icon="espectro"></span><span class="lab-ico lab-ico--hero" data-icon="cubeta"></span></div>
+  <aside class="notes guion">
+    <p>La quinta y última práctica es la determinación simultánea de acetaminofén y cafeína por espectrofotometría ultravioleta, usando la aditividad de las absorbancias. Es la más completa del módulo, porque reúne todo lo anterior: curvas de calibración, longitudes de onda máximas y el efecto del pH sobre el espectro.</p>
+    <p>El objetivo general fue determinar los dos activos en una mezcla sin separarlos. Los objetivos específicos fueron cuatro: relacionar las propiedades de cada analito con su distribución de especies para elegir el disolvente; obtener los espectros individuales y elegir dos longitudes de onda; construir las curvas de calibración de cada analito a las dos longitudes de onda; y resolver el sistema de ecuaciones por determinantes para evaluar la exactitud en mezclas de composición conocida.</p>
+    <p>Queremos ser claros desde el principio: esta práctica está incompleta en datos. Tenemos las dos curvas propias, pero no las lecturas cruzadas ni las mezclas, así que esas partes las presentamos como propuesta, en rojo, construidas con datos de literatura.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Introducción">
@@ -1523,6 +1696,11 @@
     </div>
     <div class="box objective"><p class="box__label">Aplicaciones en la industria farmacéutica</p><ul class="points points--compact"><li>Valoración simultánea de combinaciones a dosis fija (acetaminofén + cafeína, + ibuprofeno, + clorfeniramina) sin separación cromatográfica.</li><li>Control de calidad rápido y económico frente a la HPLC.</li><li>Base de métodos multicomponente: espectrofotometría derivada y calibración multivariada (PLS).</li><li>Pruebas de disolución de productos combinados.</li></ul></div>
   </div>
+  <aside class="notes guion">
+    <p>Cuando dos sustancias absorben en la misma región del espectro, la absorbancia de la mezcla es la suma de lo que absorbe cada una. Si medimos a dos longitudes de onda, 256 y 273 nanómetros, tenemos dos ecuaciones con dos incógnitas, y podemos calcular la concentración de cada sustancia sin separarlas. El acetaminofén y la cafeína se combinan con frecuencia en los analgésicos, así que el caso es muy real.</p>
+    <p>Trabajamos con acetaminofén patrón, 12,4 miligramos en 25 mililitros, y cafeína patrón, 12,8 miligramos en 25 mililitros, en hidróxido de sodio 0,1843 normal.</p>
+    <p>Esperábamos que cada analito cumpliera Lambert-Beer a las dos longitudes de onda, que las absorbancias fueran aditivas en las mezclas, que el determinante del sistema estuviera lejos de cero y que las recuperaciones fueran cercanas al 100 %. Las aplicaciones son la valoración de combinaciones a dosis fija sin cromatografía, el control de calidad rápido y económico y la base de los métodos multicomponente más avanzados.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Fundamento">
@@ -1541,6 +1719,11 @@
       <li><var>D</var> cercano a 0 indica un sistema mal condicionado.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>El fundamento son cuatro ecuaciones. Las dos primeras son la aditividad a cada longitud de onda: la absorbancia a 256 es la pendiente del acetaminofén a 256 por su concentración, más la pendiente de la cafeína a 256 por la suya; y lo mismo a 273. Es como dos linternas que iluminan juntas: la luz total es la suma. Esto exige que los analitos no interactúen y que cada uno cumpla Lambert-Beer.</p>
+    <p>La tercera es el determinante del sistema, D, que se calcula con las cuatro pendientes. Mide qué tan distintos son los espectros de las dos sustancias. Si D es casi cero, las dos sustancias «se ven igual» a esas longitudes de onda y el sistema no las puede separar: cualquier error pequeño de absorbancia se amplifica mucho en las concentraciones.</p>
+    <p>Y la cuarta es la regla de Cramer, que es la receta para despejar las dos concentraciones a la vez a partir de las dos absorbancias de la mezcla. Un supuesto importante, que vamos a retomar en los resultados, es que los interceptos de las curvas sean prácticamente cero.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Analitos · estructura y datos">
@@ -1572,12 +1755,22 @@
     </div>
   </div>
   <p class="eq-legend">Estructuras 2D: PubChem (CID 1983 y 2519). Datos: PubChem y Merck Index.</p>
+  <aside class="notes guion">
+    <p>Los dos analitos son el acetaminofén, o N-(4-hidroxifenil)acetamida, y la cafeína, una trimetilxantina. Sus masas molares son 151 y 194 gramos por mol. El acetaminofén tiene un fenol con pKa de 9,5, y la cafeína es una base muy débil, con un pKa de 0,6 para su ácido conjugado.</p>
+    <p>Lo más importante para el método está en la fila de la longitud de onda máxima. En hidróxido de sodio, el acetaminofén pasa a fenolato y su máximo se desplaza de 243 a unos 257 nanómetros. La cafeína no se ioniza y conserva su máximo en 273, sin importar el pH.</p>
+    <p>Sus espectros se solapan, es decir, cada uno absorbe también en la longitud de onda del otro. Por eso necesitamos las curvas cruzadas y el sistema de dos ecuaciones. Además, en las formulaciones la cafeína está en mucha menor proporción, por ejemplo 65 miligramos por cada 500 de acetaminofén, así que su error relativo será mayor.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.0 · Distribución de especies">
   <h2>Distribución de especies y elección del solvente</h2>
   <div class="grid-2"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Justifica el solvente, como pide la guía: muestra qué especie del acetaminofén predomina a cada pH. En NaOH queda una sola especie, el fenolato.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Distribución de especies del acetaminofén", "aspect": 0.5, "x": {"label": "pH", "min": 0, "max": 14}, "y": {"label": "fracción α", "min": 0, "max": 1}, "series": [{"name": "ACE (fenol)", "points": [[0.0, 1.0], [0.1, 1.0], [0.2, 1.0], [0.3, 1.0], [0.4, 1.0], [0.5, 1.0], [0.6, 1.0], [0.7, 1.0], [0.8, 1.0], [0.9, 1.0], [1.0, 1.0], [1.1, 1.0], [1.2, 1.0], [1.3, 1.0], [1.4, 1.0], [1.5, 1.0], [1.6, 1.0], [1.7, 1.0], [1.8, 1.0], [1.9, 1.0], [2.0, 1.0], [2.1, 1.0], [2.2, 1.0], [2.3, 1.0], [2.4, 1.0], [2.5, 1.0], [2.6, 1.0], [2.7, 1.0], [2.8, 1.0], [2.9, 1.0], [3.0, 1.0], [3.1, 1.0], [3.2, 1.0], [3.3, 1.0], [3.4, 1.0], [3.5, 1.0], [3.6, 1.0], [3.7, 1.0], [3.8, 1.0], [3.9, 1.0], [4.0, 1.0], [4.1, 1.0], [4.2, 1.0], [4.3, 1.0], [4.4, 1.0], [4.5, 1.0], [4.6, 1.0], [4.7, 1.0], [4.8, 1.0], [4.9, 1.0], [5.0, 1.0], [5.1, 1.0], [5.2, 0.9999], [5.3, 0.9999], [5.4, 0.9999], [5.5, 0.9999], [5.6, 0.9999], [5.7, 0.9998], [5.8, 0.9998], [5.9, 0.9997], [6.0, 0.9997], [6.1, 0.9996], [6.2, 0.9995], [6.3, 0.9994], [6.4, 0.9992], [6.5, 0.999], [6.6, 0.9987], [6.7, 0.9984], [6.8, 0.998], [6.9, 0.9975], [7.0, 0.9968], [7.1, 0.996], [7.2, 0.995], [7.3, 0.9937], [7.4, 0.9921], [7.5, 0.9901], [7.6, 0.9876], [7.7, 0.9844], [7.8, 0.9804], [7.9, 0.9755], [8.0, 0.9693], [8.1, 0.9617], [8.2, 0.9523], [8.3, 0.9406], [8.4, 0.9264], [8.5, 0.9091], [8.6, 0.8882], [8.7, 0.8632], [8.8, 0.8337], [8.9, 0.7992], [9.0, 0.7597], [9.1, 0.7153], [9.2, 0.6661], [9.3, 0.6131], [9.4, 0.5573], [9.5, 0.5], [9.6, 0.4427], [9.7, 0.3869], [9.8, 0.3339], [9.9, 0.2847], [10.0, 0.2403], [10.1, 0.2008], [10.2, 0.1663], [10.3, 0.1368], [10.4, 0.1118], [10.5, 0.0909], [10.6, 0.0736], [10.7, 0.0594], [10.8, 0.0477], [10.9, 0.0383], [11.0, 0.0307], [11.1, 0.0245], [11.2, 0.0196], [11.3, 0.0156], [11.4, 0.0124], [11.5, 0.0099], [11.6, 0.0079], [11.7, 0.0063], [11.8, 0.005], [11.9, 0.004], [12.0, 0.0032], [12.1, 0.0025], [12.2, 0.002], [12.3, 0.0016], [12.4, 0.0013], [12.5, 0.001], [12.6, 0.0008], [12.7, 0.0006], [12.8, 0.0005], [12.9, 0.0004], [13.0, 0.0003], [13.1, 0.0003], [13.2, 0.0002], [13.3, 0.0002], [13.4, 0.0001], [13.5, 0.0001], [13.6, 0.0001], [13.7, 0.0001], [13.8, 0.0001], [13.9, 0.0], [14.0, 0.0]], "line": true, "markers": false, "color": 5}, {"name": "ACE<sup>−</sup> (fenolato)", "points": [[0.0, 0.0], [0.1, 0.0], [0.2, 0.0], [0.3, 0.0], [0.4, 0.0], [0.5, 0.0], [0.6, 0.0], [0.7, 0.0], [0.8, 0.0], [0.9, 0.0], [1.0, 0.0], [1.1, 0.0], [1.2, 0.0], [1.3, 0.0], [1.4, 0.0], [1.5, 0.0], [1.6, 0.0], [1.7, 0.0], [1.8, 0.0], [1.9, 0.0], [2.0, 0.0], [2.1, 0.0], [2.2, 0.0], [2.3, 0.0], [2.4, 0.0], [2.5, 0.0], [2.6, 0.0], [2.7, 0.0], [2.8, 0.0], [2.9, 0.0], [3.0, 0.0], [3.1, 0.0], [3.2, 0.0], [3.3, 0.0], [3.4, 0.0], [3.5, 0.0], [3.6, 0.0], [3.7, 0.0], [3.8, 0.0], [3.9, 0.0], [4.0, 0.0], [4.1, 0.0], [4.2, 0.0], [4.3, 0.0], [4.4, 0.0], [4.5, 0.0], [4.6, 0.0], [4.7, 0.0], [4.8, 0.0], [4.9, 0.0], [5.0, 0.0], [5.1, 0.0], [5.2, 0.0001], [5.3, 0.0001], [5.4, 0.0001], [5.5, 0.0001], [5.6, 0.0001], [5.7, 0.0002], [5.8, 0.0002], [5.9, 0.0003], [6.0, 0.0003], [6.1, 0.0004], [6.2, 0.0005], [6.3, 0.0006], [6.4, 0.0008], [6.5, 0.001], [6.6, 0.0013], [6.7, 0.0016], [6.8, 0.002], [6.9, 0.0025], [7.0, 0.0032], [7.1, 0.004], [7.2, 0.005], [7.3, 0.0063], [7.4, 0.0079], [7.5, 0.0099], [7.6, 0.0124], [7.7, 0.0156], [7.8, 0.0196], [7.9, 0.0245], [8.0, 0.0307], [8.1, 0.0383], [8.2, 0.0477], [8.3, 0.0594], [8.4, 0.0736], [8.5, 0.0909], [8.6, 0.1118], [8.7, 0.1368], [8.8, 0.1663], [8.9, 0.2008], [9.0, 0.2403], [9.1, 0.2847], [9.2, 0.3339], [9.3, 0.3869], [9.4, 0.4427], [9.5, 0.5], [9.6, 0.5573], [9.7, 0.6131], [9.8, 0.6661], [9.9, 0.7153], [10.0, 0.7597], [10.1, 0.7992], [10.2, 0.8337], [10.3, 0.8632], [10.4, 0.8882], [10.5, 0.9091], [10.6, 0.9264], [10.7, 0.9406], [10.8, 0.9523], [10.9, 0.9617], [11.0, 0.9693], [11.1, 0.9755], [11.2, 0.9804], [11.3, 0.9844], [11.4, 0.9876], [11.5, 0.9901], [11.6, 0.9921], [11.7, 0.9937], [11.8, 0.995], [11.9, 0.996], [12.0, 0.9968], [12.1, 0.9975], [12.2, 0.998], [12.3, 0.9984], [12.4, 0.9987], [12.5, 0.999], [12.6, 0.9992], [12.7, 0.9994], [12.8, 0.9995], [12.9, 0.9996], [13.0, 0.9997], [13.1, 0.9997], [13.2, 0.9998], [13.3, 0.9998], [13.4, 0.9999], [13.5, 0.9999], [13.6, 0.9999], [13.7, 0.9999], [13.8, 0.9999], [13.9, 1.0], [14.0, 1.0]], "line": true, "markers": false, "color": 5, "dash": 2}]}</script></div><figcaption>Figura 5.0a. Acetaminofén, p<var>K</var><sub>a</sub> = 9,5 (fenol).</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Justifica el solvente: la cafeína es neutra en casi todo el intervalo de pH, así que su espectro no depende del medio.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Distribución de especies de la cafeína", "aspect": 0.5, "x": {"label": "pH", "min": 0, "max": 14}, "y": {"label": "fracción α", "min": 0, "max": 1}, "series": [{"name": "CAF-H<sup>+</sup>", "points": [[0.0, 0.7992], [0.1, 0.7597], [0.2, 0.7153], [0.3, 0.6661], [0.4, 0.6131], [0.5, 0.5573], [0.6, 0.5], [0.7, 0.4427], [0.8, 0.3869], [0.9, 0.3339], [1.0, 0.2847], [1.1, 0.2403], [1.2, 0.2008], [1.3, 0.1663], [1.4, 0.1368], [1.5, 0.1118], [1.6, 0.0909], [1.7, 0.0736], [1.8, 0.0594], [1.9, 0.0477], [2.0, 0.0383], [2.1, 0.0307], [2.2, 0.0245], [2.3, 0.0196], [2.4, 0.0156], [2.5, 0.0124], [2.6, 0.0099], [2.7, 0.0079], [2.8, 0.0063], [2.9, 0.005], [3.0, 0.004], [3.1, 0.0032], [3.2, 0.0025], [3.3, 0.002], [3.4, 0.0016], [3.5, 0.0013], [3.6, 0.001], [3.7, 0.0008], [3.8, 0.0006], [3.9, 0.0005], [4.0, 0.0004], [4.1, 0.0003], [4.2, 0.0003], [4.3, 0.0002], [4.4, 0.0002], [4.5, 0.0001], [4.6, 0.0001], [4.7, 0.0001], [4.8, 0.0001], [4.9, 0.0001], [5.0, 0.0], [5.1, 0.0], [5.2, 0.0], [5.3, 0.0], [5.4, 0.0], [5.5, 0.0], [5.6, 0.0], [5.7, 0.0], [5.8, 0.0], [5.9, 0.0], [6.0, 0.0], [6.1, 0.0], [6.2, 0.0], [6.3, 0.0], [6.4, 0.0], [6.5, 0.0], [6.6, 0.0], [6.7, 0.0], [6.8, 0.0], [6.9, 0.0], [7.0, 0.0], [7.1, 0.0], [7.2, 0.0], [7.3, 0.0], [7.4, 0.0], [7.5, 0.0], [7.6, 0.0], [7.7, 0.0], [7.8, 0.0], [7.9, 0.0], [8.0, 0.0], [8.1, 0.0], [8.2, 0.0], [8.3, 0.0], [8.4, 0.0], [8.5, 0.0], [8.6, 0.0], [8.7, 0.0], [8.8, 0.0], [8.9, 0.0], [9.0, 0.0], [9.1, 0.0], [9.2, 0.0], [9.3, 0.0], [9.4, 0.0], [9.5, 0.0], [9.6, 0.0], [9.7, 0.0], [9.8, 0.0], [9.9, 0.0], [10.0, 0.0], [10.1, 0.0], [10.2, 0.0], [10.3, 0.0], [10.4, 0.0], [10.5, 0.0], [10.6, 0.0], [10.7, 0.0], [10.8, 0.0], [10.9, 0.0], [11.0, 0.0], [11.1, 0.0], [11.2, 0.0], [11.3, 0.0], [11.4, 0.0], [11.5, 0.0], [11.6, 0.0], [11.7, 0.0], [11.8, 0.0], [11.9, 0.0], [12.0, 0.0], [12.1, 0.0], [12.2, 0.0], [12.3, 0.0], [12.4, 0.0], [12.5, 0.0], [12.6, 0.0], [12.7, 0.0], [12.8, 0.0], [12.9, 0.0], [13.0, 0.0], [13.1, 0.0], [13.2, 0.0], [13.3, 0.0], [13.4, 0.0], [13.5, 0.0], [13.6, 0.0], [13.7, 0.0], [13.8, 0.0], [13.9, 0.0], [14.0, 0.0]], "line": true, "markers": false, "color": 5}, {"name": "CAF (neutra)", "points": [[0.0, 0.2008], [0.1, 0.2403], [0.2, 0.2847], [0.3, 0.3339], [0.4, 0.3869], [0.5, 0.4427], [0.6, 0.5], [0.7, 0.5573], [0.8, 0.6131], [0.9, 0.6661], [1.0, 0.7153], [1.1, 0.7597], [1.2, 0.7992], [1.3, 0.8337], [1.4, 0.8632], [1.5, 0.8882], [1.6, 0.9091], [1.7, 0.9264], [1.8, 0.9406], [1.9, 0.9523], [2.0, 0.9617], [2.1, 0.9693], [2.2, 0.9755], [2.3, 0.9804], [2.4, 0.9844], [2.5, 0.9876], [2.6, 0.9901], [2.7, 0.9921], [2.8, 0.9937], [2.9, 0.995], [3.0, 0.996], [3.1, 0.9968], [3.2, 0.9975], [3.3, 0.998], [3.4, 0.9984], [3.5, 0.9987], [3.6, 0.999], [3.7, 0.9992], [3.8, 0.9994], [3.9, 0.9995], [4.0, 0.9996], [4.1, 0.9997], [4.2, 0.9997], [4.3, 0.9998], [4.4, 0.9998], [4.5, 0.9999], [4.6, 0.9999], [4.7, 0.9999], [4.8, 0.9999], [4.9, 0.9999], [5.0, 1.0], [5.1, 1.0], [5.2, 1.0], [5.3, 1.0], [5.4, 1.0], [5.5, 1.0], [5.6, 1.0], [5.7, 1.0], [5.8, 1.0], [5.9, 1.0], [6.0, 1.0], [6.1, 1.0], [6.2, 1.0], [6.3, 1.0], [6.4, 1.0], [6.5, 1.0], [6.6, 1.0], [6.7, 1.0], [6.8, 1.0], [6.9, 1.0], [7.0, 1.0], [7.1, 1.0], [7.2, 1.0], [7.3, 1.0], [7.4, 1.0], [7.5, 1.0], [7.6, 1.0], [7.7, 1.0], [7.8, 1.0], [7.9, 1.0], [8.0, 1.0], [8.1, 1.0], [8.2, 1.0], [8.3, 1.0], [8.4, 1.0], [8.5, 1.0], [8.6, 1.0], [8.7, 1.0], [8.8, 1.0], [8.9, 1.0], [9.0, 1.0], [9.1, 1.0], [9.2, 1.0], [9.3, 1.0], [9.4, 1.0], [9.5, 1.0], [9.6, 1.0], [9.7, 1.0], [9.8, 1.0], [9.9, 1.0], [10.0, 1.0], [10.1, 1.0], [10.2, 1.0], [10.3, 1.0], [10.4, 1.0], [10.5, 1.0], [10.6, 1.0], [10.7, 1.0], [10.8, 1.0], [10.9, 1.0], [11.0, 1.0], [11.1, 1.0], [11.2, 1.0], [11.3, 1.0], [11.4, 1.0], [11.5, 1.0], [11.6, 1.0], [11.7, 1.0], [11.8, 1.0], [11.9, 1.0], [12.0, 1.0], [12.1, 1.0], [12.2, 1.0], [12.3, 1.0], [12.4, 1.0], [12.5, 1.0], [12.6, 1.0], [12.7, 1.0], [12.8, 1.0], [12.9, 1.0], [13.0, 1.0], [13.1, 1.0], [13.2, 1.0], [13.3, 1.0], [13.4, 1.0], [13.5, 1.0], [13.6, 1.0], [13.7, 1.0], [13.8, 1.0], [13.9, 1.0], [14.0, 1.0]], "line": true, "markers": false, "color": 5, "dash": 2}]}</script></div><figcaption>Figura 5.0b. Cafeína, p<var>K</var><sub>a</sub> = 0,6 (ácido conjugado).</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>En NaOH 0,1843&#8239;N (pH ≈ <span class="prop">13,3</span>) el acetaminofén está <span class="prop">99,98&#8239;%</span> como fenolato y la cafeína <span class="prop">100&#8239;%</span> neutra: cada analito tiene una sola especie y su espectro no cambia con pequeñas variaciones de pH. Esa es la justificación del solvente. En agua (pH ≈ 6) el acetaminofén también tendría una sola especie (neutra, λ<sub>máx</sub> 243&#8239;nm), con más separación de la cafeína pero menor solubilidad.</p></div>
+  <aside class="notes guion">
+    <p>Estos son los diagramas de distribución de especies, que muestran qué fracción de cada analito está en cada forma según el pH. A la izquierda el acetaminofén, con pKa de 9,5, y a la derecha la cafeína, con pKa de 0,6.</p>
+    <p>En hidróxido de sodio 0,1843 normal el pH es de unos 13,3. A ese pH, el acetaminofén está en un 99,98 % como fenolato y la cafeína en un 100 % neutra. Es decir, cada analito tiene una sola especie, y su espectro no cambia con pequeñas variaciones de pH. Esa es la justificación química del disolvente.</p>
+    <p>Vale la pena mencionar que en agua, a pH cercano a 6, el acetaminofén también tendría una sola especie, la neutra, con más separación respecto a la cafeína, pero su solubilidad sería menor.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Método">
@@ -1607,11 +1800,21 @@
     <p class="lab-kit__title">Equipos e implementos</p>
     <ul class="lab-kit" data-kit="espectro cubeta | balanza aforado pipeta probeta vaso"></ul>
   </div>
+  <aside class="notes guion">
+    <p>El procedimiento fue el siguiente. Preparamos el disolvente, hidróxido de sodio 0,1843 normal, que elegimos con la prueba de solubilidad. Preparamos las soluciones madre: 12,4 miligramos de acetaminofén y 12,8 de cafeína, cada una en 25 mililitros, y luego diluidas hasta unos 100 microgramos por mililitro.</p>
+    <p>De cada madre preparamos cinco patrones por duplicado independiente, tomando entre 0,5 y 1,2 mililitros y llevándolos a 10. Cada patrón se debía leer a 256 y a 273 nanómetros, y al final se debían preparar tres mezclas de composición conocida y leerlas también a las dos longitudes de onda.</p>
+    <p>La tabla resume el diseño de las cuatro curvas: C1 es el acetaminofén a 256 y C2 la cafeína a 273, que son las curvas propias; C3 es el acetaminofén a 273 y C4 la cafeína a 256, que son las cruzadas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figura 5.A · Espectros individuales">
   <h2>Espectros individuales</h2>
   <div class="fig-slide"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Permite elegir las dos longitudes de onda de trabajo, donde cada analito absorbe mucho y el otro poco, y muestra el solapamiento que obliga a resolver un sistema de dos ecuaciones.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Espectros del acetaminofén y la cafeína", "aspect": 0.6, "x": {"label": "λ (nm)", "min": 225, "max": 320}, "y": {"label": "A", "min": 0, "max": 1.0}, "series": [{"name": "Acetaminofén 8 μg/mL (NaOH)", "points": [[225, 0.0973], [227, 0.1205], [229, 0.1473], [231, 0.1776], [233, 0.2112], [235, 0.2476], [237, 0.2863], [239, 0.3266], [241, 0.3673], [243, 0.4075], [245, 0.4459], [247, 0.4811], [249, 0.512], [251, 0.5375], [253, 0.5564], [255, 0.5681], [257, 0.572], [259, 0.5681], [261, 0.5564], [263, 0.5375], [265, 0.512], [267, 0.4811], [269, 0.4459], [271, 0.4075], [273, 0.3673], [275, 0.3266], [277, 0.2863], [279, 0.2476], [281, 0.2112], [283, 0.1776], [285, 0.1473], [287, 0.1205], [289, 0.0973], [291, 0.0774], [293, 0.0608], [295, 0.047], [297, 0.0359], [299, 0.027], [301, 0.0201], [303, 0.0147], [305, 0.0106], [307, 0.0076], [309, 0.0053], [311, 0.0037], [313, 0.0025], [315, 0.0017], [317, 0.0011], [319, 0.0007]], "line": true, "markers": false, "color": 5}, {"name": "Cafeína 8 μg/mL", "points": [[225, 0.0001], [227, 0.0003], [229, 0.0005], [231, 0.0009], [233, 0.0016], [235, 0.0027], [237, 0.0045], [239, 0.0073], [241, 0.0115], [243, 0.0177], [245, 0.0265], [247, 0.0386], [249, 0.0546], [251, 0.0751], [253, 0.1005], [255, 0.1309], [257, 0.1658], [259, 0.2042], [261, 0.2446], [263, 0.2849], [265, 0.3229], [267, 0.3558], [269, 0.3814], [271, 0.3976], [273, 0.4032], [275, 0.3976], [277, 0.3814], [279, 0.3558], [281, 0.3229], [283, 0.2849], [285, 0.2446], [287, 0.2042], [289, 0.1658], [291, 0.1309], [293, 0.1005], [295, 0.0751], [297, 0.0546], [299, 0.0386], [301, 0.0265], [303, 0.0177], [305, 0.0115], [307, 0.0073], [309, 0.0045], [311, 0.0027], [313, 0.0016], [315, 0.0009], [317, 0.0005], [319, 0.0003]], "line": true, "markers": false, "color": 5, "dash": 2}, {"name": "Mezcla 8 + 8 μg/mL", "points": [[225, 0.0974], [227, 0.1208], [229, 0.1478], [231, 0.1785], [233, 0.2127], [235, 0.2503], [237, 0.2908], [239, 0.3338], [241, 0.3788], [243, 0.4252], [245, 0.4724], [247, 0.5197], [249, 0.5666], [251, 0.6126], [253, 0.6569], [255, 0.699], [257, 0.7378], [259, 0.7722], [261, 0.8009], [263, 0.8224], [265, 0.8349], [267, 0.8369], [269, 0.8273], [271, 0.8051], [273, 0.7705], [275, 0.7242], [277, 0.6677], [279, 0.6034], [281, 0.534], [283, 0.4625], [285, 0.3919], [287, 0.3247], [289, 0.263], [291, 0.2083], [293, 0.1613], [295, 0.1221], [297, 0.0905], [299, 0.0656], [301, 0.0466], [303, 0.0324], [305, 0.0221], [307, 0.0149], [309, 0.0098], [311, 0.0064], [313, 0.0041], [315, 0.0026], [317, 0.0016], [319, 0.001]], "line": true, "markers": false, "color": 5, "dash": 3}, {"name": "λ<sub>1</sub> = 256 y λ<sub>2</sub> = 273 nm", "points": [[256, 0], [256, 1.0]], "line": true, "markers": false, "color": 3, "dash": 3}, {"name": "", "points": [[273, 0], [273, 1.0]], "line": true, "markers": false, "color": 3, "dash": 3}]}</script></div><figcaption>Figura 5.A. Espectros a 8&#8239;μg/mL y su suma. A 273&#8239;nm el acetaminofén absorbe cerca de dos tercios de su máximo: por eso se necesitan las curvas cruzadas.</figcaption></figure><div class="stack"><div class="table-wrap"><table class="data data--compact"><caption>Tabla 5.A. Absortividades (mL·μg<sup>−1</sup>·cm<sup>−1</sup>)</caption><thead><tr><th scope="col"></th><th scope="col" class="num">Acetaminofén</th><th scope="col" class="num">Cafeína</th></tr></thead><tbody><tr><th scope="row">λ<sub>máx</sub></th><td class="num">257&#8239;nm (NaOH)</td><td class="num">273&#8239;nm</td></tr><tr><th scope="row"><var>A</var><sup>1%</sup><sub>1&#8239;cm</sub> en el máximo</th><td class="num">715</td><td class="num">504</td></tr><tr><th scope="row"><var>a</var> a 256&#8239;nm</th><td class="num prop">0,0714</td><td class="num prop">0,0185</td></tr><tr><th scope="row"><var>a</var> a 273&#8239;nm</th><td class="num prop">0,0459</td><td class="num prop">0,0504</td></tr><tr><th scope="row">Sus datos</th><td class="num">0,0597 (256)</td><td class="num">0,0516 (273)</td></tr></tbody></table><p class="eq-legend">Fuentes: BP/Ph. Eur. (valoración UV del paracetamol en NaOH) y Clarke's Analysis of Drugs and Poisons (cafeína). <var>D</var> = <span class="prop">2,75 × 10<sup>−3</sup></span>.</p></div></div></div>
+  <aside class="notes guion">
+    <p>Esta figura, en rojo, la construimos con datos de literatura, porque no guardamos el barrido completo de cada analito. Muestra los espectros del acetaminofén y de la cafeína a 8 microgramos por mililitro, y la suma de los dos, que sería el espectro de la mezcla.</p>
+    <p>Se ve claramente el solapamiento. A 273 nanómetros, el acetaminofén todavía absorbe cerca de dos tercios de su máximo, así que no podemos ignorarlo al medir la cafeína; por eso necesitamos las curvas cruzadas.</p>
+    <p>La tabla da las absortividades de literatura a cada longitud de onda, y en la última fila las que obtuvimos nosotros con nuestras curvas propias: 0,0597 para el acetaminofén y 0,0516 para la cafeína. Con los cuatro valores de literatura, el determinante es de 2,75 por diez a la menos 3.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Datos y tablas">
@@ -1645,6 +1848,10 @@
       </table>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Aquí están los datos que sí medimos. La primera tabla son los patrones de acetaminofén, con sus duplicados a 256 nanómetros. La segunda, los patrones de cafeína, con sus duplicados a 273.</p>
+    <p>Las columnas cruzadas, es decir, el acetaminofén a 273 y la cafeína a 256, están en blanco, porque no tenemos esas lecturas. Son justamente las que hacen falta para construir las curvas C3 y C4. En la tabla de la cafeína también aparece un sexto nivel, de 19,46 microgramos por mililitro, que leímos una sola vez y que queda fuera del intervalo lineal.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tablas de la guía · aditividad">
@@ -1688,12 +1895,20 @@
     </div>
   </div>
   <p class="eq-legend">Corresponde a la «Práctica 5» de las guías. Estructura tomada de las guías de laboratorio del Módulo II (V2).</p>
+  <aside class="notes guion">
+    <p>Estas son las tablas en el formato de la guía. La longitud de onda máxima del acetaminofén fue 256 nanómetros, con 0,600 de absorbancia para 9,92 microgramos por mililitro, y la de la cafeína 273, con 0,583 para 10,24.</p>
+    <p>En la curva del acetaminofén, el rango fue de 4,96 a 11,90 microgramos por mililitro, con absorbancias de 0,315 a 0,766, todas dentro de lo que pide la guía. En la de la cafeína el rango lineal fue más corto, de 5,12 a 10,24, porque el nivel de 12,29 se desvía de la recta. Las soluciones madre fueron de 99,2 y de 102,4 microgramos por mililitro.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figuras 5.1–5.2 · Cuatro curvas">
   <h2>Las cuatro curvas de calibración</h2>
   <div class="grid-2"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Da las dos absortividades a 256 nm (la propia del acetaminofén y la cruzada de la cafeína): la primera fila del sistema de ecuaciones.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Curvas a 256 nm: propia y cruzada", "aspect": 0.52, "x": {"label": "c (μg/mL)", "min": 0, "max": 14}, "y": {"label": "A₂₅₆", "min": 0, "max": 1.0}, "series": [{"name": "C1 acetaminofén (sus datos)", "points": [[4.96, 0.335], [4.96, 0.315], [6.944, 0.501], [6.944, 0.454], [8.928, 0.515], [8.928, 0.533], [9.92, 0.628], [9.92, 0.653], [11.904, 0.766], [11.904, 0.738]], "fit": true, "color": 1}, {"name": "C1 (A1% = 715)", "points": [[0, 0], [14, 0.9993]], "line": true, "markers": false, "color": 5, "dash": 2}, {"name": "C4 cafeína", "points": [[0, 0], [14, 0.2587]], "line": true, "markers": false, "color": 5, "dash": 3}]}</script></div><figcaption>Figura 5.1. A 256&#8239;nm: C1 y C4.</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Da las dos absortividades a 273 nm (la propia de la cafeína y la cruzada del acetaminofén): la segunda fila del sistema de ecuaciones.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Curvas a 273 nm: propia y cruzada", "aspect": 0.52, "x": {"label": "c (μg/mL)", "min": 0, "max": 14}, "y": {"label": "A₂₇₃", "min": 0, "max": 1.0}, "series": [{"name": "C2 cafeína (sus datos, 5,12–10,24)", "points": [[5.12, 0.317], [5.12, 0.325], [7.168, 0.409], [7.168, 0.411], [8.704, 0.443], [8.704, 0.518], [10.24, 0.58], [10.24, 0.6]], "fit": true, "color": 1}, {"name": "C2 (A1% = 504)", "points": [[0, 0], [14, 0.7056]], "line": true, "markers": false, "color": 5, "dash": 2}, {"name": "C3 acetaminofén", "points": [[0, 0], [14, 0.6428]], "line": true, "markers": false, "color": 5, "dash": 3}]}</script></div><figcaption>Figura 5.2. A 273&#8239;nm: C2 y C3.</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>La cafeína coincide con la literatura (0,0516 frente a <span class="prop">0,0504</span>). El acetaminofén queda <span class="prop">16&#8239;%</span> por debajo (0,0597 frente a <span class="prop">0,0715</span>). Las curvas cruzadas completan el sistema de dos ecuaciones: pendientes de <span class="prop">0,046</span> (C3) y <span class="prop">0,018</span> (C4).</p></div>
+  <aside class="notes guion">
+    <p>Estas son las cuatro curvas del sistema, agrupadas por longitud de onda: a la izquierda las de 256 nanómetros, la del acetaminofén y la cruzada de la cafeína, y a la derecha las de 273, la de la cafeína y la cruzada del acetaminofén. Las curvas cruzadas y las líneas de referencia están en rojo porque vienen de la literatura.</p>
+    <p>La comparación es interesante. La cafeína coincide muy bien con la literatura, 0,0516 frente a 0,0504. El acetaminofén, en cambio, queda un 16 % por debajo, 0,0597 frente a 0,0715. Las pendientes cruzadas que proponemos son 0,046 para C3 y 0,018 para C4, y con ellas se completa el sistema de dos ecuaciones.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · acetaminofén">
@@ -1726,6 +1941,11 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Regresión adecuada; se usa la curva completa. Ningún duplicado baja del 2&#8239;% de RSD (peor: 6,94&#8239;μg/mL, 7,0&#8239;%).</p><p><var>A</var><sub>1&#8239;cm</sub><sup>1&#8239;%</sup> = 597 es el 84&#8239;% del valor farmacopeico (715, NaOH 0,1&#8239;M): revisar el patrón, las diluciones o el NaOH.</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Este es el tratamiento estadístico de la curva del acetaminofén. Antes, una fórmula útil: la absorbancia específica, que es la pendiente multiplicada por diez mil. Es la absorbancia que tendría una solución al 1 % en una celda de un centímetro, y es la forma en que las farmacopeas tabulan la absortividad.</p>
+    <p>La pendiente es 0,0597 más o menos 0,0097, el intercepto 0,035, que no difiere de cero, el R cuadrado 0,962 y el F de la regresión 202, muy significativo. La falta de ajuste no es significativa, con p de 0,068, así que usamos la curva completa. El límite de cuantificación es de 5,3 microgramos por mililitro.</p>
+    <p>Hay dos problemas. La absorbancia específica es 597, el 84 % de la de farmacopea, que es 715: es un sesgo proporcional, que apunta a la masa del patrón, a las diluciones o al hidróxido de sodio. Y ningún duplicado baja del 2 % de RSD; el peor es el de 6,94, con 7 %.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico · cafeína">
@@ -1758,12 +1978,21 @@
       <div class="box note box--interp"><p class="box__label">Interpretación</p><p>Se adopta la curva de 5,12–10,24&#8239;μg/mL: intercepto nulo, sin falta de ajuste y <var>ε</var> = 1,00 × 10<sup>4</sup>, acorde con la literatura (log&#8239;<var>ε</var><sub>273</sub> ≈ 4,0); con 5 niveles sale un 23&#8239;% bajo.</p><p>El duplicado de 8,70&#8239;μg/mL (11&#8239;% RSD) limita el <var>R</var><sup>2</sup> a 0,947.</p></div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Para la cafeína calculamos la absortividad molar a partir de la pendiente, que nos permite comparar con la literatura. La tabla tiene dos columnas: la curva con los cinco niveles y la curva solo entre 5,12 y 10,24 microgramos por mililitro.</p>
+    <p>Con los cinco niveles, la pendiente es 0,0397, el intercepto sí difiere de cero, el R cuadrado baja a 0,884 y la absortividad sale un 23 % por debajo de la literatura. Con el intervalo de 5,12 a 10,24, la pendiente es 0,0516, el intercepto es nulo, no hay falta de ajuste y la absortividad molar es de 10 000, que coincide con la literatura. Por eso adoptamos ese intervalo.</p>
+    <p>No es descartar datos por conveniencia: definimos el intervalo lineal con criterios objetivos, porque por encima de 10,24 la cafeína se desvía por debajo de la recta. Además, el duplicado de 8,70, con 11 % de RSD, es el que limita el R cuadrado a 0,947.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figuras 5.3–5.4 · Residuales">
   <h2>Residuales de C1 y C2</h2>
   <div class="grid-2"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Verifica la linealidad y la homocedasticidad, como pide la guía: si la recta es adecuada, los residuales se reparten al azar alrededor de cero, sin arcos ni embudos, y con la misma dispersión en todos los niveles.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Residuales de C1", "aspect": 0.5, "x": {"label": "c (μg/mL)", "min": 4, "max": 13}, "y": {"label": "residual de A", "min": -0.065625, "max": 0.065625}, "series": [{"name": "C1 acetaminofén, 256 nm (N = 10)", "points": [[4.96, 0.0044], [4.96, -0.0156], [6.944, 0.0519], [6.944, 0.0049], [8.928, -0.0525], [8.928, -0.0345], [9.92, 0.0013], [9.92, 0.0263], [11.904, 0.0209], [11.904, -0.0071]], "color": 5, "zero": true}]}</script></div><figcaption>Figura 5.3. Residuales de C1.</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Verifica la linealidad y la homocedasticidad, como pide la guía: si la recta es adecuada, los residuales se reparten al azar alrededor de cero, sin arcos ni embudos, y con la misma dispersión en todos los niveles.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Residuales de C2", "aspect": 0.5, "x": {"label": "c (μg/mL)", "min": 4, "max": 11}, "y": {"label": "residual de A", "min": -0.067, "max": 0.067}, "series": [{"name": "C2 cafeína, 273 nm (N = 8)", "points": [[5.12, 0.0052], [5.12, 0.0132], [7.168, -0.0084], [7.168, -0.0064], [8.704, -0.0536], [8.704, 0.0214], [10.24, 0.0042], [10.24, 0.0242]], "color": 5, "zero": true}]}</script></div><figcaption>Figura 5.4. Residuales de C2.</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>Ninguna de las dos muestra tendencia. En C1 se apartan los duplicados de 6,94 (+0,052) y 8,93&#8239;μg/mL (−0,053); en C2, el duplicado de 8,70&#8239;μg/mL (−0,054), el de 11&#8239;% de RSD. Faltan los residuales de C3 y C4.</p></div>
+  <aside class="notes guion">
+    <p>Estos son los residuales de las dos curvas propias, C1 a la izquierda y C2 a la derecha. Ninguna de las dos muestra una tendencia clara, así que no hay curvatura en los intervalos que usamos.</p>
+    <p>En C1 se apartan los duplicados de 6,94 y de 8,93 microgramos por mililitro, uno hacia arriba y otro hacia abajo, con unas cinco centésimas. En C2 se aparta el duplicado de 8,70, que es el que tiene 11 % de RSD. Los residuales de las curvas cruzadas C3 y C4 no los podemos mostrar, porque no tenemos esas lecturas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Tratamiento estadístico">
@@ -1797,12 +2026,21 @@
       </div>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Esta diapositiva resume las cuatro curvas del sistema. Las dos primeras filas, C1 y C2, están completas con nuestros datos: pendientes de 0,0597 y 0,0516, interceptos que no difieren de cero y regresiones significativas.</p>
+    <p>Las filas de C3 y C4 están en blanco, porque son las curvas cruzadas que no medimos, y por la misma razón el determinante con datos propios queda pendiente. Lo mismo pasa con los residuales: sabemos que C1 es aleatoria y que C2 solo es lineal hasta 10,24, pero de C3 y C4 no podemos decir nada todavía.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Figuras 5.5–5.6 · Mezclas propuestas">
   <h2>Mezclas propuestas: aditividad a 256 y 273&#8239;nm</h2>
   <div class="grid-2"><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Muestra la aditividad de absorbancias (5.1): la absorbancia de la mezcla es la suma de lo que absorbe cada analito a 256&#8239;nm. Aquí domina el acetaminofén.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Aditividad a 256 nm", "aspect": 0.62, "x": {"label": "Mezcla (ACE + CAF, μg/mL)", "categories": ["M1 (6 + 6)", "M2 (9 + 6)", "M3 (6 + 9)"]}, "y": {"label": "A₂₅₆", "min": 0, "max": 0.9, "step": 0.1}, "series": [{"name": "Aporte del acetaminofén (C1)", "points": [[0, 0.393], [1, 0.572], [2, 0.393]], "bar": true, "color": 5, "labels": true, "light": false}, {"name": "Aporte de la cafeína (C4)", "points": [[0, 0.111], [1, 0.111], [2, 0.166]], "bar": true, "color": 5, "labels": true, "light": true}, {"name": "<var>A</var> de la mezcla (suma)", "points": [[0, 0.504], [1, 0.683], [2, 0.56]], "color": 5, "labels": true}]}</script></div><figcaption>Figura 5.5. Mezclas propuestas a 256&#8239;nm: aporte de cada analito y absorbancia total.</figcaption></figure><figure class="fig"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>Es la segunda ecuación del sistema (5.2): a 273&#8239;nm el acetaminofén aporta casi tanto como la cafeína, por eso no basta una sola longitud de onda.</p></div></details><div class="chart" data-chart><script type="application/json">{"type": "xy", "title": "Aditividad a 273 nm", "aspect": 0.62, "x": {"label": "Mezcla (ACE + CAF, μg/mL)", "categories": ["M1 (6 + 6)", "M2 (9 + 6)", "M3 (6 + 9)"]}, "y": {"label": "A₂₇₃", "min": 0, "max": 0.9, "step": 0.1}, "series": [{"name": "Aporte del acetaminofén (C3)", "points": [[0, 0.275], [1, 0.413], [2, 0.275]], "bar": true, "color": 5, "labels": true, "light": true}, {"name": "Aporte de la cafeína (C2)", "points": [[0, 0.358], [1, 0.358], [2, 0.512]], "bar": true, "color": 5, "labels": true, "light": false}, {"name": "<var>A</var> de la mezcla (suma)", "points": [[0, 0.633], [1, 0.771], [2, 0.788]], "color": 5, "labels": true}]}</script></div><figcaption>Figura 5.6. Mezclas propuestas a 273&#8239;nm: aporte de cada analito y absorbancia total.</figcaption></figure></div>
   <div class="box note box--interp"><p class="box__label">Lectura</p><p>Tres mezclas <span class="prop">M1 6 + 6, M2 9 + 6 y M3 6 + 9&#8239;μg/mL</span>: cada analito queda dentro de su curva (ACE 4,96–11,90; CAF 5,12–10,24&#8239;μg/mL) y todas las absorbancias, entre 0,17 y 0,85&#8239;UA. Cada barra se calcula con la curva del analito a esa λ y la mezcla es la suma. De M2 a M3 se cambian 3&#8239;μg/mL de acetaminofén por cafeína: <var>A</var><sub>256</sub> baja (0,683 → 0,560) y <var>A</var><sub>273</sub> sube (0,771 → 0,788). Esa respuesta distinta a cada λ es la que permite separar los dos analitos.</p></div>
+  <aside class="notes guion">
+    <p>Como no tenemos las mezclas, proponemos tres, en rojo, para mostrar cómo funciona la aditividad: M1 con 6 microgramos por mililitro de cada analito, M2 con 9 de acetaminofén y 6 de cafeína, y M3 con 6 de acetaminofén y 9 de cafeína. Las elegimos para que cada analito quede dentro de su curva y todas las absorbancias entre 0,17 y 0,85.</p>
+    <p>Cada barra muestra cuánto aporta cada analito a la absorbancia y, encima, la absorbancia total de la mezcla, que es la suma. A 256 nanómetros domina el acetaminofén. A 273, en cambio, el acetaminofén aporta casi tanto como la cafeína, y por eso no basta con una sola longitud de onda.</p>
+    <p>La comparación de M2 con M3 es la clave del método: al cambiar 3 microgramos de acetaminofén por cafeína, la absorbancia a 256 baja de 0,683 a 0,560 y la de 273 sube de 0,771 a 0,788. Esa respuesta distinta a cada longitud de onda es lo que permite separar los dos analitos.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Resultados">
@@ -1828,6 +2066,11 @@
     <p class="box__label">Absorbancia de la muestra</p>
     <p><var>A</var> = 0,767&#8239;UA (<var>λ</var> de lectura: probablemente 256&#8239;nm, λ<sub>máx</sub> del acetaminofén, componente mayoritario). Está dentro del intervalo de trabajo de la guía (0,17–0,85&#8239;UA) y coincide con el patrón más alto del acetaminofén (0,766 a 11,90&#8239;μg/mL), pero supera el límite lineal de la cafeína a 273&#8239;nm (0,600). Una sola absorbancia no separa los dos analitos: el sistema (5.1)–(5.2) necesita la lectura a 256 y a 273&#8239;nm y las pendientes cruzadas C3 y C4.</p>
   </div>
+  <aside class="notes guion">
+    <p>Estos son los resultados con las mezclas propuestas. Para cada una están las absorbancias a las dos longitudes de onda, la cantidad añadida y la hallada de cada analito, y su recuperación. Las recuperaciones promedio son de 106,1 más o menos 1,4 % para el acetaminofén y de 108,5 más o menos 1,9 % para la cafeína, con un determinante de 2,23 por diez a la menos 3.</p>
+    <p>Las recuperaciones no dan 100 %, y eso tiene una explicación que nos parece importante. Calculamos las absorbancias con nuestras curvas, que tienen un pequeño intercepto, pero la regla de Cramer supone interceptos nulos. Ese intercepto, aunque no sea estadísticamente distinto de cero, produce un exceso de 4 a 10 %. Si se resta antes de resolver, la recuperación da exactamente 100 %.</p>
+    <p>Abajo está la absorbancia de la muestra que sí medimos, 0,767. Una sola absorbancia no basta para separar los dos analitos: el sistema necesita la lectura a las dos longitudes de onda y las curvas cruzadas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Discusión">
@@ -1843,6 +2086,11 @@
     <p class="box__label">Observación</p>
     <p>La absorbancia específica del acetaminofén (597) es el 84&#8239;% de la farmacopeica (715) y la precisión de los duplicados supera el 2&#8239;% de RSD en casi todos los niveles de ambas curvas: conviene verificar la masa del patrón y repetir 6,94 (ACE) y 8,70&#8239;μg/mL (CAF).</p>
   </div>
+  <aside class="notes guion">
+    <p>La discusión de esta práctica está incompleta, porque varios puntos dependen de las curvas cruzadas y de las mezclas reales. Los puntos sobre el determinante, sobre las recuperaciones frente al criterio de 98 a 102 % y sobre el solapamiento espectral quedan pendientes.</p>
+    <p>Lo que sí podemos discutir es la aditividad y las curvas propias. Los interceptos de C1 y C2 no difieren de cero, como exige el sistema. El acetaminofén es lineal en todo su intervalo, y la cafeína se desvía por debajo de la recta desde 12,29, así que en las mezclas su concentración no debe superar 10,24 microgramos por mililitro.</p>
+    <p>Como observación, la absorbancia específica del acetaminofén es solo el 84 % de la de farmacopea, y la precisión de los duplicados supera el 2 % en casi todos los niveles. Conviene verificar la masa del patrón y repetir los niveles de 6,94 de acetaminofén y 8,70 de cafeína.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Práctica 5 · Acetaminofén + cafeína" data-accent="p5" data-title="Conclusión">
@@ -1855,6 +2103,11 @@
       <li>Determinante, recuperaciones y validez de la aditividad: [___] (faltan las curvas cruzadas C3 y C4 y las mezclas).</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>Las conclusiones que podemos sostener con nuestros datos son dos. Primera: el acetaminofén cumple la ley de Lambert-Beer a 256 nanómetros entre 4,96 y 11,90 microgramos por mililitro, sin curvatura ni intercepto significativo.</p>
+    <p>Segunda: la cafeína es lineal a 273 nanómetros solo entre 5,12 y 10,24 microgramos por mililitro, con una absortividad molar de 10 000 que coincide con la literatura; por encima se desvía negativamente.</p>
+    <p>Lo que queda pendiente es concluir sobre el determinante, las recuperaciones y la validez de la aditividad, porque para eso faltan las curvas cruzadas y las mezclas reales.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Cierre" data-title="Comparación entre prácticas">
@@ -1872,6 +2125,10 @@
       </tbody>
     </table>
   </div>
+  <aside class="notes guion">
+    <p>Para cerrar, esta tabla compara las cinco prácticas. En la refractometría medimos el índice de refracción, la recta sirve entre 40 y 80 % y las muestras dieron 40,5 y 47,2 % de glicerina; lo principal fue la curvatura, con una lectura muy repetible. En la polarimetría obtuvimos la rotación específica de la lactosa, que coincide con la de tablas, y la del mentol, que está un 7 % por debajo pero dentro de la USP; la precisión fue baja.</p>
+    <p>En la práctica 3 la curva del ibuprofeno fue lineal, pero los duplicados fueron imprecisos y la muestra quedó bajo el límite de cuantificación. En la 4 obtuvimos un pKa de 5,47 por el método matemático, 0,77 por encima de la referencia, sin poder aplicar el método gráfico. Y en la 5 tenemos las dos curvas propias, con la cafeína lineal solo hasta 10,24, y faltan las curvas cruzadas y las mezclas reales.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Cierre" data-title="Conclusiones generales">
@@ -1885,6 +2142,11 @@
       <li>El p<var>K</var><sub>a</sub> del verde de bromocresol (5,47 ± 0,22, método matemático) supera en 0,77 unidades el de referencia (4,7); el punto isosbéstico a 510&#8239;nm confirma un equilibrio entre dos especies.</li>
     </ul>
   </div>
+  <aside class="notes guion">
+    <p>Como conclusiones generales del módulo, decimos lo siguiente. La refractometría cuantifica la glicerina con lecturas muy repetibles, pero la respuesta se curva, y la incertidumbre la domina el modelo, no la lectura.</p>
+    <p>La polarimetría confirma la actividad óptica de los dos compuestos: la lactosa coincide con su valor de equilibrio y el mentol cumple la USP, aunque la precisión no cumple el criterio de 2 %.</p>
+    <p>La espectrofotometría ultravioleta es lineal para el ibuprofeno, el acetaminofén y la cafeína, esta última en un intervalo más corto, y en las tres lo que limita el desempeño es la precisión de los duplicados. Y el pKa del verde de bromocresol, 5,47, supera en 0,77 al de referencia, mientras que el punto isosbéstico confirma el equilibrio entre dos especies.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Cierre" data-title="Fuentes de error y mejoras">
@@ -1904,6 +2166,10 @@
       </tbody>
     </table>
   </div>
+  <aside class="notes guion">
+    <p>Esta tabla recoge las fuentes de error que encontramos en nuestros propios datos y lo que haríamos para mejorar. En la práctica 1, la curvatura de la respuesta: trabajaríamos en un intervalo más estrecho. En la 2, el cambio de operador y la lectura visual de la penumbra: un solo operador por serie, o un polarímetro digital.</p>
+    <p>En la 3, los duplicados poco precisos y la muestra bajo el límite: preparar por pesada y usar una alícuota mayor. En la 4, los pocos buffers en el viraje, la lectura atípica y la fuerza iónica variable: más buffers entre pH 3,5 y 6, fuerza iónica constante y calibrar el pH-metro. En la 5, la desviación de la cafeína por encima de 10,24: limitar el intervalo o diluir. Y en las prácticas 1 y 2, la temperatura variable: termostatizar y registrarla en cada lectura.</p>
+  </aside>
 </section>
 
 <section class="slide slide--refs" data-group="Cierre" data-title="Referencias · analitos (1/3)">
@@ -1948,6 +2214,9 @@
     </div>
   </div>
   <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
+  <aside class="notes guion">
+    <p>Estas son las referencias por analito, en formato APA. Para cada sustancia priorizamos las farmacopeas oficiales, la USP y la Farmacopea Europea, y usamos PubChem como fuente de las estructuras. En esta primera página están la glicerina, la lactosa anhidra, el mentol y el ibuprofeno.</p>
+  </aside>
 </section>
 
 <section class="slide slide--refs" data-group="Cierre" data-title="Referencias · analitos (2/3)">
@@ -1983,6 +2252,9 @@
     </div>
   </div>
   <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
+  <aside class="notes guion">
+    <p>Continúan las referencias por analito: el verde de bromocresol, el acetaminofén y la cafeína, con sus monografías de farmacopea y sus fichas de PubChem.</p>
+  </aside>
 </section>
 
 <section class="slide slide--refs" data-group="Cierre" data-title="Referencias · obras generales (3/3)">
@@ -2013,6 +2285,9 @@
     </div>
   </div>
   <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
+  <aside class="notes guion">
+    <p>Y estas son las obras generales que usamos para el fundamento y el tratamiento estadístico: los textos de análisis instrumental y de química analítica, la guía ICH Q2 de validación, el Merck Index, el Clarke para los datos espectrales y las guías de laboratorio del módulo.</p>
+  </aside>
 </section>
 
 <section class="slide slide--cover" data-group="Cierre" data-title="Agradecimientos e integrantes">
@@ -2046,6 +2321,10 @@
       </dl>
     </div>
   </div>
+  <aside class="notes guion">
+    <p>Para terminar, queremos agradecer al profesor Nicolás Mateo González por su acompañamiento durante las prácticas, y al personal del laboratorio por su apoyo con los equipos y los reactivos.</p>
+    <p>Fuimos el subgrupo J5: César Díaz, Paula Melo, Karen Pachón y Diana Argüello. Muchas gracias por su atención; quedamos atentos a sus preguntas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p1" data-title="P1 · Preguntas · estadística">
@@ -2125,6 +2404,10 @@
     <details class="eqd eqd--qa" name="qa-p3-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué el contenido del polvo tiene una incertidumbre de ±19,6 % p/p?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Fórmula:</strong> <var>s</var><sub><var>x</var>0</sub> = (<var>s</var><sub><var>y</var>/<var>x</var></sub>/<var>m</var>)·√[1/<var>k</var> + 1/<var>N</var> + (<var>y</var><sub>0</sub> − <span class="bar"><var>y</var></span>)<sup>2</sup>/(<var>m</var><sup>2</sup><var>S</var><sub><var>xx</var></sub>)].</li><li><strong>Causa:</strong> la muestra se leyó a 5,58 μg/mL, por debajo del LOQ (9,7 μg/mL) y lejos del centro de la curva, donde el último término crece; además solo hay <var>k</var> = 2 lecturas y <var>t</var> = 2,306 (8 gl).</li><li><strong>Corrección:</strong> tomar 2,0–2,5 mL de la solución de muestra a 10 mL para leer en 11–14 μg/mL, cerca del centroide.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p3-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">¿Qué decisión tomaron con los duplicados de 7,56 y 12,60 μg/mL?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Diagnóstico:</strong> %RSD &gt; 15 % en esos niveles; concentran la dispersión y bajan el <var>R</var><sup>2</sup>.</li><li><strong>Influencia:</strong> la distancia de Cook máxima es 0,26 (&lt; 1): ningún punto domina la recta; la prueba de Cochran no detecta heterogeneidad de varianzas.</li><li><strong>Decisión:</strong> no se eliminaron (con <var>n</var> = 2 no hay prueba de atípicos válida y no hay causa asignable); se conservan y se recomienda repetirlos.</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>Estas son las preguntas de defensa de la práctica 3 sobre la estadística. La primera es si se puede decir que la curva es lineal con un R cuadrado de 0,944. La respuesta es sí: la falta de ajuste no es significativa, con p de 0,97, y los residuales están al azar. El R cuadrado es bajo porque el 95 % de lo que no explica la recta es error puro, es decir, imprecisión de los duplicados, no curvatura.</p>
+    <p>La segunda pide interpretar la regresión: F de 135,9 significa que la absorbancia depende de la concentración; la pendiente es la absortividad a 221 nanómetros, y el intercepto incluye el cero, como predice Lambert-Beer. La tercera explica por qué el contenido tiene una incertidumbre tan grande: la muestra se leyó bajo el límite de cuantificación y lejos del centro de la curva. Y la cuarta justifica por qué conservamos los duplicados imprecisos: con dos réplicas no hay una prueba de atípicos válida ni una causa asignable, así que los mantuvimos y recomendamos repetirlos.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p3" data-title="P3 · Preguntas · procedimiento">
@@ -2135,6 +2418,10 @@
     <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">Explique la preparación de la curva y de la muestra, y la razón de las diluciones.</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Patrón:</strong> 12,6 mg en 25 mL (504 μg/mL); 10,0 → 50,0 mL (100,8 μg/mL); de esta, 0,50–1,50 mL a 10 mL dan 5 niveles de 5,04 a 15,12 μg/mL, por duplicado.</li><li><strong>Por qué ese intervalo:</strong> mantiene <var>A</var> entre 0,17 y 0,85, la zona de menor error fotométrico relativo.</li><li><strong>Muestra:</strong> el laboratorio entregó polvo de tabletas ya pulverizado (lo habitual es pulverizar 10 tabletas para una muestra homogénea y obtener el peso promedio); 12,4 mg del polvo en 25 mL, filtrado (los excipientes insolubles dispersan la luz) y diluido igual que el patrón.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué se cuantifica a 221 nm (λ<sub>máx</sub>)?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Sensibilidad:</strong> en el máximo, <var>ε</var> es mayor y la pendiente de la curva también.</li><li><strong>Robustez:</strong> en el máximo d<var>A</var>/d<var>λ</var> = 0; un pequeño error de longitud de onda del monocromador casi no cambia <var>A</var>.</li><li><strong>Origen:</strong> transiciones π → π* del anillo aromático.</li><li><strong>Limitación:</strong> a 221 nm muchos disolventes y excipientes absorben; el método no es selectivo frente a productos de degradación (no es indicador de estabilidad).</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>En las preguntas de procedimiento de la práctica 3, la primera es por qué probamos tres medios. El ibuprofeno es un ácido carboxílico: en ácido no se ioniza y es poco soluble, y en base forma el carboxilato y se disuelve. Además, el espectro depende de la especie, así que patrón, muestra y blanco deben estar en el mismo medio.</p>
+    <p>La segunda pide explicar las diluciones: las elegimos para que las absorbancias queden entre 0,17 y 0,85, que es la zona de menor error fotométrico, y la muestra se filtró porque los excipientes insolubles dispersan la luz. La tercera es por qué medimos a 221 nanómetros: en el máximo la sensibilidad es mayor y un pequeño error de longitud de onda casi no cambia la lectura, aunque a esa longitud muchos disolventes y excipientes también absorben.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p4" data-title="P4 · Preguntas · estadística">
@@ -2146,6 +2433,10 @@
     <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Cómo calcularon el p<var>K</var>a y qué tan confiable es cada valor?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Ecuación:</strong> p<var>K</var>a = pH − log[(<var>A</var><sub>HA</sub> − <var>A</var>)/(<var>A</var> − <var>A</var><sub>A⁻</sub>)] a 445 nm, con <var>A</var><sub>HA</sub> = 0,268 (barrido en HCl) y <var>A</var><sub>A⁻</sub> = 0,036 (pH 10,23).</li><li><strong>Valores:</strong> tubos 4, 5 y 6 → 5,38, 5,30, 5,72; promedio 5,47 ± 0,22.</li><li><strong>Confiabilidad:</strong> el tubo 4 depende de una diferencia de 0,005 UA (ruido); sin él el promedio es 5,51. Sin curva ni réplica no hay regresión: la incertidumbre es la <var>s</var> de los tres valores.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p4-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">El p<var>K</var>a obtenido (5,47) difiere del de referencia (4,7). ¿Cómo lo explican?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Magnitud:</strong> +0,77 unidades (error relativo +16,3 %); los tres valores por solución están por encima de 4,7: es un sesgo, no azar.</li><li><strong>Fuerza iónica:</strong> no se controló; se mide un p<var>K</var>a aparente (dependiente de los coeficientes de actividad) y no el termodinámico.</li><li><strong>Etanol y pH-metro:</strong> el etanol de la solución eleva el p<var>K</var>a aparente de los ácidos, y el electrodo pudo no estar calibrado en la zona ácida.</li><li><strong>Muestreo:</strong> la transición está poco representada (pH 3,72 → 5,25 → 6,24).</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>Estas son las preguntas de cálculo y gráficos de la práctica 4. La primera es por qué no aplicamos el método gráfico: porque exige una curva en S bien definida, y la nuestra tiene un salto a pH 1,84 y un cruce prematuro a pH 3,07, además de muy pocos puntos en el viraje.</p>
+    <p>La segunda es con qué criterio descartamos la serie de 615 nanómetros: por inconsistencia física, porque a pH 1,84 no debería haber forma azul, y por el cruce a pH 3,07, que señalaría un pKa de 3,1. La tercera es cómo calculamos el pKa y qué tan confiable es: con la ecuación de Henderson-Hasselbalch despejada, en los tubos 4, 5 y 6, y teniendo en cuenta que el tubo 4 es frágil. Y la cuarta explica el sesgo de 0,77 frente a la referencia: fuerza iónica no controlada, etanol, calibración del pH-metro y pocos puntos en la transición.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p4" data-title="P4 · Preguntas · procedimiento">
@@ -2156,6 +2447,10 @@
     <details class="eqd eqd--qa" name="qa-p4-p"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Qué demuestra el punto isosbéstico a 510 nm?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Definición:</strong> longitud de onda en la que HIn e In⁻ tienen la misma <var>ε</var>; la absorbancia es constante (0,104) a cualquier pH.</li><li><strong>Significado:</strong> en solución solo hay dos especies absorbentes en equilibrio y su concentración total se conserva.</li><li><strong>Uso:</strong> si el punto se desplaza o se pierde indica una tercera especie, degradación o error de dilución; por eso valida el diseño del experimento.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p4-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Qué relevancia farmacéutica tiene estudiar el equilibrio ácido-base de un indicador?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Modelo:</strong> la mayoría de los fármacos son ácidos o bases débiles; su espectro (λ<sub>máx</sub> y <var>ε</var>) cambia con el pH, igual que el del indicador.</li><li><strong>En el método analítico:</strong> obliga a fijar el pH del medio de medida (en la práctica 3 se trabajó en NaOH).</li><li><strong>En el desarrollo:</strong> el p<var>K</var>a condiciona la solubilidad, la elección de sal, la estabilidad y la absorción (teoría de partición según el pH).</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>En las preguntas de procedimiento de la práctica 4, la primera pide describir el procedimiento y explicar por qué medimos el pH real. Todos los tubos llevan la misma cantidad de indicador, así que solo cambia la proporción entre las dos formas; y como la dilución y el propio indicador modifican el pH del buffer, lo medimos, porque es la variable del cálculo.</p>
+    <p>La segunda es qué demuestra el punto isosbéstico a 510 nanómetros: que en la solución solo hay dos especies en equilibrio y que su concentración total se conserva. La tercera es la relevancia farmacéutica: la mayoría de los fármacos son ácidos o bases débiles, su espectro cambia con el pH como el del indicador, y su pKa condiciona la solubilidad, la elección de la sal, la estabilidad y la absorción.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p5" data-title="P5 · Preguntas · estadística">
@@ -2164,8 +2459,12 @@
   <div class="qa">
     <details class="eqd eqd--qa" name="qa-p5-e"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué adoptaron el intervalo de 5,12–10,24 μg/mL para la cafeína? ¿No es descartar datos?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Con 5 niveles:</strong> residuales en arco, falta de ajuste casi significativa (<var>p</var> = 0,089), intercepto distinto de cero (<var>p</var> = 0,022) y factor de respuesta de 74–88 % en 12,29 μg/mL.</li><li><strong>Con 5,12–10,24 μg/mL:</strong> falta de ajuste <var>p</var> = 0,51, intercepto nulo (<var>p</var> = 0,28) y <var>ε</var> = 1,00 × 10<sup>4</sup>, acorde con la literatura (log <var>ε</var><sub>273</sub> ≈ 4,0).</li><li><strong>Justificación:</strong> no es eliminar puntos incómodos; se define el intervalo lineal con criterios objetivos. Por encima de <var>A</var> ≈ 0,6 hay una desviación negativa de Lambert-Beer (luz parásita, radiación no monocromática).</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p5-e"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">Interprete la regresión del acetaminofén (C1) y su absorbancia específica.</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Parámetros:</strong> <var>m</var> = 0,0597 ± 0,0097 mL/μg; <var>b</var> = 0,035 (<var>p</var> = 0,38, nulo); <var>R</var><sup>2</sup> = 0,962; <var>F</var> = 202 (<var>p</var> &lt; 0,001); falta de ajuste <var>p</var> = 0,068: lineal en todo el intervalo.</li><li><strong><var>A</var><sup>1 %</sup><sub>1 cm</sub> = <var>m</var>·10<sup>4</sup> = 597,</strong> el 84 % del valor farmacopeico (715): sesgo proporcional, no de linealidad. Hay que revisar la masa del patrón, las diluciones o la concentración del NaOH.</li><li><strong>Precisión:</strong> %RSD de los duplicados 2,4–7,0 %; ninguno baja del 2 %.</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p5-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Qué es el determinante del sistema y por qué es crítico?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Sistema:</strong> <var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub> y <var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub>; por Cramer, <var>c</var><sub>ACE</sub> = (<var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub>)/<var>D</var>.</li><li><strong><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub>:</strong> si es cercano a cero, los espectros son casi proporcionales, el sistema está mal condicionado y los errores de absorbancia se amplifican en las concentraciones.</li><li><strong>Estado:</strong> <var>D</var> = [___]; requiere las curvas cruzadas C3 y C4.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p5-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Qué es el determinante del sistema y por qué es crítico?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Sistema:</strong> <var>A</var><sub>1</sub> = <var>m</var><sub>ACE,1</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,1</sub><var>c</var><sub>CAF</sub> y <var>A</var><sub>2</sub> = <var>m</var><sub>ACE,2</sub><var>c</var><sub>ACE</sub> + <var>m</var><sub>CAF,2</sub><var>c</var><sub>CAF</sub>; por Cramer, <var>c</var><sub>ACE</sub> = (<var>A</var><sub>1</sub><var>m</var><sub>CAF,2</sub> − <var>A</var><sub>2</sub><var>m</var><sub>CAF,1</sub>)/<var>D</var>.</li><li><strong><var>D</var> = <var>m</var><sub>ACE,1</sub><var>m</var><sub>CAF,2</sub> − <var>m</var><sub>CAF,1</sub><var>m</var><sub>ACE,2</sub>:</strong> si es cercano a cero, los espectros son casi proporcionales, el sistema está mal condicionado y los errores de absorbancia se amplifican en las concentraciones.</li><li><strong>Estado:</strong> con C1 y C2 del grupo y C3 y C4 de literatura, <var>D</var> = <span class="prop">2,23 × 10<sup>−3</sup></span>; falta confirmarlo con las curvas cruzadas medidas.</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>Estas son las preguntas de estadística de la práctica 5. La primera es por qué adoptamos el intervalo de 5,12 a 10,24 para la cafeína y si eso no es descartar datos. No lo es: con los cinco niveles los residuales forman un arco y el intercepto difiere de cero, y en el intervalo corto no hay falta de ajuste, el intercepto es nulo y la absortividad coincide con la literatura. Definimos el intervalo lineal con criterios objetivos.</p>
+    <p>La segunda pide interpretar la curva del acetaminofén: es lineal en todo el intervalo, pero su absorbancia específica es el 84 % de la de farmacopea, lo que indica un sesgo proporcional, no un problema de linealidad. Y la tercera es qué es el determinante y por qué es crítico: si es cercano a cero, los espectros son casi proporcionales y los errores se amplifican. Con nuestras curvas propias y las cruzadas de literatura, D vale 2,23 por diez a la menos 3, y falta confirmarlo con las curvas cruzadas medidas.</p>
+  </aside>
 </section>
 
 <section class="slide" data-group="Anexo · Preguntas de defensa" data-accent="p5" data-title="P5 · Preguntas · procedimiento">
@@ -2174,8 +2473,12 @@
   <div class="qa">
     <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Cuál es el fundamento de la determinación simultánea y qué condiciones exige?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Aditividad:</strong> la absorbancia de la mezcla a cada <var>λ</var> es la suma de las de sus componentes, <var>A</var><sub><var>λ</var></sub> = Σ <var>ε</var><sub><var>i</var></sub>·<var>b</var>·<var>c</var><sub><var>i</var></sub> (método de Vierordt).</li><li><strong>Condiciones:</strong> cada analito debe cumplir Lambert-Beer a las dos <var>λ</var>, sin interacción química entre ellos y con interceptos nulos.</li><li><strong>Por eso cuatro curvas:</strong> 2 analitos × 2 <var>λ</var> (dos propias y dos cruzadas) para conocer las cuatro absortividades.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Por qué se eligieron 256 y 273 nm y el NaOH 0,1843 N como disolvente?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Longitudes de onda:</strong> 256 nm es el máximo del acetaminofén y 273 nm el de la cafeína; en el máximo de cada uno su contribución es mayor que la del otro, lo que aleja <var>D</var> de cero.</li><li><strong>Disolvente:</strong> se seleccionó por la prueba de solubilidad; en NaOH el fenol del acetaminofén (p<var>K</var>a ≈ 9,5) está ionizado y su banda se desplaza hacia mayor <var>λ</var> (desplazamiento batocrómico), mientras que la cafeína no cambia; así los espectros se separan.</li><li><strong>Patrones, mezclas y blanco</strong> en el mismo medio.</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué duplicados independientes y cómo se valida el método con mezclas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Duplicados independientes:</strong> cada réplica se prepara desde la alícuota, no se relee la misma celda; así el error puro incluye el pipeteo y la dilución.</li><li><strong>Validación:</strong> se preparan 3 mezclas de composición conocida, se resuelve el sistema y se calcula el % de recuperación de cada analito frente al criterio [___].</li><li><strong>Lectura de las mezclas:</strong> deben dar <var>A</var><sub>273</sub> ≤ 0,6 para permanecer en el intervalo lineal de la cafeína.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué duplicados independientes y cómo se valida el método con mezclas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Duplicados independientes:</strong> cada réplica se prepara desde la alícuota, no se relee la misma celda; así el error puro incluye el pipeteo y la dilución.</li><li><strong>Validación:</strong> se preparan 3 mezclas de composición conocida, se resuelve el sistema y se calcula el % de recuperación de cada analito frente al criterio de 98–102&#8239;%.</li><li><strong>Lectura de las mezclas:</strong> la cafeína en la mezcla no debe superar 10,24&#8239;μg/mL, el límite de su intervalo lineal.</li></ul></div></details>
   </div>
+  <aside class="notes guion">
+    <p>En las preguntas de procedimiento de la práctica 5, la primera es el fundamento de la determinación simultánea: la absorbancia de la mezcla es la suma de la de sus componentes a cada longitud de onda, siempre que cada uno cumpla Lambert-Beer, no interactúen y los interceptos sean nulos. Por eso se necesitan cuatro curvas, dos propias y dos cruzadas.</p>
+    <p>La segunda es por qué 256 y 273 nanómetros y por qué hidróxido de sodio: son los máximos de cada analito, lo que aleja el determinante de cero, y en base el acetaminofén se ioniza y su banda se desplaza, mientras que la cafeína no cambia, de modo que los espectros se separan. Y la tercera es por qué duplicados independientes y cómo se valida con mezclas: cada réplica se prepara desde la alícuota para incluir el error de pipeteo, y la exactitud se comprueba con tres mezclas de composición conocida, frente al criterio de 98 a 102 % de recuperación.</p>
+  </aside>
 </section>
 
 </div><!-- /slides -->
