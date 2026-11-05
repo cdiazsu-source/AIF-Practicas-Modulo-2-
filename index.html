@@ -473,14 +473,20 @@
       <figcaption>Figura 1.1. <var>n</var> frente a <var>w</var> (datos de la clase) con la recta de mínimos cuadrados; M1 y M2 interpoladas con las lecturas del grupo 5.</figcaption>
     </figure>
     <div class="stack">
-      <div class="box note box--interp"><p class="box__label">Interpretación</p><p><var>n</var> aumenta de forma monótona con <var>w</var> (<var>m</var> = 1,377 × 10<sup>−3</sup> por % p/p; <var>R</var><sup>2</sup> = 0,9956) y la dispersión entre réplicas es mínima.</p><p>La recta no basta: sus residuales forman un arco (negativos en 0 y 80&#8239;%, positivos en 10–30&#8239;%, hasta +0,0042) y la falta de ajuste es significativa (<var>p</var> &lt; 0,001).</p><p>M1 (<var>n</var> = 1,3929) y M2 (<var>n</var> = 1,4020) quedan en la zona central del intervalo, la de menor incertidumbre de interpolación.</p></div>
+      <figure class="fig fig--resid"><details class="why-pop"><summary>¿Por qué este gráfico?</summary><div class="why-pop__body"><p>En la Figura 1.1 la curvatura no se ve: el arco mide 0,004 en un eje de 0,12. Al graficar solo la distancia de cada punto a la recta, la escala pasa a milésimas y la forma queda a la vista. Si la recta fuera adecuada, los residuales se repartirían al azar alrededor de cero.</p></div></details>
+        <div class="chart" data-chart>
+          <script type="application/json">{"type": "xy", "title": "Residuales de la recta de n frente al porcentaje de glicerina", "aspect": 0.42, "x": {"label": "w glicerina (% p/p)", "min": 0, "max": 80}, "y": {"label": "residual de n", "min": -0.006, "max": 0.006, "step": 0.002}, "series": [{"name": "Lecturas (N = 100)", "points": [[0.0, -0.00421], [0.0, -0.00441], [20.0, 0.00487], [20.0, 0.00437], [40.0, -0.00055], [40.0, -0.00035], [60.0, -0.00017], [60.0, -0.00037], [80.0, -0.00089], [80.0, -0.00119], [0.0, -0.00411], [0.0, -0.00311], [20.0, 0.00397], [20.0, 0.00387], [40.0, -0.00035], [40.0, -0.00025], [60.0, -0.00017], [60.0, 0.00033], [80.0, -0.00129], [80.0, -0.00119], [0.0, -0.00461], [0.0, -0.00411], [20.0, 0.00287], [20.0, 0.00337], [40.0, -0.00015], [40.0, 0.00035], [60.0, 0.00033], [60.0, -0.00047], [80.0, -0.00119], [80.0, -0.00129], [0.0, -0.00411], [0.0, -0.00391], [20.0, 0.00447], [20.0, 0.00487], [40.0, -0.00015], [40.0, -0.00035], [60.0, -0.00047], [60.0, 0.00033], [80.0, -0.00119], [80.0, -0.00129], [0.0, -0.00431], [0.0, -0.00431], [20.0, 0.00437], [20.0, 0.00447], [40.0, -0.00035], [40.0, -0.00025], [60.0, 0.00013], [60.0, -0.00067], [80.0, -0.00429], [80.0, -0.00069], [0.0, -0.00431], [0.0, -0.00431], [10.0, 0.00263], [10.0, 0.00263], [30.0, 0.00231], [30.0, 0.00241], [50.0, 0.00099], [50.0, 0.00099], [70.0, -0.00123], [70.0, -0.00133], [0.0, -0.00421], [0.0, -0.00201], [10.0, 0.00253], [10.0, 0.00223], [30.0, 0.00311], [30.0, 0.00241], [50.0, 0.00099], [50.0, 0.00099], [70.0, -0.00153], [70.0, -0.00143], [0.0, -0.00211], [0.0, -0.00261], [10.0, 0.00303], [10.0, 0.00213], [30.0, 0.00261], [30.0, 0.00211], [50.0, 0.00109], [50.0, 0.00079], [70.0, -0.00133], [70.0, -0.00143], [0.0, -0.00211], [0.0, -0.00211], [10.0, 0.00233], [10.0, 0.00213], [30.0, 0.00221], [30.0, 0.00191], [50.0, 0.00109], [50.0, 0.00109], [70.0, -0.00143], [70.0, -0.00143], [0.0, -0.00261], [0.0, -0.00061], [10.0, 0.00233], [10.0, 0.00263], [30.0, 0.00221], [30.0, 0.00241], [50.0, 0.00099], [50.0, 0.00109], [70.0, -0.00143], [70.0, -0.00133]], "zero": true, "color": 1}, {"name": "Promedio por nivel", "points": [[0.0, -0.00341], [10.0, 0.00246], [20.0, 0.00415], [30.0, 0.00237], [40.0, -0.00024], [50.0, 0.00101], [60.0, -0.00012], [70.0, -0.00139], [80.0, -0.00145]], "line": true, "color": 2}]}</script>
+        </div>
+        <figcaption>Figura 1.1b. Residuales (<var>n</var> observado − <var>n</var> de la recta) frente a <var>w</var>.</figcaption>
+      </figure>
+      <div class="box note box--interp"><p class="box__label">Interpretación</p><p><var>n</var> aumenta de forma monótona con <var>w</var> (<var>m</var> = 1,377 × 10<sup>−3</sup> por % p/p; <var>R</var><sup>2</sup> = 0,9957) y la dispersión entre réplicas es mínima.</p><p>La recta no basta: en la Figura 1.1b los residuales forman un arco (negativos en 0 y 80&#8239;%, positivos en 10–30&#8239;%, hasta +0,0042) y la falta de ajuste es significativa (<var>p</var> &lt; 0,001).</p><p>M1 (<var>n</var> = 1,3929) y M2 (<var>n</var> = 1,4020) quedan en la zona central del intervalo, la de menor incertidumbre de interpolación.</p></div>
     </div>
   </div>
   <aside class="notes guion">
     <p>Esta es la curva de calibración principal de la práctica. En el eje vertical está el índice de refracción y en el horizontal el porcentaje en peso de glicerina, con las cien lecturas de la clase. Sobre los puntos hemos dibujado la recta de mínimos cuadrados. Los dos puntos destacados son M1 y M2, que interpolamos con las lecturas de nuestro grupo.</p>
     <p>Este gráfico es la base de toda la cuantificación, porque es el que nos permite convertir un índice de refracción en un porcentaje de glicerina. Y su forma nos deja ver a simple vista si una recta describe bien los datos o no.</p>
-    <p>¿Qué obtuvimos? El índice aumenta de forma monótona con la glicerina. La pendiente de la recta es de 1,377 por diez a la menos tres por cada punto porcentual, lo que quiere decir que cada 1 % adicional de glicerina sube el índice en unas catorce diezmilésimas. El coeficiente de determinación, R cuadrado, es de 0,9956, y las réplicas de cada nivel están prácticamente una encima de otra.</p>
-    <p>Sin embargo, y este es el mensaje importante, aunque el R cuadrado es muy alto, la recta no basta. Si miramos los residuales, es decir, la diferencia entre cada punto y la recta, vemos que forman un arco: son negativos en los extremos, en 0 y en 80 %, y positivos entre 10 y 30 %, donde llegan hasta más cuatro milésimas. Además, la prueba de falta de ajuste es significativa, con un valor p menor que 0,001.</p>
+    <p>¿Qué obtuvimos? El índice aumenta de forma monótona con la glicerina. La pendiente de la recta es de 1,377 por diez a la menos tres por cada punto porcentual, lo que quiere decir que cada 1 % adicional de glicerina sube el índice en unas catorce diezmilésimas. El coeficiente de determinación, R cuadrado, es de 0,9957, y las réplicas de cada nivel están prácticamente una encima de otra.</p>
+    <p>Sin embargo, y este es el mensaje importante, aunque el R cuadrado es muy alto, la recta no basta. En la curva de arriba la recta parece perfecta, porque el arco mide unas cuatro milésimas en un eje de doce centésimas. Por eso agregamos la gráfica pequeña de la derecha, la de residuales, es decir, la diferencia entre cada punto y la recta. Ahí la escala está en milésimas y se ve claramente que forman un arco: son negativos en los extremos, en 0 y en 80 %, y positivos entre 10 y 30 %, donde llegan hasta más cuatro milésimas. Además, la prueba de falta de ajuste es significativa, con un valor p menor que 0,001.</p>
     <p>Por último, observen dónde quedan M1 y M2: en la zona central de la curva. Esa es una buena noticia, porque es precisamente la zona donde la interpolación tiene la menor incertidumbre.</p>
   </aside>
 </section>
@@ -662,7 +668,7 @@
     <div class="box warning">
       <p class="box__label">Fallas</p>
       <ul class="points points--compact">
-        <li>Falta de ajuste significativa (<var>p</var> &lt; 0,001): la recta no describe los extremos aunque <var>R</var><sup>2</sup> = 0,9956.</li>
+        <li>Falta de ajuste significativa (<var>p</var> &lt; 0,001): la recta no describe los extremos aunque <var>R</var><sup>2</sup> = 0,9957.</li>
         <li>Sin termostatizar (19–20&#8239;°C): 1&#8239;°C desplaza <var>n</var> hasta 2,7 × 10<sup>−4</sup>.</li>
         <li>M1 con una sola lectura de <var>n</var> (<var>k</var> = 1): IC mayor que el de M2.</li>
         <li>°Brix definido para sacarosa: con glicerina da un valor aparente; los °Bé se calcularon, no se leyeron.</li>
@@ -693,7 +699,7 @@
   </div>
   <aside class="notes guion">
     <p>Cerramos la primera práctica con una revisión crítica: qué falló, qué faltó, cómo lo mejoraríamos y qué limita el resultado.</p>
-    <p>Las fallas: la recta tiene falta de ajuste significativa, aunque el R cuadrado sea 0,9956; no termostatizamos los prismas, y un grado de diferencia ya mueve la cuarta decimal del índice; la muestra M1 tiene una sola lectura, por eso su intervalo es más ancho; y los grados Brix están definidos para sacarosa, así que con glicerina son un valor aparente, y los Baumé los calculamos, no los leímos.</p>
+    <p>Las fallas: la recta tiene falta de ajuste significativa, aunque el R cuadrado sea 0,9957; no termostatizamos los prismas, y un grado de diferencia ya mueve la cuarta decimal del índice; la muestra M1 tiene una sola lectura, por eso su intervalo es más ancho; y los grados Brix están definidos para sacarosa, así que con glicerina son un valor aparente, y los Baumé los calculamos, no los leímos.</p>
     <p>Lo que faltó: conocer la masa y la pureza reales de los patrones, que nos entregaron listos y que, por ser glicerina, pueden absorber agua; y la segunda lectura de M1 con la temperatura de cada lectura.</p>
     <p>Las mejoras: calibrar con patrones que encierren a las muestras, entre 30 y 60 %, donde la respuesta es casi lineal; termostatizar a 20 grados o corregir por temperatura; y leer las muestras por triplicado con patrones preparados por pesada.</p>
     <p>La limitación principal es que el intervalo útil va de 40 a 80 %, y M1 queda justo en el borde inferior. Lo que aprendimos es que un R cuadrado alto no demuestra linealidad: la falta de ajuste y los residuales sí.</p>
@@ -2186,8 +2192,8 @@
         <tbody>
           <tr><th scope="row">C1 · <var>m</var><sub>ACE,1</sub></th><td class="num">0,0597 ± 0,0097</td><td class="num">0,035 ± 0,086</td><td class="num">0,962</td><td class="num">0,0318</td><td class="num">202</td></tr>
           <tr><th scope="row">C2 · <var>m</var><sub>CAF,2</sub></th><td class="num">0,0516 ± 0,0122</td><td class="num">0,048 ± 0,098</td><td class="num">0,947</td><td class="num">0,0266</td><td class="num">108</td></tr>
-          <tr><th scope="row">C3 · <var>m</var><sub>ACE,2</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
-          <tr><th scope="row">C4 · <var>m</var><sub>CAF,1</sub></th><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C3 · <var>m</var><sub>ACE,2</sub></th><td class="num"><span class="prop">0,0459</span> (lit.)</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">C4 · <var>m</var><sub>CAF,1</sub></th><td class="num"><span class="prop">0,0185</span> (lit.)</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td><td class="num">[___]</td></tr>
         </tbody>
       </table>
     </div>
@@ -2199,17 +2205,26 @@
           <span><var>m</var><sub>ACE,1</sub></span><span><var>m</var><sub>CAF,1</sub></span>
           <span><var>m</var><sub>ACE,2</sub></span><span><var>m</var><sub>CAF,2</sub></span>
         </span>
-        = [___]
+        = <span class="prop">2,23 × 10<sup>−3</sup></span>
       </div>
+      <p class="eq-legend"><var>D</var> = (0,0597)(0,0516) − (<span class="prop">0,0185</span>)(<span class="prop">0,0459</span>) = 3,081 × 10<sup>−3</sup> − <span class="prop">0,849 × 10<sup>−3</sup></span>. Con las cuatro pendientes de literatura, <var>D</var> = 2,75 × 10<sup>−3</sup>. Con datos propios completos: [___].</p>
       <div class="box note">
         <p class="box__label">Residuales</p>
         <p>C1: al azar, sin curvatura · C2: en arco con 5 niveles, sin falta de ajuste en 5,12–10,24&#8239;μg/mL · C3: [___] · C4: [___]</p>
       </div>
     </div>
   </div>
+  <div class="box key sys-box sys-box--wide">
+    <p class="box__label">Nuestro sistema de ecuaciones</p>
+    <p class="sys-eq"><span>256&#8239;nm:</span> <var>A</var><sub>1</sub> = 0,0597&#8239;<var>c</var><sub>ACE</sub> + <span class="prop">0,0185</span>&#8239;<var>c</var><sub>CAF</sub></p>
+    <p class="sys-eq"><span>273&#8239;nm:</span> <var>A</var><sub>2</sub> = <span class="prop">0,0459</span>&#8239;<var>c</var><sub>ACE</sub> + 0,0516&#8239;<var>c</var><sub>CAF</sub></p>
+    <p class="eq-legend"><var>c</var> en μg/mL. Diagonal: pendientes propias C1 y C2 (datos del grupo). Fuera de la diagonal, en rojo: cruzadas C3 y C4 de literatura, hasta tener las lecturas de ACE a 273 y de CAF a 256&#8239;nm.</p>
+  </div>
   <aside class="notes guion">
     <p>Esta diapositiva resume las cuatro curvas del sistema. Las dos primeras filas, C1 y C2, están completas con nuestros datos: pendientes de 0,0597 y 0,0516, interceptos que no difieren de cero y regresiones significativas.</p>
-    <p>Las filas de C3 y C4 están en blanco, porque son las curvas cruzadas que no medimos, y por la misma razón el determinante con datos propios queda pendiente. Lo mismo pasa con los residuales: sabemos que C1 es aleatoria y que C2 solo es lineal hasta 10,24, pero de C3 y C4 no podemos decir nada todavía.</p>
+    <p>Abajo de la tabla está nuestro sistema de ecuaciones escrito con números. La primera ecuación es la de 256 nanómetros: la absorbancia es 0,0597 por la concentración de acetaminofén más 0,0185 por la de cafeína. La segunda es la de 273: 0,0459 por el acetaminofén más 0,0516 por la cafeína. Los números de la diagonal, 0,0597 y 0,0516, son nuestras pendientes propias. Los de fuera de la diagonal, en rojo, son las pendientes cruzadas, que tomamos de la literatura porque no tenemos esas lecturas.</p>
+    <p>Con esas cuatro pendientes el determinante es 0,0597 por 0,0516, menos 0,0185 por 0,0459, que da 2,23 por diez a la menos 3. Está lejos de cero, porque el producto de la diagonal es casi cuatro veces el de las cruzadas: los espectros son lo bastante distintos para separar los dos analitos.</p>
+    <p>Las demás columnas de C3 y C4 siguen en blanco, porque son las curvas cruzadas que no medimos, y por la misma razón el determinante con datos propios completos queda pendiente. Lo mismo pasa con los residuales: sabemos que C1 es aleatoria y que C2 solo es lineal hasta 10,24, pero de C3 y C4 no podemos decir nada todavía.</p>
   </aside>
 </section>
 
@@ -2238,6 +2253,14 @@
     </table>
     <p class="eq-legend"><var>A</var> calculada con las curvas C1–C4 (Figuras 5.5–5.6); hallado con la regla de Cramer (5.4), que supone interceptos nulos. El exceso de recuperación (4–10&#8239;%) es el aporte de los interceptos de C1 (0,035) y C2 (0,048): restándolos antes de resolver, la recuperación es 100&#8239;%.</p>
   </div>
+  <div class="grid-2 grid-2--tight">
+  <div class="box note sys-box">
+    <p class="box__label">Ejemplo resuelto · M1 (regla de Cramer, 5.4)</p>
+    <p class="sys-eq"><var>c</var><sub>ACE</sub> = <span class="frac"><span><span class="prop">0,504</span>·0,0516 − <span class="prop">0,633</span>·<span class="prop">0,0185</span></span><span><span class="prop">2,23 × 10<sup>−3</sup></span></span></span> = <span class="prop">6,41&#8239;μg/mL</span></p>
+    <p class="sys-eq"><var>c</var><sub>CAF</sub> = <span class="frac"><span>0,0597·<span class="prop">0,633</span> − <span class="prop">0,0459</span>·<span class="prop">0,504</span></span><span><span class="prop">2,23 × 10<sup>−3</sup></span></span></span> = <span class="prop">6,57&#8239;μg/mL</span></p>
+    <p class="eq-legend">Restando antes los interceptos (<var>A</var><sub>1</sub> − 0,035 = 0,469; <var>A</var><sub>2</sub> − 0,048 = 0,585): <var>c</var><sub>ACE</sub> = <span class="prop">6,00</span> y <var>c</var><sub>CAF</sub> = <span class="prop">6,00&#8239;μg/mL</span> (100&#8239;%).</p>
+  </div>
+  <div class="stack">
   <div class="box key">
     <p class="box__label">Resultado clave</p>
     <p class="key__value">R<sub>ACE</sub> = <span class="prop">106,1 ± 1,4&#8239;%</span> · R<sub>CAF</sub> = <span class="prop">108,5 ± 1,9&#8239;%</span></p>
@@ -2245,12 +2268,15 @@
   </div>
   <div class="box note box--interp">
     <p class="box__label">Absorbancia de la muestra</p>
-    <p><var>A</var> = 0,767&#8239;UA (<var>λ</var> de lectura: probablemente 256&#8239;nm, λ<sub>máx</sub> del acetaminofén, componente mayoritario). Está dentro del intervalo de trabajo de la guía (0,17–0,85&#8239;UA) y coincide con el patrón más alto del acetaminofén (0,766 a 11,90&#8239;μg/mL), pero supera el límite lineal de la cafeína a 273&#8239;nm (0,600). Una sola absorbancia no separa los dos analitos: el sistema (5.1)–(5.2) necesita la lectura a 256 y a 273&#8239;nm y las pendientes cruzadas C3 y C4.</p>
+    <p><var>A</var> = 0,767&#8239;UA (<var>λ</var> sin registrar; probablemente 256&#8239;nm). Una sola absorbancia es una ecuación con dos incógnitas: el sistema necesita la lectura a 256 y a 273&#8239;nm.</p>
+  </div>
+  </div>
   </div>
   <aside class="notes guion">
     <p>Estos son los resultados con las mezclas propuestas. Para cada una están las absorbancias a las dos longitudes de onda, la cantidad añadida y la hallada de cada analito, y su recuperación. Las recuperaciones promedio son de 106,1 más o menos 1,4 % para el acetaminofén y de 108,5 más o menos 1,9 % para la cafeína, con un determinante de 2,23 por diez a la menos 3.</p>
     <p>Las recuperaciones no dan 100 %, y eso tiene una explicación que nos parece importante. Calculamos las absorbancias con nuestras curvas, que tienen un pequeño intercepto, pero la regla de Cramer supone interceptos nulos. Ese intercepto, aunque no sea estadísticamente distinto de cero, produce un exceso de 4 a 10 %. Si se resta antes de resolver, la recuperación da exactamente 100 %.</p>
-    <p>Abajo está la absorbancia de la muestra que sí medimos, 0,767. Una sola absorbancia no basta para separar los dos analitos: el sistema necesita la lectura a las dos longitudes de onda y las curvas cruzadas.</p>
+    <p>Abajo a la izquierda está el ejemplo resuelto con la mezcla M1, para que se vea cómo funciona la regla de Cramer. Para el acetaminofén se multiplica la absorbancia a 256, 0,504, por la pendiente de la cafeína a 273, 0,0516; se le resta la absorbancia a 273, 0,633, por la pendiente cruzada de la cafeína, 0,0185; y todo se divide entre el determinante. Da 6,41 microgramos por mililitro. Para la cafeína se hace lo mismo con la otra combinación y da 6,57. Si antes de resolver le restamos a cada absorbancia el intercepto de su curva, las dos concentraciones dan exactamente 6,00, es decir, el 100 %.</p>
+    <p>A la derecha está la absorbancia de la muestra que sí medimos, 0,767, de la que no quedó registrada la longitud de onda; probablemente fue 256, la del acetaminofén, que es el componente mayoritario. Coincide con el patrón más alto del acetaminofén. Una sola absorbancia no basta para separar los dos analitos: el sistema necesita la lectura a las dos longitudes de onda y las curvas cruzadas.</p>
   </aside>
 </section>
 

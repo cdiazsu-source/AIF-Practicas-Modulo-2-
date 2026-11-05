@@ -605,6 +605,11 @@ body.is-compact:not(.is-overview) .band__script { padding: .3em .5em; }
 
 /* Matriz del determinante */
 .matrix-eq { display: flex; align-items: center; gap: .5em; font-size: 1.2em; flex-wrap: wrap; }
+.sys-box .sys-eq { font-size: 1.15em; margin: .3em 0; line-height: 1.6; }
+.sys-box--wide { margin-top: .9em; }
+.sys-box--wide .sys-eq { font-size: 1.3em; }
+.sys-box .sys-eq .frac { font-size: .92em; }
+.sys-box .eq-legend { margin-top: .4em; }
 .matrix {
   display: inline-grid; grid-template-columns: auto auto; gap: .2em 1em;
   padding: .2em .6em;
