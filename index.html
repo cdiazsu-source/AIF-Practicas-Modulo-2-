@@ -2205,16 +2205,16 @@
   <h2>Resultados</h2>
   <div class="table-wrap table-wrap--full">
     <table class="data data--status">
-      <caption>Tabla 5.11. Recuperación en mezclas de composición conocida (en rojo: mezclas propuestas y composición supuesta)</caption>
+      <caption>Tabla 5.11. Recuperación en mezclas de composición conocida (en rojo: mezclas propuestas y valores calculados con C3 de literatura)</caption>
       <thead><tr><th scope="col">Mezcla</th><th scope="col" class="num"><var>A</var><sub>1</sub></th><th scope="col" class="num"><var>A</var><sub>2</sub></th><th scope="col" class="num">ACE añadido (μg/mL)</th><th scope="col" class="num">ACE hallado (μg/mL)</th><th scope="col" class="num">R<sub>ACE</sub> (%)</th><th scope="col" class="num">CAF añadida (μg/mL)</th><th scope="col" class="num">CAF hallada (μg/mL)</th><th scope="col" class="num">R<sub>CAF</sub> (%)</th><th scope="col">Estado</th></tr></thead>
       <tbody>
         <tr><th scope="row">M1</th><td class="num mono prop">0,504</td><td class="num mono prop">0,633</td><td class="num prop">6,0</td><td class="num prop">6,41</td><td class="num prop">106,8</td><td class="num prop">6,0</td><td class="num prop">6,57</td><td class="num prop">109,5</td><td><span class="status" data-status="partial"></span></td></tr>
         <tr><th scope="row">M2</th><td class="num mono prop">0,683</td><td class="num mono prop">0,771</td><td class="num prop">9,0</td><td class="num prop">9,40</td><td class="num prop">104,5</td><td class="num prop">6,0</td><td class="num prop">6,58</td><td class="num prop">109,6</td><td><span class="status" data-status="partial"></span></td></tr>
         <tr><th scope="row">M3</th><td class="num mono prop">0,560</td><td class="num mono prop">0,788</td><td class="num prop">6,0</td><td class="num prop">6,42</td><td class="num prop">106,9</td><td class="num prop">9,0</td><td class="num prop">9,56</td><td class="num prop">106,3</td><td><span class="status" data-status="partial"></span></td></tr>
-        <tr class="row-own"><th scope="row">Mezcla medida</th><td class="num">—</td><td class="num mono">0,820</td><td class="num prop">8,43</td><td class="num">—</td><td class="num">—</td><td class="num prop">8,70</td><td class="num prop">8,39</td><td class="num prop">96,4</td><td><span class="status" data-status="partial"></span></td></tr>
+        <tr class="row-own"><th scope="row">Mezcla medida</th><td class="num">—</td><td class="num mono">0,820</td><td class="num">8,43</td><td class="num">—</td><td class="num">—</td><td class="num">8,70</td><td class="num prop">8,39</td><td class="num prop">96,4</td><td><span class="status" data-status="partial"></span></td></tr>
       </tbody>
     </table>
-    <p class="eq-legend">M1–M3: <var>A</var> calculada con C1–C4; Cramer (5.4) supone interceptos nulos, de ahí el exceso de 4–10&#8239;%. Mezcla medida: 0,85&#8239;mL de cada madre a 10&#8239;mL (por confirmar); cafeína despejada de (5.2).</p>
+    <p class="eq-legend">M1–M3: <var>A</var> calculada con C1–C4; Cramer (5.4) supone interceptos nulos, de ahí el exceso de 4–10&#8239;%. Mezcla medida: 0,85&#8239;mL de cada madre a 10&#8239;mL; cafeína despejada de (5.2) con <var>m</var><sub>ACE,2</sub> de literatura.</p>
   </div>
   <div class="grid-2 grid-2--tight">
   <div class="box note sys-box sys-box--compact">
@@ -2240,7 +2240,7 @@
     <p>Estos son los resultados con las mezclas propuestas. Para cada una están las absorbancias a las dos longitudes de onda, la cantidad añadida y la hallada de cada analito, y su recuperación. Las recuperaciones promedio son de 106,1 más o menos 1,4 % para el acetaminofén y de 108,5 más o menos 1,9 % para la cafeína, con un determinante de 2,23 por diez a la menos 3.</p>
     <p>Las recuperaciones no dan 100 %, y eso tiene una explicación que nos parece importante. Calculamos las absorbancias con nuestras curvas, que tienen un pequeño intercepto, pero la regla de Cramer supone interceptos nulos. Ese intercepto, aunque no sea estadísticamente distinto de cero, produce un exceso de 4 a 10 %. Si se resta antes de resolver, la recuperación da exactamente 100 %.</p>
     <p>Abajo a la izquierda está el ejemplo resuelto con la mezcla M1, para que se vea cómo funciona la regla de Cramer. Para el acetaminofén se multiplica la absorbancia a 256, 0,504, por la pendiente de la cafeína a 273, 0,0516; se le resta la absorbancia a 273, 0,633, por la pendiente cruzada de la cafeína, 0,0185; y todo se divide entre el determinante. Da 6,41 microgramos por mililitro. Para la cafeína se hace lo mismo con la otra combinación y da 6,57. Si antes de resolver le restamos a cada absorbancia el intercepto de su curva, las dos concentraciones dan exactamente 6,00, es decir, el 100 %.</p>
-    <p>En la última fila de la tabla y a la derecha está la mezcla que sí medimos: 0,85 mililitros de cada solución madre llevados a 10, es decir, 8,43 microgramos por mililitro de acetaminofén y 8,70 de cafeína; esa composición la marcamos en rojo porque falta confirmarla. Solo la leímos a 273 nanómetros y dio 0,820. Según la ecuación 5.2, sin interceptos, esperábamos 0,0459 por 8,43 más 0,0516 por 8,70, que da 0,836. La medida es el 98,1 % de la esperada, así que la aditividad se cumple a 273 nanómetros. Como no tenemos la lectura a 256, no podemos resolver el sistema completo, pero si usamos el acetaminofén que añadimos podemos despejar la cafeína: da 8,39 microgramos por mililitro, una recuperación del 96,4 %.</p>
+    <p>En la última fila de la tabla y a la derecha está la mezcla que sí medimos: 0,85 mililitros de cada solución madre llevados a 10, es decir, 8,43 microgramos por mililitro de acetaminofén y 8,70 de cafeína; esa composición la confirmamos con el grupo. Los cálculos que siguen van en rojo porque usan la pendiente cruzada del acetaminofén, que es de literatura. Solo la leímos a 273 nanómetros y dio 0,820. Según la ecuación 5.2, sin interceptos, esperábamos 0,0459 por 8,43 más 0,0516 por 8,70, que da 0,836. La medida es el 98,1 % de la esperada, así que la aditividad se cumple a 273 nanómetros. Como no tenemos la lectura a 256, no podemos resolver el sistema completo, pero si usamos el acetaminofén que añadimos podemos despejar la cafeína: da 8,39 microgramos por mililitro, una recuperación del 96,4 %.</p>
     <p>También está la absorbancia de la muestra, 0,767, de la que no quedó registrada la longitud de onda; probablemente fue 256, la del acetaminofén, que es el componente mayoritario. Coincide con el patrón más alto del acetaminofén. Una sola absorbancia no basta para separar los dos analitos: el sistema necesita la lectura a las dos longitudes de onda y las curvas cruzadas.</p>
   </aside>
 </section>
@@ -2251,7 +2251,7 @@
     <li>Magnitud de <var>D</var> y condicionamiento del sistema: [___]</li>
     <li>Recuperaciones frente al criterio de aceptación (98–102&#8239;%): [___]</li>
     <li>Solapamiento espectral y aporte de las curvas cruzadas: [___]</li>
-    <li>Cumplimiento de la aditividad (interceptos, interacción): los interceptos de C1 (0,035) y C2 (0,048, intervalo lineal) no difieren de cero, como exige el sistema (5.1)–(5.2). En la mezcla medida (<span class="prop">0,85 + 0,85&#8239;mL</span>), <var>A</var><sub>273</sub> = 0,820 es el <span class="prop">98,1&#8239;%</span> de lo esperado: aditividad coherente a 273&#8239;nm; falta comprobarla a 256&#8239;nm.</li>
+    <li>Cumplimiento de la aditividad (interceptos, interacción): los interceptos de C1 (0,035) y C2 (0,048, intervalo lineal) no difieren de cero, como exige el sistema (5.1)–(5.2). En la mezcla medida (0,85 + 0,85&#8239;mL), <var>A</var><sub>273</sub> = 0,820 es el <span class="prop">98,1&#8239;%</span> de lo esperado: aditividad coherente a 273&#8239;nm; falta comprobarla a 256&#8239;nm.</li>
     <li>Curvas propias: el acetaminofén es lineal en todo el intervalo (4,96–11,90&#8239;μg/mL, <var>R</var><sup>2</sup> = 0,962); la cafeína se desvía por debajo de la recta desde 12,29&#8239;μg/mL, así que la cafeína en las mezclas no debe superar 10,24&#8239;μg/mL.</li>
   </ul>
   <div class="box warning">
@@ -2272,13 +2272,13 @@
     <ul class="points">
       <li>El acetaminofén cumple la ley de Lambert-Beer a 256&#8239;nm entre 4,96 y 11,90&#8239;μg/mL: <var>A</var> = (0,0597 ± 0,0097)·<var>c</var> + 0,035, sin curvatura ni intercepto significativo.</li>
       <li>La cafeína es lineal a 273&#8239;nm solo entre 5,12 y 10,24&#8239;μg/mL: <var>A</var> = (0,0516 ± 0,0122)·<var>c</var> + 0,048 (<var>ε</var> = 1,00 × 10<sup>4</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup>); a mayor concentración se desvía negativamente.</li>
-      <li>La aditividad es coherente a 273&#8239;nm: la mezcla medida da el <span class="prop">98,1&#8239;%</span> de la absorbancia esperada y una recuperación de cafeína de <span class="prop">96,4&#8239;%</span> (composición por confirmar). Determinante propio y recuperación del acetaminofén: [___] (faltan C3, C4 y la lectura a 256&#8239;nm).</li>
+      <li>La aditividad es coherente a 273&#8239;nm: la mezcla medida da el <span class="prop">98,1&#8239;%</span> de la absorbancia esperada y una recuperación de cafeína de <span class="prop">96,4&#8239;%</span> (con la pendiente cruzada de literatura). Determinante propio y recuperación del acetaminofén: [___] (faltan C3, C4 y la lectura a 256&#8239;nm).</li>
     </ul>
   </div>
   <aside class="notes guion">
     <p>Las conclusiones que podemos sostener con nuestros datos son tres. Primera: el acetaminofén cumple la ley de Lambert-Beer a 256 nanómetros entre 4,96 y 11,90 microgramos por mililitro, sin curvatura ni intercepto significativo.</p>
     <p>Segunda: la cafeína es lineal a 273 nanómetros solo entre 5,12 y 10,24 microgramos por mililitro, con una absortividad molar de 10 000 que coincide con la literatura; por encima se desvía negativamente.</p>
-    <p>Tercera: la aditividad se cumple a 273 nanómetros. La mezcla que medimos da el 98,1 % de la absorbancia esperada, y la cafeína se recupera al 96,4 %, con la composición que falta confirmar. Lo que queda pendiente es el determinante con datos propios y la recuperación del acetaminofén, porque para eso faltan las curvas cruzadas y la lectura de la mezcla a 256 nanómetros.</p>
+    <p>Tercera: la aditividad se cumple a 273 nanómetros. La mezcla que medimos da el 98,1 % de la absorbancia esperada, y la cafeína se recupera al 96,4 %, aunque esos dos porcentajes dependen de la pendiente cruzada del acetaminofén, que tomamos de la literatura. Lo que queda pendiente es el determinante con datos propios y la recuperación del acetaminofén, porque para eso faltan las curvas cruzadas y la lectura de la mezcla a 256 nanómetros.</p>
   </aside>
 </section>
 
@@ -2298,7 +2298,7 @@
       <p class="box__label">Faltantes</p>
       <ul class="points points--compact">
         <li>Curvas cruzadas C3 y C4 (lecturas de ACE a 273 y de CAF a 256&#8239;nm).</li>
-        <li><var>D</var> con datos propios; lectura de la mezcla a 256&#8239;nm y su composición anotada.</li>
+        <li><var>D</var> con datos propios; lectura de la mezcla a 256&#8239;nm.</li>
         <li>Discusión (tres puntos) y última conclusión.</li>
       </ul>
     </div>
@@ -2321,7 +2321,7 @@
   <aside class="notes guion">
     <p>La revisión de la quinta práctica, que es la más incompleta.</p>
     <p>Las fallas: la absorbancia específica del acetaminofén es 597 frente a 715 de la farmacopea, el 84 %, lo que apunta a la masa, la pureza o una dilución. La cafeína deja de ser lineal por encima de 10,24, y la precisión de los duplicados supera el 2 % en casi todos los niveles. La mezcla quedó anotada en la hoja como si fuera un patrón de cafeína de 19,46 microgramos por mililitro, y solo se leyó a 273 nanómetros; la muestra se leyó sin anotar la longitud de onda. Y las recuperaciones propuestas, de 104 a 110 %, no cumplen el criterio porque la regla de Cramer supone interceptos nulos.</p>
-    <p>Lo que faltó: las curvas cruzadas C3 y C4, el determinante con datos propios, la lectura de la mezcla a 256 nanómetros y anotar su composición.</p>
+    <p>Lo que faltó: las curvas cruzadas C3 y C4, el determinante con datos propios, la lectura de la mezcla a 256 nanómetros, que no se hizo.</p>
     <p>Las mejoras: si leímos los patrones a la otra longitud de onda, esas lecturas son directamente C3 y C4; restar los interceptos antes de resolver, o usar mínimos cuadrados con varias longitudes de onda; repesar el patrón de acetaminofén, repetir los niveles imprecisos y mantener la cafeína por debajo de 10,24.</p>
     <p>La limitación: el determinante y las recuperaciones dependen todavía de datos de literatura, y solo tenemos una mezcla medida, a una sola longitud de onda; las mezclas M1 a M3, en rojo, son propuestas.</p>
   </aside>
