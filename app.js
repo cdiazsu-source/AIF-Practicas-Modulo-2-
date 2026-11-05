@@ -579,8 +579,11 @@
 
     var W = Math.round(Math.max(320, Math.min(760, el.clientWidth || 560)));
     var H = Math.round(W * (spec.aspect || 0.62));
-    var M = { l: 64, r: 14, t: 14, b: 46 };
+    var M = { l: 64, r: 14, t: spec.showTitle ? 40 : 14, b: 46 };
     var pw = W - M.l - M.r, ph = H - M.t - M.b;
+    // Eje x por categorías (como un gráfico de líneas de Excel): cada punto
+    // ocupa una posición igual, con su rótulo, sin importar el valor numérico.
+    var cats = spec.x.categories || null;
 
     var series = buildSeries(spec);
     var allX = [], allY = [];
@@ -597,6 +600,12 @@
     var ty = niceTicks(yMin, yMax, Math.max(4, Math.round(ph / 55)));
     if (spec.x.min != null) tx.lo = spec.x.min; if (spec.x.max != null) tx.hi = spec.x.max;
     if (spec.y.min != null) ty.lo = spec.y.min; if (spec.y.max != null) ty.hi = spec.y.max;
+    if (spec.y.step) {
+      ty.ticks = [];
+      for (var tv = ty.lo; tv <= ty.hi + spec.y.step / 2; tv += spec.y.step) ty.ticks.push(+tv.toFixed(12));
+      ty.dec = Math.max(0, -Math.floor(Math.log10(spec.y.step) + 1e-9));
+    }
+    if (cats) tx = { lo: -0.4, hi: cats.length - 0.6, ticks: cats.map(function (c, i) { return i; }), dec: 0 };
 
     var X = function (v) { return M.l + (v - tx.lo) / (tx.hi - tx.lo) * pw; };
     var Y = function (v) { return M.t + ph - (v - ty.lo) / (ty.hi - ty.lo) * ph; };
@@ -609,8 +618,8 @@
     tx.ticks.forEach(function (v) {
       if (v < tx.lo - 1e-9 || v > tx.hi + 1e-9) return;
       var x = r1(X(v));
-      svg.push('<line class="chart__grid" x1="' + x + '" y1="' + M.t + '" x2="' + x + '" y2="' + (M.t + ph) + '"/>');
-      svg.push('<text class="chart__tick" x="' + x + '" y="' + (M.t + ph + 17) + '" text-anchor="middle">' + fmt(v, tx.dec) + '</text>');
+      if (!cats) svg.push('<line class="chart__grid" x1="' + x + '" y1="' + M.t + '" x2="' + x + '" y2="' + (M.t + ph) + '"/>');
+      svg.push('<text class="chart__tick" x="' + x + '" y="' + (M.t + ph + 17) + '" text-anchor="middle">' + (cats ? esc(String(cats[v])) : fmt(v, tx.dec)) + '</text>');
     });
     ty.ticks.forEach(function (v) {
       if (v < ty.lo - 1e-9 || v > ty.hi + 1e-9) return;
@@ -623,12 +632,14 @@
     svg.push('<path class="chart__axis" d="M' + M.l + ' ' + M.t + 'V' + (M.t + ph) + 'H' + (M.l + pw) + '"/>');
     svg.push('<text class="chart__label" x="' + (M.l + pw / 2) + '" y="' + (H - 6) + '" text-anchor="middle">' + esc(spec.x.label || '') + '</text>');
     svg.push('<text class="chart__label" transform="translate(14 ' + (M.t + ph / 2) + ') rotate(-90)" text-anchor="middle">' + esc(spec.y.label || '') + '</text>');
+    if (spec.showTitle) svg.push('<text class="chart__title" x="' + (M.l + pw / 2) + '" y="22" text-anchor="middle">' + esc(spec.title || '') + '</text>');
 
     if (spec.example) {
       svg.push('<text class="chart__watermark" x="' + (M.l + pw / 2) + '" y="' + (M.t + ph / 2) + '" text-anchor="middle" dominant-baseline="middle" transform="rotate(-14 ' + (M.l + pw / 2) + ' ' + (M.t + ph / 2) + ')">DATOS DE EJEMPLO</text>');
     }
 
     var legend = [];
+    var stack = {};  // base acumulada de las barras apiladas, por categoría
     series.forEach(function (s, k) {
       // "color" (1–4) y "dash" (2 o 3) opcionales por serie
       var cls = 's' + (s.color || ((k % 4) + 1));
@@ -645,12 +656,32 @@
         eq = '<span class="chart__eq"><var>y</var> = ' + sig(f.m, 4) + '<var>x</var> ' + (f.b < 0 ? '−' : '+') + ' ' + sig(Math.abs(f.b), 5) +
              '; <var>R</var><sup>2</sup> = ' + fmt(f.r2, 4) + '</span>';
       }
+      // Barras apiladas (eje por categorías): cada serie se apoya sobre la anterior
+      if (s.bar) {
+        var bw = pw / (tx.hi - tx.lo) * 0.46;
+        s.points.forEach(function (p) {
+          var base = stack[p[0]] || 0, top = base + p[1];
+          var yTop = r1(Y(top)), yBase = r1(Y(base));
+          svg.push('<rect class="chart__bar ' + cls + (s.light ? ' is-light' : '') + '" x="' + r1(X(p[0]) - bw / 2) + '" y="' + yTop + '" width="' + r1(bw) + '" height="' + r1(yBase - yTop) + '"/>');
+          if (s.labels) svg.push('<text class="chart__blabel' + (s.light ? '' : ' is-dark') + '" x="' + r1(X(p[0])) + '" y="' + r1((yTop + yBase) / 2 + 4) + '" text-anchor="middle">' + fmt(p[1], 3) + '</text>');
+          stack[p[0]] = top;
+        });
+        legend.push('<li><svg viewBox="0 0 28 14" aria-hidden="true"><rect class="chart__bar ' + cls + (s.light ? ' is-light' : '') + '" x="6" y="1" width="16" height="12"/></svg><span>' + s.name + '</span></li>');
+        return;
+      }
       if (s.line) {
         var d = s.points.map(function (p, i) { return (i ? 'L' : 'M') + r1(X(p[0])) + ' ' + r1(Y(p[1])); }).join('');
         svg.push('<path class="chart__line ' + cls + dash + '" d="' + d + '"/>');
       }
       if (s.markers !== false) {
         s.points.forEach(function (p) { svg.push(marker(shape, r1(X(p[0])), r1(Y(p[1])), 4, cls)); });
+      }
+      // Rótulos de datos (valor sobre cada punto; "labelBelow" = índices que van debajo)
+      if (s.labels) {
+        s.points.forEach(function (p, i) {
+          var below = (s.labelBelow || []).indexOf(i) !== -1;
+          svg.push('<text class="chart__dlabel" x="' + r1(X(p[0])) + '" y="' + r1(Y(p[1]) + (below ? 17 : -9)) + '" text-anchor="middle">' + String(p[1]).replace('.', ',') + '</text>');
+        });
       }
 
       var sw = s.markers === false

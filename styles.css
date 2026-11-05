@@ -910,6 +910,16 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 .chart .s3 { stroke: var(--s3); fill: var(--s3); }
 .chart .s4 { stroke: var(--s4); fill: var(--s4); }
 .chart .s5 { stroke: var(--prop); fill: var(--prop); }
+/* Colores del gráfico de Excel del grupo (Figura 4.2) */
+.chart .s6 { stroke: #1f5f7a; fill: #1f5f7a; }
+.chart .s7 { stroke: #00b050; fill: #00b050; }
+.chart .chart__line.s6, .chart .chart__line.s7 { fill: none; stroke-width: 2.6; }
+.chart .chart__bar { stroke-width: 1; fill-opacity: .85; }
+.chart .chart__bar.is-light { fill-opacity: .28; }
+.chart__blabel { fill: var(--text); font: 600 11px var(--font-sans); font-variant-numeric: tabular-nums; }
+.chart__blabel.is-dark { fill: #fff; }
+.chart__dlabel { fill: var(--muted); font: 11px var(--font-sans); font-variant-numeric: tabular-nums; }
+.chart__title { fill: var(--muted); font: 15px var(--font-sans); }
 .chart .chart__line.s5 { fill: none; }
 .prop, td.prop, .chart__legend .prop { color: var(--prop); font-weight: 700; }
 .chart .chart__line.s1, .chart .chart__line.s2, .chart .chart__line.s3, .chart .chart__line.s4,
