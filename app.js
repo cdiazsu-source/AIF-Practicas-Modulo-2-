@@ -127,6 +127,11 @@
       ? '<a class="band__index" href="#/' + (INDEX_AT + 1) + '" data-goto="' + (INDEX_AT + 1) + '" title="Ir al índice">' +
         '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Índice</span></a>'
       : '';
+    // Botón «Guión» si la diapositiva tiene notas del expositor
+    if (inner.querySelector('aside.notes.guion')) {
+      toIndex = '<button type="button" class="band__script" data-script="' + i + '" title="Ver el guión del expositor" aria-haspopup="dialog">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></svg><span>Guión</span></button>' + toIndex;
+    }
     band.innerHTML =
       '<span class="band__seal" aria-hidden="true"><img src="' + esc(SEAL) + '" alt=""></span>' +
       '<span class="band__fac" aria-hidden="true">' + esc(FACULTY) + '</span>' +
@@ -275,7 +280,7 @@
     { id: 'ref-acetaminofen', re: 'acetaminof[eé]n|paracetamol' },
     { id: 'ref-cafeina', re: 'cafe[ií]na' }
   ].filter(function (a) { return doc.getElementById(a.id); });
-  var REF_SKIP = 'a, button, summary, h1, h2, script, style, svg, var, .tbd, .eq, .refs-groups, .kicker, .slide__band, [aria-hidden="true"]';
+  var REF_SKIP = 'a, button, summary, h1, h2, script, style, svg, var, .tbd, .eq, .refs-groups, .kicker, .slide__band, .notes, [aria-hidden="true"]';
 
   ANALYTES.forEach(function (a) {
     var g = doc.getElementById(a.id);
@@ -324,6 +329,47 @@
       linkAnalytes(s);
     });
   }
+
+  /* ---------- 2c. Guión del expositor ----------
+     Las notas <aside class="notes guion"> de cada diapositiva se leen en un
+     panel con el botón «Guión» de la franja (y en la vista del presentador, S). */
+
+  var scriptDlg = null;
+  function openScript(i) {
+    var s = slides[i], notes = s && s.querySelector('aside.notes.guion');
+    if (!notes) return;
+    if (!scriptDlg) {
+      scriptDlg = doc.createElement('dialog');
+      scriptDlg.className = 'script-dlg';
+      scriptDlg.setAttribute('aria-labelledby', 'scriptDlgTitle');
+      scriptDlg.innerHTML =
+        '<header class="script-dlg__head"><div><p class="script-dlg__kicker"></p>' +
+        '<h2 class="script-dlg__title" id="scriptDlgTitle"></h2></div>' +
+        '<button type="button" class="btn btn--icon script-dlg__close" aria-label="Cerrar guión" title="Cerrar (Esc)">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header>' +
+        '<div class="script-dlg__body"></div>';
+      body.appendChild(scriptDlg);
+      scriptDlg.querySelector('.script-dlg__close').addEventListener('click', function () { scriptDlg.close(); });
+      // Clic en el fondo: cerrar
+      scriptDlg.addEventListener('click', function (e) { if (e.target === scriptDlg) scriptDlg.close(); });
+      // Las teclas no deben mover la presentación mientras se lee
+      scriptDlg.addEventListener('keydown', function (e) { e.stopPropagation(); });
+    }
+    scriptDlg.dataset.accent = s.dataset.accent || '';
+    scriptDlg.querySelector('.script-dlg__kicker').textContent = 'Guión · ' + (s.dataset.group || '');
+    scriptDlg.querySelector('.script-dlg__title').textContent = (i + 1) + '. ' + s.dataset.title;
+    var b = scriptDlg.querySelector('.script-dlg__body');
+    b.innerHTML = notes.innerHTML;
+    b.scrollTop = 0;
+    if (!scriptDlg.open) scriptDlg.showModal();
+  }
+  doc.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.band__script');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openScript(+btn.dataset.script);
+  });
 
   /* ---------- 3. Estados completo / parcial / pendiente ---------- */
 
