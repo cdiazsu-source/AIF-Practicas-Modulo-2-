@@ -698,9 +698,72 @@
     wrap.innerHTML = svg.join('') + '<ul class="chart__legend">' + legend.join('') + '</ul>';
     if (!old) el.appendChild(wrap);
     el.dataset.renderedWidth = el.clientWidth;
+    markTips(wrap);
   }
 
-  var charts = Array.prototype.slice.call(doc.querySelectorAll('.chart[data-chart]'));
+  /* ---------- 5b. Glosario: definiciones al pasar el cursor ----------
+     Busca los términos de glosario.js en encabezados de tablas, títulos
+     de tablas y figuras y ejes de gráficos. */
+  var TIP_SEL = 'table th, table caption, .fig__title, .chart__label';
+  function tipMatches(text) {
+    var G = window.AIF_GLOSARIO || [], found = [];
+    G.forEach(function (g, gi) {
+      var best = -1;
+      g.re.forEach(function (re) {
+        var m = re.exec(text);
+        if (m && (best < 0 || m.index < best)) best = m.index;
+      });
+      if (best >= 0) found.push([best, gi]);
+    });
+    found.sort(function (a, b) { return a[0] - b[0]; });
+    return found.slice(0, 4).map(function (f) { return f[1]; });
+  }
+  function markTips(root) {
+    Array.prototype.forEach.call(root.querySelectorAll(TIP_SEL), function (el) {
+      if (el.closest('.notes')) return;
+      var text = el.textContent.replace(/\s+/g, ' ').trim();
+      var ids = text ? tipMatches(text) : [];
+      if (ids.length) { el.dataset.tips = ids.join(','); el.classList.add('has-tip'); }
+    });
+  }
+  markTips(doc);
+
+  var tipBox = doc.createElement('div');
+  tipBox.className = 'tip-pop';
+  tipBox.setAttribute('role', 'tooltip');
+  tipBox.hidden = true;
+  doc.body.appendChild(tipBox);
+  var tipFor = null;
+  function showTip(el) {
+    var G = window.AIF_GLOSARIO || [];
+    tipFor = el;
+    tipBox.innerHTML = el.dataset.tips.split(',').map(function (i) {
+      var g = G[+i];
+      return '<p><strong>' + esc(g.t) + '.</strong> ' + esc(g.d) + '</p>';
+    }).join('');
+    tipBox.hidden = false;
+    var r = el.getBoundingClientRect(), bw = tipBox.offsetWidth, bh = tipBox.offsetHeight;
+    var x = Math.min(Math.max(8, r.left + r.width / 2 - bw / 2), window.innerWidth - bw - 8);
+    var y = r.bottom + 8;
+    if (y + bh > window.innerHeight - 8) y = Math.max(8, r.top - bh - 8);
+    tipBox.style.left = x + 'px';
+    tipBox.style.top = y + 'px';
+  }
+  function hideTip() { tipBox.hidden = true; tipFor = null; }
+  doc.addEventListener('mouseover', function (e) {
+    var el = e.target.closest && e.target.closest('.has-tip');
+    if (el && el !== tipFor) showTip(el);
+    else if (!el && tipFor) hideTip();
+  });
+  doc.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('.has-tip');
+    if (el) { if (el === tipFor) hideTip(); else showTip(el); }
+    else if (tipFor && !tipBox.contains(e.target)) hideTip();
+  });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && tipFor) hideTip(); });
+  window.addEventListener('hashchange', hideTip);
+
+  var charts =Array.prototype.slice.call(doc.querySelectorAll('.chart[data-chart]'));
   charts.forEach(renderChart);
   if ('ResizeObserver' in window) {
     var ro = new ResizeObserver(function (entries) {

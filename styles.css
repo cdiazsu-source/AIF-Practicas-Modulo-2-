@@ -855,6 +855,8 @@ table.data--status tbody tr:has(.status[data-status="done"]) th { color: var(--o
 /* 7 · FIGURAS Y GRÁFICOS --------------------------------------------- */
 .fig { display: grid; gap: .4em; min-width: 0; }
 .fig figcaption { font-size: .78em; color: var(--muted); }
+.fig__title { margin: 0; padding-right: 9.5em; font-size: .86em; font-weight: 650; line-height: 1.25; color: var(--text); }
+.fig__num { color: var(--subtitle); margin-right: .35em; }
 /* Botón «¿Por qué este gráfico?»: se abre sobre la figura */
 .fig { position: relative; }
 .why-pop { position: absolute; top: 0; right: 0; z-index: 6; font-size: .72em; }
@@ -1232,3 +1234,21 @@ body.is-compact:not(.is-overview) .mol-row--2 { grid-template-columns: 1fr 1fr; 
 .sys-box--compact .sys-eq { font-size: 1em; margin: .1em 0; line-height: 1.35; }
 .sys-box--compact .eq-legend { margin-top: .2em; }
 .sys-box .sys-mix { margin-top: .5em; padding-top: .45em; border-top: 1px dashed var(--line-strong, #c9c2b5); font-size: .95em; line-height: 1.45; }
+
+/* Glosario: términos con definición al pasar el cursor */
+.has-tip { cursor: help; text-decoration: underline dotted var(--line-strong); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+.has-tip:hover { text-decoration-color: var(--subtitle); }
+text.has-tip:hover { fill: var(--subtitle); }
+.tip-pop {
+  position: fixed; z-index: 9999; max-width: 340px; padding: .6em .8em;
+  background: var(--surface); color: var(--text); border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--subtitle); border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+  font: 400 13.5px/1.45 var(--font-sans); text-align: left; text-transform: none; letter-spacing: 0;
+  pointer-events: none;
+}
+.tip-pop[hidden] { display: none; }
+.tip-pop p { margin: 0; }
+.tip-pop p + p { margin-top: .45em; padding-top: .45em; border-top: 1px solid var(--line-soft); }
+.tip-pop strong { color: var(--title); }
+@media print { .tip-pop { display: none !important; } .has-tip { text-decoration: none; } }
