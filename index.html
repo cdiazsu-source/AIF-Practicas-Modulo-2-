@@ -72,7 +72,7 @@
 <!-- Motor de diapositivas: reveal.js 6.0.2 (MIT), copia local en vendor/reveal -->
 <link rel="stylesheet" href="assets/fonts/ancizar-sans.css">
 <link rel="stylesheet" href="vendor/reveal/reveal.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=refs5">
 </head>
 <!-- data-faculty, data-course, data-module y data-seal: textos y escudo de la franja base -->
 <body data-faculty="Facultad de Ciencias" data-course="Análisis Instrumental Farmacéutico" data-course-short="AIF" data-module="Módulo II" data-seal="assets/escudo-unal.png">
@@ -720,7 +720,6 @@
       <table class="data">
         <caption>Tabla 2.0. Condiciones</caption>
         <tbody>
-          <tr><th scope="row">Polarímetro</th><td>[___]</td></tr>
           <tr><th scope="row"><var>l</var></th><td>2&#8239;dm (tubo estándar de 200&#8239;mm)</td></tr>
           <tr><th scope="row"><var>λ</var></th><td>589,3&#8239;nm (línea D del sodio)</td></tr>
           <tr><th scope="row"><var>T</var></th><td>20&#8239;°C nominal; 19–26&#8239;°C medida</td></tr>
@@ -831,15 +830,15 @@
 <section class="slide" data-group="Práctica 2 · Polarimetría" data-accent="p2" data-title="Discusión y conclusión">
   <h2>Discusión y conclusión</h2>
   <ul class="points">
-    <li>Precisión: %RSD de 4,4 (lactosa) y 6,1 (mentol) frente al criterio de aceptación [___].</li>
+    <li>Precisión: %RSD de 4,4 (lactosa) y 6,1 (mentol) frente al criterio (≤&#8239;2&#8239;%): no cumplen.</li>
     <li>Las dos soluciones de cada analito dan el mismo <var>α</var> (Welch: <var>p</var> = 0,57 y 0,60).</li>
     <li>Sin relación entre <var>α</var> y <var>T</var> (19–26&#8239;°C): <var>r</var> = 0,12 y −0,28 (<var>p</var> ≥ 0,23).</li>
-    <li>Lactosa anhidra: [<var>α</var>] = +52,25° no difiere del valor de equilibrio (+52,5°; <var>t</var> = 0,49); como la anhidra comercial es rica en <var>β</var> (+35° inicial), la mutarrotación había terminado.</li>
+    <li>Lactosa anhidra: [<var>α</var>] = +52,25° no difiere del equilibrio (+52,5°; <var>t</var> = 0,49): la mutarrotación (<var>β</var>, +35° inicial) había terminado.</li>
     <li>Mentol: [<var>α</var>] = −46,55° es ≈&#8239;7&#8239;% menor que −50° (<var>t</var> = 5,44) pero cumple USP (−45 a −51°); posible error en <var>C</var> (etanol volátil) o pureza.</li>
   </ul>
   <div class="box warning">
     <p class="box__label">Observación</p>
-    <p>Las lecturas se registran en pasos de 0,1° y se alejan hasta 0,85° (lactosa) y 0,56° (mentol) del promedio. Posible causa: [___]</p>
+    <p>Lecturas en pasos de 0,1°, hasta 0,85° (lactosa) y 0,56° (mentol) del promedio. Causa probable: un operador distinto por lectura que iguala la penumbra a ojo (no la temperatura).</p>
   </div>
   <div class="box conclusion">
     <p class="box__label">Conclusión · Práctica 2</p>
@@ -855,7 +854,7 @@
   <h2>Preguntas de defensa: estadística y gráficos</h2>
   <p class="qa__hint">Despliegue cada pregunta para ver la respuesta modelo.</p>
   <div class="qa">
-    <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué se tomaron 20 lecturas y cómo interpretan el IC y el %RSD?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Diseño:</strong> una lectura por estudiante en dos soluciones (series de 10): incluye la variación entre operadores y entre preparaciones, no solo la de lectura.</li><li><strong>IC 95 %</strong> = <span class="bar"><var>x</var></span> ± <var>t</var>·<var>s</var>/√<var>n</var>: lactosa +10,45 ± 0,22°; mentol −4,66 ± 0,13°. Delimita el valor verdadero de <var>α</var> y se estrecha con √<var>n</var>.</li><li><strong>%RSD:</strong> 4,4 (lactosa) y 6,1 (mentol). El mentol tiene menor <var>s</var> (0,28° frente a 0,46°) pero mayor %RSD porque su <var>α</var> es menor: la apreciación de la escala (0,1°) y del campo de penumbra pesa más en rotaciones pequeñas. Criterio de aceptación: [___].</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué se tomaron 20 lecturas y cómo interpretan el IC y el %RSD?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Diseño:</strong> una lectura por estudiante en dos soluciones (series de 10): incluye la variación entre operadores y entre preparaciones, no solo la de lectura.</li><li><strong>IC 95 %</strong> = <span class="bar"><var>x</var></span> ± <var>t</var>·<var>s</var>/√<var>n</var>: lactosa +10,45 ± 0,22°; mentol −4,66 ± 0,13°. Delimita el valor verdadero de <var>α</var> y se estrecha con √<var>n</var>.</li><li><strong>%RSD:</strong> 4,4 (lactosa) y 6,1 (mentol). El mentol tiene menor <var>s</var> (0,28° frente a 0,46°) pero mayor %RSD porque su <var>α</var> es menor: la apreciación de la escala (0,1°) y del campo de penumbra pesa más en rotaciones pequeñas. Criterio de aceptación: %RSD ≤&#8239;2&#8239;%, que ninguna de las dos series cumple.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Para qué aplicaron la prueba <var>t</var> de Welch y qué concluyen?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Objetivo:</strong> comprobar que las dos soluciones de cada analito dan el mismo <var>α</var> antes de combinar las 20 lecturas.</li><li><strong>Por qué Welch:</strong> no supone varianzas iguales (<var>s</var> de 0,37 frente a 0,55° en lactosa), así que no requiere una prueba <var>F</var> previa.</li><li><strong>Resultado:</strong> lactosa <var>t</var> = −0,57 (<var>p</var> = 0,57); mentol <var>t</var> = 0,54 (<var>p</var> = 0,60). Sin diferencia: la preparación es reproducible y las lecturas se pueden tratar como una sola población.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Cómo demostrarían que la rotación específica concuerda con la de la monografía?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Cálculo:</strong> [<var>α</var>] = 100·<var>α</var>/(<var>l</var>·<var>C</var>), con <var>l</var> en dm y <var>C</var> en g/100 mL: +52,25° (lactosa) y −46,55° (mentol); con <var>l</var> = 2&#8239;dm y <var>C</var> = 10 (lactosa) y 5&#8239;g/100&#8239;mL (mentol).</li><li><strong>Prueba <var>t</var> de una muestra:</strong> <var>t</var> = |[<var>α</var>]<sub>exp</sub> − [<var>α</var>]<sub>ref</sub>|/(<var>s</var>/√<var>n</var>), con 19 gl y <var>t</var><sub>crít</sub> = 2,093. Lactosa: <var>t</var> = 0,49 frente a +52,5°, sin diferencia. Mentol: <var>t</var> = 5,44 frente a −50°, difiere, aunque está en el intervalo USP (−45 a −51°).</li><li><strong>Rigor adicional:</strong> la incertidumbre de <var>C</var> (masa y aforo) y de <var>l</var> se propaga a [<var>α</var>]; debe sumarse a la de la lectura.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p2-e"><summary><span class="eqd__name">Pregunta 4</span><span class="qa__q">¿Influyó la temperatura en las lecturas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Análisis:</strong> correlación de Pearson entre <var>α</var> y la temperatura registrada (19–26 °C).</li><li><strong>Resultado:</strong> <var>r</var> = 0,12 (<var>p</var> = 0,62) en lactosa y <var>r</var> = −0,28 (<var>p</var> = 0,23) en mentol: sin relación significativa.</li><li><strong>Interpretación:</strong> [<var>α</var>] sí depende de <var>T</var>, pero en este intervalo su efecto es menor que la dispersión de lectura; por eso no aparece. La monografía exige 20 ó 25 °C y lo correcto es termostatizar.</li></ul></div></details>
@@ -974,7 +973,7 @@
         <tbody>
           <tr><th scope="row">Espectrofotómetro</th><td>[___]</td></tr>
           <tr><th scope="row">Celdas</th><td>Cuarzo, <var>b</var> = 1&#8239;cm</td></tr>
-          <tr><th scope="row">Disolvente</th><td>[___] (solubilidad alta en NaOH 0,1843&#8239;N)</td></tr>
+          <tr><th scope="row">Disolvente</th><td>NaOH 0,1843&#8239;N (solubilidad alta)</td></tr>
           <tr><th scope="row">Masas</th><td>Patrón 12,6&#8239;mg · polvo de tabletas 12,4&#8239;mg</td></tr>
           <tr><th scope="row">Tabletas</th><td>Declarado: [___]&#8239;mg</td></tr>
         </tbody>
@@ -998,7 +997,7 @@
           <tr><th scope="row">Etanol 96&#8239;%</th><td>Buena</td><td>—</td></tr>
           <tr><th scope="row">HCl 0,55&#8239;N</th><td>Baja</td><td>—</td></tr>
           <tr><th scope="row">NaOH 0,1843&#8239;N</th><td>Alta</td><td>—</td></tr>
-          <tr><th scope="row">Solvente(s) seleccionado(s)</th><td colspan="2">[___]</td></tr>
+          <tr><th scope="row">Solvente(s) seleccionado(s)</th><td colspan="2">NaOH 0,1843&#8239;N</td></tr>
         </tbody>
       </table>
     </div>
@@ -1028,7 +1027,7 @@
         <caption>Tabla G5. <var>λ</var><sub>máx</sub> teórico y práctico <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Dato</th><th scope="col" class="num"><var>λ</var><sub>máx</sub> (nm)</th><th scope="col" class="num">Absorbancia (UA)</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Teórico</th><td class="num">[___]</td><td class="num">[___]</td></tr>
+          <tr><th scope="row">Teórico</th><td class="num">≈&#8239;221–222</td><td class="num">—</td></tr>
           <tr><th scope="row">Práctico</th><td class="num">221</td><td class="num">0,448 (10,08&#8239;μg/mL)</td></tr>
         </tbody>
       </table>
@@ -1187,7 +1186,7 @@
     <div class="box key">
       <p class="box__label">Resultado clave · <var>λ</var><sub>máx</sub></p>
       <p class="key__value"><var>λ</var><sub>máx</sub> = 221&#8239;nm</p>
-      <p class="key__meta"><var>A</var> = 0,448 a 10,08&#8239;μg/mL · <var>ε</var> ≈ 9,2 × 10<sup>3</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup> · disolvente: [___]</p>
+      <p class="key__meta"><var>A</var> = 0,448 a 10,08&#8239;μg/mL · <var>ε</var> ≈ 9,2 × 10<sup>3</sup>&#8239;L·mol<sup>−1</sup>·cm<sup>−1</sup> · disolvente: NaOH 0,1843&#8239;N</p>
     </div>
     <div class="box key">
       <p class="box__label">Resultado clave · polvo de tabletas</p>
@@ -1211,9 +1210,9 @@
 <section class="slide" data-group="Práctica 3 · UV del ibuprofeno" data-accent="p3" data-title="Discusión">
   <h2>Discusión</h2>
   <ul class="points">
-    <li>Solubilidad: baja en HCl 0,55&#8239;N y alta en NaOH 0,1843&#8239;N, como corresponde a un ácido carboxílico (p<var>K</var><sub>a</sub> ≈ 4,4–4,9) que se disuelve al ionizarse; buena en etanol 96&#8239;%. Disolvente seleccionado: [___]</li>
-    <li><var>λ</var><sub>máx</sub> = 221&#8239;nm, medido en la única dilución dentro del intervalo fotométrico (10,08&#8239;μg/mL); <var>ε</var> del barrido y de la pendiente difieren un 10&#8239;%. Valor de literatura: [___]</li>
-    <li>Contenido: 56,2 ± 19,6&#8239;% p/p en el polvo, con la muestra leída bajo el LOQ (5,58&#8239;μg/mL); la comparación con lo declarado y con el criterio [___] requiere el peso promedio de la tableta.</li>
+    <li>Solubilidad: baja en HCl 0,55&#8239;N y alta en NaOH 0,1843&#8239;N, como corresponde a un ácido carboxílico (p<var>K</var><sub>a</sub> ≈ 4,4–4,9) que se disuelve al ionizarse; buena en etanol 96&#8239;%. Disolvente seleccionado: NaOH 0,1843&#8239;N, el mismo de la práctica 5.</li>
+    <li><var>λ</var><sub>máx</sub> = 221&#8239;nm, medido en la única dilución dentro del intervalo fotométrico (10,08&#8239;μg/mL); <var>ε</var> del barrido y de la pendiente difieren un 10&#8239;%. Valor de literatura: ≈&#8239;221–222&#8239;nm en medio acuoso, concordante con el medido.</li>
+    <li>Contenido: 56,2 ± 19,6&#8239;% p/p en el polvo, con la muestra leída bajo el LOQ (5,58&#8239;μg/mL); la comparación con lo declarado y con el criterio <a class="ref-link" href="#ref-ibuprofeno" data-ref="ref-ibuprofeno">USP</a> (90,0–110,0&#8239;% de lo declarado) requiere el peso promedio de la tableta.</li>
     <li>Recuperaciones en los tres niveles: [___]</li>
     <li>Linealidad: la recta es adecuada (falta de ajuste <var>p</var> = 0,97; intercepto nulo; factor de respuesta sin tendencia), pero <var>R</var><sup>2</sup> = 0,944 queda lejos del ≥&#8239;0,995 habitual porque la precisión de los duplicados es baja (%RSD hasta 26&#8239;%; la mitad de las lecturas fuera de 95–105&#8239;% en el factor de respuesta).</li>
     <li>Sensibilidad: LOQ = 9,7&#8239;μg/mL; una muestra leída por duplicado en el centro de la curva tendría una incertidumbre de ±1,7&#8239;μg/mL (IC 95&#8239;%). Las soluciones problema deben ubicarse entre 10 y 15&#8239;μg/mL.</li>
@@ -1251,7 +1250,7 @@
   <h2>Preguntas de defensa: procedimiento y justificación teórica</h2>
   <p class="qa__hint">Despliegue cada pregunta para ver la respuesta modelo.</p>
   <div class="qa">
-    <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué ensayaron la solubilidad en tres medios y cómo influye en el método?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Fundamento:</strong> el ibuprofeno es un ácido carboxílico (p<var>K</var>a ≈ 4,4–4,9). En HCl 0,55 N está no ionizado y es poco soluble; en NaOH 0,1843 N está como carboxilato y se disuelve; en etanol 96 % se disuelve por afinidad.</li><li><strong>Consecuencia:</strong> el espectro depende de la especie presente; patrón, muestra y blanco deben prepararse en el mismo medio para que <var>ε</var> sea igual.</li><li><strong>Medio elegido:</strong> [___]; debe tener una absorción propia baja a 221 nm.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Por qué ensayaron la solubilidad en tres medios y cómo influye en el método?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Fundamento:</strong> el ibuprofeno es un ácido carboxílico (p<var>K</var>a ≈ 4,4–4,9). En HCl 0,55 N está no ionizado y es poco soluble; en NaOH 0,1843 N está como carboxilato y se disuelve; en etanol 96 % se disuelve por afinidad.</li><li><strong>Consecuencia:</strong> el espectro depende de la especie presente; patrón, muestra y blanco deben prepararse en el mismo medio para que <var>ε</var> sea igual.</li><li><strong>Medio elegido:</strong> NaOH 0,1843&#8239;N; debe tener una absorción propia baja a 221 nm.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">Explique la preparación de la curva y de la muestra, y la razón de las diluciones.</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Patrón:</strong> 12,6 mg en 25 mL (504 μg/mL); 10,0 → 50,0 mL (100,8 μg/mL); de esta, 0,50–1,50 mL a 10 mL dan 5 niveles de 5,04 a 15,12 μg/mL, por duplicado.</li><li><strong>Por qué ese intervalo:</strong> mantiene <var>A</var> entre 0,17 y 0,85, la zona de menor error fotométrico relativo.</li><li><strong>Muestra:</strong> se pulverizan 10 tabletas para obtener una muestra homogénea y representativa; 12,4 mg del polvo en 25 mL, filtrado (los excipientes insolubles dispersan la luz) y diluido igual que el patrón.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p3-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué se cuantifica a 221 nm (λ<sub>máx</sub>)?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Sensibilidad:</strong> en el máximo, <var>ε</var> es mayor y la pendiente de la curva también.</li><li><strong>Robustez:</strong> en el máximo d<var>A</var>/d<var>λ</var> = 0; un pequeño error de longitud de onda del monocromador casi no cambia <var>A</var>.</li><li><strong>Origen:</strong> transiciones π → π* del anillo aromático.</li><li><strong>Limitación:</strong> a 221 nm muchos disolventes y excipientes absorben; el método no es selectivo frente a productos de degradación (no es indicador de estabilidad).</li></ul></div></details>
   </div>
@@ -1440,7 +1439,7 @@
         <caption>Tabla G10. Construcción de la curva de calibración <span class="guide-ref">(guía)</span></caption>
         <thead><tr><th scope="col">Parámetro</th><th scope="col">Resultado</th></tr></thead>
         <tbody>
-          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>445&#8239;nm (0,268) y 615&#8239;nm (0,616) · selección para la curva: [___]</td></tr>
+          <tr><th scope="row"><var>λ</var><sub>máx</sub> seleccionado y absorbancia a esa longitud</th><td>445&#8239;nm (0,268) y 615&#8239;nm (0,616) · selección para la curva: 615&#8239;nm (forma básica, <var>ε</var> mayor)</td></tr>
           <tr><th scope="row">Rango de concentración (μg/mL; entre 0,17 y 0,85&#8239;UA)</th><td>[___]</td></tr>
           <tr><th scope="row">Concentración de la solución madre (μg/mL)</th><td>496 (12,4&#8239;mg/25&#8239;mL); trabajo: 99,2 y 9,92</td></tr>
           <tr><th scope="row">Concentraciones de la curva (μg/mL)</th><td>C1 [___] · C2 [___] · C3 [___] · C4 [___] · C5 [___]</td></tr>
@@ -1566,7 +1565,7 @@
     <div class="box key">
       <p class="box__label">p<var>K</var><sub>a</sub> · referencia</p>
       <p class="key__value">4,7</p>
-      <p class="key__meta">Viraje amarillo → azul, pH 3,8–5,4 · Fuente: [___]</p>
+      <p class="key__meta">Viraje amarillo → azul, pH 3,8–5,4 · Fuente: <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> (p<var>K</var> 4,7)</p>
     </div>
   </div>
   <div class="table-wrap">
@@ -1728,7 +1727,7 @@
       <li>Preparar soluciones madre de ACE (12,4&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 99,2&#8239;μg/mL) y CAF (12,8&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 102,4&#8239;μg/mL).</li>
       <li>Preparar 5 patrones de cada analito por duplicado independiente (0,50–1,20&#8239;mL de cada madre a 10&#8239;mL).</li>
       <li>Leer cada patrón a 256 y 273&#8239;nm.</li>
-      <li>Preparar [___] mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
+      <li>Preparar 3 mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -2008,7 +2007,7 @@
   </div>
   <div class="box note box--interp">
     <p class="box__label">Absorbancia de la muestra</p>
-    <p><var>A</var> = 0,767&#8239;UA (<var>λ</var> de lectura: [___]). Está dentro del intervalo de trabajo de la guía (0,17–0,85&#8239;UA) y coincide con el patrón más alto del acetaminofén (0,766 a 11,90&#8239;μg/mL), pero supera el límite lineal de la cafeína a 273&#8239;nm (0,600). Una sola absorbancia no separa los dos analitos: el sistema (5.1)–(5.2) necesita la lectura a 256 y a 273&#8239;nm y las pendientes cruzadas C3 y C4.</p>
+    <p><var>A</var> = 0,767&#8239;UA (<var>λ</var> de lectura: probablemente 256&#8239;nm, λ<sub>máx</sub> del acetaminofén, componente mayoritario). Está dentro del intervalo de trabajo de la guía (0,17–0,85&#8239;UA) y coincide con el patrón más alto del acetaminofén (0,766 a 11,90&#8239;μg/mL), pero supera el límite lineal de la cafeína a 273&#8239;nm (0,600). Una sola absorbancia no separa los dos analitos: el sistema (5.1)–(5.2) necesita la lectura a 256 y a 273&#8239;nm y las pendientes cruzadas C3 y C4.</p>
   </div>
 </section>
 
@@ -2016,7 +2015,7 @@
   <h2>Discusión</h2>
   <ul class="points">
     <li>Magnitud de <var>D</var> y condicionamiento del sistema: [___]</li>
-    <li>Recuperaciones frente al criterio de aceptación [___]: [___]</li>
+    <li>Recuperaciones frente al criterio de aceptación (98–102&#8239;%): [___]</li>
     <li>Solapamiento espectral y aporte de las curvas cruzadas: [___]</li>
     <li>Cumplimiento de la aditividad (interceptos, interacción): los interceptos de C1 (0,035) y C2 (0,048, intervalo lineal) no difieren de cero, como exige el sistema (5.1)–(5.2); C3 y C4: [___]</li>
     <li>Curvas propias: el acetaminofén es lineal en todo el intervalo (4,96–11,90&#8239;μg/mL, <var>R</var><sup>2</sup> = 0,962); la cafeína se desvía por debajo de la recta desde 12,29&#8239;μg/mL, así que las mezclas deben dar <var>A</var><sub>273</sub> ≤ 0,6.</li>
@@ -2055,7 +2054,7 @@
   <div class="qa">
     <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 1</span><span class="qa__q">¿Cuál es el fundamento de la determinación simultánea y qué condiciones exige?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Aditividad:</strong> la absorbancia de la mezcla a cada <var>λ</var> es la suma de las de sus componentes, <var>A</var><sub><var>λ</var></sub> = Σ <var>ε</var><sub><var>i</var></sub>·<var>b</var>·<var>c</var><sub><var>i</var></sub> (método de Vierordt).</li><li><strong>Condiciones:</strong> cada analito debe cumplir Lambert-Beer a las dos <var>λ</var>, sin interacción química entre ellos y con interceptos nulos.</li><li><strong>Por eso cuatro curvas:</strong> 2 analitos × 2 <var>λ</var> (dos propias y dos cruzadas) para conocer las cuatro absortividades.</li></ul></div></details>
     <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 2</span><span class="qa__q">¿Por qué se eligieron 256 y 273 nm y el NaOH 0,1843 N como disolvente?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Longitudes de onda:</strong> 256 nm es el máximo del acetaminofén y 273 nm el de la cafeína; en el máximo de cada uno su contribución es mayor que la del otro, lo que aleja <var>D</var> de cero.</li><li><strong>Disolvente:</strong> se seleccionó por la prueba de solubilidad; en NaOH el fenol del acetaminofén (p<var>K</var>a ≈ 9,5) está ionizado y su banda se desplaza hacia mayor <var>λ</var> (desplazamiento batocrómico), mientras que la cafeína no cambia; así los espectros se separan.</li><li><strong>Patrones, mezclas y blanco</strong> en el mismo medio.</li></ul></div></details>
-    <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué duplicados independientes y cómo se valida el método con mezclas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Duplicados independientes:</strong> cada réplica se prepara desde la alícuota, no se relee la misma celda; así el error puro incluye el pipeteo y la dilución.</li><li><strong>Validación:</strong> se preparan [___] mezclas de composición conocida, se resuelve el sistema y se calcula el % de recuperación de cada analito frente al criterio [___].</li><li><strong>Lectura de las mezclas:</strong> deben dar <var>A</var><sub>273</sub> ≤ 0,6 para permanecer en el intervalo lineal de la cafeína.</li></ul></div></details>
+    <details class="eqd eqd--qa" name="qa-p5-p"><summary><span class="eqd__name">Pregunta 3</span><span class="qa__q">¿Por qué duplicados independientes y cómo se valida el método con mezclas?</span></summary><div class="eqd__body"><ul class="points points--compact"><li><strong>Duplicados independientes:</strong> cada réplica se prepara desde la alícuota, no se relee la misma celda; así el error puro incluye el pipeteo y la dilución.</li><li><strong>Validación:</strong> se preparan 3 mezclas de composición conocida, se resuelve el sistema y se calcula el % de recuperación de cada analito frente al criterio [___].</li><li><strong>Lectura de las mezclas:</strong> deben dar <var>A</var><sub>273</sub> ≤ 0,6 para permanecer en el intervalo lineal de la cafeína.</li></ul></div></details>
   </div>
 </section>
 
@@ -2085,43 +2084,140 @@
   <div class="box conclusion">
     <p class="box__label">Conclusiones</p>
     <ul class="points">
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
-      <li>[___]</li>
+      <li>La refractometría cuantifica la glicerina con lecturas repetibles y reproducibles entre grupos (M1 = 40,5 ± 3,6&#8239;% y M2 = 47,2 ± 2,6&#8239;% p/p); la respuesta es cuadrática y la incertidumbre la domina el modelo, no la lectura.</li>
+      <li>La polarimetría confirma la actividad óptica: [<var>α</var>] de la lactosa anhidra (+52,25°) coincide con el valor de equilibrio y el del mentol (−46,55°) cumple el intervalo USP, aunque difiere de −50°; la precisión (%RSD 4,4 y 6,1) no cumple el criterio de ≤&#8239;2&#8239;%.</li>
+      <li>La espectrofotometría UV es lineal para el ibuprofeno (5–15&#8239;μg/mL a 221&#8239;nm) y el acetaminofén (256&#8239;nm), y para la cafeína a 273&#8239;nm solo hasta 10,24&#8239;μg/mL; la precisión de los duplicados limita el LOQ y la exactitud del contenido.</li>
+      <li>El p<var>K</var><sub>a</sub> del verde de bromocresol (5,35 ± 0,28) supera en 0,65 unidades el de referencia (4,7); el punto isosbéstico a 510&#8239;nm confirma un equilibrio entre dos especies.</li>
     </ul>
   </div>
 </section>
 
 <section class="slide" data-group="Cierre" data-title="Fuentes de error y mejoras">
   <h2>Fuentes de error y mejoras comunes</h2>
-  <p class="lead">Fuentes posibles; confirmar cuáles se observaron: [___]</p>
+  <p class="lead">Fuentes de error observadas en los datos del grupo.</p>
   <div class="table-wrap">
     <table class="data">
       <caption>Tabla 6.2. Fuentes de error y mejoras propuestas</caption>
       <thead><tr><th scope="col">Fuente de error</th><th scope="col">Prácticas</th><th scope="col">Mejora propuesta</th></tr></thead>
       <tbody>
-        <tr><td>Temperatura no controlada</td><td>1, 2</td><td>Termostatizar y registrar <var>T</var> en cada lectura</td></tr>
-        <tr><td>Preparación de patrones</td><td>1, 3–5</td><td>Material volumétrico clase A; preparación por pesada</td></tr>
-        <tr><td>Calibración del pH-metro</td><td>4</td><td>Calibrar con dos o tres patrones antes de medir</td></tr>
-        <tr><td>Celdas y blanco</td><td>3, 4, 5</td><td>Celdas limpias y emparejadas; blanco con el mismo disolvente</td></tr>
-        <tr><td>Burbujas en el tubo</td><td>2</td><td>Llenado lento y revisión visual</td></tr>
-        <tr><td>Lecturas fuera del intervalo lineal</td><td>3, 4, 5</td><td>Diluir hasta <var>A</var> dentro de 0,17–0,85&#8239;UA</td></tr>
+        <tr><td>Curvatura de la respuesta (modelo lineal insuficiente)</td><td>1</td><td>Ajuste cuadrático o intervalo más estrecho</td></tr>
+        <tr><td>Cambio de operador y lectura visual de la penumbra (%RSD 4,4 y 6,1)</td><td>2</td><td>Un solo operador por serie; polarímetro digital</td></tr>
+        <tr><td>Duplicados poco precisos (<var>R</var><sup>2</sup> = 0,944) y muestra bajo el LOQ</td><td>3</td><td>Preparación por pesada; alícuota mayor de muestra</td></tr>
+        <tr><td>Pocos buffers en la zona de viraje, lectura atípica a pH 1,84 y fuerza iónica variable</td><td>4</td><td>Más buffers entre pH 3,5 y 6; fuerza iónica constante; calibrar el pH-metro</td></tr>
+        <tr><td>Desviación negativa de la cafeína a 273&#8239;nm por encima de 10,24&#8239;μg/mL</td><td>5</td><td>Limitar el intervalo o diluir hasta <var>A</var> ≤ 0,60&#8239;UA</td></tr>
+        <tr><td>Temperatura variable (19–26&#8239;°C en la práctica 2)</td><td>1, 2</td><td>Termostatizar y registrar <var>T</var> en cada lectura</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<section class="slide" data-group="Cierre" data-title="Referencias">
-  <h2>Referencias</h2>
-  <ol class="refs">
-    <li>[___]. ([___]). <i>[___]</i> ([___] ed.). [___].</li>
-    <li>[___]. ([___]). <i>[___]</i> ([___] ed.). [___].</li>
-    <li>[___]. ([___]). [___]. <i>[___]</i>, <i>[___]</i>([___]), [___]–[___]. https://doi.org/[___]</li>
-    <li>[___]. ([___]). <i>[___]</i>. [___].</li>
-    <li>Universidad Nacional de Colombia. ([___]). <i>[___]</i> [Guía de laboratorio]. [___].</li>
-  </ol>
-  <p class="eq-legend">Formato APA 7.ª edición; sangría francesa.</p>
+<section class="slide slide--refs" data-group="Cierre" data-title="Referencias · analitos (1/3)">
+  <h2>Referencias por analito (1/3)</h2>
+  <a class="refs-back" href="#" hidden>Volver</a>
+  <div class="refs-groups">
+    <div class="refs-group" id="ref-glicerina" data-accent="p1">
+      <h3 class="refs-group__title">Glicerina <span>P1</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Glycerin [Monografía]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Glycerol (monografía 0496). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 753, Glycerol</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/753</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+    <div class="refs-group" id="ref-lactosa" data-accent="p2">
+      <h3 class="refs-group__title">Lactosa anhidra <span>P2</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Anhydrous lactose [Monografía NF]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Lactose, anhydrous (monografía 1061). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 6134, Lactose</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/6134</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+    <div class="refs-group" id="ref-mentol" data-accent="p2">
+      <h3 class="refs-group__title">Mentol <span>P2</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Menthol [Monografía]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Levomenthol (monografía 0619). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 16666, Menthol</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/16666</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+    <div class="refs-group" id="ref-ibuprofeno" data-accent="p3">
+      <h3 class="refs-group__title">Ibuprofeno <span>P3</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Ibuprofen [Monografía]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Ibuprofen (monografía 0721). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 3672, Ibuprofen</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/3672</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-clarke" data-ref="ref-clarke">Clarke</a> · <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+  </div>
+  <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
+</section>
+
+<section class="slide slide--refs" data-group="Cierre" data-title="Referencias · analitos (2/3)">
+  <h2>Referencias por analito (2/3)</h2>
+  <a class="refs-back" href="#" hidden>Volver</a>
+  <div class="refs-groups">
+    <div class="refs-group" id="ref-vbc" data-accent="p4">
+      <h3 class="refs-group__title">Verde de bromocresol <span>P4</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Bromocresol green [Reactivos, indicadores y soluciones]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Bromocresol green R (4.1.1, Reactivos). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 6451, Bromocresol green</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/6451</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+    <div class="refs-group" id="ref-acetaminofen" data-accent="p5">
+      <h3 class="refs-group__title">Acetaminofén (paracetamol) <span>P5</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Acetaminophen [Monografía]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Paracetamol (monografía 0049). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 1983, Acetaminophen</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/1983</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-clarke" data-ref="ref-clarke">Clarke</a> · <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+    <div class="refs-group" id="ref-cafeina" data-accent="p5">
+      <h3 class="refs-group__title">Cafeína <span>P5</span></h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). Caffeine [Monografía]. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). Caffeine (monografía 0267). En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+        <li>National Center for Biotechnology Information. (2026). <i>PubChem compound summary for CID 2519, Caffeine</i>. Recuperado el 4 de noviembre de 2026 de https://pubchem.ncbi.nlm.nih.gov/compound/2519</li>
+      </ol>
+      <p class="refs-see">Ver también: <a class="ref-link" href="#ref-clarke" data-ref="ref-clarke">Clarke</a> · <a class="ref-link" href="#ref-merck" data-ref="ref-merck">Merck Index</a> · <a class="ref-link" href="#ref-metodos" data-ref="ref-metodos">capítulos generales</a>.</p>
+    </div>
+  </div>
+  <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
+</section>
+
+<section class="slide slide--refs" data-group="Cierre" data-title="Referencias · obras generales (3/3)">
+  <h2>Obras generales, métodos y guía (3/3)</h2>
+  <a class="refs-back" href="#" hidden>Volver</a>
+  <div class="refs-groups refs-groups--2">
+    <div class="refs-group">
+      <h3 class="refs-group__title">Obras de consulta</h3>
+      <ol class="refs refs--compact">
+        <li id="ref-merck">O'Neil, M. J. (Ed.). (2013). <i>The Merck Index: An encyclopedia of chemicals, drugs, and biologicals</i> (15.ª ed.). Royal Society of Chemistry.</li>
+        <li id="ref-clarke">Moffat, A. C., Osselton, M. D., Widdop, B. y Watts, J. (Eds.). (2011). <i>Clarke's analysis of drugs and poisons</i> (4.ª ed.). Pharmaceutical Press.</li>
+        <li id="ref-usp">United States Pharmacopeial Convention. (2025). <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li id="ref-ph-eur">European Directorate for the Quality of Medicines &amp; HealthCare. (2025). <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+      </ol>
+    </div>
+    <div class="refs-group" id="ref-metodos">
+      <h3 class="refs-group__title">Capítulos generales de las técnicas</h3>
+      <ol class="refs refs--compact">
+        <li>United States Pharmacopeial Convention. (2025). 〈781〉 Optical rotation. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>United States Pharmacopeial Convention. (2025). 〈831〉 Refractive index. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>United States Pharmacopeial Convention. (2025). 〈857〉 Ultraviolet-visible spectroscopy. En <i>United States Pharmacopeia and National Formulary (USP–NF)</i>. https://online.uspnf.com</li>
+        <li>European Directorate for the Quality of Medicines &amp; HealthCare. (2025). 2.2.6 Refractive index; 2.2.7 Optical rotation; 2.2.25 Absorption spectrophotometry, ultraviolet and visible. En <i>European Pharmacopoeia</i> (12.ª ed.). Council of Europe.</li>
+      </ol>
+      <h3 class="refs-group__title">Guía de laboratorio</h3>
+      <ol class="refs refs--compact">
+        <li id="ref-guia">Universidad Nacional de Colombia. ([___]). <i>Guías de prácticas de laboratorio: Módulo II, Análisis Instrumental Farmacéutico</i> (versión 2) [Guía de laboratorio]. Departamento de Farmacia.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="eq-legend">Formato APA 7.ª edición. Prioridad: farmacopeas oficiales (USP–NF, Ph. Eur.); PubChem como fuente de estructuras.</p>
 </section>
 
 <section class="slide slide--cover" data-group="Cierre" data-title="Agradecimientos e integrantes">
@@ -2211,6 +2307,6 @@
 <script src="vendor/reveal/plugin/search.js"></script>
 <script src="vendor/reveal/plugin/zoom.js"></script>
 <script src="assets/icons/lab-icons.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=refs5"></script>
 </body>
 </html>

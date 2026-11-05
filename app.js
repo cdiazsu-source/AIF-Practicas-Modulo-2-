@@ -262,6 +262,69 @@
     });
   })();
 
+  /* ---------- 2b. Enlaces de cada analito a sus referencias ----------
+     En cada diapositiva, la primera mención de un analito enlaza con su
+     grupo en «Referencias por analito». */
+
+  var ANALYTES = [
+    { id: 'ref-glicerina', re: 'glicerina|glicerol' },
+    { id: 'ref-lactosa', re: 'lactosa' },
+    { id: 'ref-mentol', re: 'mentol' },
+    { id: 'ref-ibuprofeno', re: 'ibuprofeno' },
+    { id: 'ref-vbc', re: 'verde de bromocresol' },
+    { id: 'ref-acetaminofen', re: 'acetaminof[eé]n|paracetamol' },
+    { id: 'ref-cafeina', re: 'cafe[ií]na' }
+  ].filter(function (a) { return doc.getElementById(a.id); });
+  var REF_SKIP = 'a, button, summary, h1, h2, script, style, svg, var, .tbd, .eq, .refs-groups, .kicker, .slide__band, [aria-hidden="true"]';
+
+  ANALYTES.forEach(function (a) {
+    var g = doc.getElementById(a.id);
+    a.label = g.querySelector('.refs-group__title').firstChild.nodeValue.trim();
+    a.rx = new RegExp('(?<![\\p{L}\\p{N}])(?:' + a.re + ')(?![\\p{L}\\p{N}])', 'iu');
+  });
+
+  function linkAnalytes(slide) {
+    var done = {};
+    var walker = doc.createTreeWalker(slide, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        return n.parentNode.closest(REF_SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    // Primero el texto visible; después el de las respuestas desplegables
+    var inDetails = function (n) { return !!n.parentNode.closest('details'); };
+    nodes = nodes.filter(function (n) { return !inDetails(n); }).concat(nodes.filter(inDetails));
+    nodes.forEach(function (node) {
+      while (node) {
+        var best = null;
+        ANALYTES.forEach(function (a) {
+          if (done[a.id]) return;
+          var m = a.rx.exec(node.nodeValue);
+          if (m && (!best || m.index < best.m.index)) best = { a: a, m: m };
+        });
+        if (!best) break;
+        done[best.a.id] = true;
+        var mid = node.splitText(best.m.index);
+        var rest = mid.splitText(best.m[0].length);
+        var link = doc.createElement('a');
+        link.className = 'ref-link';
+        link.href = '#' + best.a.id;
+        link.dataset.ref = best.a.id;
+        link.title = 'Ver referencias: ' + best.a.label;
+        mid.parentNode.replaceChild(link, mid);
+        link.appendChild(mid);
+        node = rest;
+      }
+    });
+  }
+  if (ANALYTES.length) {
+    slides.forEach(function (s) {
+      if (s.classList.contains('slide--refs') || s.classList.contains('slide--cover') || s.querySelector('[data-toc-slide]')) return;
+      linkAnalytes(s);
+    });
+  }
+
   /* ---------- 3. Estados completo / parcial / pendiente ---------- */
 
   var STATUS_TEXT = { done: 'Completo', partial: 'Parcial', pending: 'Pendiente' };
@@ -683,6 +746,33 @@
     go(+a.dataset.goto - 1);
     if (fromPanel && isNarrow()) setToc(false, false);
   });
+
+  /* Enlaces a referencias: van a la diapositiva del grupo, lo resaltan y
+     activan «Volver» para regresar a la diapositiva de origen. */
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-ref]');
+    if (!a || state.overview) return;
+    var t = doc.getElementById(a.dataset.ref);
+    var s = t && t.closest('section.slide');
+    var idx = s ? slides.indexOf(s) : -1;
+    if (idx < 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var from = Reveal.getIndices().h;
+    if (!slides[from].classList.contains('slide--refs')) {
+      doc.querySelectorAll('.refs-back').forEach(function (b) {
+        b.hidden = false;
+        b.href = '#/' + (from + 1);
+        b.dataset.goto = from + 1;
+        b.textContent = '← Volver a la diapositiva ' + (from + 1);
+      });
+    }
+    go(idx);
+    t.classList.remove('is-target');
+    void t.offsetWidth;
+    t.classList.add('is-target');
+    if (compact) setTimeout(function () { t.scrollIntoView({ block: 'start', behavior: reduceMotion ? 'auto' : 'smooth' }); }, 60);
+  }, true);  // en captura: reveal.js también intercepta los enlaces #id
 
   /* Deslizamiento táctil propio en modo compacto: el de reveal.js impide
      desplazar en vertical el contenido de la diapositiva. */

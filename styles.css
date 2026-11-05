@@ -719,6 +719,30 @@ table.data tfoot th, table.data tfoot td { border-top: 1.5px solid var(--line-st
 /* Referencias APA con sangría francesa */
 .refs { padding-left: 0; list-style: none; display: grid; gap: .7em; font-size: .95em; }
 .refs li { padding-left: 2em; text-indent: -2em; }
+.refs--compact { gap: .3em; font-size: .78em; line-height: 1.3; overflow-wrap: anywhere; }
+
+/* Referencias agrupadas por analito */
+.refs-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8em 1.4em; align-content: start; }
+.refs-group { border-left: 3px solid var(--accent); padding: .1em 0 .1em .7em; scroll-margin-top: 1em; border-radius: 2px; }
+.refs-group__title { font-size: .82em; margin: 0 0 .3em; }
+.refs-group__title span { font-size: .75em; font-weight: 600; color: var(--accent); margin-left: .3em; }
+.refs-group .refs-group__title:not(:first-child) { margin-top: .6em; }
+.refs-see { font-size: .7em; color: var(--muted); margin: .3em 0 0; }
+.refs .is-target, .refs-group.is-target { animation: ref-flash 2.4s ease-out; }
+@keyframes ref-flash { 0%, 40% { background: color-mix(in srgb, var(--accent) 22%, transparent); } 100% { background: transparent; } }
+.refs-back {
+  align-self: flex-end; width: max-content; margin: -2.9em 0 .5em; font-size: .7em; font-weight: 600;
+  color: var(--accent); text-decoration: none; border: 1px solid var(--accent);
+  border-radius: 999px; padding: .2em .8em;
+}
+.refs-back:hover { background: var(--surface-2); }
+.refs-back[hidden] { display: none; }
+
+/* Enlace de un analito a sus referencias */
+a.ref-link { color: inherit; text-decoration: underline dotted; text-decoration-color: var(--accent); text-underline-offset: .18em; }
+a.ref-link:hover { text-decoration-style: solid; color: var(--accent); }
+@media (max-width: 760px) { .refs-groups { grid-template-columns: 1fr; } }
+@media print { a.ref-link { text-decoration: none; } .refs-back { display: none; } }
 
 /* 6 · TABLAS ---------------------------------------------------------- */
 .table-wrap {
