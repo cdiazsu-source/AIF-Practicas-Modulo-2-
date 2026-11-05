@@ -1929,7 +1929,7 @@
       <li>Preparar soluciones madre de ACE (12,4&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 99,2&#8239;μg/mL) y CAF (12,8&#8239;mg en 25&#8239;mL; 10 → 50&#8239;mL: 102,4&#8239;μg/mL).</li>
       <li>Preparar 5 patrones de cada analito por duplicado independiente (0,50–1,20&#8239;mL de cada madre a 10&#8239;mL).</li>
       <li>Leer cada patrón a 256 y 273&#8239;nm.</li>
-      <li>Preparar 3 mezclas de composición conocida y leerlas a ambas <var>λ</var>.</li>
+      <li>Mezcla: <strong>0,85&#8239;mL de cada solución madre</strong> a 10&#8239;mL (ACE 8,43 + CAF 8,70&#8239;μg/mL); leerla a ambas <var>λ</var> (solo se leyó a 273&#8239;nm).</li>
     </ol>
     <div class="table-wrap">
       <table class="data">
@@ -1950,7 +1950,7 @@
   </div>
   <aside class="notes guion">
     <p>El procedimiento fue el siguiente. Preparamos el disolvente, hidróxido de sodio 0,1843 normal, que elegimos con la prueba de solubilidad. Preparamos las soluciones madre: 12,4 miligramos de acetaminofén y 12,8 de cafeína, cada una en 25 mililitros, y luego diluidas hasta unos 100 microgramos por mililitro.</p>
-    <p>De cada madre preparamos cinco patrones por duplicado independiente, tomando entre 0,5 y 1,2 mililitros y llevándolos a 10. Cada patrón se debía leer a 256 y a 273 nanómetros, y al final se debían preparar tres mezclas de composición conocida y leerlas también a las dos longitudes de onda.</p>
+    <p>De cada madre preparamos cinco patrones por duplicado independiente, tomando entre 0,5 y 1,2 mililitros y llevándolos a 10. Cada patrón se debía leer a 256 y a 273 nanómetros, y al final preparamos la mezcla: 0,85 mililitros de cada solución madre, llevados a 10, es decir, 8,43 microgramos por mililitro de acetaminofén y 8,70 de cafeína. Se debía leer a las dos longitudes de onda, pero solo quedó la lectura a 273.</p>
     <p>La tabla resume el diseño de las cuatro curvas: C1 es el acetaminofén a 256 y C2 la cafeína a 273, que son las curvas propias; C3 es el acetaminofén a 273 y C4 la cafeína a 256, que son las cruzadas.</p>
   </aside>
 </section>
@@ -2162,6 +2162,7 @@
         <p class="box__label">Nuestro sistema de ecuaciones</p>
         <p class="sys-eq"><span>256&#8239;nm:</span> <var>A</var><sub>1</sub> = 0,0597&#8239;<var>c</var><sub>ACE</sub> + <span class="prop">0,0185</span>&#8239;<var>c</var><sub>CAF</sub></p>
         <p class="sys-eq"><span>273&#8239;nm:</span> <var>A</var><sub>2</sub> = <span class="prop">0,0459</span>&#8239;<var>c</var><sub>ACE</sub> + 0,0516&#8239;<var>c</var><sub>CAF</sub></p>
+        <p class="sys-mix"><strong>Mezcla (0,85&#8239;mL de cada madre a 10&#8239;mL → 8,43 + 8,70&#8239;μg/mL):</strong> a 273&#8239;nm, <span class="prop">0,0459</span>·8,43 + 0,0516·8,70 = <span class="prop">0,836</span>; medida 0,820 (<span class="prop">98,1&#8239;%</span>). A 256&#8239;nm: [___] (no se leyó).</p>
         <p class="eq-legend"><var>c</var> en μg/mL. Diagonal: pendientes propias C1 y C2 (datos del grupo). Fuera de la diagonal, en rojo: cruzadas C3 y C4 de literatura, hasta tener las lecturas de ACE a 273 y de CAF a 256&#8239;nm.</p>
       </div>
     </div>
@@ -2185,6 +2186,7 @@
   <aside class="notes guion">
     <p>Esta diapositiva resume las cuatro curvas del sistema. Las dos primeras filas, C1 y C2, están completas con nuestros datos: pendientes de 0,0597 y 0,0516, interceptos que no difieren de cero y regresiones significativas.</p>
     <p>Abajo de la tabla está nuestro sistema de ecuaciones escrito con números. La primera ecuación es la de 256 nanómetros: la absorbancia es 0,0597 por la concentración de acetaminofén más 0,0185 por la de cafeína. La segunda es la de 273: 0,0459 por el acetaminofén más 0,0516 por la cafeína. Los números de la diagonal, 0,0597 y 0,0516, son nuestras pendientes propias. Los de fuera de la diagonal, en rojo, son las pendientes cruzadas, que tomamos de la literatura porque no tenemos esas lecturas.</p>
+    <p>Debajo sustituimos nuestra mezcla, 0,85 mililitros de cada solución madre en 10, que da 8,43 de acetaminofén y 8,70 de cafeína. En la ecuación de 273 nanómetros esperamos 0,0459 por 8,43 más 0,0516 por 8,70, que es 0,836, y medimos 0,820: el 98,1 %. La ecuación de 256 no la podemos usar, porque esa lectura no se hizo.</p>
     <p>Con esas cuatro pendientes el determinante es 0,0597 por 0,0516, menos 0,0185 por 0,0459, que da 2,23 por diez a la menos 3. Está lejos de cero, porque el producto de la diagonal es casi cuatro veces el de las cruzadas: los espectros son lo bastante distintos para separar los dos analitos.</p>
     <p>Las demás columnas de C3 y C4 siguen en blanco, porque son las curvas cruzadas que no medimos, y por la misma razón el determinante con datos propios completos queda pendiente. Lo mismo pasa con los residuales: sabemos que C1 es aleatoria y que C2 solo es lineal hasta 10,24, pero de C3 y C4 no podemos decir nada todavía.</p>
   </aside>
@@ -2211,7 +2213,7 @@
         <tr><th scope="row">M1</th><td class="num mono prop">0,504</td><td class="num mono prop">0,633</td><td class="num prop">6,0</td><td class="num prop">6,41</td><td class="num prop">106,8</td><td class="num prop">6,0</td><td class="num prop">6,57</td><td class="num prop">109,5</td><td><span class="status" data-status="partial"></span></td></tr>
         <tr><th scope="row">M2</th><td class="num mono prop">0,683</td><td class="num mono prop">0,771</td><td class="num prop">9,0</td><td class="num prop">9,40</td><td class="num prop">104,5</td><td class="num prop">6,0</td><td class="num prop">6,58</td><td class="num prop">109,6</td><td><span class="status" data-status="partial"></span></td></tr>
         <tr><th scope="row">M3</th><td class="num mono prop">0,560</td><td class="num mono prop">0,788</td><td class="num prop">6,0</td><td class="num prop">6,42</td><td class="num prop">106,9</td><td class="num prop">9,0</td><td class="num prop">9,56</td><td class="num prop">106,3</td><td><span class="status" data-status="partial"></span></td></tr>
-        <tr class="row-own"><th scope="row">Mezcla medida</th><td class="num">—</td><td class="num mono">0,820</td><td class="num">8,43</td><td class="num">—</td><td class="num">—</td><td class="num">8,70</td><td class="num prop">8,39</td><td class="num prop">96,4</td><td><span class="status" data-status="partial"></span></td></tr>
+        <tr class="row-own"><th scope="row">Mezcla 0,85 + 0,85&#8239;mL</th><td class="num">—</td><td class="num mono">0,820</td><td class="num">8,43</td><td class="num">—</td><td class="num">—</td><td class="num">8,70</td><td class="num prop">8,39</td><td class="num prop">96,4</td><td><span class="status" data-status="partial"></span></td></tr>
       </tbody>
     </table>
     <p class="eq-legend">M1–M3: <var>A</var> calculada con C1–C4; Cramer (5.4) supone interceptos nulos, de ahí el exceso de 4–10&#8239;%. Mezcla medida: 0,85&#8239;mL de cada madre a 10&#8239;mL; cafeína despejada de (5.2) con <var>m</var><sub>ACE,2</sub> de literatura.</p>

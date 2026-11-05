@@ -1231,3 +1231,4 @@ body.is-compact:not(.is-overview) .mol-row--2 { grid-template-columns: 1fr 1fr; 
 .eqd--qa .eqd__body .points--compact { font-size: 1em; gap: .25em; }
 .sys-box--compact .sys-eq { font-size: 1em; margin: .1em 0; line-height: 1.35; }
 .sys-box--compact .eq-legend { margin-top: .2em; }
+.sys-box .sys-mix { margin-top: .5em; padding-top: .45em; border-top: 1px dashed var(--line-strong, #c9c2b5); font-size: .95em; line-height: 1.45; }
