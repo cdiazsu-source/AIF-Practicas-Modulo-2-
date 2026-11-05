@@ -1098,3 +1098,12 @@ body.is-compact:not(.is-overview) .mol-row--2 { grid-template-columns: 1fr 1fr; 
   background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px;
   padding: .05em .35em; overflow-wrap: anywhere;
 }
+
+/* Preguntas de defensa: pregunta visible, respuesta modelo al desplegar */
+.qa { display: grid; gap: .45em; }
+.qa__hint { margin: 0 0 .2em; font-size: .78em; color: var(--muted); }
+.eqd--qa .eqd__name::after { content: " · ver respuesta"; }
+.eqd--qa[open] .eqd__name::after { content: " · ocultar"; }
+.eqd--qa > summary { padding: .3em 1em .35em .9em; }
+.qa__q { display: block; font-size: .95em; font-weight: 600; line-height: 1.35; }
+.eqd--qa .eqd__body .points--compact { font-size: 1em; gap: .25em; }
