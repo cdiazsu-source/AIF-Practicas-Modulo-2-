@@ -2,7 +2,10 @@
    app.js busca estos términos en los encabezados de las tablas, los
    títulos de tablas y figuras y los ejes de los gráficos, y muestra la
    definición al pasar el cursor (o al tocar en pantallas táctiles).
-   Cada entrada: t = término mostrado, re = patrón(es), d = definición. */
+   Cada entrada: t = término mostrado, re = patrón(es), d = definición.
+   ab = siglas y abreviaturas que además se marcan dentro del texto corrido
+   de la Práctica 1. Los patrones con ^…$ se comparan con el texto completo
+   de un subíndice o de un símbolo junto con su subíndice (R², sy/x, Flof). */
 (function () {
   'use strict';
   var B = '(?<![\\p{L}\\p{N}])';   // inicio de palabra
@@ -16,7 +19,7 @@
       d: 'Suma de los valores dividida por cuántos son. Resume varias réplicas en un solo número.' },
     { t: 's (desviación estándar)', re: [r('(?<![\\p{L}\\p{N}/(])s(?=n?(?![\\p{L}\\p{N}])|°)')],
       d: 'Mide cuánto se alejan las réplicas de su media. Cuanto más pequeña, más repetibles son las lecturas. Tiene las mismas unidades que el dato.' },
-    { t: '%RSD o CV (desviación estándar relativa)', re: [r('RSD'), w('CV')],
+    { t: '%RSD o CV (desviación estándar relativa)', re: [r('RSD'), w('CV')], ab: [w('RSD'), w('CV')],
       d: 'La desviación estándar expresada como porcentaje de la media: (s / media) × 100. Sirve para comparar la precisión de medidas de distinto tamaño. Menos de 2 % suele considerarse buena precisión.' },
     { t: 'n = (número de réplicas)', re: [r(B + 'n\\s*=')],
       d: 'Cuántas veces se repitió la misma medida.' },
@@ -24,7 +27,7 @@
       d: 'Cuántos puntos se usaron en total, por ejemplo para construir una curva.' },
     { t: 'k (lecturas de la muestra)', re: [w('k')],
       d: 'Número de lecturas de la muestra que se promedian antes de interpolarla en la curva. Más lecturas reducen la incertidumbre del resultado.' },
-    { t: 'IC (intervalo de confianza)', re: [w('IC')],
+    { t: 'IC (intervalo de confianza)', re: [w('IC')], ab: [w('IC')],
       d: 'Rango alrededor del resultado donde, con 95 % de confianza, está el valor verdadero. Se calcula como t × error estándar: un IC estrecho indica un resultado preciso.' },
     { t: 'p (valor p)', re: [r('(?<![\\p{L}\\p{N}/%])p(?![\\p{L}\\p{N}/])')],
       d: 'Probabilidad de obtener un resultado así de extremo si en realidad no hubiera ningún efecto. Si p < 0,05, el efecto se considera estadísticamente significativo.' },
@@ -32,7 +35,7 @@
       d: 'Compara una media con un valor de referencia (o dos medias entre sí) teniendo en cuenta la dispersión y el número de datos. Si p < 0,05, la diferencia no se debe solo al azar.' },
     { t: 'F (prueba F)', re: [w('F')],
       d: 'Cociente entre dos varianzas. Un F grande indica que el efecto que se evalúa es mucho mayor que el ruido experimental.' },
-    { t: 'gl (grados de libertad)', re: [w('gl')],
+    { t: 'gl (grados de libertad)', re: [w('gl')], ab: [w('gl')],
       d: 'Número de datos menos el número de parámetros calculados con ellos (por ejemplo, N − 2 en una recta). Se usa para elegir el valor de t o de F en las tablas.' },
 
     /* ---------- Regresión y calibración ---------- */
@@ -44,7 +47,7 @@
       d: 'Solución de concentración conocida que se usa para construir la curva de calibración. P20, P40… son los patrones de 20, 40… % p/p.' },
     { t: 'Nivel', re: [w('[Nn]ivel(?:es)?')],
       d: 'Cada concentración distinta de la curva. Cada nivel suele medirse varias veces (réplicas).' },
-    { t: 'Muestra problema', re: [r('[Mm]uestras? problema'), r(B + 'MP?\\d' + E)],
+    { t: 'Muestra problema', re: [r('[Mm]uestras? problema'), r(B + 'MP?\\d' + E)], ab: [r(B + 'MP?\\d' + E)],
       d: 'Muestra de concentración desconocida (M1, M2…) que se calcula con la curva de calibración.' },
     { t: 'Regresión por mínimos cuadrados', re: [r('[Rr]egresión'), r('mínimos cuadrados')],
       d: 'Método para trazar la recta y = m·x + b que mejor pasa por los puntos: la que hace mínima la suma de los residuales al cuadrado.' },
@@ -52,25 +55,35 @@
       d: 'Cuánto aumenta la respuesta por cada unidad de concentración. Es la sensibilidad del método: una pendiente mayor distingue mejor concentraciones cercanas.' },
     { t: 'b (intercepto)', re: [r(B + 'b(?= ± IC)'), r('[Ii]ntercepto')],
       d: 'Respuesta que predice la recta cuando la concentración es cero. Idealmente no difiere de cero; «p de b = 0» prueba si eso se cumple.' },
-    { t: 'R² (coeficiente de determinación)', re: [r('R2|R²')],
+    { t: 'R² (coeficiente de determinación)', re: [r('R2|R²')], ab: [r('^R2$|R²')],
       d: 'Fracción de la variación de los datos que explica la recta (de 0 a 1). Un R² alto no prueba por sí solo que la relación sea lineal: hay que mirar los residuales.' },
     { t: 'Residual', re: [r('[Rr]esidual')],
       d: 'Diferencia entre el valor medido y el que predice la recta (medido − predicho). Si la recta es adecuada, los residuales quedan al azar alrededor de cero; si forman un arco, la relación es curva.' },
-    { t: 'sy/x (desviación estándar de la regresión)', re: [r('sy/x')],
+    { t: 'sy/x (desviación estándar de la regresión)', re: [r('sy/x')], ab: [r('^sy/x$')],
       d: 'Cuánto se alejan, en promedio, los puntos de la recta, en unidades de y. Es la desviación estándar de los residuales.' },
     { t: 'Falta de ajuste', re: [r('[Ff]alta de ajuste')],
       d: 'Prueba que compara cuánto se alejan las medias de cada nivel de la recta con la dispersión entre réplicas. Si F es grande (p < 0,05), la recta no describe bien los datos: hay curvatura.' },
+    { t: 'Flof (F de falta de ajuste)', re: [r('^Flof$')], ab: [r('^Flof$')],
+      d: 'F de la prueba de falta de ajuste: cuadrado medio de la falta de ajuste dividido entre el del error puro. «lof» viene del inglés lack of fit.' },
+    { t: 'lof (falta de ajuste)', re: [r('^lof$')], ab: [r('^lof$')],
+      d: 'Subíndice de la falta de ajuste (del inglés lack of fit): la parte de la variación que la recta no explica más allá del ruido entre réplicas.' },
+    { t: 'pe (error puro)', re: [r('^pe$')], ab: [r('^pe$')],
+      d: 'Subíndice del error puro (del inglés pure error): la variación entre réplicas de un mismo nivel.' },
+    { t: 'ANOVA (análisis de varianza)', re: [w('ANOVA')], ab: [w('ANOVA')],
+      d: 'Análisis de varianza: reparte la variación total de los datos entre sus fuentes (regresión, falta de ajuste, error puro) y las compara con la prueba F.' },
+    { t: 'Prueba de Levene', re: [r('Levene')], ab: [r('Levene')],
+      d: 'Prueba que compara la dispersión de varios grupos (aquí, los niveles de la curva). Si p ≥ 0,05, la varianza es parecida en todos: los datos son homocedásticos.' },
     { t: 'Error puro', re: [r('[Ee]rror puro')],
       d: 'Variación entre réplicas del mismo nivel: el ruido experimental que no depende del modelo.' },
-    { t: 'SC (suma de cuadrados)', re: [w('SC')],
+    { t: 'SC (suma de cuadrados)', re: [w('SC')], ab: [w('SC')],
       d: 'Suma de las desviaciones al cuadrado. Mide cuánta variación aporta cada fuente (regresión, falta de ajuste, error puro).' },
-    { t: 'MC (cuadrado medio)', re: [w('MC')],
+    { t: 'MC (cuadrado medio)', re: [w('MC')], ab: [w('MC')],
       d: 'Suma de cuadrados dividida entre sus grados de libertad. Es una varianza; F es el cociente de dos cuadrados medios.' },
     { t: 'Fuente de variación', re: [r('^Fuente$')],
       d: 'De dónde viene cada parte de la variación total de los datos: la recta (regresión), la falta de ajuste o el error puro.' },
-    { t: 'LOD (límite de detección)', re: [w('LOD')],
+    { t: 'LOD (límite de detección)', re: [w('LOD')], ab: [w('LOD')],
       d: 'Concentración más baja que se puede distinguir del blanco, aunque no se pueda medir con exactitud. Se estima como 3,3 · sy/x / m.' },
-    { t: 'LOQ (límite de cuantificación)', re: [w('LOQ')],
+    { t: 'LOQ (límite de cuantificación)', re: [w('LOQ')], ab: [w('LOQ')],
       d: 'Concentración más baja que se puede medir con precisión aceptable. Se estima como 10 · sy/x / m.' },
     { t: 'Recuperación', re: [r('[Rr]ecuperación'), r('R(?:ACE|CAF)')],
       d: 'Cantidad hallada dividida entre la cantidad añadida, × 100. Cerca de 100 % indica que el método es exacto (no pierde ni suma analito).' },
@@ -81,14 +94,28 @@
     { t: 'Teórico, práctico y tabulado', re: [r('^Teórico$|^Práctico$|Tabulado')],
       d: 'Teórico o tabulado: valor de la literatura o de tablas. Práctico: el valor que obtuvimos en el laboratorio.' },
 
+    /* ---------- Siglas generales ---------- */
+    { t: 'USP', re: [w('USP')], ab: [w('USP')],
+      d: 'Farmacopea de los Estados Unidos (United States Pharmacopeia): norma oficial con los requisitos de calidad, identidad y pureza de fármacos y excipientes.' },
+    { t: 'Ph. Eur.', re: [r('Ph\\. ?Eur\\.')], ab: [r('Ph\\. ?Eur\\.')],
+      d: 'Farmacopea Europea: norma oficial de calidad de medicamentos en Europa, equivalente a la USP.' },
+    { t: 'HPLC', re: [w('HPLC')], ab: [w('HPLC')],
+      d: 'Cromatografía líquida de alta eficacia: separa los componentes de una mezcla al pasarlos por una columna. El detector de índice de refracción se usa para sustancias sin cromóforo.' },
+    { t: 'CID (PubChem)', re: [w('CID')], ab: [w('CID')],
+      d: 'Compound ID: número que identifica cada compuesto en la base de datos PubChem.' },
+    { t: 'AIF', re: [w('AIF')], ab: [w('AIF')],
+      d: 'Análisis Instrumental Farmacéutico, la asignatura de estas prácticas.' },
+    { t: 'J5', re: [w('J5')], ab: [w('J5')],
+      d: 'Nuestro subgrupo de laboratorio: jueves, grupo 5.' },
+
     /* ---------- Práctica 1: refractometría ---------- */
-    { t: 'n (índice de refracción)', re: [r(B + 'n(?:D20|[12])?' + E + '(?!\\s*=)'), r('[ÍíIi]ndice de refracción')],
+    { t: 'n (índice de refracción)', re: [r(B + 'n(?:D20|[12])?' + E + '(?!\\s*=)'), r('[ÍíIi]ndice de refracción')], ab: [r('^nD(?:20|T)?$')],
       d: 'Cuánto se desvía la luz al pasar del aire a la muestra (velocidad de la luz en el vacío / en la muestra). Aumenta con la concentración de glicerina. nD20: medido a 20 °C con la luz amarilla del sodio (línea D, 589 nm).' },
-    { t: 'w y % p/p', re: [r('^w(?= \\(|$)|w glicerina'), r('p/p')],
+    { t: 'w y % p/p', re: [r('^w(?= \\(|$)|w glicerina'), r('p/p')], ab: [r('p/p')],
       d: '% p/p (peso en peso): gramos de soluto en 100 g de mezcla. w es la fracción en masa de glicerina expresada así.' },
     { t: '°Brix', re: [r('Brix')],
       d: 'Escala del refractómetro calibrada para azúcar: 1 °Brix equivale a 1 g de sacarosa en 100 g de solución. Aquí se usa como lectura alternativa al índice de refracción.' },
-    { t: '°Baumé', re: [r('°Bé|Baumé')],
+    { t: '°Baumé', re: [r('°Bé|Baumé')], ab: [r('°Bé')],
       d: 'Escala relacionada con la densidad de la solución. En este trabajo se calcula como °Bé = °Brix / 1,8.' },
     { t: 'Rotación específica [α]', re: [r('\\[α\\]|[Rr]otación específica')],
       d: 'Ángulo que gira la luz polarizada una solución de 1 g/mL en un tubo de 1 dm, a 20 °C y con la línea D del sodio. Solo lo presentan las moléculas quirales.' },

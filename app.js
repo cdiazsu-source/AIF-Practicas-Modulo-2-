@@ -24,6 +24,12 @@
   var deck = doc.getElementById('deck');
   if (!deck) return;
 
+  /* Diapositivas ocultas: las que llevan data-visibility="hidden" se quitan
+     antes de numerar, del índice y de la navegación. El contenido sigue en
+     index.html; para mostrarlas otra vez basta con borrar ese atributo. */
+  Array.prototype.slice.call(deck.querySelectorAll(':scope > section.slide[data-visibility="hidden"]'))
+    .forEach(function (el) { el.remove(); });
+
   var slides = Array.prototype.filter.call(deck.children, function (el) {
     return el.matches('section.slide');
   });
@@ -727,6 +733,95 @@
     });
   }
   markTips(doc);
+
+  /* Siglas y abreviaturas dentro del texto corrido (Práctica 1): cada
+     coincidencia de los patrones «ab» del glosario se envuelve en un span
+     con su definición. Los símbolos con subíndice (R², sy/x, Flof, nD) se
+     comparan juntos con su <sub>/<sup>. */
+  var ABBR_SCOPE = 'section.slide[data-accent="p1"]';
+  var ABBR_SKIP = '.notes, script, style, code, .chart, .has-tip, svg, var, sub, sup, [class^="band"]';
+  function abbrList() {
+    var G = window.AIF_GLOSARIO || [], L = [];
+    G.forEach(function (g, gi) {
+      (g.ab || []).forEach(function (re) {
+        L.push({ gi: gi, anchored: re.source.charAt(0) === '^', re: new RegExp(re.source, re.flags.indexOf('g') < 0 ? re.flags + 'g' : re.flags) });
+      });
+    });
+    return L;
+  }
+  function wrapTip(nodes, gi) {
+    var span = doc.createElement('span');
+    span.className = 'has-tip abbr-tip';
+    span.dataset.tips = String(gi);
+    nodes[0].parentNode.insertBefore(span, nodes[0]);
+    nodes.forEach(function (n) { span.appendChild(n); });
+  }
+  function markAbbr(root) {
+    var L = abbrList();
+    if (!L.length) return;
+    var free = L.filter(function (a) { return !a.anchored; });
+    var whole = L.filter(function (a) { return a.anchored; });
+    // 1) símbolos con subíndice o superíndice: <var>R</var><sup>2</sup>, <var>s</var><sub>y/x</sub>…
+    Array.prototype.forEach.call(root.querySelectorAll('var'), function (v) {
+      if (v.closest('.notes, .chart, .has-tip, code')) return;
+      var parts = [v], txt = v.textContent, nx = v.nextSibling;
+      while (nx && nx.nodeType === 1 && /^(SUB|SUP)$/.test(nx.tagName) && parts.length < 3) {
+        parts.push(nx); txt += nx.textContent; nx = nx.nextSibling;
+      }
+      if (parts.length < 2) return;
+      txt = txt.replace(/\s+/g, '');
+      for (var i = 0; i < whole.length; i++) {
+        whole[i].re.lastIndex = 0;
+        if (whole[i].re.test(txt)) { wrapTip(parts, whole[i].gi); return; }
+      }
+    });
+    // 2) subíndices sueltos (SC_lof, MC_pe…)
+    Array.prototype.forEach.call(root.querySelectorAll('sub, sup'), function (sb) {
+      if (sb.closest('.notes, .chart, .has-tip, code')) return;
+      var txt = sb.textContent.trim();
+      for (var i = 0; i < whole.length; i++) {
+        whole[i].re.lastIndex = 0;
+        if (whole[i].re.test(txt)) { wrapTip([sb], whole[i].gi); return; }
+      }
+    });
+    // 3) siglas en el texto corrido
+    var walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var p = n.parentElement;
+        if (!p || !n.nodeValue.trim() || p.closest(ABBR_SKIP)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var texts = [];
+    while (walker.nextNode()) texts.push(walker.currentNode);
+    texts.forEach(function (node) {
+      var s = node.nodeValue, hits = [];
+      free.forEach(function (a) {
+        a.re.lastIndex = 0;
+        var m;
+        while ((m = a.re.exec(s))) {
+          if (!m[0]) { a.re.lastIndex++; continue; }
+          hits.push({ i: m.index, j: m.index + m[0].length, gi: a.gi });
+        }
+      });
+      if (!hits.length) return;
+      hits.sort(function (a, b) { return a.i - b.i || b.j - a.j; });
+      var frag = doc.createDocumentFragment(), pos = 0;
+      hits.forEach(function (h) {
+        if (h.i < pos) return;
+        if (h.i > pos) frag.appendChild(doc.createTextNode(s.slice(pos, h.i)));
+        var span = doc.createElement('span');
+        span.className = 'has-tip abbr-tip';
+        span.dataset.tips = String(h.gi);
+        span.textContent = s.slice(h.i, h.j);
+        frag.appendChild(span);
+        pos = h.j;
+      });
+      if (pos < s.length) frag.appendChild(doc.createTextNode(s.slice(pos)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  Array.prototype.forEach.call(doc.querySelectorAll(ABBR_SCOPE), markAbbr);
 
   var tipBox = doc.createElement('div');
   tipBox.className = 'tip-pop';
